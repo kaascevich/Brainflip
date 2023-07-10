@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Brainflip Source</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.kascevich.brainflip-source</string>
+			</array>
+		</dict>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.source-code</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Brainflip Source</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBadgeName</key>
+				<string>/Users/kaleb/Documents/Xcode Projects/Brainflip/Brainflip/Resources/Assets.xcassets/DocumentIcon/DocumentIcon.png</string>
+				<key>UTTypeIconText</key>
+				<string>Brainflip</string>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.kascevich.brainflip-source</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>bf</string>
+					<string>b</string>
+					<string>brainflip</string>
+					<string>brainfuck</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
