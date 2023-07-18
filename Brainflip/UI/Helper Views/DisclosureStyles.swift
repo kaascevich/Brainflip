@@ -31,9 +31,7 @@ struct AnimatedDisclosureGroupStyle: DisclosureGroupStyle {
                 
                 Spacer()
             }
-            if configuration.isExpanded {
-                configuration.content
-            }
+            if configuration.isExpanded { configuration.content }
         }
         .animation(.easeInOut, value: configuration.isExpanded)
     }

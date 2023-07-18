@@ -7,6 +7,6 @@ struct TrimCommand: View {
         Button("Trim") {
             state?.isWarningAboutTrim.toggle()
         }
-        .disabled(state == nil || state?.document.contents.isEmpty ?? false)
+        .disabled(state == nil)
     }
 }

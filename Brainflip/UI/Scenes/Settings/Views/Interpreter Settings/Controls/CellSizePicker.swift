@@ -7,9 +7,9 @@ struct CellSizePicker: View {
         Picker("Cell size", selection: settings.$cellSize) {
             ForEach(CellSize.allCases, id: \.self) { size in
                 switch size {
-                case .eightBit: Text("8-bit")
-                case .sixteenBit: Text("16-bit")
-                case .thirtyTwoBit: Text("32-bit")
+                    case .eightBit:     Text("8-bit")
+                    case .sixteenBit:   Text("16-bit")
+                    case .thirtyTwoBit: Text("32-bit")
                 }
             }
         }
@@ -26,6 +26,6 @@ struct CellSizePicker: View {
 private struct CellSizePicker_Previews: PreviewProvider {
     static var previews: some View {
         CellSizePicker()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

@@ -1,19 +1,23 @@
 import SwiftUI
 
-struct ArraySizeSlider: View {
+struct TextSizeSlider: View {
     @EnvironmentObject private var settings: AppSettings
     
     var body: some View {
-        Slider(value: settings.$arraySize, in: 30_000...60_000, step: 1000) {
-            StepperField(value: settings.$arraySize, in: 30_000...60_000, label: "Array size")
+        Slider(value: settings.$textSize, in: 1...100) {
+            StepperField(value: settings.$textSize, in: 1...100, label: "Text size")
+        } minimumValueLabel: {
+            Image(systemName: "textformat.size.smaller")
+        } maximumValueLabel: {
+            Image(systemName: "textformat.size.larger")
         }
-        .help("Controls the size of the array.")
+        .help(String(settings.textSize))
     }
 }
 
-private struct ArraySizeSlider_Previews: PreviewProvider {
+private struct TextSizeSlider_Previews: PreviewProvider {
     static var previews: some View {
-        ArraySizeSlider()
+        TextSizeSlider()
             .environmentObject(settings)
     }
 }

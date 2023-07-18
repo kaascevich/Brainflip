@@ -5,7 +5,7 @@ struct InputField: View {
     @ObservedObject var state: ProgramState
     
     var body: some View {
-        TextField("Type your program's input here (use ⌥⏎ for a newline)...", text: $state.input, axis: .vertical)
+        TextField("Type your program's input here (type ⌥⏎ or ⇧⏎ for a newline)...", text: $state.input, axis: .vertical)
             .lineLimit(2...2)
             .disabled(state.isRunningProgram)
     }
@@ -16,7 +16,7 @@ private struct InputField_Previews: PreviewProvider {
     
     static var previews: some View {
         InputField(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

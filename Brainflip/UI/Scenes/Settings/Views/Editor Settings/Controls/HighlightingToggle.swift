@@ -31,6 +31,6 @@ struct HighlightingToggle: View {
 struct HighlightingToggle_Previews: PreviewProvider {
     static var previews: some View {
         HighlightingToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

@@ -1,26 +1,44 @@
 import SwiftUI
 
-struct ResetButton: View {
-    @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+struct ShowArrayButton: View {
+    @EnvironmentObject private var settings:     AppSettings
+    @ObservedObject            var state:        ProgramState
     
     var body: some View {
-        Button(state.isRunningProgram ? "Stop" : "Reset") {
-            if state.isRunningProgram {
-                state.stop()
-            } else {
-                state.reset()
-            }
+        Button("Show Array") {
+            state.showingArray.toggle()
         }
-        .disabled(state.disableResetButton && state.disableStopButton)
+        .disabled(state.disableResetButton)
+        .popover(isPresented: $state.showingArray) {
+            Table(state.interpreter.cellArray.indices) {
+                TableColumn("Index") {
+                    Text(String($0))
+                        .foregroundColor(state.interpreter.pointer == $0 ? .green : .primary)
+                }
+                .width(45)
+                
+                TableColumn("Value") {
+                    Text(String(state.interpreter.cellArray[$0]))
+                        .bold()
+                }
+                .width(155)
+            }
+            .frame(width: 200, height: 300)
+        }
     }
 }
 
-private struct ResetButton_Previews: PreviewProvider {
+extension Int: Identifiable {
+    public var id: Int {
+        self
+    }
+}
+
+private struct ShowArrayButton_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        ResetButton(state: ProgramState(document: document))
+        ShowArrayButton(state: ProgramState(document: document, filename: "File.bf"))
             .environmentObject(settings)
     }
 }

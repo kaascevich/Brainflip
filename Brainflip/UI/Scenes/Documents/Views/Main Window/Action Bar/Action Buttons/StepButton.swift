@@ -20,6 +20,6 @@ private struct StepButton_Previews: PreviewProvider {
     
     static var previews: some View {
         StepButton(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

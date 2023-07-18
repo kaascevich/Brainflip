@@ -24,6 +24,6 @@ struct DefaultsButton: View {
 private struct DefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
         DefaultsButton()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

@@ -5,13 +5,17 @@ struct ToolbarContentView: ToolbarContent {
     @StateObject var state: ProgramState
     
     var body: some ToolbarContent {
-        ToolbarRunButton(state: state, placement: .primaryAction)
-        ToolbarStepButton(state: state, placement: .primaryAction)
+        ToolbarRunButton(state: state)
+        ToolbarStepButton(state: state)
         
-        ToolbarDivider(placement: .primaryAction)
+        ToolbarDivider()
         
-        ToolbarResetButton(state: state, placement: .primaryAction)
-        ToolbarStopButton(state: state, placement: .primaryAction)
-        ToolbarClearMenu(state: state, placement: .primaryAction)
+        ToolbarResetButton(state: state)
+        ToolbarStopButton(state: state)
+        ToolbarClearMenu(state: state)
+        
+        ToolbarDivider()
+        
+        ToolbarPanelToggles(state: state)
     }
 }

@@ -7,6 +7,7 @@ struct ClearInputCommand: View {
         Button("Clear Input") {
             state?.input = ""
         }
+        .keyboardShortcut(.delete, modifiers: [.option, .shift, .command])
         .disabled(state?.input.isEmpty ?? true)
     }
 }

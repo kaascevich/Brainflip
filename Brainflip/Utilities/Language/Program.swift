@@ -1,9 +1,9 @@
 import Foundation
 
 /// Represents a Brainflip program.
-public typealias Program = Array<Instruction>
+typealias Program = Array<Instruction>
 
-public extension Program {
+extension Program {
     /// Creates a program from a `String`.
     ///
     /// - Parameters:
@@ -12,10 +12,10 @@ public extension Program {
         self = Self()
         for char in program {
             if let instruction = Instruction(rawValue: char), instruction != .blank {
-                self.append(instruction)
+                append(instruction)
             }
         }
-        self.append(.blank)
+        append(.blank)
     }
     
     /// Returns how many times the given instructions appear in this program.
@@ -25,6 +25,10 @@ public extension Program {
     ///
     /// - Returns: The amount of times the given instructions appear in this program.
     func instructionCount(_ instructions: Instruction...) -> Int {
-        self.filter { instructions.contains($0) }.count
+        filter { instructions.contains($0) }.count
+    }
+    
+    var description: String {
+        String(map(\.rawValue))
     }
 }

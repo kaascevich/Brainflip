@@ -1,16 +1,16 @@
 import SwiftUI
 
-struct OpeningBraceBeforeNewLineToggle: View {
+struct IncludeVoidWithinMainToggle: View {
     @EnvironmentObject private var settings: AppSettings
     
     var body: some View {
-        Toggle("Add a new line before opening braces", isOn: settings.$openingBraceOnNewLine)
+        Toggle(#"Include "void" within "main()" declaration"#, isOn: settings.$includeVoidWithinMain)
     }
 }
 
-struct OpeningBraceBeforeNewLineToggle_Previews: PreviewProvider {
+struct IncludeVoidWithinMainToggle_Previews: PreviewProvider {
     static var previews: some View {
-        OpeningBraceBeforeNewLineToggle()
-            .environmentObject(AppSettings())
+        IncludeVoidWithinMainToggle()
+            .environmentObject(settings)
     }
 }

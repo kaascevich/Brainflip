@@ -17,14 +17,41 @@ struct InspectorModuleList: View {
         .animation(.easeInOut, value: settings.inspectorModuleOrder)
         .animation(.easeInOut, value: settings.enabledInspectorModules)
         
-        Toggle("Select All", sources: settings.$enabledInspectorModules, isOn: \.self)
-            .toggleStyle(.checkbox)
+        HStack {
+            Toggle("Select All", sources: settings.$enabledInspectorModules, isOn: \.self)
+                .toggleStyle(.checkbox)
+            Spacer()
+            Button("Sort") {
+                sortModules()
+            }
+        }
+    }
+    
+    func sortModules() {
+        /*
+         The end goal here is to first partition the module array into two halves, with
+         enabled modules above disabled ones, and then sort each partition alphabetically.
+         
+         partition(by:) is perfect for the former, with one tiny issue: the array ordering
+         is not preserved during the partition. So we have to manually split the array into
+         the two halves, sort those, and then merge them back together before committing
+         the changes to settings.inspectorModuleOrder.
+         */
+        
+        let p = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
+        var arrays = (
+            Array(settings.inspectorModuleOrder[..<p]),
+            Array(settings.inspectorModuleOrder[p...])
+        )
+        arrays.0.sort { inspector.modules[$0].name < inspector.modules[$1].name }
+        arrays.1.sort { inspector.modules[$0].name < inspector.modules[$1].name }
+        settings.inspectorModuleOrder = arrays.0 + arrays.1
     }
 }
 
 private struct InspectorModuleList_Previews: PreviewProvider {
     static var previews: some View {
         InspectorModuleList()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

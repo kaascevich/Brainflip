@@ -24,6 +24,6 @@ struct SoundDefaultsButton: View {
 private struct SoundDefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
         SoundDefaultsButton()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

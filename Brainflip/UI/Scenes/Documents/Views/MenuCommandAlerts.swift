@@ -9,7 +9,7 @@ struct MenuCommandAlerts: View {
             .frame(width: 0, height: 0)
             .fileExporter(
                 isPresented: $state.isAskingForOutputFile,
-                document: CSourceDocument(BrainflipToC.convertToC(state.document.program)),
+                document: state.convertedDocument,
                 contentType: .cSource) { _ in }
             .confirmationDialog("Trimming will remove all characters that are not valid Brainflip instructions, such as comments and newlines. Are you sure you want to do this?", isPresented: $state.isWarningAboutTrim) {
                 Button("Trim") {
@@ -18,5 +18,33 @@ struct MenuCommandAlerts: View {
             } message: {
                 Text("You cannot undo this action.")
             }
+            .sheet(isPresented: $state.isConversionProgressShowing) {
+                HStack {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .controlSize(.small)
+                        .padding(0.00000000001)
+                    Text("Converting")
+                }
+                .padding()
+            }
+        Rectangle()
+            .frame(width: 0, height: 0)
+            .alert("About Exporting to C Source", isPresented: $state.isInformingAboutCExport) {
+                Button("OK") {
+                    state.isInformingAboutCExport = false
+                    state.exportToC()
+                }
+            } message: {
+                Text("""
+                When you export a Brainflip program as a C source file, Brainflip will translate your program into C source code, ignoring comments. When compiled with an external tool, this code will behave just as your Brainflip program did, with the following exceptions:
+                
+                • Input will only be requested upon reaching an input instruction. If the program appears to be stuck, it might be waiting for user input; type one character and press return. (To signal end-of-input, press return without typing anything else.)
+                • With the exception of the "Set the current cell to <maximum value>" end-of-input setting, your current settings will be applied to the generated C code. Different C code will be created for different settings.
+                • If the end-of-input setting is set to "Set the current cell to <maximum value>", the generated program will behave as if it is set to "Set the current cell to zero"; be aware that this might cause incompatibility with some programs.
+                """
+                )
+            }
+            .dialogSuppressionToggle(isSuppressed: $settings.exportToCAlertHidden)
     }
 }

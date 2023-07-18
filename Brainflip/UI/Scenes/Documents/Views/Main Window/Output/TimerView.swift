@@ -30,7 +30,7 @@ private struct TimerView_Previews: PreviewProvider {
     
     static var previews: some View {
         TimerView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

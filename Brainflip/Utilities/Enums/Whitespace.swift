@@ -24,13 +24,13 @@ enum Whitespace: String, Codable, CaseIterable {
     case afterCommentMarkers      = #"After comment markers"#
     
     var enabled: Bool {
-        AppSettings().whitespace.contains(self)
+        settings.whitespace.contains(self)
     }
     func setEnabled(_ enabled: Bool) {
         if enabled {
-            AppSettings().whitespace.append(self)
+            settings.whitespace.append(self)
         } else {
-            AppSettings().whitespace.removeAll { $0 == self }
+            settings.whitespace.removeAll { $0 == self }
         }
     }
 }

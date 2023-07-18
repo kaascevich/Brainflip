@@ -3,13 +3,15 @@ import Combine
 
 @MainActor
 final class ProgramState: ObservableObject {
-    @State private var settings = AppSettings()
-    
     @Published var document: ProgramDocument
-    init(document: ProgramDocument) {
+    init(document: ProgramDocument, filename: String = "") {
         self.document = document
+        self.filename = filename
     }
     
+    @Published var convertedDocument: CSourceDocument?
+    
+    @Published var filename = ""
     @Published var isShowingOutput = true
     @Published var isShowingInspector = true
     @Published var interpreter = Interpreter(program: "\0")
@@ -22,7 +24,10 @@ final class ProgramState: ObservableObject {
     @Published var hasError = false
     @Published var isClearAlertShowing = false
     @Published var isWarningAboutTrim = false
+    @Published var isInformingAboutCExport = false
     @Published var isAskingForOutputFile = false
+    @Published var isConversionProgressShowing = false
+    @Published var showingArray: Bool = false
     @Published var showingMainHelp = false
     @Published var selection: Range<Int> = 0..<0
     @Published var timeElapsed = TimeInterval(0)
@@ -30,50 +35,48 @@ final class ProgramState: ObservableObject {
     @Published var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     @Published var execution = Task { }
     private func processError(_ error: Error) {
-        switch error {
-            case InterpreterError.mismatchedBrackets:
-                errorDescription = "There are unmatched brackets within your code."
-            case InterpreterError.underflow:
-                errorDescription = "An attempt was made to go below the bounds of the array."
-                updateSelection()
-            case InterpreterError.overflow:
-                errorDescription = "An attempt was made to go above the bounds of the array."
-                updateSelection()
-            case InterpreterError.break:
-                stop()
-                errorDescription = ""
-            default:
-                errorDescription = "An unknown error occured."
-                updateSelection()
+        errorDescription = switch error {
+            case let error as InterpreterError: error.rawValue
+            default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
-        hasError = true
+        
+        switch error {
+            case InterpreterError.mismatchedBrackets: break
+            case InterpreterError.break: stop()
+            default: updateSelection()
+        }
+        
+        if error is InterpreterError, error as! InterpreterError != .break {
+            hasError = true
+        }
     }
     
     func run()  {
-        timeElapsed = TimeInterval(0)
-        startDate = Date()
-        timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+        if isValidKonamiCode(document.contents) {
+            document.contents = "Ha ha‚ nice try․"
+        }
+        
+        timeElapsed    = TimeInterval(0)
+        startDate      = Date()
+        timer          = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         justRanProgram = false
+        
         execution = Task {
             isRunningProgram = true
-            if settings.playSounds && settings.playStartSound {
-                SystemSounds.purr.play()
-            }
+            if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
             interpreter = createInterpreter()
-            output = ""
-            selection = 0..<0
+            output      = ""
+            selection   = 0..<0
             do {
                 try await interpreter.run()
-                if settings.playSounds && settings.playSuccessSound {
-                    SystemSounds.glass.play()
-                }
+                if settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
+                Notifications.sendNotification(filename)
             } catch {
                 processError(error)
                 if !errorDescription.isEmpty {
+                    Notifications.sendNotification(filename, error: error)
                     execution.cancel()
-                    if settings.playSounds && settings.playFailSound {
-                        SystemSounds.sosumi.play()
-                    }
+                    if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
                 }
             }
             NSApp.requestUserAttention(.informationalRequest)
@@ -85,7 +88,7 @@ final class ProgramState: ObservableObject {
         }
     }
     var disableRunButton: Bool {
-        isRunningProgram || document.contents.isEmpty
+        isRunningProgram
     }
     
     func step() {
@@ -94,62 +97,60 @@ final class ProgramState: ObservableObject {
         }
         justRanProgram = false
         isSteppingThrough = true
-        do {
-            try interpreter.step()
-            if settings.playSounds && settings.playStepSound {
-                SystemSounds.pop.play()
-            }
-            output = interpreter.output
-            updateSelection()
-        } catch {
-            NSApp.requestUserAttention(.informationalRequest)
-            processError(error)
-            if !errorDescription.isEmpty {
-                if settings.playSounds && settings.playFailSound {
-                    SystemSounds.sosumi.play()
+        Task {
+            do {
+                try await interpreter.step()
+                if settings.playSounds, settings.playStepSound { SystemSounds.step.play() }
+                output = interpreter.output
+                updateSelection()
+            } catch {
+                NSApp.requestUserAttention(.informationalRequest)
+                processError(error)
+                if !errorDescription.isEmpty {
+                    if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
                 }
             }
+            isSteppingThrough = false
         }
-        isSteppingThrough = false
     }
     var disableStepButton: Bool {
         (interpreter.currentInstruction == .blank
             && interpreter.currentInstructionIndex != 0)
-            || document.contents.isEmpty || isRunningProgram
+            || isRunningProgram
     }
     
     private func updateSelection() {
-        if !settings.showCurrentInstruction { return }
-        if interpreter.previousInstructionIndex < interpreter.commentCharacters.count && interpreter.previousInstructionIndex >= 0 {
+        if settings.showCurrentInstruction,
+           interpreter.previousInstructionIndex < interpreter.commentCharacters.count,
+           interpreter.previousInstructionIndex >= 0
+        {
             let commentCountAtCurrentInstruction = interpreter.commentCharacters[interpreter.previousInstructionIndex]
-            let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
-            let endIndex = startIndex + 1
-            selection = startIndex..<endIndex
+            let startIndex                       = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
+            let endIndex                         = startIndex + 1
+                selection                        = startIndex..<endIndex
         }
     }
     
     func clearAll() {
-        timeElapsed = TimeInterval(0)
         execution.cancel()
-        selection = 0..<0 
+        timeElapsed       = TimeInterval(0)
+        selection         = 0..<0
         document.contents = ""
-        input = ""
-        output = ""
-        interpreter = createInterpreter()
-        isRunningProgram = false
-        justRanProgram = false
+        input             = ""
+        output            = ""
+        interpreter       = createInterpreter()
+        isRunningProgram  = false
+        justRanProgram    = false
     }
     
     func reset() {
-        timeElapsed = TimeInterval(0)
         execution.cancel()
-        if interpreter.currentInstructionIndex != 0 {
-            selection = 0..<0
-        }
-        interpreter = createInterpreter()
-        output = ""
+        if interpreter.currentInstructionIndex != 0 { selection = 0..<0 }
+        timeElapsed      = TimeInterval(0)
+        interpreter      = createInterpreter()
+        output           = ""
         isRunningProgram = false
-        justRanProgram = false
+        justRanProgram   = false
     }
     var disableResetButton: Bool {
         (isRunningProgram || interpreter.currentInstructionIndex == 0)
@@ -159,30 +160,39 @@ final class ProgramState: ObservableObject {
     func stop() {
         execution.cancel()
         updateSelection()
-        output = interpreter.output
+        output           = interpreter.output
         isRunningProgram = false
-        justRanProgram = false
+        justRanProgram   = false
     }
-    var disableStopButton: Bool {
-        return !isRunningProgram
-    }
+    var disableStopButton: Bool { !isRunningProgram }
     
     private func createInterpreter() -> Interpreter {
-        Interpreter(program: document.contents,
-                    input: input,
-                    onEndOfInput: settings.endOfInput,
-                    arraySize: Int(settings.arraySize),
+        Interpreter(program:         document.contents,
+                    input:           input,
+                    onEndOfInput:    settings.endOfInput,
+                    arraySize:       Int(settings.arraySize),
                     pointerLocation: Int(settings.pointerLocation),
-                    cellSize: settings.cellSize.rawValue,
-                    breakOnHash: settings.breakOnHash)
+                    cellSize:        settings.cellSize.rawValue,
+                    breakOnHash:     settings.breakOnHash
+        )
     }
     
     private func shouldReset() -> Bool {
-        settings.endOfInput != interpreter.endOfInput
-            || Int(settings.arraySize) != interpreter.arraySize
-            || Int(settings.pointerLocation) != interpreter.pointerLocation
-            || settings.cellSize.rawValue != interpreter.cellSize
-            || interpreter.program != Program(string: document.contents)
-            || justRanProgram
+           settings.endOfInput           != interpreter.endOfInput
+        || Int(settings.arraySize)       != interpreter.arraySize
+        || Int(settings.pointerLocation) != interpreter.pointerLocation
+        || settings.cellSize.rawValue    != interpreter.cellSize
+        || interpreter.program           != Program(string: document.contents)
+        || justRanProgram
+    }
+    
+    func exportToC() {
+        Task {
+            isConversionProgressShowing = true
+            try await Task.sleep(nanoseconds: 1)
+            convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
+            isConversionProgressShowing = false
+            isAskingForOutputFile.toggle()
+        }
     }
 }

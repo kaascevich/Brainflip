@@ -22,7 +22,7 @@ struct SoundSettings: View {
 private struct SoundSettings_Previews: PreviewProvider {
     static var previews: some View {
         SoundSettings()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

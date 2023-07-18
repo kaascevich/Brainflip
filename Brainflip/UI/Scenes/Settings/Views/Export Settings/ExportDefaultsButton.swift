@@ -24,6 +24,6 @@ struct ExportDefaultsButton: View {
 private struct ExportDefaultsButton_Previews: PreviewProvider {
     static var previews: some View {
         ExportDefaultsButton()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

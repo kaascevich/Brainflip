@@ -75,7 +75,11 @@ extension BrainflipToC {
         semicolon
     }
     @StringBuilder static var inputInstruction: String {
-        Symbols.tempVariableName
+        if settings.endOfInput == .noChange {
+            Symbols.tempVariableName
+        } else {
+            pointerWithName
+        }
         `assignment`
         Symbols.inputFuncName
         whitespace(for: .beforeFunctionCall)

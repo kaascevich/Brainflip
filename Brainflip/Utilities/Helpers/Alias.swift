@@ -1,8 +1,9 @@
-//
-//  Alias.swift
-//  Brainflip
-//
-//  Created by Kaleb on 7/16/23.
-//
-
-import Foundation
+@propertyWrapper
+struct Alias<T> {
+    var wrappedValue: T
+    var p[]
+    
+    init(wrappedValue: T, for aliasedValue: inout T) {
+        self.wrappedValue = wrappedValue
+    }
+}

@@ -1,4 +1,5 @@
 import SwiftUI
+import Introspect
 
 struct ProgramCommands: Commands {
     @FocusedObject<ProgramState> var state
@@ -13,6 +14,8 @@ struct ProgramCommands: Commands {
             ClearAllCommand()
             ClearInputCommand()
             ResetProgramCommand()
+            Divider()
+            ShowArrayCommand()
         }
     }
 }

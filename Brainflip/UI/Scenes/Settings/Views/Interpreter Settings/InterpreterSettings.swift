@@ -27,7 +27,7 @@ struct InterpreterSettings: View {
 private struct InterpreterSettings_Previews: PreviewProvider {    
     static var previews: some View {
         InterpreterSettings()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

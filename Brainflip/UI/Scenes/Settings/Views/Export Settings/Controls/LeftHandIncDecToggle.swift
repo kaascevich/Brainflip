@@ -11,6 +11,6 @@ struct LeftHandIncDecToggle: View {
 struct LeftHandIncDecToggle_Previews: PreviewProvider {
     static var previews: some View {
         LeftHandIncDecToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

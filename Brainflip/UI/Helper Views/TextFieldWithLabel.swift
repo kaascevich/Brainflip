@@ -1,22 +1,25 @@
 import SwiftUI
-import Introspect
+import SwiftUIIntrospect
 
 struct TextFieldWithLabel: View {
-    var text: String
-    let label: String
+             var text:             String
+             let label:            String
     @Binding var isTextFieldShown: Bool
+    
+    
     init(_ text: String, label: String = "", isShown: Binding<Bool>) {
-        self.text = text
-        self.label = label
-        _isTextFieldShown = isShown
+        self.text              = text
+        self.label             = label
+        self._isTextFieldShown = isShown
     }
     
     var body: some View {
         DisclosureGroup(label, isExpanded: $isTextFieldShown) {
             TextField("", text: .constant(text))
                 .font(.body.monospacedDigit())
-                .introspectTextField {
+                .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
+                    $0.focusRingType = .none
                 }
         }
         .disclosureGroupStyle(AnimatedDisclosureGroupStyle())

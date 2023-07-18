@@ -27,6 +27,6 @@ struct EndOfFilePicker: View {
 private struct EndOfFilePicker_Previews: PreviewProvider {    
     static var previews: some View {
         EndOfFilePicker()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

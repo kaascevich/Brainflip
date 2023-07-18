@@ -1,5 +1,5 @@
 import SwiftUI
-import Introspect
+import SwiftUIIntrospect
 
 struct OutputView: View {
     @EnvironmentObject private var settings: AppSettings
@@ -16,8 +16,9 @@ struct OutputView: View {
             }
             TextEditor(text: .constant(state.output))
                 .font(.monospaced(.body)())
-                .introspectTextView {
+                .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
+                    $0.usesFindPanel = true
                 }
             }
     }
@@ -28,7 +29,7 @@ private struct OutputView_Previews: PreviewProvider {
     
     static var previews: some View {
         OutputView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

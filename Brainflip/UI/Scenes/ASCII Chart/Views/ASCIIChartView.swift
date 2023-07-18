@@ -17,13 +17,9 @@ struct ASCIIChartView: View {
     }
 }
 
-extension Int: Identifiable {
-    public var id: Int { self }
-}
-
 private struct ASCIIChartView_Previews: PreviewProvider {
     static var previews: some View {
         ASCIIChartView()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

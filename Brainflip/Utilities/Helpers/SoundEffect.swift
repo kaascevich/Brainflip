@@ -1,5 +1,6 @@
 import Foundation
 import AudioToolbox
+import os.log
 
 struct SoundEffect: Hashable {
     let id: SystemSoundID
@@ -11,6 +12,8 @@ struct SoundEffect: Hashable {
     }
     
     func play() {
+        let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Sound")
+        logger.log("Playing sound \"\(name)\"")
         AudioServicesPlaySystemSoundWithCompletion(id, nil)
     }
 }
@@ -71,5 +74,10 @@ enum SystemSounds: String {
         let soundEffect = SoundEffect(systemName: self.rawValue)
         soundEffect?.play()
     }
+    
+    static let start   = purr
+    static let success = glass
+    static let step    = pop
+    static let fail    = sosumi
 }
 

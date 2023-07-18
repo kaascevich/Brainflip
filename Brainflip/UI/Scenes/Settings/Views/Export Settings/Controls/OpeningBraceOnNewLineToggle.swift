@@ -11,6 +11,6 @@ struct OpeningBraceBeforeNewLineToggle: View {
 struct OpeningBraceBeforeNewLineToggle_Previews: PreviewProvider {
     static var previews: some View {
         OpeningBraceBeforeNewLineToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

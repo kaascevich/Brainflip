@@ -9,6 +9,7 @@ struct EditorSettings: View {
                 Section("Font") {
                     MonospacedToggle()
                     HighlightingToggle()
+                    TextSizeSlider()
                 }
                 Section("Progress") {
                     ShowProgressToggle()
@@ -30,7 +31,7 @@ struct EditorSettings: View {
 private struct EditorSettings_Previews: PreviewProvider {
     static var previews: some View {
         EditorSettings()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

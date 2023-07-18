@@ -9,9 +9,7 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
         self.contents = contents
     }
     
-    var program: Program {
-        return Program(string: contents)
-    }
+    var program: Program { Program(string: contents) }
         
     static var readableContentTypes: [UTType] = [.brainflipSource]
     
@@ -23,7 +21,7 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
     }
     
     func snapshot(contentType: UTType) throws -> String {
-        return contents
+        contents
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

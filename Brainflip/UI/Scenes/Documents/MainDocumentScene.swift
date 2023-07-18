@@ -1,11 +1,9 @@
 import SwiftUI
 
 struct MainDocumentScene: Scene {
-    @StateObject var settings = AppSettings()
-    
     var body: some Scene {
         DocumentGroup(newDocument: ProgramDocument()) { file in
-            let state = ProgramState(document: file.document)
+            let state = ProgramState(document: file.document, filename: file.fileURL?.lastPathComponent ?? "Untitled")
             
             ContentView(state: state)
                 .frame(minWidth: 735, minHeight: 460)

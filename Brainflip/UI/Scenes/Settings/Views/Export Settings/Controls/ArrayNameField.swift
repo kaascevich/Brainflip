@@ -16,6 +16,6 @@ struct ArrayNameField: View {
 struct ArrayNameField_Previews: PreviewProvider {
     static var previews: some View {
         ArrayNameField()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

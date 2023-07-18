@@ -1,1 +1,2 @@
-,[.,]
+Echoes back the input
+,[.[-],]

@@ -78,13 +78,15 @@ extension BrainflipToC {
          
         static let main                 = "main"
         static let mainReturnType       = "int"
+        static let mainArguments        = "void"
          
         // MARK: - Comments
          
         static let comment              = "//"
         
-        // MARK: - Other
+        // MARK: - Temp Variable
         
         static let tempVariableName     = "i"
+        static let tempVariableValue    = "0"
     }
 }

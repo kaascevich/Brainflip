@@ -8,7 +8,7 @@ struct ClearAllButton: View {
         Button("Clear All...", role: .destructive) {
             state.isClearAlertShowing.toggle()
         }
-        .disabled(state.document.contents.isEmpty || state.isRunningProgram)
+        .disabled(state.isRunningProgram)
     }
 }
 
@@ -17,6 +17,6 @@ private struct ClearAllButton_Previews: PreviewProvider {
     
     static var previews: some View {
         ClearAllButton(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

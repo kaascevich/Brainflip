@@ -1,13 +1,12 @@
 import SwiftUI
 
-struct ResetProgramCommand: View {
+struct ShowArrayCommand: View {
     @FocusedObject<ProgramState> var state
     
     var body: some View {
-        Button("Reset Program") {
-            state?.reset()
+        Button("Show Array") {
+            state?.showingArray.toggle()
         }
-        .keyboardShortcut(.escape, modifiers: [.shift, .command])
         .disabled(state?.disableResetButton ?? true)
     }
 }

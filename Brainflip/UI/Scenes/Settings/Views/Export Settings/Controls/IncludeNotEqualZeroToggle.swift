@@ -11,6 +11,6 @@ struct IncludeNotEqualZeroToggle: View {
 struct IncludeNotEqualZeroToggle_Previews: PreviewProvider {
     static var previews: some View {
         IncludeNotEqualZeroToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

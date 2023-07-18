@@ -3,4 +3,162 @@
    uuid = "91FD6A32-5E84-49DD-ABA2-7FD33607A5CF"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BFIntents/BFIntents.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "perform()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - 22f1b86edad87f1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.BFIntents.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - f30b7aa79e802281"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Brainflip.BFIntents.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - 104323d5c7910b55"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.RunBFCode.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - cc2f0aa93f0dfefc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Brainflip.RunBFCode.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - de875e1168f2b2bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.RunBFProgramIntent.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "81CE90CE-D3B5-4799-84D4-83F75EA2E26F - 626b3cd3faf1ec18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Brainflip.RunBFProgramIntent.perform() async throws -&gt; some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/BFIntents/BFIntents.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "974494F0-842F-4A30-8CFF-F61E22C058E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/UI/Helper Views/TextFieldWithLabel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "974494F0-842F-4A30-8CFF-F61E22C058E8 - 4b2e92531227b5bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSTextView) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.introspectTextView(customize: (__C.NSTextView) -&gt; ()) -&gt; some&gt;&gt;.0 in Brainflip.TextFieldWithLabel.body.getter : some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/UI/Helper%20Views/TextFieldWithLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "974494F0-842F-4A30-8CFF-F61E22C058E8 - c6715f99553eedf4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSTextView) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.introspect&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUIIntrospect.IntrospectableViewType, &#x3c4;_1_1: SwiftUIIntrospect.PlatformEntity&gt;(_: &#x3c4;_1_0, on: SwiftUIIntrospect.PlatformViewVersionPredicate&lt;&#x3c4;_1_0, &#x3c4;_1_1&gt;..., scope: Swift.Optional&lt;SwiftUIIntrospect.IntrospectionScope&gt;, customize: (&#x3c4;_1_1) -&gt; ()) -&gt; some&gt;&gt;.0 in Brainflip.TextFieldWithLabel.body.getter : some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/UI/Helper%20Views/TextFieldWithLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

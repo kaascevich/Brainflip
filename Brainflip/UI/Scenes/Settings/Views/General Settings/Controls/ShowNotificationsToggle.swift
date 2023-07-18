@@ -5,10 +5,15 @@ struct ShowNotificationsToggle: View {
     
     var body: some View {
         Toggle("Show notifications", isOn: settings.$showNotifications)
+            .onChange(of: settings.showNotifications) {
+                if settings.showNotifications {
+                    Notifications.requestPermission()
+                }
+            }
     }
 }
 
-struct NotificationsToggle_Previews: PreviewProvider {
+struct ShowNotificationsToggle_Previews: PreviewProvider {
     static var previews: some View {
         ShowNotificationsToggle()
             .environmentObject(settings)

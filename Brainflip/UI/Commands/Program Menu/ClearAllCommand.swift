@@ -7,7 +7,6 @@ struct ClearAllCommand: View {
         Button("Clear All...") {
             state?.isClearAlertShowing.toggle()
         }
-        .keyboardShortcut(.delete)
-        .disabled(state?.document.contents.isEmpty ?? true)
+        .keyboardShortcut(.delete, modifiers: [.shift, .command])
     }
 }

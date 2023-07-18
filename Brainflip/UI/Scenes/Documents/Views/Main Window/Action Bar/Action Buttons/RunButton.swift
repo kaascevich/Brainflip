@@ -29,7 +29,7 @@ private struct RunButton_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        RunButton(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+        RunButton(state: ProgramState(document: document, filename: "File.bf"))
+            .environmentObject(settings)
     }
 }

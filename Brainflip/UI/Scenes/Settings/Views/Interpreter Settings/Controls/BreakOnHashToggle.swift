@@ -12,6 +12,6 @@ struct BreakOnHashToggle: View {
 struct BreakOnHashToggle_Previews: PreviewProvider {
     static var previews: some View {
         BreakOnHashToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

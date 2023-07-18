@@ -25,6 +25,6 @@ private struct ActionBarView_Previews: PreviewProvider {
     
     static var previews: some View {
         ActionBarView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

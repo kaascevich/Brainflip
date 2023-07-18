@@ -1,4 +1,10 @@
 import SwiftUI
+import Foundation
+import os.log
+
+let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Settings")
+
+let settings = AppSettings()
 
 final class AppSettings: ObservableObject {
     // MARK: - Store Definitions
@@ -15,6 +21,9 @@ final class AppSettings: ObservableObject {
     
     @AppStorage("showTimer", store: generalSettings)
     var showTimer: Bool = true
+    
+    @AppStorage("showNotifications", store: generalSettings)
+    var showNotifications: Bool = false
     
     // MARK: - Sound Settings
     
@@ -57,6 +66,9 @@ final class AppSettings: ObservableObject {
     
     @AppStorage("highlighting", store: editorSettings)
     var highlighting: Bool = false
+    
+    @AppStorage("textSize", store: editorSettings)
+    var textSize: Double = 14.0
     
     @AppStorage("showProgress", store: editorSettings)
     var showProgress: Bool = true
@@ -101,6 +113,9 @@ final class AppSettings: ObservableObject {
     @AppStorage("openingBraceOnNewLine", store: exportSettings)
     var openingBraceOnNewLine: Bool = false
     
+    @AppStorage("includeVoidWithinMain", store: exportSettings)
+    var includeVoidWithinMain: Bool = true
+    
     @AppStorage("whitespace", store: exportSettings)
     var whitespace: [Whitespace] = [
         .beforeWhileOrIf,
@@ -126,6 +141,7 @@ final class AppSettings: ObservableObject {
 
 extension AppSettings {
     func resetAllToDefaults() {
+        logger.notice("Resetting ALL settings")
         resetGeneralToDefaults()
         resetSoundToDefaults()
         resetInterpreterToDefaults()
@@ -136,47 +152,56 @@ extension AppSettings {
     }
     
     func resetGeneralToDefaults() {
-        showTimer = true
+        logger.notice("Resetting general settings")
+        showTimer                = true
+        showNotifications        = false
     }
     
     func resetSoundToDefaults() {
-        playSounds = false
-        playStartSound = true
-        playSuccessSound = true
-        playFailSound = true
-        playStepSound = false
+        logger.notice("Resetting sound settings")
+        playSounds               = false
+        playStartSound           = true
+        playSuccessSound         = true
+        playFailSound            = true
+        playStepSound            = false
     }
     
     func resetInterpreterToDefaults() {
-        endOfInput = .noChange
-        arraySize = 30_000
-        pointerLocation = 0
-        cellSize = .eightBit
-        breakOnHash = false
+        logger.notice("Resetting interpreter settings")
+        endOfInput               = .noChange
+        arraySize                = 30_000
+        pointerLocation          = 0
+        cellSize                 = .eightBit
+        breakOnHash              = false
     }
     
     func resetInspectorToDefaults() {
-        enabledInspectorModules = Inspector.defaultModules
-        inspectorModuleOrder = Array(0...(Inspector.moduleCount - 1))
+        logger.notice("Resetting inspector settings")
+        enabledInspectorModules  = Inspector.defaultModules
+        inspectorModuleOrder     = Array(0...(Inspector.moduleCount - 1))
         expandedInspectorModules = Array(repeating: true, count: Inspector.moduleCount)
     }
     
     func resetEditorToDefaults() {
-        monospaced = true
-        highlighting = false
-        showProgress = true
-        showCurrentInstruction = false
-        showProgramSize = true
+        logger.notice("Resetting editor settings")
+        monospaced               = true
+        highlighting             = false
+        showProgress             = true
+        showCurrentInstruction   = false
+        showProgramSize          = true
+        textSize                 = 14.0
     }
     
     func resetExportToDefaults() {
-        indentation = 3
-        pointerName = "ptr"
-        arrayName = "array"
-        leftHandIncDec = false
-        includeNotEqualZero = true
-        includeDisabledBreak = false
-        openingBraceOnNewLine = false
+        logger.notice("Resetting export settings")
+        indentation              = 3
+        pointerName              = "ptr"
+        arrayName                = "array"
+        leftHandIncDec           = false
+        includeNotEqualZero      = true
+        includeDisabledBreak     = false
+        openingBraceOnNewLine    = false
+        includeVoidWithinMain    = true
         whitespace = [
             .beforeWhileOrIf,
             .beforeBrace,
@@ -193,6 +218,7 @@ extension AppSettings {
     }
     
     func resetHiddenToDefaults() {
-        exportToCAlertHidden = false
+        logger.notice("Resetting hidden settings")
+        exportToCAlertHidden     = false
     }
 }

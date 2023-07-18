@@ -9,6 +9,7 @@ struct EditorView: View {
             HStack {
                 Text("Type your program here...")
                 Spacer()
+                ShowArrayButton(state: state)
                 ResetButton(state: state)
             }
             
@@ -16,7 +17,7 @@ struct EditorView: View {
             
             HStack {
                 if settings.showProgramSize {
-                    Text("Program size: " + ByteCountFormatter.string(fromByteCount: Int64(state.document.contents.count), countStyle: .file))
+                    Text("Program size: \(ByteCountFormatter.string(fromByteCount: Int64(state.document.contents.count), countStyle: .file))")
                 }
                 Spacer()
                 ClearMenu(state: state)
@@ -25,12 +26,13 @@ struct EditorView: View {
         }
     }
 }
+
 private struct EditorView_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        EditorView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+        EditorView(state: ProgramState(document: document, filename: "File.bf"))
+            .environmentObject(settings)
     }
 }
 

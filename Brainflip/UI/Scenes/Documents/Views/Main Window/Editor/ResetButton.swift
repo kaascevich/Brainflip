@@ -5,12 +5,15 @@ struct ResetButton: View {
     @ObservedObject var state: ProgramState
     
     var body: some View {
-        Button(state.isRunningProgram ? "Stop" : "Reset") {
+        Button {
             if state.isRunningProgram {
                 state.stop()
             } else {
                 state.reset()
             }
+        } label: {
+            Text(state.isRunningProgram ? "Stop" : "Reset")
+                .frame(width: 35)
         }
         .disabled(state.disableResetButton && state.disableStopButton)
     }
@@ -20,7 +23,7 @@ private struct ResetButton_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        ResetButton(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+        ResetButton(state: ProgramState(document: document, filename: "File.bf"))
+            .environmentObject(settings)
     }
 }

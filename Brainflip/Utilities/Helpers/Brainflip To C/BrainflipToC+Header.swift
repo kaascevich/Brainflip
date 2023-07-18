@@ -9,7 +9,7 @@ extension BrainflipToC {
         main;                    Symbols.newline
         if settings.pointerLocation != 0 {
             baseIndent; initialPointerLocation
-        } else { "" }
+        }
     }
     
     @StringBuilder static var includeStatement: String {
@@ -27,7 +27,7 @@ extension BrainflipToC {
         settings.arrayName
         whitespace(for: .beforeBrackets)
         openingBracket
-        "\(Int(settings.arraySize))"
+        String(Int(settings.arraySize))
         closingBracket
         semicolon
     }
@@ -42,23 +42,29 @@ extension BrainflipToC {
         semicolon
     }
     @StringBuilder static var tempVariableDeclaration: String {
-        cellType
-        Symbols.space
-        Symbols.tempVariableName
-        `assignment`
-        "0"
-        semicolon
+        if settings.endOfInput == .noChange {
+            cellType
+            Symbols.space
+            Symbols.tempVariableName
+            `assignment`
+            Symbols.tempVariableValue
+            semicolon
+        }
     }
     @StringBuilder static var main: String {
         Symbols.mainReturnType
         Symbols.space
         Symbols.main
         whitespace(for: .beforeFunctionCall)
-        Symbols.openingParenthesis
-        
-        whitespace(for: .inParentheses)
-        
-        Symbols.closingParenthesis
+        if settings.includeVoidWithinMain {
+            openingParenthesis
+            Symbols.mainArguments
+            closingParenthesis
+        } else {
+            Symbols.openingParenthesis
+            whitespace(for: .inParentheses)
+            Symbols.closingParenthesis
+        }
         
         newLineBeforeBrace
         Symbols.openingBrace
@@ -66,7 +72,7 @@ extension BrainflipToC {
     @StringBuilder static var initialPointerLocation: String {
         settings.pointerName
         compoundAssignment
-        "\(Int(settings.pointerLocation))"
+        String(Int(settings.pointerLocation))
         semicolon
         
         Symbols.newline

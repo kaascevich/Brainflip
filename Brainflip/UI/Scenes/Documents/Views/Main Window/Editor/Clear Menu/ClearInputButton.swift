@@ -17,6 +17,6 @@ private struct ClearInputButton_Previews: PreviewProvider {
     
     static var previews: some View {
         ClearInputButton(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

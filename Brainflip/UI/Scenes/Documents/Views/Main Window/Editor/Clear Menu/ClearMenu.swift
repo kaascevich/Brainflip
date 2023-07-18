@@ -22,6 +22,6 @@ private struct ClearMenu_Previews: PreviewProvider {
     
     static var previews: some View {
         ClearMenu(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

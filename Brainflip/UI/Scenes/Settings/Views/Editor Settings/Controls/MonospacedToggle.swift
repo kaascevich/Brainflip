@@ -11,6 +11,6 @@ struct MonospacedToggle: View {
 struct MonospacedToggle_Previews: PreviewProvider {
     static var previews: some View {
         MonospacedToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

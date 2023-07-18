@@ -1,26 +1,27 @@
 import SwiftUI
 
 struct InspectorView: View {
-    @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
-    @State private var searchText = ""
-    let inspector: Inspector
+    @EnvironmentObject private var settings:              AppSettings
+    @ObservedObject            var state:                 ProgramState
+    @State             private var searchText:            String = ""
+                               let inspector:             Inspector
+    
     init(state: ProgramState) {
-        self.state = state
-        inspector = Inspector(state: state)
+        self.state     = state
+        self.inspector = Inspector(state: state)
     }
     
     func meetsSearchCriteria(_ string: String) -> Bool {
         searchText.isEmpty ? true : string.lowercased().contains(searchText.lowercased())
     }
-    
+        
     var body: some View {
         VStack {
             HStack {
                 SearchBar($searchText, prompt: "Find a module")
                 Toggle("", sources: settings.$expandedInspectorModules, isOn: \.self)
                     .toggleStyle(DisclosureToggleStyle())
-                    .onChange(of: settings.expandedInspectorModules) { _ in
+                    .onChange(of: settings.expandedInspectorModules) {
                         settings.expandedInspectorModules.indices.forEach {
                             if !settings.enabledInspectorModules[$0] {
                                 settings.expandedInspectorModules[$0] = true
@@ -31,16 +32,16 @@ struct InspectorView: View {
             .padding(1)
             
             ScrollView {
-                ForEach(settings.inspectorModuleOrder) {
-                    if settings.enabledInspectorModules[$0]
-                        && meetsSearchCriteria(inspector.modules[$0].name)
+                ForEach(settings.inspectorModuleOrder) { index in
+                    if settings.enabledInspectorModules[index]
+                        && meetsSearchCriteria(inspector.modules[index].name)
                     {
                         TextFieldWithLabel(
-                            state.isRunningProgram ? "" : "\(inspector.modules[$0].data!)",
-                            label: inspector.modules[$0].name,
-                            isShown: settings.$expandedInspectorModules[$0]
+                            state.isRunningProgram ? "" : "\(inspector.modules[index].data!)",
+                            label: inspector.modules[index].name,
+                            isShown: settings.$expandedInspectorModules[index]
                         )
-                        .help(inspector.modules[$0].tooltip)
+                        .help(inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
                         .animation(.easeInOut, value: settings.expandedInspectorModules)
                     }
@@ -59,6 +60,6 @@ private struct InspectorView_Previews: PreviewProvider {
     
     static var previews: some View {
         InspectorView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

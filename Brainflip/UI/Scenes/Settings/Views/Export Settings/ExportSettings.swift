@@ -14,6 +14,7 @@ struct ExportSettings: View {
                     LeftHandIncDecToggle()
                     IncludeNotEqualZeroToggle()
                     OpeningBraceBeforeNewLineToggle()
+                    IncludeVoidWithinMainToggle()
                 }
             }
             .formStyle(.grouped)
@@ -32,7 +33,7 @@ struct ExportSettings: View {
 private struct ExportSettings_Previews: PreviewProvider {
     static var previews: some View {
         ExportSettings()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

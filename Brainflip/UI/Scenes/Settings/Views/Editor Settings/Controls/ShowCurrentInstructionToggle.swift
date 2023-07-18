@@ -11,6 +11,6 @@ struct ShowCurrentInstructionToggle: View {
 struct ShowCurrentInstructionToggle_Previews: PreviewProvider {
     static var previews: some View {
         ShowCurrentInstructionToggle()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

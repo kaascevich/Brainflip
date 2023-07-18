@@ -20,6 +20,6 @@ struct PointerLocationSlider: View {
 private struct PointerLocationSlider_Previews: PreviewProvider {
     static var previews: some View {
         PointerLocationSlider()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }

@@ -9,6 +9,9 @@ struct GeneralSettings: View {
                 Section("Timer") {
                     ShowTimerToggle()
                 }
+                Section("Notifications") {
+                    ShowNotificationsToggle()
+                }
             }
             .formStyle(.grouped)
             
@@ -25,7 +28,7 @@ struct GeneralSettings: View {
 private struct GeneralSettings_Previews: PreviewProvider {
     static var previews: some View {
         GeneralSettings()
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 

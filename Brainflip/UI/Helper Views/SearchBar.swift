@@ -5,15 +5,16 @@ struct SearchBar: NSViewRepresentable {
     typealias NSViewType = NSSearchField
     
     @Binding var searchText: String
-    var prompt: String
+             var prompt:     String
+    
     init(_ searchText: Binding<String>, prompt: String = "Search") {
         self._searchText = searchText
-        self.prompt = prompt
+        self.prompt      = prompt
     }
     
     func makeNSView(context: Context) -> NSViewType {
-        let searchField = NSSearchField()
-        searchField.delegate = context.coordinator
+        let searchField               = NSSearchField()
+        searchField.delegate          = context.coordinator
         searchField.placeholderString = prompt
         return searchField
     }
@@ -32,14 +33,12 @@ struct SearchBar: NSViewRepresentable {
         var parent: SearchBar
         
         init(_ parent: SearchBar, searchText: Binding<String>) {
-            self.parent = parent
+            self.parent      = parent
             self._searchText = searchText
         }
         
         func controlTextDidChange(_ obj: Notification) {
-            guard let searchField = obj.object as? NSSearchField else {
-                return
-            }
+            guard let searchField = obj.object as? NSSearchField else { return }
             searchText = searchField.stringValue
         }
     }

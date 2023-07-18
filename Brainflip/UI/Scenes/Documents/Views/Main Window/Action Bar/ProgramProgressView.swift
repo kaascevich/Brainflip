@@ -1,5 +1,4 @@
 import SwiftUI
-import Introspect
 
 struct ProgramProgressView: View {
     @EnvironmentObject private var settings: AppSettings
@@ -9,7 +8,7 @@ struct ProgramProgressView: View {
         return Double(state.document.program.count - 1)
     }
     var max: Double {
-        if state.document.contents.isEmpty {
+        if actualMax == 0 {
             return 1
         } else {
             return actualMax
@@ -44,7 +43,7 @@ private struct ProgramProgressView_Previews: PreviewProvider {
     
     static var previews: some View {
         ProgramProgressView(state: ProgramState(document: document))
-            .environmentObject(AppSettings())
+            .environmentObject(settings)
     }
 }
 
