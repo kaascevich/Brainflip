@@ -8,7 +8,7 @@ import AppIntents
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
 class Interpreter {
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Interpreter")
+    private let logger = Logger(subsystem: bundleID, category: "Interpreter")
     
     /// The action to perform  when encountering an input instruction after end-of-input has been reached.
     let endOfInput: EndOfInput

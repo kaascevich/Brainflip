@@ -10,4 +10,5 @@ struct ShowTimerToggle: View {
 
 #Preview {
     ShowTimerToggle()
+        .environmentObject(settings)
 }

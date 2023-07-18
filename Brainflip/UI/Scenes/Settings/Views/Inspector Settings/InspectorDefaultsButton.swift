@@ -24,4 +24,5 @@ struct InspectorDefaultsButton: View {
 
 #Preview {
     InspectorDefaultsButton()
+        .environmentObject(settings)
 }

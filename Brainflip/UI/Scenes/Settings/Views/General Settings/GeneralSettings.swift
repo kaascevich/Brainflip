@@ -27,5 +27,6 @@ struct GeneralSettings: View {
 
 #Preview {
     GeneralSettings()
+        .environmentObject(settings)
 }
 

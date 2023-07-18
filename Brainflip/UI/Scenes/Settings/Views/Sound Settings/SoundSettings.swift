@@ -21,5 +21,6 @@ struct SoundSettings: View {
 
 #Preview {
     SoundSettings()
+        .environmentObject(settings)
 }
 

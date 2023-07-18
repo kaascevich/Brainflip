@@ -23,4 +23,5 @@ struct GeneralDefaultsButton: View {
 
 #Preview {
     GeneralDefaultsButton()
+        .environmentObject(settings)
 }

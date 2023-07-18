@@ -19,4 +19,5 @@ struct PointerLocationSlider: View {
 
 #Preview {
     PointerLocationSlider()
+        .environmentObject(settings)
 }

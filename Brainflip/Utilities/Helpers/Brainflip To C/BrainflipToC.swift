@@ -3,7 +3,7 @@ import RegexBuilder
 import os.log
 
 enum BrainflipToC {
-    static let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Brainflip-to-C conversion")
+    static let logger = Logger(subsystem: bundleID, category: "Brainflip-to-C conversion")
     
     // Equivalent to /[_a-zA-Z]\w{0,30}/
     // Identifiers in C can begin with an underscore or a letter

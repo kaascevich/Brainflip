@@ -10,4 +10,5 @@ struct IncludeNotEqualZeroToggle: View {
 
 #Preview {
     IncludeNotEqualZeroToggle()
+        .environmentObject(settings)
 }

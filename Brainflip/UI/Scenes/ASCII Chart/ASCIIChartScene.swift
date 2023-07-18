@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ASCIIChartScene: Scene {
-    @StateObject var settings = AppSettings()
-    
     var body: some Scene {
         Window("ASCII Chart", id: "ascii") {
             ASCIIChartView()

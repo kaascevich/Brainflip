@@ -12,7 +12,7 @@ struct SoundEffect: Hashable {
     }
     
     func play() {
-        let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Sound")
+        let logger = Logger(subsystem: bundleID, category: "Sound")
         logger.log("Playing sound \"\(name)\"")
         AudioServicesPlaySystemSoundWithCompletion(id, nil)
     }

@@ -10,4 +10,5 @@ struct ShowProgressToggle: View {
 
 #Preview {
     ShowProgressToggle()
+        .environmentObject(settings)
 }

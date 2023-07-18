@@ -15,4 +15,5 @@ struct ShowNotificationsToggle: View {
 
 #Preview {
     ShowNotificationsToggle()
+        .environmentObject(settings)
 }

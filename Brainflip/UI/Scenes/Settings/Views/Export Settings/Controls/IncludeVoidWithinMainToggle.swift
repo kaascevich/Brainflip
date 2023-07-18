@@ -10,4 +10,5 @@ struct IncludeVoidWithinMainToggle: View {
 
 #Preview {
     IncludeVoidWithinMainToggle()
+        .environmentObject(settings)
 }

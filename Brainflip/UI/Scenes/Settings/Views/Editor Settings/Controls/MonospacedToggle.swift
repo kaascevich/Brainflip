@@ -10,4 +10,5 @@ struct MonospacedToggle: View {
 
 #Preview {
     MonospacedToggle()
+        .environmentObject(settings)
 }

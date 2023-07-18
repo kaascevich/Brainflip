@@ -23,4 +23,5 @@ struct SoundDefaultsButton: View {
 
 #Preview {
     SoundDefaultsButton()
+        .environmentObject(settings)
 }

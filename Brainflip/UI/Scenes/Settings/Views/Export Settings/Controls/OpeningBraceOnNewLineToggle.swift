@@ -10,4 +10,5 @@ struct OpeningBraceBeforeNewLineToggle: View {
 
 #Preview {
     OpeningBraceBeforeNewLineToggle()
+        .environmentObject(settings)
 }

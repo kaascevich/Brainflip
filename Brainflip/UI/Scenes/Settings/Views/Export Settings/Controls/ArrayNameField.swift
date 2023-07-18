@@ -15,4 +15,5 @@ struct ArrayNameField: View {
 
 #Preview {
     ArrayNameField()
+        .environmentObject(settings)
 }

@@ -10,4 +10,5 @@ struct ShowProgramSizeToggle: View {
 
 #Preview {
     ShowProgramSizeToggle()
+        .environmentObject(settings)
 }

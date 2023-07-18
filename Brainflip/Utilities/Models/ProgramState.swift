@@ -21,20 +21,24 @@ final class ProgramState: ObservableObject {
     @Published var justRanProgram = false
     @Published var isSteppingThrough = false
     @Published var errorDescription = ""
+    @Published var errorType: InterpreterError? = nil
     @Published var hasError = false
     @Published var isClearAlertShowing = false
     @Published var isWarningAboutTrim = false
     @Published var isInformingAboutCExport = false
     @Published var isAskingForOutputFile = false
     @Published var isConversionProgressShowing = false
-    @Published var showingArray: Bool = false
+    @Published var showingArray = false
     @Published var showingMainHelp = false
     @Published var selection: Range<Int> = 0..<0
     @Published var timeElapsed = TimeInterval(0)
     @Published var startDate = Date()
     @Published var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     @Published var execution = Task { }
+    
     private func processError(_ error: Error) {
+        errorType = error as? InterpreterError
+        
         errorDescription = switch error {
             case let error as InterpreterError: error.rawValue
             default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"

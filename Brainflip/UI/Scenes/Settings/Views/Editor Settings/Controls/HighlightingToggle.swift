@@ -30,4 +30,5 @@ struct HighlightingToggle: View {
 
 #Preview {
     HighlightingToggle()
+        .environmentObject(settings)
 }

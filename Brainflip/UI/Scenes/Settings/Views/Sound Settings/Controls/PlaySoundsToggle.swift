@@ -18,4 +18,5 @@ struct PlaySoundsToggle: View {
 
 #Preview {
     PlaySoundsToggle()
+        .environmentObject(settings)
 }

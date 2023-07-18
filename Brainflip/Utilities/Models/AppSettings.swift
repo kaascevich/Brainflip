@@ -3,19 +3,20 @@ import Foundation
 import os.log
 
 let settings = AppSettings()
+var bundleID: String { Bundle.main.bundleIdentifier! }
 
 final class AppSettings: ObservableObject {
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Settings")
+    private let logger = Logger(subsystem: bundleID, category: "Settings")
     
     // MARK: - Store Definitions
     
-    private static let generalSettings     = UserDefaults(suiteName: "settings-general")
-    private static let soundSettings       = UserDefaults(suiteName: "settings-sound")
-    private static let interpreterSettings = UserDefaults(suiteName: "settings-interpreter")
-    private static let editorSettings      = UserDefaults(suiteName: "settings-editor")
-    private static let inspectorSettings   = UserDefaults(suiteName: "settings-inspector")
-    private static let exportSettings      = UserDefaults(suiteName: "settings-export")
-    private static let hiddenSettings      = UserDefaults(suiteName: "settings-hidden")
+    private static let generalSettings     = UserDefaults(suiteName: "\(bundleID).settings-general")
+    private static let soundSettings       = UserDefaults(suiteName: "\(bundleID).settings-sound")
+    private static let interpreterSettings = UserDefaults(suiteName: "\(bundleID).settings-interpreter")
+    private static let editorSettings      = UserDefaults(suiteName: "\(bundleID).settings-editor")
+    private static let inspectorSettings   = UserDefaults(suiteName: "\(bundleID).settings-inspector")
+    private static let exportSettings      = UserDefaults(suiteName: "\(bundleID).settings-export")
+    private static let hiddenSettings      = UserDefaults(suiteName: "\(bundleID).settings-hidden")
     
     // MARK: - General Settings
     

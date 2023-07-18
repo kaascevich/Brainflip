@@ -20,9 +20,7 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
         self.init(String(data: data, encoding: .ascii) ?? "")
     }
     
-    func snapshot(contentType: UTType) throws -> String {
-        contents
-    }
+    func snapshot(contentType: UTType) throws -> String { contents }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let data = contents.data(using: .ascii) ?? "\0".data(using: .ascii)!

@@ -24,4 +24,5 @@ struct InterpreterDefaultsButton: View {
 
 #Preview {
     InterpreterDefaultsButton()
+        .environmentObject(settings)
 }

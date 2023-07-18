@@ -26,5 +26,6 @@ struct InspectorSettings: View {
 
 #Preview {
     InspectorSettings()
+        .environmentObject(settings)
 }
 

@@ -51,4 +51,5 @@ struct InspectorModuleList: View {
 
 #Preview {
     InspectorModuleList()
+        .environmentObject(settings)
 }

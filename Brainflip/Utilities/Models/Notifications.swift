@@ -6,7 +6,7 @@ import os.log
 struct Notifications {
     private init() { }
     
-    static private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Notifications")
+    static private let logger = Logger(subsystem: bundleID, category: "Notifications")
     
     @discardableResult
     static func requestPermission() -> Bool {

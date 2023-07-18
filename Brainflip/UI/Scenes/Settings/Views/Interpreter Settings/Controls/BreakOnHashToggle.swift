@@ -11,4 +11,5 @@ struct BreakOnHashToggle: View {
 
 #Preview {
     BreakOnHashToggle()
+        .environmentObject(settings)
 }

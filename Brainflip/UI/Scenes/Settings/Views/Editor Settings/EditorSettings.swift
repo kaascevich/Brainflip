@@ -30,5 +30,6 @@ struct EditorSettings: View {
 
 #Preview {
     EditorSettings()
+        .environmentObject(settings)
 }
 

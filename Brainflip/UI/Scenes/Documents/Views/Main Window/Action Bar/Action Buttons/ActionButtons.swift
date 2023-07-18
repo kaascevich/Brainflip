@@ -18,6 +18,9 @@ struct ActionButtons: View {
                     state.isRunningProgram = false
                 }
             }
+            if state.errorType == .overflow || state.errorType == .underflow {
+                SettingsLink()
+            }
         } message: {
             Text(state.errorDescription)
         }

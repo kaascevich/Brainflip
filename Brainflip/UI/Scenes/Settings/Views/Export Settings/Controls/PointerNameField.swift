@@ -15,4 +15,5 @@ struct PointerNameField: View {
 
 #Preview {
     PointerNameField()
+        .environmentObject(settings)
 }

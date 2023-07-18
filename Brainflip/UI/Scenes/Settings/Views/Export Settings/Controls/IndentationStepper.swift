@@ -10,4 +10,5 @@ struct IndentationStepper: View {
 
 #Preview {
     IndentationStepper()
+        .environmentObject(settings)
 }

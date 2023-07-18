@@ -13,4 +13,5 @@ struct ArraySizeSlider: View {
 
 #Preview {
     ArraySizeSlider()
+        .environmentObject(settings)
 }

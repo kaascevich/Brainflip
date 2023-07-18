@@ -26,4 +26,5 @@ struct EndOfFilePicker: View {
 
 #Preview {
     EndOfFilePicker()
+        .environmentObject(settings)
 }

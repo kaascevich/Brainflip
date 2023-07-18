@@ -24,4 +24,5 @@ struct CellSizePicker: View {
 
 #Preview {
     CellSizePicker()
+        .environmentObject(settings)
 }

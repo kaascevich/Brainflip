@@ -10,4 +10,5 @@ struct LeftHandIncDecToggle: View {
 
 #Preview {
     LeftHandIncDecToggle()
+        .environmentObject(settings)
 }
