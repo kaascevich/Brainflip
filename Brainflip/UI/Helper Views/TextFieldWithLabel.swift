@@ -26,8 +26,10 @@ struct TextFieldWithLabel: View {
     }
 }
 
-private struct TextFieldWithLabel_Previews: PreviewProvider {
-    static var previews: some View {
-        TextFieldWithLabel("Testing, testing", label: "Testing, testing", isShown: .constant(true))
-    }
+#Preview {
+    TextFieldWithLabel(
+        "Testing, testing",
+        label: "Testing, testing",
+        isShown: .constant(true)
+    )
 }

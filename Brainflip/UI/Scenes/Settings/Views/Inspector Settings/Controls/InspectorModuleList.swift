@@ -49,9 +49,6 @@ struct InspectorModuleList: View {
     }
 }
 
-private struct InspectorModuleList_Previews: PreviewProvider {
-    static var previews: some View {
-        InspectorModuleList()
-            .environmentObject(settings)
-    }
+#Preview {
+    InspectorModuleList()
 }

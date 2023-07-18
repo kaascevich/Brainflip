@@ -23,7 +23,7 @@ private struct ResetButton_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        ResetButton(state: ProgramState(document: document, filename: "File.bf"))
+        ResetButton(state: ProgramState(document: document))
             .environmentObject(settings)
     }
 }

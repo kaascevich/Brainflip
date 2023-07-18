@@ -8,9 +8,6 @@ struct ShowProgramSizeToggle: View {
     }
 }
 
-struct ShowProgramSizeToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowProgramSizeToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    ShowProgramSizeToggle()
 }

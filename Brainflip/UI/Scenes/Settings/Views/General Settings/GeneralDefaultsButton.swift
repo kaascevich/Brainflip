@@ -21,9 +21,6 @@ struct GeneralDefaultsButton: View {
     }
 }
 
-private struct GeneralDefaultsButton_Previews: PreviewProvider {
-    static var previews: some View {
-        GeneralDefaultsButton()
-            .environmentObject(settings)
-    }
+#Preview {
+    GeneralDefaultsButton()
 }

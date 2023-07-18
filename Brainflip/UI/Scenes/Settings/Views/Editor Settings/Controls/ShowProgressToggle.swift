@@ -8,9 +8,6 @@ struct ShowProgressToggle: View {
     }
 }
 
-struct ShowProgressToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowProgressToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    ShowProgressToggle()
 }

@@ -13,9 +13,6 @@ struct PointerNameField: View {
     }
 }
 
-struct PointerNameField_Previews: PreviewProvider {
-    static var previews: some View {
-        PointerNameField()
-            .environmentObject(settings)
-    }
+#Preview {
+    PointerNameField()
 }

@@ -16,9 +16,6 @@ struct PlaySoundsToggle: View {
     }
 }
 
-struct PlaySoundsToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        PlaySoundsToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    PlaySoundsToggle()
 }

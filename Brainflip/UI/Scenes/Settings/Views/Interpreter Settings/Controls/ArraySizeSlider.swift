@@ -11,9 +11,6 @@ struct ArraySizeSlider: View {
     }
 }
 
-private struct ArraySizeSlider_Previews: PreviewProvider {
-    static var previews: some View {
-        ArraySizeSlider()
-            .environmentObject(settings)
-    }
+#Preview {
+    ArraySizeSlider()
 }

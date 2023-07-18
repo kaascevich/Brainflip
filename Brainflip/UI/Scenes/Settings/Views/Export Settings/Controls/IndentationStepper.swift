@@ -8,9 +8,6 @@ struct IndentationStepper: View {
     }
 }
 
-struct IndentationStepper_Previews: PreviewProvider {
-    static var previews: some View {
-        IndentationStepper()
-            .environmentObject(settings)
-    }
+#Preview {
+    IndentationStepper()
 }

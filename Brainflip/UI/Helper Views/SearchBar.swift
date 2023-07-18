@@ -44,9 +44,7 @@ struct SearchBar: NSViewRepresentable {
     }
 }
 
-struct SearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchBar(.constant(""))
-    }
+#Preview {
+    SearchBar(.constant(""))
 }
 

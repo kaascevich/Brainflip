@@ -53,3 +53,7 @@ struct HelpButton: NSViewRepresentable {
         }
     }
 }
+
+#Preview {
+    HelpButton { print("Yay, it works") }
+}

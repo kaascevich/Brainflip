@@ -8,9 +8,6 @@ struct IncludeNotEqualZeroToggle: View {
     }
 }
 
-struct IncludeNotEqualZeroToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        IncludeNotEqualZeroToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    IncludeNotEqualZeroToggle()
 }

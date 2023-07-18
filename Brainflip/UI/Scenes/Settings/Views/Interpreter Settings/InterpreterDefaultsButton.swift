@@ -22,9 +22,6 @@ struct InterpreterDefaultsButton: View {
     }
 }
 
-private struct InterpreterDefaultsButton_Previews: PreviewProvider {
-    static var previews: some View {
-        InterpreterDefaultsButton()
-            .environmentObject(settings)
-    }
+#Preview {
+    InterpreterDefaultsButton()
 }

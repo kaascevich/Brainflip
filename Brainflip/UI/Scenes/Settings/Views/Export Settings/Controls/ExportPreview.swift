@@ -15,9 +15,6 @@ struct ExportPreview: View {
     }
 }
 
-struct ExportPreview_Previews: PreviewProvider {
-    static var previews: some View {
-        ExportPreview()
-            .environmentObject(settings)
-    }
+#Preview {
+    ExportPreview()
 }

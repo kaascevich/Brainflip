@@ -38,7 +38,7 @@ private struct ShowArrayButton_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        ShowArrayButton(state: ProgramState(document: document, filename: "File.bf"))
+        ShowArrayButton(state: ProgramState(document: document))
             .environmentObject(settings)
     }
 }

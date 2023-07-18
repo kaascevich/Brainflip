@@ -1,4 +1,4 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2745
+{\rtf1\ansi\ansicpg1252\cocoartf2749
 \cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 SFCompactDisplay-Regular;\f1\fnil\fcharset0 SFCompactText-Italic;\f2\fnil\fcharset0 SFProText-Regular;
 \f3\fnil\fcharset0 SFMono-Bold;\f4\fnil\fcharset0 SFCompactDisplay-Bold;\f5\fnil\fcharset0 SFMono-Regular;
 }
@@ -30,6 +30,15 @@ indexed
 
 \fs24 Cells can be set to 
 \f1\i \kerning1\expnd-2\expndtw-7
+1-bit
+\f0\i0 \kerning1\expnd0\expndtw0 , 
+\f1\i \kerning1\expnd-2\expndtw-7
+2-bit
+\f0\i0 \kerning1\expnd0\expndtw0 , 
+\f1\i \kerning1\expnd-2\expndtw-7
+4-bit
+\f0\i0 \kerning1\expnd0\expndtw0 , 
+\f1\i \kerning1\expnd-2\expndtw-7
 8-bit
 \f0\i0 \kerning1\expnd0\expndtw0 , 
 \f1\i \kerning1\expnd-2\expndtw-7
@@ -37,11 +46,17 @@ indexed
 \f0\i0 \kerning1\expnd0\expndtw0 , or 
 \f1\i \kerning1\expnd-2\expndtw-7
 32-bit
-\f0\i0 \kerning1\expnd0\expndtw0 . With 8-bit cells, the maximum number a cell can hold is 255 (2
+\f0\i0 \kerning1\expnd0\expndtw0 . With 8-bit cells (the default), the maximum number a cell can hold is 255 (2
 \fs16 \up8 8
-\fs24 \up0  - 1). Similarly, 16-bit cells can hold numbers up to 65,536 (2
+\fs24 \up0  - 1). Similarly, 1-bit cells can hold numbers up to 1 (2
+\fs16 \up8 1
+\fs24 \up0  - 1), 2-bit cells up to 3 (2
+\fs16 \up8 2
+\fs24 \up0  - 1), 4-bit cells up to 15 (2
+\fs16 \up8 4
+\fs24 \up0  - 1), 16-bit cells up to 65,535 (2
 \fs16 \up8 16
-\fs24 \up0  - 1), and 32-bit cells can hold numbers up to 4,294,967,295 (2
+\fs24 \up0  - 1), and 32-bit cells  up to 4,294,967,295 (2
 \fs16 \up8 32
 \fs24 \up0  - 1).
 \fs10 \
@@ -105,7 +120,15 @@ pointer
 
 \fs24 All characters other than the ones listed above are treated as comments and ignored.
 \fs10 \
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\fs24 If a \'93
+\f5 ,
+\f0 \'94 command is encountered, and the value received is greater than the maximum value that will fit in the cell, the cell is set to its maximum value. If the value is greater than 255, the cell will be set to 0, regardless of settings.
+\fs10 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 
 \fs24 In order for a Brainflip program to run, all brackets must 
 \f1\i \kerning1\expnd-2\expndtw-7

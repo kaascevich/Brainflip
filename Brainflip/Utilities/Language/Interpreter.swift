@@ -284,7 +284,9 @@ class Interpreter {
                         case .setToZero: 0
                         case .setToMax:  cellSize - 1
                     }
-                } else { Int(currentInputCharacter.unicodeScalars.first?.value ?? 0) }
+                } else {
+                    min(cellSize - 1, Int(currentInputCharacter.unicodeScalars.first?.value ?? 0))
+                }
                 
                 currentInputIndex += 1
                 

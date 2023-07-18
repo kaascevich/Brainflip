@@ -22,9 +22,6 @@ struct InspectorDefaultsButton: View {
     }
 }
 
-private struct InspectorDefaultsButton_Previews: PreviewProvider {
-    static var previews: some View {
-        InspectorDefaultsButton()
-            .environmentObject(settings)
-    }
+#Preview {
+    InspectorDefaultsButton()
 }

@@ -44,9 +44,6 @@ struct WhitespaceList: View {
     }
 }
 
-struct WhitespaceList_Previews: PreviewProvider {
-    static var previews: some View {
-        WhitespaceList()
-            .environmentObject(settings)
-    }
+#Preview {
+    WhitespaceList()
 }

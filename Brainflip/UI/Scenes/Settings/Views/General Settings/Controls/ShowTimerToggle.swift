@@ -8,9 +8,6 @@ struct ShowTimerToggle: View {
     }
 }
 
-private struct ShowTimerToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowTimerToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    ShowTimerToggle()
 }

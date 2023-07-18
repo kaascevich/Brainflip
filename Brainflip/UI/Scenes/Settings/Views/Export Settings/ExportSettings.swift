@@ -30,10 +30,7 @@ struct ExportSettings: View {
     }
 }
 
-private struct ExportSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        ExportSettings()
-            .environmentObject(settings)
-    }
+#Preview {
+    ExportSettings()
 }
 

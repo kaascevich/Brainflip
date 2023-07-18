@@ -24,10 +24,7 @@ struct InspectorSettings: View {
     }
 }
 
-private struct InspectorSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        InspectorSettings()
-            .environmentObject(settings)
-    }
+#Preview {
+    InspectorSettings()
 }
 

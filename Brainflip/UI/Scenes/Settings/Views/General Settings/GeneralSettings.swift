@@ -25,10 +25,7 @@ struct GeneralSettings: View {
     }
 }
 
-private struct GeneralSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        GeneralSettings()
-            .environmentObject(settings)
-    }
+#Preview {
+    GeneralSettings()
 }
 

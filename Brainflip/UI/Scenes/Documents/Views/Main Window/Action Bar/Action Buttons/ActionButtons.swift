@@ -28,7 +28,7 @@ private struct ActionButtons_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        ActionButtons(state: ProgramState(document: document, filename: "File.bf"))
+        ActionButtons(state: ProgramState(document: document))
             .environmentObject(settings)
     }
 }

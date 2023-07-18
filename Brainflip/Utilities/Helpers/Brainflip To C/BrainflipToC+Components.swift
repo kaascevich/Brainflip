@@ -105,6 +105,8 @@ extension BrainflipToC {
                 Symbols.short
             case .thirtyTwoBit: // 4,294,967,295
                 Symbols.int
+            default:            // 1, 3, 15 -> 255
+                Symbols.char    // since the smallest type in C is char
         }
     }
 }

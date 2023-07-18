@@ -58,8 +58,6 @@ extension Double {
     }
 }
 
-struct StepperField_Previews: PreviewProvider {
-    static var previews: some View {
-        StepperField(value: .constant(5), in: 1...10, step: 2, label: "Testing")
-    }
+#Preview {
+    StepperField(value: .constant(5), in: 1...10, step: 2, label: "Testing")
 }

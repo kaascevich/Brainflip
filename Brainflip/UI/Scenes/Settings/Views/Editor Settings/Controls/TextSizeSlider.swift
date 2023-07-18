@@ -15,9 +15,6 @@ struct TextSizeSlider: View {
     }
 }
 
-private struct TextSizeSlider_Previews: PreviewProvider {
-    static var previews: some View {
-        TextSizeSlider()
-            .environmentObject(settings)
-    }
+#Preview {
+    TextSizeSlider()
 }

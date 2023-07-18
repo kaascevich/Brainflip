@@ -28,10 +28,7 @@ struct EditorSettings: View {
     }
 }
 
-private struct EditorSettings_Previews: PreviewProvider {
-    static var previews: some View {
-        EditorSettings()
-            .environmentObject(settings)
-    }
+#Preview {
+    EditorSettings()
 }
 

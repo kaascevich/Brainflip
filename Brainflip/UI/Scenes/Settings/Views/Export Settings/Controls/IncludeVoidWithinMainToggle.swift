@@ -8,9 +8,6 @@ struct IncludeVoidWithinMainToggle: View {
     }
 }
 
-struct IncludeVoidWithinMainToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        IncludeVoidWithinMainToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    IncludeVoidWithinMainToggle()
 }

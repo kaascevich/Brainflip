@@ -61,7 +61,7 @@ private struct Editor_Previews: PreviewProvider {
     @State private static var document = ProgramDocument(",[>+<-.]")
     
     static var previews: some View {
-        Editor(state: ProgramState(document: document, filename: "File.bf"))
+        Editor(state: ProgramState(document: document))
             .environmentObject(settings)
     }
 }

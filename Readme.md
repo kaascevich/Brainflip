@@ -7,7 +7,8 @@ a human-usable brainf\*\*k interpreter for macOS
 - [ ] Clean up `ProgramState` (*god*, that thing's a mess)
 - [ ] Speed up syntax highlighting
 - [ ] Allow signed cells in addition to unsigned
-- [ ] Add option to disable cell over/underflow
+- [ ] Add option to disable cell overflow/underflow
+- [x] Allow 1-bit, 2-bit, and 4-bit cell sizes
 
 ## Overview
 

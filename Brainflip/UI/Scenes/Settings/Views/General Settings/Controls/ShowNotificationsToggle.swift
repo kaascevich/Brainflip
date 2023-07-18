@@ -13,9 +13,6 @@ struct ShowNotificationsToggle: View {
     }
 }
 
-struct ShowNotificationsToggle_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowNotificationsToggle()
-            .environmentObject(settings)
-    }
+#Preview {
+    ShowNotificationsToggle()
 }
