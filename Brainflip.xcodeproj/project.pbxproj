@@ -27,6 +27,7 @@
 		341F0DA429C106080091C494 /* SyntaxHighlighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F0DA329C106080091C494 /* SyntaxHighlighting.swift */; };
 		341F299929A960B0000843FA /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F299829A960B0000843FA /* Interpreter.swift */; };
 		3421A4F829AF8DC5002162BA /* ProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3421A4F729AF8DC5002162BA /* ProgramCommands.swift */; };
+		3422F3BF2A662618006DB1BF /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 3422F3BE2A662618006DB1BF /* Readme.md */; };
 		34266C0229C4D1F40045337D /* EditorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34266C0129C4D1F40045337D /* EditorSettings.swift */; };
 		34266C0429C4D1FE0045337D /* HighlightingToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34266C0329C4D1FE0045337D /* HighlightingToggle.swift */; };
 		34266C0629C4D2080045337D /* EditorDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34266C0529C4D2080045337D /* EditorDefaultsButton.swift */; };
@@ -38,7 +39,6 @@
 		342D930229B26233002461DA /* CellSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930129B26233002461DA /* CellSizePicker.swift */; };
 		342D930529B273AA002461DA /* InspectorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930429B273AA002461DA /* InspectorSettings.swift */; };
 		342D930729B2791C002461DA /* MainMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930629B2791C002461DA /* MainMenuCommands.swift */; };
-		342D930B29B27E6E002461DA /* String+UserFriendlyStringSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930A29B27E6E002461DA /* String+UserFriendlyStringSize.swift */; };
 		3433604529B280D200E9C4AD /* InspectorModuleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433604429B280D200E9C4AD /* InspectorModuleList.swift */; };
 		3433604929B28F3C00E9C4AD /* ClearMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433604829B28F3C00E9C4AD /* ClearMenu.swift */; };
 		3433604D29B296B700E9C4AD /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 3433604C29B296B700E9C4AD /* Introspect */; };
@@ -153,6 +153,7 @@
 		341F0DA329C106080091C494 /* SyntaxHighlighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxHighlighting.swift; sourceTree = "<group>"; };
 		341F299829A960B0000843FA /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
 		3421A4F729AF8DC5002162BA /* ProgramCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramCommands.swift; sourceTree = "<group>"; };
+		3422F3BE2A662618006DB1BF /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = Brainflip/Readme.md; sourceTree = "<group>"; };
 		34266C0129C4D1F40045337D /* EditorSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorSettings.swift; sourceTree = "<group>"; };
 		34266C0329C4D1FE0045337D /* HighlightingToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightingToggle.swift; sourceTree = "<group>"; };
 		34266C0529C4D2080045337D /* EditorDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorDefaultsButton.swift; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		342D930129B26233002461DA /* CellSizePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSizePicker.swift; sourceTree = "<group>"; };
 		342D930429B273AA002461DA /* InspectorSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorSettings.swift; sourceTree = "<group>"; };
 		342D930629B2791C002461DA /* MainMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCommands.swift; sourceTree = "<group>"; };
-		342D930A29B27E6E002461DA /* String+UserFriendlyStringSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UserFriendlyStringSize.swift"; sourceTree = "<group>"; };
 		3433604429B280D200E9C4AD /* InspectorModuleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorModuleList.swift; sourceTree = "<group>"; };
 		3433604829B28F3C00E9C4AD /* ClearMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMenu.swift; sourceTree = "<group>"; };
 		344E528A29BD34D200F4DB50 /* FileCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
@@ -386,7 +386,6 @@
 			children = (
 				34D05ADA29B3E67300711079 /* Array+RawRepresentable.swift */,
 				347A30382A5A408D00CBF49B /* Array+Split.swift */,
-				342D930A29B27E6E002461DA /* String+UserFriendlyStringSize.swift */,
 				3477236B2A58FD33004F1410 /* String+StringBuilder.swift */,
 			);
 			path = Extensions;
@@ -608,6 +607,7 @@
 		3486B4EB29C9375C00A7A13F /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
+				34618C6729AAE2C100552568 /* HelpButton.swift */,
 				3486B4E929C935D300A7A13F /* StepperField.swift */,
 				34D05AD629B3D0D800711079 /* ToolbarDivider.swift */,
 				3404A21229B24100004514DC /* TextFieldWithLabel.swift */,
@@ -757,6 +757,7 @@
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
+				3422F3BE2A662618006DB1BF /* Readme.md */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
@@ -805,7 +806,6 @@
 		34E09D8B29BBAED100CF2299 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				34618C6729AAE2C100552568 /* HelpButton.swift */,
 				341F0DA329C106080091C494 /* SyntaxHighlighting.swift */,
 				3482EF0229AFC5EA0001800E /* ASCIIValues.swift */,
 			);
@@ -908,6 +908,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3422F3BF2A662618006DB1BF /* Readme.md in Resources */,
 				34DF122529A7B9490021729B /* Preview Assets.xcassets in Resources */,
 				34DF122229A7B9490021729B /* Assets.xcassets in Resources */,
 				345B20A329C8D5FD00405DD9 /* Numwarp.bf in Resources */,
@@ -1022,7 +1023,6 @@
 				34FDFE4C29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift in Sources */,
 				34B3BAD229B64485009E06A7 /* TouchBarResetButton.swift in Sources */,
 				34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */,
-				342D930B29B27E6E002461DA /* String+UserFriendlyStringSize.swift in Sources */,
 				34E09D9429BBE37800CF2299 /* BrainflipToC.swift in Sources */,
 				3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */,
 				34618C6829AAE2C100552568 /* HelpButton.swift in Sources */,

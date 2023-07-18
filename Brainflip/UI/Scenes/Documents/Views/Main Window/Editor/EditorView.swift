@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 
 struct EditorView: View {
     @EnvironmentObject private var settings: AppSettings
@@ -15,7 +16,7 @@ struct EditorView: View {
             
             HStack {
                 if settings.showProgramSize {
-                    Text("Program size: " + userFriendlyStringSize(state.document.contents))
+                    Text("Program size: " + ByteCountFormatter.string(fromByteCount: Int64(state.document.contents.count), countStyle: .file))
                 }
                 Spacer()
                 ClearMenu(state: state)
