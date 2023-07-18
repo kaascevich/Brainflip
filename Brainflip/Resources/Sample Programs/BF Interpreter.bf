@@ -29,6 +29,6 @@
     <<[->+<[<++>-]]<<<[<+>-]<<<<
   ]>>+>>>--[<+>---]<.>>[[-]<<]<
 ]
-[Enter numbers using ()-./0123456789abcdef and space.
-Daniel B Cristofani (cristofdathevanetdotcom)
+[Enter a number using ()-./0123456789abcdef and space, and hit return.
+Original credit: Daniel B Cristofani (cristofdathevanetdotcom)
 http://www.hevanet.com/cristofd/brainfuck/]
