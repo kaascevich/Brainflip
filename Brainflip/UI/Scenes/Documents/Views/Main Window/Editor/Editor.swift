@@ -42,7 +42,12 @@ struct Editor: View {
                 .introspect { applyTextViewSettings($0.textView) }
             } else {
                 TextEditor(text: $state.document.contents)
-                    .introspect(.textEditor, on: .macOS(.v14)) { applyTextViewSettings($0) }
+                    .introspect(.textEditor, on: .macOS(.v14)) {
+                        applyTextViewSettings($0)
+                        $0.textStorage?.addAttributes(
+                            [.backgroundColor: NSColor.textBackgroundColor, .foregroundColor: NSColor.textColor],
+                            range: NSRange(0...state.document.contents.count))
+                    }
             }
         }
         .onChange(of: state.document.program) {

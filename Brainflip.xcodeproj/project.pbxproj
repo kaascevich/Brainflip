@@ -94,6 +94,7 @@
 		3486AA4029BF55CB004C12B6 /* BreakOnHashToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA3F29BF55CB004C12B6 /* BreakOnHashToggle.swift */; };
 		3486B4E829C934B800A7A13F /* IndentationStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486B4E729C934B800A7A13F /* IndentationStepper.swift */; };
 		3486B4EA29C935D300A7A13F /* StepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486B4E929C935D300A7A13F /* StepperField.swift */; };
+		348A002A2A663BEB00C7B056 /* InterpreterSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 348A00292A663BEB00C7B056 /* InterpreterSettings.png */; };
 		3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* ProgramState.swift */; };
 		34AD99482A59F72B0020CE37 /* GeneralDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */; };
 		34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */; };
@@ -256,6 +257,7 @@
 		3486AA3F29BF55CB004C12B6 /* BreakOnHashToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakOnHashToggle.swift; sourceTree = "<group>"; };
 		3486B4E729C934B800A7A13F /* IndentationStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentationStepper.swift; sourceTree = "<group>"; };
 		3486B4E929C935D300A7A13F /* StepperField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperField.swift; sourceTree = "<group>"; };
+		348A00292A663BEB00C7B056 /* InterpreterSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterpreterSettings.png; sourceTree = "<group>"; };
 		3495634A29B15DE5009B0912 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
 		34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralDefaultsButton.swift; path = "Brainflip/UI/Scenes/Settings/Views/General Settings/GeneralDefaultsButton.swift"; sourceTree = SOURCE_ROOT; };
 		34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeNotEqualZeroToggle.swift; sourceTree = "<group>"; };
@@ -687,6 +689,14 @@
 			path = "Helper Views";
 			sourceTree = "<group>";
 		};
+		348A00262A663BCC00C7B056 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				348A00292A663BEB00C7B056 /* InterpreterSettings.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		34AEE2E52A65CE2200A06DC4 /* App Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +850,7 @@
 			isa = PBXGroup;
 			children = (
 				3422F3BB2A661556006DB1BF /* Readme.md */,
+				348A00262A663BCC00C7B056 /* Images */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
@@ -1002,6 +1013,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348A002A2A663BEB00C7B056 /* InterpreterSettings.png in Resources */,
 				3422F3BD2A661717006DB1BF /* Credits.rtf in Resources */,
 				3460118D2A65AEBF00029BB3 /* Sample Programs in Resources */,
 				34DF122529A7B9490021729B /* Preview Assets.xcassets in Resources */,
