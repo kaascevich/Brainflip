@@ -14,6 +14,10 @@ struct InspectorView: View {
     func meetsSearchCriteria(_ string: String) -> Bool {
         searchText.isEmpty ? true : string.lowercased().contains(searchText.lowercased())
     }
+    
+    var modulesMeetingSearchCriteria: [Inspector.Module] {
+        return inspector.modules.filter { meetsSearchCriteria($0.name) }
+    }
         
     var body: some View {
         VStack {
@@ -52,6 +56,11 @@ struct InspectorView: View {
             .scrollIndicatorsFlash(onAppear: true)
         }
         .padding(10)
+        .overlay {
+            if modulesMeetingSearchCriteria.isEmpty {
+                ContentUnavailableView.search
+            }
+        }
     }
 }
 
