@@ -1,11 +1,13 @@
 # Brainflip
-a human-usable brainf\*\*k interpreter
+a human-usable brainf\*\*k interpreter for macOS
 
 ## To Do
 
-- [x] Implement an App Shortcut
 - [ ] Enable the array popover to be detatched
 - [ ] Clean up `ProgramState` (*god*, that thing's a mess)
+- [ ] Speed up syntax highlighting
+- [ ] Allow signed cells in addition to unsigned
+- [ ] Add option to disable cell over/underflow
 
 ## Overview
 
@@ -27,10 +29,60 @@ Brainflip attempts (*attempts*) to remedy that. You're provided with a relativel
 
 Oh, and did I mention it's highly configurable? It's highly configurable. Like, *really* highly configurable. Like, *so* ridiculously configurable it's excessive.
 
-![There are some settings you probably shouldn't mess around with, though.](Images/InterpreterSettings.png)
+![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](Images/InterpreterSettings.png)
 
-## Features
-- [x] Timer, so you know exactly how inefficient a programmer you are
+## Configurable Settings
+
+### Interpreter
+- [x] Changing the behavior on end-of-input
+- [x] Customizing the array size
+- [x] Altering the intiial pointer location
+- [x] Choosing between 8-bit, 16-bit, or 32-bit cells
+- [x] Break instructions (#)
+
+### Editor
+- [x] Syntax highlighting (slow with files over 300B or so)
+- [x] Custom font size
+- [x] Highlighting the current instruction
+- [x] Viewing the program size for the same reason as the timer
+
+### Inspector
+- [x] Customizing modules, namely:
+  - [x] Current instruction
+  - [x] Current instruction location
+  - [x] Total instructions executed
+  - [x] Pointer location
+  - [x] Cell contents
+  - [x] Cell contents (ASCII)
+  - [x] Current input
+  - [x] Current input index
+  - [x] Array
+  - [x] Pointer movement instructions
+  - [x] Cell manipulation instructions
+  - [x] Control flow instructions
+  - [x] I/O instructions
+  - [x] Break instructions
+  
+### Exporting
+- [x] Exporting BF programs to C source, with support for customizing:
+  - [x] Indentation
+  - [x] The pointer name
+  - [x] The array name
+  - [x] The positions of `++` and `--`
+  - [x] Whether to include `!= 0` in `while` statements
+  - [x] New lines before `{`
+  - [x] Including `void` within the declaration for `main()`
+  - [x] Extreme whitespace customization
+
+### Other
+- [x] A timer, so you know exactly how inefficient a programmer you are
+- [x] Sending notifications when something happens
+- [x] Sound effects when something happens
+
+## Other Features
+- [x] An App Shortcut, so you can ~~inflict your pain~~ run BF programs *anywhere*!
+- [x] Semi-comprehensive help
+- [x] An extended ASCII chart (extended 'cause it's actually Unicode)
 
 ## Contextual Junk
 

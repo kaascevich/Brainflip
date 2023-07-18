@@ -20,7 +20,6 @@ struct Editor: View {
     
     func applyTextViewSettings(_ textView: NSTextView) {
         textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
-        textView.allowsCharacterPickerTouchBarItem = false
         textView.allowsUndo = true
         textView.isRichText = false
         textView.isEditable = !state.isRunningProgram
@@ -46,7 +45,7 @@ struct Editor: View {
                         applyTextViewSettings($0)
                         $0.textStorage?.addAttributes(
                             [.backgroundColor: NSColor.textBackgroundColor, .foregroundColor: NSColor.textColor],
-                            range: NSRange(0...state.document.contents.count-1))
+                            range: NSRange(0..<state.document.contents.count))
                     }
             }
         }

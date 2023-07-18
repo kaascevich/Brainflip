@@ -41,7 +41,7 @@ struct Notifications {
                     default: break
                 }
             }
-            content.badge = 1
+            if NSApp.isActive { content.badge = 1 }
                         
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
             
