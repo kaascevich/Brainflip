@@ -36,7 +36,7 @@ struct ContentView: View {
         .touchBar {
             TouchBarView(state: state)
         }
-        .toolbar() {
+        .toolbar {
             ToolbarContentView(state: state)
         }
     }

@@ -2,11 +2,11 @@ import SwiftUI
 import Foundation
 import os.log
 
-let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Settings")
-
 let settings = AppSettings()
 
 final class AppSettings: ObservableObject {
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Settings")
+    
     // MARK: - Store Definitions
     
     private static let generalSettings     = UserDefaults(suiteName: "settings-general")

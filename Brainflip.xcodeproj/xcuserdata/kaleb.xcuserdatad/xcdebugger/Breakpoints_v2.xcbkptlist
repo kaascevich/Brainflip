@@ -157,7 +157,197 @@
                   endingLineNumber = "21"
                   offsetFromSymbolStart = "28">
                </Location>
+               <Location
+                  uuid = "974494F0-842F-4A30-8CFF-F61E22C058E8 - c6715f99553eedf4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSTextView) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.introspect&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_1_0: SwiftUIIntrospect.IntrospectableViewType, &#x3c4;_1_1: SwiftUIIntrospect.PlatformEntity&gt;(_: &#x3c4;_1_0, on: SwiftUIIntrospect.PlatformViewVersionPredicate&lt;&#x3c4;_1_0, &#x3c4;_1_1&gt;..., scope: Swift.Optional&lt;SwiftUIIntrospect.IntrospectionScope&gt;, customize: (&#x3c4;_1_1) -&gt; ()) -&gt; some&gt;&gt;.0 in Brainflip.TextFieldWithLabel.body.getter : some"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/UI/Helper%20Views/TextFieldWithLabel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "32">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C700052-F3E5-4944-8179-0405F2823A4C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/Utilities/Document Types/ProgramDocument.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "init(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBF67BD7-A7E5-429A-ADAE-3025FA57D3BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/Utilities/Models/ProgramState.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "init(document:filename:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BBF67BD7-A7E5-429A-ADAE-3025FA57D3BB - 1ca44483b14f1394"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of Brainflip.ProgramState.init(document: Brainflip.ProgramDocument, filename: Swift.String) -&gt; Brainflip.ProgramState"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Models/ProgramState.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "BBF67BD7-A7E5-429A-ADAE-3025FA57D3BB - 4b38aae897737f0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.ProgramState.__allocating_init(document: Brainflip.ProgramDocument, filename: Swift.String) -&gt; Brainflip.ProgramState"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Models/ProgramState.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "BBF67BD7-A7E5-429A-ADAE-3025FA57D3BB - 2cc611a3695cf1e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.ProgramState.init(document: Brainflip.ProgramDocument, filename: Swift.String) -&gt; Brainflip.ProgramState"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Models/ProgramState.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "3456">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6EBF1033-93EA-4376-A151-5544B6274A89"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/Utilities/Models/Inspector.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "init(state:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE02C0AF-23AE-4973-BEC1-11C1B7964720"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/Utilities/Language/Interpreter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "init(program:input:onEndOfInput:arraySize:pointerLocation:cellSize:breakOnHash:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE02C0AF-23AE-4973-BEC1-11C1B7964720 - 5592712af37a158"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.Interpreter.__allocating_init(program: Swift.String, input: Swift.String, onEndOfInput: Brainflip.Interpreter.EndOfInput, arraySize: Swift.Int, pointerLocation: Swift.Int, cellSize: Swift.Int, breakOnHash: Swift.Bool) -&gt; Brainflip.Interpreter"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "BE02C0AF-23AE-4973-BEC1-11C1B7964720 - 51d2b4ef90191f66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Brainflip.Interpreter.init(program: Swift.String, input: Swift.String, onEndOfInput: Brainflip.Interpreter.EndOfInput, arraySize: Swift.Int, pointerLocation: Swift.Int, cellSize: Swift.Int, breakOnHash: Swift.Bool) -&gt; Brainflip.Interpreter"
+                  moduleName = "Brainflip"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9375CB9C-8A26-4211-A354-35E12BA3A669"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/UI/Helper Views/HelpButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "init(action:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "836A5E5A-D280-4630-8216-6052DEEB85D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Brainflip/UI/Scenes/Documents/Views/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

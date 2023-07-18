@@ -7,7 +7,7 @@ struct ResetProgramCommand: View {
         Button("Reset Program") {
             state?.reset()
         }
-        .keyboardShortcut(.escape, modifiers: [.shift, .command])
+        .keyboardShortcut(".", modifiers: [.shift, .command])
         .disabled(state?.disableResetButton ?? true)
     }
 }

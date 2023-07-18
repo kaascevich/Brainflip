@@ -7,7 +7,7 @@ struct StopCommand: View {
         Button("Stop") {
             state?.stop()
         }
-        .keyboardShortcut(.escape)
+        .keyboardShortcut(".")
         .disabled(state?.disableStopButton ?? true)
     }
 }

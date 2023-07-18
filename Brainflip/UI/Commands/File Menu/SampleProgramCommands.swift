@@ -6,7 +6,7 @@ struct SampleProgramCommands: Commands {
     @FocusedObject<ProgramState> var state
     
     var samplePrograms: [URL] {
-        Bundle.main.urls(forResourcesWithExtension: "bf", subdirectory: "")!.sorted { $0.absoluteString < $1.absoluteString }
+        Bundle.main.urls(forResourcesWithExtension: "bf", subdirectory: "Sample Programs")!.sorted { $0.absoluteString < $1.absoluteString }
     }
     
     var body: some Commands {
