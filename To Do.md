@@ -1,4 +1,4 @@
-#  To Do
+# To Do
 
 - [ ] Enable the array popover to be detatched
 - [ ] Clean up `ProgramState` (*god*, that thing's a mess)

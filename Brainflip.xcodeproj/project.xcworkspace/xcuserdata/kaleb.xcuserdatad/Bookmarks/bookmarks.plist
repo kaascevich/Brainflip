@@ -3,6 +3,79 @@
 <plist version="1.0">
 <dict>
 	<key>top-level-items</key>
-	<array/>
+	<array>
+		<dict>
+			<key>query-specification</key>
+			<dict>
+				<key>match-case</key>
+				<integer>1</integer>
+				<key>query</key>
+				<string>regular-expression</string>
+				<key>term</key>
+				<dict>
+					<key>text</key>
+					<string>// MARK: </string>
+				</dict>
+			</dict>
+			<key>title</key>
+			<string>Marks</string>
+			<key>type</key>
+			<string>batch-find-query</string>
+		</dict>
+		<dict>
+			<key>query-specification</key>
+			<dict>
+				<key>match-case</key>
+				<integer>1</integer>
+				<key>query</key>
+				<string>regular-expression</string>
+				<key>term</key>
+				<dict>
+					<key>text</key>
+					<string>// TODO: </string>
+				</dict>
+			</dict>
+			<key>title</key>
+			<string>TODOs</string>
+			<key>type</key>
+			<string>batch-find-query</string>
+		</dict>
+		<dict>
+			<key>query-specification</key>
+			<dict>
+				<key>match-case</key>
+				<integer>1</integer>
+				<key>query</key>
+				<string>regular-expression</string>
+				<key>term</key>
+				<dict>
+					<key>text</key>
+					<string>// FIXME: </string>
+				</dict>
+			</dict>
+			<key>title</key>
+			<string>FIXMEs</string>
+			<key>type</key>
+			<string>batch-find-query</string>
+		</dict>
+		<dict>
+			<key>query-specification</key>
+			<dict>
+				<key>match-case</key>
+				<integer>1</integer>
+				<key>query</key>
+				<string>symbols</string>
+				<key>term</key>
+				<dict>
+					<key>text</key>
+					<string>Logger</string>
+				</dict>
+			</dict>
+			<key>title</key>
+			<string>Loggers</string>
+			<key>type</key>
+			<string>batch-find-query</string>
+		</dict>
+	</array>
 </dict>
 </plist>

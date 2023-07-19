@@ -7,7 +7,7 @@ import AppIntents
 /// All Brainflip programs manipulate an ``array`` of at least 30,000 cells. These cells
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
-class Interpreter {
+final class Interpreter {
     private let logger = Logger(subsystem: bundleID, category: "Interpreter")
     
     /// The action to perform  when encountering an input instruction after end-of-input has been reached.
@@ -324,15 +324,13 @@ class Interpreter {
     /// Steps through the program, one instruction at a time.
     ///
     /// - Throws: `InterpreterError`.
-    func step() async throws {
+    func step() throws {
         logger.info("Stepping through program")
         try checkForMismatchedBrackets()
         if currentInstructionIndex != program.count - 1 {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
         }
-        logger.info("New instruction index: \(self.currentInstructionIndex, privacy: .public)")
-        logger.info("Output: \(self.output, privacy: .public)")
     }
     
     func checkForMismatchedBrackets() throws {

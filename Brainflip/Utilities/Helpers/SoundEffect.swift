@@ -3,6 +3,8 @@ import AudioToolbox
 import os.log
 
 struct SoundEffect: Hashable {
+    static private let logger = Logger(subsystem: bundleID, category: "Sound")
+    
     let id: SystemSoundID
     let name: String
     
@@ -12,8 +14,7 @@ struct SoundEffect: Hashable {
     }
     
     func play() {
-        let logger = Logger(subsystem: bundleID, category: "Sound")
-        logger.log("Playing sound \"\(name)\"")
+        Self.logger.log("Playing sound \"\(name)\"")
         AudioServicesPlaySystemSoundWithCompletion(id, nil)
     }
 }

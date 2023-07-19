@@ -25,6 +25,7 @@ struct Editor: View {
         textView.isEditable = !state.isRunningProgram
         textView.isSelectable = !state.isRunningProgram
         if settings.showCurrentInstruction {
+            // FIXME: Current instruction highlighting
             textView.textStorage?.addAttributes(
                 [.backgroundColor: NSColor.findHighlightColor, .foregroundColor: NSColor.black],
                 range: NSRange(state.selection))

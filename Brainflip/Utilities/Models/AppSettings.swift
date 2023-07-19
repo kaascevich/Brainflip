@@ -2,9 +2,11 @@ import SwiftUI
 import Foundation
 import os.log
 
+// TODO: Get rid of the "settings" global somehow
 let settings = AppSettings()
 var bundleID: String { Bundle.main.bundleIdentifier! }
 
+// TODO: Create a macro to help out with the AppSettings class
 final class AppSettings: ObservableObject {
     private let logger = Logger(subsystem: bundleID, category: "Settings")
     

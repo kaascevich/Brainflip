@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 
-@MainActor
+//@MainActor
 final class ProgramState: ObservableObject {
     @Published var document: ProgramDocument
     init(document: ProgramDocument, filename: String = "") {
@@ -54,6 +54,7 @@ final class ProgramState: ObservableObject {
         }
     }
     
+    @MainActor
     func run()  {
         if isValidKonamiCode(document.contents) {
             document.contents = "Ha ha‚ nice try․"
@@ -94,6 +95,7 @@ final class ProgramState: ObservableObject {
         isRunningProgram
     }
     
+    @MainActor
     func step() {
         if shouldReset() {
             reset()
@@ -102,7 +104,7 @@ final class ProgramState: ObservableObject {
         isSteppingThrough = true
         Task {
             do {
-                try await interpreter.step()
+                try interpreter.step()
                 if settings.playSounds, settings.playStepSound { SystemSounds.step.play() }
                 output = interpreter.output
                 updateSelection()
