@@ -19,8 +19,8 @@ struct GeneralSettings: View {
                 GeneralDefaultsButton()
                 DefaultsButton()
             }
-                .padding(.horizontal)
-                .padding(.bottom)
+            .padding(.horizontal)
+            .padding(.bottom)
         }
     }
 }

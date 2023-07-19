@@ -15,10 +15,6 @@ struct InspectorView: View {
         searchText.isEmpty ? true : string.lowercased().contains(searchText.lowercased())
     }
     
-    var modulesMeetingSearchCriteria: [Inspector.Module] {
-        return inspector.modules.filter { meetsSearchCriteria($0.name) }
-    }
-        
     var body: some View {
         VStack {
             HStack {
@@ -57,7 +53,7 @@ struct InspectorView: View {
         }
         .padding(10)
         .overlay {
-            if modulesMeetingSearchCriteria.isEmpty {
+            if inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name) }) {
                 ContentUnavailableView.search
             }
         }

@@ -325,12 +325,14 @@ class Interpreter {
     ///
     /// - Throws: `InterpreterError`.
     func step() async throws {
-        //logger.info("Stepping through program")
+        logger.info("Stepping through program")
         try checkForMismatchedBrackets()
         if currentInstructionIndex != program.count - 1 {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
         }
+        logger.info("New instruction index: \(self.currentInstructionIndex, privacy: .public)")
+        logger.info("Output: \(self.output, privacy: .public)")
     }
     
     func checkForMismatchedBrackets() throws {

@@ -45,7 +45,8 @@ struct Editor: View {
                         applyTextViewSettings($0)
                         $0.textStorage?.addAttributes(
                             [.backgroundColor: NSColor.textBackgroundColor, .foregroundColor: NSColor.textColor],
-                            range: NSRange(0..<state.document.contents.count))
+                            range: NSRange(location: 0, length: state.document.contents.count)
+                        )
                     }
             }
         }

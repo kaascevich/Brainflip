@@ -9,32 +9,31 @@ final class ProgramState: ObservableObject {
         self.filename = filename
     }
     
-    @Published var convertedDocument: CSourceDocument?
-    
-    @Published var filename = ""
-    @Published var isShowingOutput = true
-    @Published var isShowingInspector = true
-    @Published var interpreter = Interpreter(program: "\0")
-    @Published var output = ""
-    @Published var input = ""
-    @Published var isRunningProgram = false
-    @Published var justRanProgram = false
-    @Published var isSteppingThrough = false
-    @Published var errorDescription = ""
+    @Published var convertedDocument: CSourceDocument? = nil
+    @Published var filename: String = ""
+    @Published var isShowingOutput: Bool = true
+    @Published var isShowingInspector: Bool = true
+    @Published var interpreter: Interpreter = .init(program: "\0")
+    @Published var output: String = ""
+    @Published var input: String = ""
+    @Published var isRunningProgram: Bool = false
+    @Published var justRanProgram: Bool = false
+    @Published var isSteppingThrough: Bool = false
+    @Published var errorDescription: String = ""
     @Published var errorType: InterpreterError? = nil
-    @Published var hasError = false
-    @Published var isClearAlertShowing = false
-    @Published var isWarningAboutTrim = false
-    @Published var isInformingAboutCExport = false
-    @Published var isAskingForOutputFile = false
-    @Published var isConversionProgressShowing = false
-    @Published var showingArray = false
-    @Published var showingMainHelp = false
+    @Published var hasError: Bool = false
+    @Published var isClearAlertShowing: Bool = false
+    @Published var isWarningAboutTrim: Bool = false
+    @Published var isInformingAboutCExport: Bool = false
+    @Published var isAskingForOutputFile: Bool = false
+    @Published var isConversionProgressShowing: Bool = false
+    @Published var showingArray: Bool = false
+    @Published var showingMainHelp: Bool = false
     @Published var selection: Range<Int> = 0..<0
-    @Published var timeElapsed = TimeInterval(0)
-    @Published var startDate = Date()
-    @Published var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
-    @Published var execution = Task { }
+    @Published var timeElapsed: TimeInterval = 0
+    @Published var startDate: Date = .now
+    @Published var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
+    @Published var execution: Task = .init { }
     
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
