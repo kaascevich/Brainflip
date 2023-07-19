@@ -1,15 +1,6 @@
 # Brainflip
 a human-usable brainf\*\*k interpreter for macOS
 
-## To Do
-
-- [ ] Enable the array popover to be detatched
-- [ ] Clean up `ProgramState` (*god*, that thing's a mess)
-- [ ] Speed up syntax highlighting
-- [ ] Allow signed cells in addition to unsigned
-- [ ] Add option to disable cell overflow/underflow
-- [x] Allow 1-bit, 2-bit, and 4-bit cell sizes
-
 ## Overview
 
 *Quick disclaimer: This readme doubles as a testing ground for Markdown formatting. So expect to see a lot of mostly pointless shenanigans.*
