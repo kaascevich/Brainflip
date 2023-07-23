@@ -34,11 +34,7 @@ extension Int: Identifiable {
     }
 }
 
-private struct ShowArrayButton_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ShowArrayButton(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ShowArrayButton(state: previewState)
+        .environmentObject(settings)
 }

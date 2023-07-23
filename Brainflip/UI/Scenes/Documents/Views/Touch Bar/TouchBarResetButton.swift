@@ -15,3 +15,8 @@ struct TouchBarResetButton: View {
         .disabled(state.disableResetButton)
     }
 }
+
+#Preview {
+    TouchBarResetButton(state: previewState)
+        .environmentObject(settings)
+}

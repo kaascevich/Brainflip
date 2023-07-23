@@ -16,3 +16,8 @@ struct TouchBarStepButton: View {
         .disabled(state.disableStepButton)
     }
 }
+
+#Preview {
+    TouchBarStepButton(state: previewState)
+        .environmentObject(settings)
+}

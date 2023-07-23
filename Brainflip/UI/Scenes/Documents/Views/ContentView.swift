@@ -42,11 +42,7 @@ struct ContentView: View {
     }
 }
 
-private struct ContentView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ContentView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ContentView(state: previewState)
+        .environmentObject(settings)
 }

@@ -15,3 +15,8 @@ struct TouchBarStopButton: View {
         .disabled(state.disableStopButton)
     }
 }
+
+#Preview {
+    TouchBarStopButton(state: previewState)
+        .environmentObject(settings)
+}

@@ -73,6 +73,7 @@
 		34618C7329AAE5A000552568 /* StepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7229AAE5A000552568 /* StepButton.swift */; };
 		34618C7529AAE7EF00552568 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7429AAE7EF00552568 /* AppSettings.swift */; };
 		34618C7729AAECEC00552568 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7629AAECEC00552568 /* OutputView.swift */; };
+		34679C4D2A6DD092008CE0C1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34679C4C2A6DD092008CE0C1 /* Debug.swift */; };
 		3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */; };
 		3474D9BB29CB777100DCFDF2 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */; };
 		3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */; };
@@ -83,7 +84,6 @@
 		3474D9CD29CBA63000DCFDF2 /* WhitespaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9CC29CBA63000DCFDF2 /* WhitespaceList.swift */; };
 		3476C2002A636FC600EFE61C /* ShowArrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476C1FF2A636FC600EFE61C /* ShowArrayButton.swift */; };
 		3477236C2A58FD33004F1410 /* String+StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477236B2A58FD33004F1410 /* String+StringBuilder.swift */; };
-		347A30392A5A408D00CBF49B /* Array+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A30382A5A408D00CBF49B /* Array+Split.swift */; };
 		3480FF8829A916760021D5FD /* MainHelp.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3480FF8729A916760021D5FD /* MainHelp.rtf */; };
 		3482EF0129AFC16D0001800E /* ASCIIChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0029AFC16D0001800E /* ASCIIChartView.swift */; };
 		3482EF0329AFC5EA0001800E /* ASCIIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0229AFC5EA0001800E /* ASCIIValues.swift */; };
@@ -237,6 +237,7 @@
 		34618C7229AAE5A000552568 /* StepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepButton.swift; sourceTree = "<group>"; };
 		34618C7429AAE7EF00552568 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34618C7629AAECEC00552568 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		34679C4C2A6DD092008CE0C1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportDefaultsButton.swift; sourceTree = "<group>"; };
 		3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSettings.swift; sourceTree = "<group>"; };
 		3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPreview.swift; sourceTree = "<group>"; };
@@ -247,7 +248,6 @@
 		3474D9CC29CBA63000DCFDF2 /* WhitespaceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhitespaceList.swift; sourceTree = "<group>"; };
 		3476C1FF2A636FC600EFE61C /* ShowArrayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowArrayButton.swift; sourceTree = "<group>"; };
 		3477236B2A58FD33004F1410 /* String+StringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+StringBuilder.swift"; sourceTree = "<group>"; };
-		347A30382A5A408D00CBF49B /* Array+Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Split.swift"; sourceTree = "<group>"; };
 		347F22A42A67640D00754651 /* To Do.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "To Do.md"; sourceTree = "<group>"; };
 		3480FF8729A916760021D5FD /* MainHelp.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = MainHelp.rtf; sourceTree = "<group>"; };
 		3482EF0029AFC16D0001800E /* ASCIIChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCIIChartView.swift; sourceTree = "<group>"; };
@@ -448,7 +448,6 @@
 			isa = PBXGroup;
 			children = (
 				34D05ADA29B3E67300711079 /* Array+RawRepresentable.swift */,
-				347A30382A5A408D00CBF49B /* Array+Split.swift */,
 				3477236B2A58FD33004F1410 /* String+StringBuilder.swift */,
 			);
 			path = Extensions;
@@ -645,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				3422F3B92A65F054006DB1BF /* East.swift */,
+				34679C4C2A6DD092008CE0C1 /* Debug.swift */,
 				34E09D8029BB91C500CF2299 /* SoundEffect.swift */,
 				34FDFE4429CC7F8E0020CDC8 /* Brainflip To C */,
 			);
@@ -1039,7 +1039,6 @@
 			files = (
 				34618C5C29AADDDC00552568 /* ProgramDocument.swift in Sources */,
 				3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */,
-				347A30392A5A408D00CBF49B /* Array+Split.swift in Sources */,
 				34044E3D2A5B903C001FB589 /* TrimCommand.swift in Sources */,
 				34E09D7B29BB8E6B00CF2299 /* SoundSettings.swift in Sources */,
 				3404A20D29B23FF1004514DC /* ResetProgramCommand.swift in Sources */,
@@ -1114,6 +1113,7 @@
 				345C398D29BE536B0025BA9C /* MenuCommandAlerts.swift in Sources */,
 				34266C0829C4D9660045337D /* SearchBar.swift in Sources */,
 				34D05ACC29B3C49C00711079 /* ToolbarClearMenu.swift in Sources */,
+				34679C4D2A6DD092008CE0C1 /* Debug.swift in Sources */,
 				342D92FE29B25E09002461DA /* ArraySizeSlider.swift in Sources */,
 				3477236C2A58FD33004F1410 /* String+StringBuilder.swift in Sources */,
 				342D930029B25E96002461DA /* PointerLocationSlider.swift in Sources */,

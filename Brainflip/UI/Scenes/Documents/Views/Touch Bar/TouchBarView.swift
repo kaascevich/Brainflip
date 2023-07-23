@@ -13,3 +13,8 @@ struct TouchBarView: View {
         Spacer()
     }
 }
+
+#Preview {
+    TouchBarView(state: previewState)
+        .environmentObject(settings)
+}

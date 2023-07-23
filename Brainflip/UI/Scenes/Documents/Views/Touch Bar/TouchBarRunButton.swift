@@ -15,3 +15,8 @@ struct TouchBarRunButton: View {
         .disabled(state.disableRunButton)
     }
 }
+
+#Preview {
+    TouchBarRunButton(state: previewState)
+        .environmentObject(settings)
+}

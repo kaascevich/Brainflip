@@ -38,12 +38,7 @@ struct ProgramProgressView: View {
     }
 }
 
-private struct ProgramProgressView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ProgramProgressView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ProgramProgressView(state: previewState)
+        .environmentObject(settings)
 }
-

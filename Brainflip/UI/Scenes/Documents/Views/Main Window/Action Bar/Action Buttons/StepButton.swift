@@ -15,11 +15,7 @@ struct StepButton: View {
     }
 }
 
-private struct StepButton_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        StepButton(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    StepButton(state: previewState)
+        .environmentObject(settings)
 }

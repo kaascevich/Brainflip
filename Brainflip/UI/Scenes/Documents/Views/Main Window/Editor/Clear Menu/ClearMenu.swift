@@ -17,11 +17,7 @@ struct ClearMenu: View {
     }
 }
 
-private struct ClearMenu_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ClearMenu(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ClearMenu(state: previewState)
+        .environmentObject(settings)
 }

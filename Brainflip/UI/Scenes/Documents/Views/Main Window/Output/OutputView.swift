@@ -24,12 +24,7 @@ struct OutputView: View {
     }
 }
 
-private struct OutputView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        OutputView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    OutputView(state: previewState)
+        .environmentObject(settings)
 }
-

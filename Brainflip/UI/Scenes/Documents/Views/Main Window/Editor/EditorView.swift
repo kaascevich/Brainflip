@@ -27,12 +27,7 @@ struct EditorView: View {
     }
 }
 
-private struct EditorView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        EditorView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    EditorView(state: previewState)
+        .environmentObject(settings)
 }
-

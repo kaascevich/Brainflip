@@ -20,11 +20,7 @@ struct ActionBarView: View {
     }
 }
 
-private struct ActionBarView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ActionBarView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ActionBarView(state: previewState)
+        .environmentObject(settings)
 }

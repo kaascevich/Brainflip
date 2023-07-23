@@ -15,7 +15,7 @@ func isValidKonamiCode(_ code: String) -> Bool {
     guard code.count == konamiSequence.count else { return false }
     
     for i in konamiSequence.indices {
-        if !konamiSequence[i].rawValue.contains(code[i]) { return false }
+        guard konamiSequence[i].rawValue.contains(code[i]) else { return false }
     }
     
     return true

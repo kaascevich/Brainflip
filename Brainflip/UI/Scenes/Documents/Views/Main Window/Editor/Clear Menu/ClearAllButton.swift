@@ -12,11 +12,7 @@ struct ClearAllButton: View {
     }
 }
 
-private struct ClearAllButton_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        ClearAllButton(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    ClearAllButton(state: previewState)
+        .environmentObject(settings)
 }

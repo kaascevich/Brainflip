@@ -20,6 +20,6 @@ struct ResetButton: View {
 }
 
 #Preview {
-    ResetButton(state: ProgramState(document: ProgramDocument(",[>+<-.]")))
+    ResetButton(state: previewState)
         .environmentObject(settings)
 }

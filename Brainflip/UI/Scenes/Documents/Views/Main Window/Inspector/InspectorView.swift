@@ -60,11 +60,7 @@ struct InspectorView: View {
     }
 }
 
-private struct InspectorView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        InspectorView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    InspectorView(state: previewState)
+        .environmentObject(settings)
 }

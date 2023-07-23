@@ -25,12 +25,7 @@ struct TimerView: View {
     }
 }
 
-private struct TimerView_Previews: PreviewProvider {
-    @State private static var document = ProgramDocument(",[>+<-.]")
-    
-    static var previews: some View {
-        TimerView(state: ProgramState(document: document))
-            .environmentObject(settings)
-    }
+#Preview {
+    TimerView(state: previewState)
+        .environmentObject(settings)
 }
-
