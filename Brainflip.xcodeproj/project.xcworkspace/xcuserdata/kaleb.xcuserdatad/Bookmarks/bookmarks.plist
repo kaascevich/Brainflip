@@ -25,14 +25,12 @@
 		<dict>
 			<key>query-specification</key>
 			<dict>
-				<key>match-case</key>
-				<integer>1</integer>
 				<key>query</key>
-				<string>regular-expression</string>
+				<string>text</string>
 				<key>term</key>
 				<dict>
 					<key>text</key>
-					<string>// TODO: </string>
+					<string>TODO: </string>
 				</dict>
 			</dict>
 			<key>title</key>

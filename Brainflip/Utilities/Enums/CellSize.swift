@@ -1,6 +1,7 @@
 import Foundation
 import AppIntents
 
+/// The possible sizes for a cell.
 enum CellSize: Int, CaseIterable, Hashable, AppEnum {
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Cell Size"
     static var caseDisplayRepresentations: [CellSize: DisplayRepresentation] = [
@@ -12,10 +13,22 @@ enum CellSize: Int, CaseIterable, Hashable, AppEnum {
         .thirtyTwoBit: "32-Bit"
     ]
     
-    case oneBit       = 1             // (2^1 ) - 1
-    case twoBit       = 3             // (2^2 ) - 1
-    case fourBit      = 15            // (2^4 ) - 1
-    case eightBit     = 255           // (2^8 ) - 1
-    case sixteenBit   = 65_535        // (2^16) - 1
-    case thirtyTwoBit = 4_294_967_295 // (2^32) - 1
+    /// Represents a cell size of 2¹-1 = 1.
+    case oneBit = 1
+    
+    /// Represents a cell size of 2²-1 = 3.
+    case twoBit = 3
+    
+    /// Represents a cell size of 2⁴-1 = 15.
+    case fourBit = 15
+    
+    /// Represents a cell size of 2⁸-1 = 255.
+    case eightBit = 255
+    
+    /// Represents a cell size of 2¹⁶-1 = 65,535.
+    case sixteenBit = 65_535
+    
+    /// Represents a cell size of 2³²-1 = 4,294,967,295.
+    case thirtyTwoBit = 4_294_967_295
 }
+

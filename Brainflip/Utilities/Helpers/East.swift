@@ -1,3 +1,9 @@
+/// Checks whether the provided string is a valid variant of the Konami code.
+///
+/// - Parameter code: The string to check.
+///
+/// - Returns: `true` if `code` is a valid valid variant of the Konami code;
+///   otherwise, `false`.
 func isValidKonamiCode(_ code: String) -> Bool {
     enum KonamiCharacters: String {
         // Just about every single Unicode character I can come up with that even vaugely represents these symbols.

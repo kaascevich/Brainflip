@@ -2,8 +2,12 @@ import SwiftUI
 import Foundation
 import os.log
 
-// TODO: Get rid of the "settings" global somehow
+/// The global ``AppSettings`` object.
+///
+/// - TODO: Get rid of this somehow.
 let settings = AppSettings()
+
+/// The bundle ID of this app.
 var bundleID: String { Bundle.main.bundleIdentifier! }
 
 // TODO: Create a macro to help out with the AppSettings class
