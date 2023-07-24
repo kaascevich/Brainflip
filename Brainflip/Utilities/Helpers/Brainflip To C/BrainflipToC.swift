@@ -4,10 +4,13 @@ import os.log
 
 enum BrainflipToC {
     static let logger = Logger(subsystem: bundleID, category: "Brainflip-to-C conversion")
-    
-    // Equivalent to /[_a-zA-Z]\w{0,30}/
-    // Identifiers in C can begin with an underscore or a letter
-    // After the first character numbers can be used as well
+        
+    /// A `Regex` matching valid C identifiers.
+    ///
+    /// This regex is equivalent to `/[_a-zA-Z]\w{0,30}/`.
+    ///
+    /// Identifiers in C can begin with an underscore or a letter.
+    /// After the first character, numbers can be used as well.
     static let identifierRegex = Regex {
         CharacterClass(
             .anyOf("_"),

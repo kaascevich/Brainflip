@@ -4,7 +4,7 @@ import AppIntents
 
 /// Provides interpretation features for a Brainflip program.
 ///
-/// All Brainflip programs manipulate an ``array`` of at least 30,000 cells. These cells
+/// All Brainflip programs manipulate an array of at least 30,000 cells. These cells
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
 final class Interpreter {
@@ -47,7 +47,7 @@ final class Interpreter {
     ///   - program: The program that will be executed by this interpreter.
     ///   - input: The user input to be supplied to the program.
     ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
-    ///   - arraySize: The maximum capacity of the ``array``.
+    ///   - arraySize: The maximum capacity of the array.
     ///   - pointerLocation: The initial location for the ``pointer``.
     ///   - cellSize: The maximum value a cell can hold, plus 1.
     ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
@@ -76,7 +76,7 @@ final class Interpreter {
     ///   - program: The program that will be executed by this interpreter, as a `String`.
     ///   - input: The user input to be supplied to the program.
     ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
-    ///   - arraySize: The maximum capacity of the ``array``.
+    ///   - arraySize: The maximum capacity of the array.
     ///   - pointerLocation: The initial location for the ``pointer``.
     ///   - cellSize: The maximum value a cell can hold, plus 1.
     ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
@@ -164,7 +164,7 @@ final class Interpreter {
     
     private(set) var loops: [Int] = []
     
-    /// The maximum size of the ``array``.
+    /// The maximum size of the array.
     let arraySize: Int
     
     private var array: [Int?]
@@ -176,7 +176,7 @@ final class Interpreter {
     /// is automatically set to `0`. This enables a more concise inspector implementation.
     var cellArray: [Int] { array.compactMap { $0 } }
     
-    /// The amount of non-`nil` cells that are currently in the ``array``.
+    /// The amount of non-`nil` cells that are currently in the array.
     private(set) var currentArraySize = 1
     
     /// The pointer used to mark the current cell's location.

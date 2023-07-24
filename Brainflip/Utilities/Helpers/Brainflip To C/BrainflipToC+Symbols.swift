@@ -1,8 +1,10 @@
 import Foundation
 
 extension BrainflipToC {
-    // I've used static lets instead of cases because I'd otherwise have
-    // to specify ".rawValue" every time.
+    /// An enumeration of the symbols used to translate BF into C.
+    ///
+    /// - Remark: I've used `static let`s instead of `case`s because I'd
+    ///   otherwise have to specify `.rawValue` every time.
     enum Symbols {
 
         // MARK: - Whitespace

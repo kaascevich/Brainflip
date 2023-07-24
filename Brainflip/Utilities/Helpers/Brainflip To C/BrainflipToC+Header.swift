@@ -12,6 +12,9 @@ extension BrainflipToC {
         }
     }
     
+    /// The `#include` statement.
+    ///
+    /// This statement is necessary to perform I/O.
     @StringBuilder static var includeStatement: String {
         Symbols.include
         Symbols.space
@@ -19,6 +22,8 @@ extension BrainflipToC {
         Symbols.includedLibrary
         Symbols.closingAngleBracket
     }
+    
+    /// The declaration of the array.
     @StringBuilder static var arrayDeclaration: String {
         Symbols.unsigned
         Symbols.space
@@ -31,6 +36,8 @@ extension BrainflipToC {
         closingBracket
         semicolon
     }
+    
+    /// The declaration of the pointer.
     @StringBuilder static var pointerDeclaration: String {
         Symbols.unsigned
         Symbols.space
@@ -41,6 +48,8 @@ extension BrainflipToC {
         settings.arrayName
         semicolon
     }
+    
+    /// The declaration of the temporary variable used for I/O, if necessary.
     @StringBuilder static var tempVariableDeclaration: String {
         if settings.endOfInput == .noChange {
             cellType
@@ -51,6 +60,8 @@ extension BrainflipToC {
             semicolon
         }
     }
+    
+    /// The declaration of the `main()` function.
     @StringBuilder static var main: String {
         Symbols.mainReturnType
         Symbols.space
@@ -69,6 +80,8 @@ extension BrainflipToC {
         newLineBeforeBrace
         Symbols.openingBrace
     }
+    
+    /// The line that sets the pointer to its initial value, if necessary.
     @StringBuilder static var initialPointerLocation: String {
         settings.pointerName
         compoundAssignment

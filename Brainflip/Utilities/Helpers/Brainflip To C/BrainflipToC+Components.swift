@@ -84,6 +84,7 @@ extension BrainflipToC {
     
     // MARK: - Other
     
+    /// The semicolon required after every statement.
     @StringBuilder static var semicolon: String {
         whitespace(for: .beforeSemicolon)
         Symbols.semicolon
@@ -97,6 +98,7 @@ extension BrainflipToC {
         whitespace(for: .afterCommentMarkers)
     }
     
+    /// A `String` representation of the cell size.
     static var cellType: String {
         switch settings.cellSize {
             case .eightBit:     // 255

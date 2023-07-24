@@ -4,10 +4,6 @@ struct ToolbarPanelToggles: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     
-    init(state: ProgramState) {
-        self.state = state
-    }
-    
     var body: some ToolbarContent {
         ToolbarItemGroup {
             Toggle(isOn: $state.isShowingOutput) {

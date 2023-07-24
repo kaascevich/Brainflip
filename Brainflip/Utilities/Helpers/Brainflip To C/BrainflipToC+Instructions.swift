@@ -110,6 +110,7 @@ extension BrainflipToC {
         }
     }
     
+    /// Exits the program.
     @StringBuilder static var returnInstruction: String {
         Symbols.return
         Symbols.space
@@ -117,6 +118,12 @@ extension BrainflipToC {
         semicolon
     }
     
+    /// Converts a BF instruction into a line of C code.
+    ///
+    /// - Parameter type: The type of the instruction.
+    ///
+    /// - Returns: The converted instruction as a `String`, or `nil`
+    ///   if there is no need for the instruction.
     static func createInstruction(type: Instruction) -> String? {
         var instruction = indent
         switch type {

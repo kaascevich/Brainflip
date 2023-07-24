@@ -101,54 +101,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "63D2BC13-5211-42E7-A925-BB13B618A162"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Brainflip/Utilities/Language/Interpreter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "step()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "63D2BC13-5211-42E7-A925-BB13B618A162 - c5c973c95a62301a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Brainflip.Interpreter.step() async throws -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "333"
-                  endingLineNumber = "333"
-                  offsetFromSymbolStart = "392">
-               </Location>
-               <Location
-                  uuid = "63D2BC13-5211-42E7-A925-BB13B618A162 - c5c973c95a62301a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Brainflip.Interpreter.step() async throws -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "333"
-                  endingLineNumber = "333"
-                  offsetFromSymbolStart = "368">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "03A650B2-058E-49B3-AA69-75B403067417"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -256,54 +208,6 @@
             endingLineNumber = "110"
             landmarkName = "step()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "99622AEE-16C2-428F-9C40-6431301D1878"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Brainflip/Utilities/Language/Interpreter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "331"
-            endingLineNumber = "331"
-            landmarkName = "step()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "99622AEE-16C2-428F-9C40-6431301D1878 - c5c973c95a623064"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Brainflip.Interpreter.step() async throws -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "331"
-                  endingLineNumber = "331"
-                  offsetFromSymbolStart = "244">
-               </Location>
-               <Location
-                  uuid = "99622AEE-16C2-428F-9C40-6431301D1878 - c5c973c95a623064"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Brainflip.Interpreter.step() async throws -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Brainflip/Utilities/Language/Interpreter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "331"
-                  endingLineNumber = "331"
-                  offsetFromSymbolStart = "220">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
