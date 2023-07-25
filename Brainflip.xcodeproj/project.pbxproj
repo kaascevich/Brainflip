@@ -99,11 +99,6 @@
 		34AD99482A59F72B0020CE37 /* GeneralDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */; };
 		34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */; };
 		34B0BFD02A60CD1400FF5769 /* SampleProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */; };
-		34B3BAC529B6435B009E06A7 /* TouchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAC429B6435B009E06A7 /* TouchBarView.swift */; };
-		34B3BACE29B64475009E06A7 /* TouchBarRunButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BACD29B64475009E06A7 /* TouchBarRunButton.swift */; };
-		34B3BAD029B6447F009E06A7 /* TouchBarStepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BACF29B6447F009E06A7 /* TouchBarStepButton.swift */; };
-		34B3BAD229B64485009E06A7 /* TouchBarResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAD129B64485009E06A7 /* TouchBarResetButton.swift */; };
-		34B3BAD429B6448B009E06A7 /* TouchBarStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAD329B6448B009E06A7 /* TouchBarStopButton.swift */; };
 		34B3BADA29B6686F009E06A7 /* InterpreterDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAD929B6686F009E06A7 /* InterpreterDefaultsButton.swift */; };
 		34BB2C0E2A6768E800E3E812 /* Demonstration.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BB2C0D2A6768E800E3E812 /* Demonstration.png */; };
 		34D05AC129B3B2E800711079 /* ToolbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC029B3B2E800711079 /* ToolbarContentView.swift */; };
@@ -267,11 +262,6 @@
 		34AEE2E62A65CE2200A06DC4 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		34AEE2E82A65CE2200A06DC4 /* RunBFProgramIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunBFProgramIntent.swift; sourceTree = "<group>"; };
 		34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleProgramCommands.swift; sourceTree = "<group>"; };
-		34B3BAC429B6435B009E06A7 /* TouchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarView.swift; sourceTree = "<group>"; };
-		34B3BACD29B64475009E06A7 /* TouchBarRunButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarRunButton.swift; sourceTree = "<group>"; };
-		34B3BACF29B6447F009E06A7 /* TouchBarStepButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarStepButton.swift; sourceTree = "<group>"; };
-		34B3BAD129B64485009E06A7 /* TouchBarResetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarResetButton.swift; sourceTree = "<group>"; };
-		34B3BAD329B6448B009E06A7 /* TouchBarStopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarStopButton.swift; sourceTree = "<group>"; };
 		34B3BAD929B6686F009E06A7 /* InterpreterDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterDefaultsButton.swift; sourceTree = "<group>"; };
 		34BB2C0D2A6768E800E3E812 /* Demonstration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demonstration.png; sourceTree = "<group>"; };
 		34CECCA52A64E07E003F936D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -711,18 +701,6 @@
 			path = "App Shortcuts";
 			sourceTree = "<group>";
 		};
-		34B3BAC629B643EA009E06A7 /* Touch Bar */ = {
-			isa = PBXGroup;
-			children = (
-				34B3BAC429B6435B009E06A7 /* TouchBarView.swift */,
-				34B3BACD29B64475009E06A7 /* TouchBarRunButton.swift */,
-				34B3BACF29B6447F009E06A7 /* TouchBarStepButton.swift */,
-				34B3BAD129B64485009E06A7 /* TouchBarResetButton.swift */,
-				34B3BAD329B6448B009E06A7 /* TouchBarStopButton.swift */,
-			);
-			path = "Touch Bar";
-			sourceTree = "<group>";
-		};
 		34D05ABF29B3B2DC00711079 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,7 +781,6 @@
 			children = (
 				34DF121F29A7B9480021729B /* ContentView.swift */,
 				345C398C29BE536B0025BA9C /* MenuCommandAlerts.swift */,
-				34B3BAC629B643EA009E06A7 /* Touch Bar */,
 				34D05ABF29B3B2DC00711079 /* Toolbar */,
 				34D663B429B8F0C800CB7481 /* Main Window */,
 			);
@@ -1122,13 +1099,11 @@
 				34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */,
 				3433604929B28F3C00E9C4AD /* ClearMenu.swift in Sources */,
 				342D930529B273AA002461DA /* InspectorSettings.swift in Sources */,
-				34B3BACE29B64475009E06A7 /* TouchBarRunButton.swift in Sources */,
 				3482EF0329AFC5EA0001800E /* ASCIIValues.swift in Sources */,
 				34FDFE4629CC80070020CDC8 /* BrainflipToC+Components.swift in Sources */,
 				3474D9CD29CBA63000DCFDF2 /* WhitespaceList.swift in Sources */,
 				3476C2002A636FC600EFE61C /* ShowArrayButton.swift in Sources */,
 				34D05ADB29B3E67300711079 /* Array+RawRepresentable.swift in Sources */,
-				34B3BAD029B6447F009E06A7 /* TouchBarStepButton.swift in Sources */,
 				34E09D8129BB91C500CF2299 /* SoundEffect.swift in Sources */,
 				3404A21F29B24F11004514DC /* ClearInputButton.swift in Sources */,
 				3404A20529B23FCA004514DC /* StepCommand.swift in Sources */,
@@ -1136,7 +1111,6 @@
 				34E09D8F29BBB5C800CF2299 /* ProgramProgressView.swift in Sources */,
 				34FDFE4E29CC83EC0020CDC8 /* BrainflipToC+Helpers.swift in Sources */,
 				344E528B29BD34D200F4DB50 /* FileCommands.swift in Sources */,
-				34B3BAC529B6435B009E06A7 /* TouchBarView.swift in Sources */,
 				3421A4F829AF8DC5002162BA /* ProgramCommands.swift in Sources */,
 				3422F3BA2A65F054006DB1BF /* East.swift in Sources */,
 				34FDFE4829CC81030020CDC8 /* BrainflipToC+Instructions.swift in Sources */,
@@ -1145,7 +1119,6 @@
 				346011892A659F6400029BB3 /* TextSizeSlider.swift in Sources */,
 				34266C0629C4D2080045337D /* EditorDefaultsButton.swift in Sources */,
 				34FDFE4C29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift in Sources */,
-				34B3BAD229B64485009E06A7 /* TouchBarResetButton.swift in Sources */,
 				34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */,
 				34E09D9429BBE37800CF2299 /* BrainflipToC.swift in Sources */,
 				3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */,
@@ -1157,7 +1130,6 @@
 				345E190D2A645886002C66D0 /* Notifications.swift in Sources */,
 				3474D9C329CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift in Sources */,
 				34E09D7F29BB90AD00CF2299 /* PlaySoundsToggle.swift in Sources */,
-				34B3BAD429B6448B009E06A7 /* TouchBarStopButton.swift in Sources */,
 				34D663B129B8F00600CB7481 /* HideOutputCommand.swift in Sources */,
 				34E09D8D29BBAEE700CF2299 /* Inspector.swift in Sources */,
 				34DF121E29A7B9480021729B /* BrainflipApp.swift in Sources */,

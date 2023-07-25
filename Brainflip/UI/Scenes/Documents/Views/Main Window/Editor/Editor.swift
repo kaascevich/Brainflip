@@ -20,6 +20,7 @@ struct Editor: View {
     
     func applyTextViewSettings(_ textView: NSTextView) {
         textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
+        textView.allowsCharacterPickerTouchBarItem = false
         textView.allowsUndo = true
         textView.isRichText = false
         textView.isEditable = !state.isRunningProgram

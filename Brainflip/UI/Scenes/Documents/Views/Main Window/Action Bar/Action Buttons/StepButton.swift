@@ -10,6 +10,7 @@ struct StepButton: View {
         } label: {
             Label("Step Through", systemImage: "arrowshape.bounce.forward.fill")
         }
+        .buttonRepeatBehavior(.enabled)
         .buttonStyle(.bordered)
         .disabled(state.disableStepButton)
     }

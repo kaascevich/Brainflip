@@ -33,9 +33,6 @@ struct ContentView: View {
                     .frame(minWidth: 235, maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .touchBar {
-            TouchBarView(state: state)
-        }
         .toolbar {
             ToolbarContentView(state: state)
         }
