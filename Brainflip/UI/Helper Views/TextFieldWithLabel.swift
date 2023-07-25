@@ -21,6 +21,7 @@ struct TextFieldWithLabel: View {
                     $0.isEditable = false
                     $0.focusRingType = .none
                 }
+                .accessibilityIdentifier(label)
         }
         .disclosureGroupStyle(AnimatedDisclosureGroupStyle())
     }
