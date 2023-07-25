@@ -10,7 +10,9 @@ struct ToolbarClearMenu: ToolbarContent {
                 ClearInputButton(state: state)
                 ClearAllButton(state: state)
             } label: {
-                Label("Clear", systemImage: "xmark.circle.fill")
+                Label("Clear", systemImage: "xmark")
+                    .symbolVariant(.circle)
+                    .symbolVariant(.fill)
             }
         }
     }

@@ -13,6 +13,7 @@ struct OutputView: View {
                 if settings.showTimer {
                     TimerView(state: state)
                 }
+                CopyButton { state.output }
             }
             TextEditor(text: .constant(state.output))
                 .font(.monospaced(.body)())

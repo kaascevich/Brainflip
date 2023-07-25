@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct InspectorView: View {
-    @EnvironmentObject private var settings:              AppSettings
-    @ObservedObject            var state:                 ProgramState
-    @State             private var searchText:            String = ""
-                               let inspector:             Inspector
+    @EnvironmentObject private var settings: AppSettings
+    @ObservedObject var state: ProgramState
+    @State private var searchText: String = ""
+    let inspector: Inspector
     
     init(state: ProgramState) {
         self.state     = state
