@@ -15,7 +15,8 @@ struct RunButton: View {
                         .controlSize(.small)
                         .padding(0.00000000001)
                 } else {
-                    Image(systemName: "play.fill")
+                    Image(systemName: "play")
+                        .symbolVariant(.fill)
                 }
                 Text("Run Program")
             }

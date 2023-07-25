@@ -65,7 +65,6 @@
 		34618C5E29AADE6C00552568 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5D29AADE6C00552568 /* Instruction.swift */; };
 		34618C6129AADEA200552568 /* InterpreterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6029AADEA200552568 /* InterpreterError.swift */; };
 		34618C6329AAE02B00552568 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6229AAE02B00552568 /* Program.swift */; };
-		34618C6829AAE2C100552568 /* HelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6729AAE2C100552568 /* HelpButton.swift */; };
 		34618C6A29AAE36800552568 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6929AAE36800552568 /* InspectorView.swift */; };
 		34618C6C29AAE47000552568 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6B29AAE47000552568 /* EditorView.swift */; };
 		34618C6E29AAE54400552568 /* ActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6D29AAE54400552568 /* ActionBarView.swift */; };
@@ -96,6 +95,7 @@
 		3486B4EA29C935D300A7A13F /* StepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486B4E929C935D300A7A13F /* StepperField.swift */; };
 		348A002A2A663BEB00C7B056 /* InterpreterSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 348A00292A663BEB00C7B056 /* InterpreterSettings.png */; };
 		3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* ProgramState.swift */; };
+		3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778592A6F4CA60093B5C6 /* CopyButton.swift */; };
 		34AD99482A59F72B0020CE37 /* GeneralDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */; };
 		34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */; };
 		34B0BFD02A60CD1400FF5769 /* SampleProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */; };
@@ -224,7 +224,6 @@
 		34618C5D29AADE6C00552568 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		34618C6029AADEA200552568 /* InterpreterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterError.swift; sourceTree = "<group>"; };
 		34618C6229AAE02B00552568 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		34618C6729AAE2C100552568 /* HelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButton.swift; sourceTree = "<group>"; };
 		34618C6929AAE36800552568 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		34618C6B29AAE47000552568 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 		34618C6D29AAE54400552568 /* ActionBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBarView.swift; sourceTree = "<group>"; };
@@ -256,6 +255,7 @@
 		3486B4E929C935D300A7A13F /* StepperField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperField.swift; sourceTree = "<group>"; };
 		348A00292A663BEB00C7B056 /* InterpreterSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterpreterSettings.png; sourceTree = "<group>"; };
 		3495634A29B15DE5009B0912 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
+		349778592A6F4CA60093B5C6 /* CopyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 		34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralDefaultsButton.swift; path = "Brainflip/UI/Scenes/Settings/Views/General Settings/GeneralDefaultsButton.swift"; sourceTree = SOURCE_ROOT; };
 		34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeNotEqualZeroToggle.swift; sourceTree = "<group>"; };
 		34AE6AC12A6820B00017C2CB /* Bugs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Bugs.md; sourceTree = "<group>"; };
@@ -673,9 +673,9 @@
 		3486B4EB29C9375C00A7A13F /* Helper Views */ = {
 			isa = PBXGroup;
 			children = (
-				34618C6729AAE2C100552568 /* HelpButton.swift */,
 				3486B4E929C935D300A7A13F /* StepperField.swift */,
 				34D05AD629B3D0D800711079 /* ToolbarDivider.swift */,
+				349778592A6F4CA60093B5C6 /* CopyButton.swift */,
 				3404A21229B24100004514DC /* TextFieldWithLabel.swift */,
 				345B209D29C8A5D700405DD9 /* DisclosureStyles.swift */,
 				34266C0729C4D9660045337D /* SearchBar.swift */,
@@ -1087,6 +1087,7 @@
 				34D05AC929B3C47100711079 /* ToolbarResetButton.swift in Sources */,
 				34618C6329AAE02B00552568 /* Program.swift in Sources */,
 				34FDFE4329CC6F5D0020CDC8 /* CellSize.swift in Sources */,
+				3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */,
 				345C398D29BE536B0025BA9C /* MenuCommandAlerts.swift in Sources */,
 				34266C0829C4D9660045337D /* SearchBar.swift in Sources */,
 				34D05ACC29B3C49C00711079 /* ToolbarClearMenu.swift in Sources */,
@@ -1122,7 +1123,6 @@
 				34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */,
 				34E09D9429BBE37800CF2299 /* BrainflipToC.swift in Sources */,
 				3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */,
-				34618C6829AAE2C100552568 /* HelpButton.swift in Sources */,
 				34618C5E29AADE6C00552568 /* Instruction.swift in Sources */,
 				34D663AF29B8EDDE00CB7481 /* ASCIIChartScene.swift in Sources */,
 				34618C6A29AAE36800552568 /* InspectorView.swift in Sources */,

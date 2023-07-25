@@ -19,7 +19,7 @@ struct MainHelpView: View {
     
     
     var body: some View {
-        HelpButton() {
+        HelpLink {
             state.showingMainHelp.toggle()
         }
         .sheet(isPresented: $state.showingMainHelp) {

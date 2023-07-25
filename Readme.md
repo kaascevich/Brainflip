@@ -79,6 +79,7 @@ Oh, and did I mention it's highly configurable? It's highly configurable. Like, 
 - [x] An App Shortcut, so you can ~~inflict your pain~~ run BF programs *anywhere*!
 - [x] Semi-comprehensive help
 - [x] An extended ASCII chart (extended 'cause it's actually Unicode)
+- [x] Copy and paste buttons
 
 ## Contextual Junk
 

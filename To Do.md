@@ -6,3 +6,4 @@
 - [ ] Allow signed cells in addition to unsigned
 - [ ] Add option to disable cell overflow/underflow
 - [x] Allow 1-bit, 2-bit, and 4-bit cell sizes
+- [x] Add copy and paste buttons

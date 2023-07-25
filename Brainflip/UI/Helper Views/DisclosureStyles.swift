@@ -5,9 +5,10 @@ struct DisclosureToggleStyle: ToggleStyle {
         Button {
             configuration.isOn.toggle()
         } label: {
-            Image(systemName: "chevron.forward.circle")
+            Image(systemName: "chevron.forward")
                 .rotationEffect(configuration.isOn ? Angle(degrees: 90) : Angle.zero)
                 .animation(.easeInOut, value: configuration.isOn)
+                .symbolVariant(.circle)
         }
         .buttonStyle(.plain)
     }
