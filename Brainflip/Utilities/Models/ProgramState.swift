@@ -91,7 +91,7 @@ final class ProgramState: ObservableObject {
             output = interpreter.output
             isRunningProgram = false
             justRanProgram = true
-            timer!.upstream.connect().cancel()
+            timer?.upstream.connect().cancel()
             timer = nil
         }
     }

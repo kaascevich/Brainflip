@@ -19,6 +19,7 @@ struct Editor: View {
                 [.backgroundColor: NSColor.findHighlightColor, .foregroundColor: NSColor.black],
                 range: NSRange(state.selection))
         }
+        textView.identifier = .init("Editor")
     }
     
     var body: some View {

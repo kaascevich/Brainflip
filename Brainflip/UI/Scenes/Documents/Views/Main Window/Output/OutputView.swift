@@ -20,8 +20,9 @@ struct OutputView: View {
                 .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
                     $0.usesFindPanel = true
+                    $0.identifier = .init("Output")
                 }
-            }
+        }
     }
 }
 

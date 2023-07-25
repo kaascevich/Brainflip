@@ -28,6 +28,28 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3473D2A32A7027870067F7F9"
+               BuildableName = "BrainflipUITests.xctest"
+               BlueprintName = "BrainflipUITests"
+               ReferencedContainer = "container:Brainflip.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34848B682A7046E100EBD2C9"
+               BuildableName = "BrainflipTests.xctest"
+               BlueprintName = "BrainflipTests"
+               ReferencedContainer = "container:Brainflip.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

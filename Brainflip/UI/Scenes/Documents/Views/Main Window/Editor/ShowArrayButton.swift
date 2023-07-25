@@ -13,7 +13,7 @@ struct ShowArrayButton: View {
             Table(state.interpreter.cellArray.indices) {
                 TableColumn("Index") {
                     Text(String($0))
-                        .foregroundColor(state.interpreter.pointer == $0 ? .accentColor : .primary)
+                        .foregroundColor(state.interpreter.pointer == $0 ? .green : .primary)
                 }
                 .width(45)
                 

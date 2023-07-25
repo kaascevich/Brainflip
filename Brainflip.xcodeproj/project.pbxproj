@@ -72,6 +72,7 @@
 		34618C7529AAE7EF00552568 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7429AAE7EF00552568 /* AppSettings.swift */; };
 		34618C7729AAECEC00552568 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7629AAECEC00552568 /* OutputView.swift */; };
 		34679C4D2A6DD092008CE0C1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34679C4C2A6DD092008CE0C1 /* Debug.swift */; };
+		3473D2A72A7027870067F7F9 /* BrainflipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */; };
 		3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */; };
 		3474D9BB29CB777100DCFDF2 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */; };
 		3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */; };
@@ -85,6 +86,7 @@
 		3480FF8829A916760021D5FD /* MainHelp.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3480FF8729A916760021D5FD /* MainHelp.rtf */; };
 		3482EF0129AFC16D0001800E /* ASCIIChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0029AFC16D0001800E /* ASCIIChartView.swift */; };
 		3482EF0329AFC5EA0001800E /* ASCIIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0229AFC5EA0001800E /* ASCIIValues.swift */; };
+		34848B6C2A7046E100EBD2C9 /* InterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */; };
 		3486AA2D29BE667B004C12B6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA2C29BE667B004C12B6 /* TimerView.swift */; };
 		3486AA2F29BE7E8E004C12B6 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA2E29BE7E8E004C12B6 /* GeneralSettings.swift */; };
 		3486AA3229BE7EE6004C12B6 /* DefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA3129BE7EE6004C12B6 /* DefaultsButton.swift */; };
@@ -97,7 +99,7 @@
 		3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778592A6F4CA60093B5C6 /* CopyButton.swift */; };
 		349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E19152A6465AE002C66D0 /* Quartz.framework */; };
 		3497787C2A6F748D0093B5C6 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */; };
-		349778842A6F748D0093B5C6 /* BF-QuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 349778762A6F748D0093B5C6 /* BF-QuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		349778842A6F748D0093B5C6 /* QuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 349778762A6F748D0093B5C6 /* QuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		349778A22A7001CA0093B5C6 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778A12A7001CA0093B5C6 /* StopButton.swift */; };
 		349778A42A7002E80093B5C6 /* ProgramSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778A32A7002E80093B5C6 /* ProgramSizeView.swift */; };
 		34AD99482A59F72B0020CE37 /* GeneralDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */; };
@@ -146,6 +148,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3473D2AA2A7027870067F7F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34DF121229A7B9470021729B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34DF121929A7B9470021729B;
+			remoteInfo = Brainflip;
+		};
+		34848B6D2A7046E100EBD2C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34DF121229A7B9470021729B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34DF121929A7B9470021729B;
+			remoteInfo = Brainflip;
+		};
 		349778822A6F748D0093B5C6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34DF121229A7B9470021729B /* Project object */;
@@ -162,7 +178,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				349778842A6F748D0093B5C6 /* BF-QuickLook.appex in Embed Foundation Extensions */,
+				349778842A6F748D0093B5C6 /* QuickLook.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +263,8 @@
 		34618C7429AAE7EF00552568 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34618C7629AAECEC00552568 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		34679C4C2A6DD092008CE0C1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainflipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipUITests.swift; sourceTree = "<group>"; };
 		3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportDefaultsButton.swift; sourceTree = "<group>"; };
 		3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSettings.swift; sourceTree = "<group>"; };
 		3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPreview.swift; sourceTree = "<group>"; };
@@ -261,6 +279,8 @@
 		3480FF8729A916760021D5FD /* MainHelp.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = MainHelp.rtf; sourceTree = "<group>"; };
 		3482EF0029AFC16D0001800E /* ASCIIChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCIIChartView.swift; sourceTree = "<group>"; };
 		3482EF0229AFC5EA0001800E /* ASCIIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCIIValues.swift; sourceTree = "<group>"; };
+		34848B692A7046E100EBD2C9 /* BrainflipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainflipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterTests.swift; sourceTree = "<group>"; };
 		3486AA2C29BE667B004C12B6 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		3486AA2E29BE7E8E004C12B6 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		3486AA3129BE7EE6004C12B6 /* DefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsButton.swift; sourceTree = "<group>"; };
@@ -271,10 +291,10 @@
 		348A00292A663BEB00C7B056 /* InterpreterSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterpreterSettings.png; sourceTree = "<group>"; };
 		3495634A29B15DE5009B0912 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
 		349778592A6F4CA60093B5C6 /* CopyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
-		349778762A6F748D0093B5C6 /* BF-QuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BF-QuickLook.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		349778762A6F748D0093B5C6 /* QuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		349778802A6F748D0093B5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		349778812A6F748D0093B5C6 /* BF_QuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BF_QuickLook.entitlements; sourceTree = "<group>"; };
+		349778812A6F748D0093B5C6 /* QuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickLook.entitlements; sourceTree = "<group>"; };
 		349778932A6F87C10093B5C6 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
 		349778A12A7001CA0093B5C6 /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		349778A32A7002E80093B5C6 /* ProgramSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramSizeView.swift; sourceTree = "<group>"; };
@@ -332,6 +352,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3473D2A12A7027870067F7F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34848B662A7046E100EBD2C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		349778732A6F748D0093B5C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,6 +619,14 @@
 			path = "Action Bar";
 			sourceTree = "<group>";
 		};
+		3473D2A52A7027870067F7F9 /* BrainflipUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */,
+			);
+			path = BrainflipUITests;
+			sourceTree = "<group>";
+		};
 		3474D9B729CB769800DCFDF2 /* Export Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +732,14 @@
 			path = "ASCII Chart";
 			sourceTree = "<group>";
 		};
+		34848B6A2A7046E100EBD2C9 /* BrainflipTests */ = {
+			isa = PBXGroup;
+			children = (
+				34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */,
+			);
+			path = BrainflipTests;
+			sourceTree = "<group>";
+		};
 		3486AA3029BE7E92004C12B6 /* General Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,14 +773,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		349778782A6F748D0093B5C6 /* BF-QuickLook */ = {
+		349778782A6F748D0093B5C6 /* QuickLook */ = {
 			isa = PBXGroup;
 			children = (
 				3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */,
 				349778802A6F748D0093B5C6 /* Info.plist */,
-				349778812A6F748D0093B5C6 /* BF_QuickLook.entitlements */,
+				349778812A6F748D0093B5C6 /* QuickLook.entitlements */,
 			);
-			path = "BF-QuickLook";
+			path = QuickLook;
 			sourceTree = "<group>";
 		};
 		34AEE2E52A65CE2200A06DC4 /* App Shortcuts */ = {
@@ -877,7 +927,9 @@
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
 				348A00262A663BCC00C7B056 /* Images */,
 				34DF121C29A7B9480021729B /* Brainflip */,
-				349778782A6F748D0093B5C6 /* BF-QuickLook */,
+				349778782A6F748D0093B5C6 /* QuickLook */,
+				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
+				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -887,7 +939,9 @@
 			isa = PBXGroup;
 			children = (
 				34DF121A29A7B9480021729B /* Brainflip.app */,
-				349778762A6F748D0093B5C6 /* BF-QuickLook.appex */,
+				349778762A6F748D0093B5C6 /* QuickLook.appex */,
+				3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */,
+				34848B692A7046E100EBD2C9 /* BrainflipTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -974,9 +1028,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		349778752A6F748D0093B5C6 /* BF-QuickLook */ = {
+		3473D2A32A7027870067F7F9 /* BrainflipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "BF-QuickLook" */;
+			buildConfigurationList = 3473D2AE2A7027870067F7F9 /* Build configuration list for PBXNativeTarget "BrainflipUITests" */;
+			buildPhases = (
+				3473D2A02A7027870067F7F9 /* Sources */,
+				3473D2A12A7027870067F7F9 /* Frameworks */,
+				3473D2A22A7027870067F7F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3473D2AB2A7027870067F7F9 /* PBXTargetDependency */,
+			);
+			name = BrainflipUITests;
+			productName = BrainflipUITests;
+			productReference = 3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		34848B682A7046E100EBD2C9 /* BrainflipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34848B712A7046E100EBD2C9 /* Build configuration list for PBXNativeTarget "BrainflipTests" */;
+			buildPhases = (
+				34848B652A7046E100EBD2C9 /* Sources */,
+				34848B662A7046E100EBD2C9 /* Frameworks */,
+				34848B672A7046E100EBD2C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34848B6E2A7046E100EBD2C9 /* PBXTargetDependency */,
+			);
+			name = BrainflipTests;
+			productName = BrainflipTests;
+			productReference = 34848B692A7046E100EBD2C9 /* BrainflipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		349778752A6F748D0093B5C6 /* QuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "QuickLook" */;
 			buildPhases = (
 				349778722A6F748D0093B5C6 /* Sources */,
 				349778732A6F748D0093B5C6 /* Frameworks */,
@@ -986,11 +1076,11 @@
 			);
 			dependencies = (
 			);
-			name = "BF-QuickLook";
+			name = QuickLook;
 			packageProductDependencies = (
 			);
 			productName = "BF-QuickLook";
-			productReference = 349778762A6F748D0093B5C6 /* BF-QuickLook.appex */;
+			productReference = 349778762A6F748D0093B5C6 /* QuickLook.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		34DF121929A7B9470021729B /* Brainflip */ = {
@@ -1027,6 +1117,14 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					3473D2A32A7027870067F7F9 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 34DF121929A7B9470021729B;
+					};
+					34848B682A7046E100EBD2C9 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 34DF121929A7B9470021729B;
+					};
 					349778752A6F748D0093B5C6 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -1053,12 +1151,28 @@
 			projectRoot = "";
 			targets = (
 				34DF121929A7B9470021729B /* Brainflip */,
-				349778752A6F748D0093B5C6 /* BF-QuickLook */,
+				349778752A6F748D0093B5C6 /* QuickLook */,
+				3473D2A32A7027870067F7F9 /* BrainflipUITests */,
+				34848B682A7046E100EBD2C9 /* BrainflipTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3473D2A22A7027870067F7F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34848B672A7046E100EBD2C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		349778742A6F748D0093B5C6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1083,6 +1197,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3473D2A02A7027870067F7F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3473D2A72A7027870067F7F9 /* BrainflipUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34848B652A7046E100EBD2C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34848B6C2A7046E100EBD2C9 /* InterpreterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		349778722A6F748D0093B5C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1225,27 +1355,117 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3473D2AB2A7027870067F7F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34DF121929A7B9470021729B /* Brainflip */;
+			targetProxy = 3473D2AA2A7027870067F7F9 /* PBXContainerItemProxy */;
+		};
+		34848B6E2A7046E100EBD2C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34DF121929A7B9470021729B /* Brainflip */;
+			targetProxy = 34848B6D2A7046E100EBD2C9 /* PBXContainerItemProxy */;
+		};
 		349778832A6F748D0093B5C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 349778752A6F748D0093B5C6 /* BF-QuickLook */;
+			target = 349778752A6F748D0093B5C6 /* QuickLook */;
 			targetProxy = 349778822A6F748D0093B5C6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3473D2AC2A7027870067F7F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.BrainflipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Brainflip;
+			};
+			name = Debug;
+		};
+		3473D2AD2A7027870067F7F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.BrainflipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Brainflip;
+			};
+			name = Release;
+		};
+		34848B6F2A7046E100EBD2C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.BrainflipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Brainflip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Brainflip";
+			};
+			name = Debug;
+		};
+		34848B702A7046E100EBD2C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.BrainflipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Brainflip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Brainflip";
+			};
+			name = Release;
+		};
 		349778862A6F748D0093B5C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = "BF-QuickLook/BF_QuickLook.entitlements";
+				CODE_SIGN_ENTITLEMENTS = QuickLook/QuickLook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BF-QuickLook/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "BF-QuickLook";
+				INFOPLIST_FILE = QuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BFQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1254,7 +1474,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kascevich.brainflip.BF-QuickLook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.brainflip.QuickLook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1267,15 +1487,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = "BF-QuickLook/BF_QuickLook.entitlements";
+				CODE_SIGN_ENTITLEMENTS = QuickLook/QuickLook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BF-QuickLook/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "BF-QuickLook";
+				INFOPLIST_FILE = QuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BFQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1284,7 +1504,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kascevich.brainflip.BF-QuickLook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kascevich.brainflip.QuickLook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1478,7 +1698,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "BF-QuickLook" */ = {
+		3473D2AE2A7027870067F7F9 /* Build configuration list for PBXNativeTarget "BrainflipUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3473D2AC2A7027870067F7F9 /* Debug */,
+				3473D2AD2A7027870067F7F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34848B712A7046E100EBD2C9 /* Build configuration list for PBXNativeTarget "BrainflipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34848B6F2A7046E100EBD2C9 /* Debug */,
+				34848B702A7046E100EBD2C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "QuickLook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				349778862A6F748D0093B5C6 /* Debug */,
