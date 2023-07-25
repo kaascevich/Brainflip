@@ -7,8 +7,6 @@ struct ActionButtons: View {
     var body: some View {
         Group {
             RunButton(state: state)
-                .buttonStyle(.borderedProminent)
-                .keyboardShortcut(.defaultAction)
             StepButton(state: state)
         }
         .controlSize(.large)

@@ -10,18 +10,22 @@ struct EditorView: View {
                 Text("Type your program here...")
                 Spacer()
                 ShowArrayButton(state: state)
-                ResetButton(state: state)
+                
+                if state.isRunningProgram {
+                    StopButton(state: state)
+                } else {
+                    ResetButton(state: state)
+                }
             }
             
             Editor(state: state)
             
             HStack {
                 if settings.showProgramSize {
-                    Text("Program size: \(ByteCountFormatter.string(fromByteCount: Int64(state.document.contents.count), countStyle: .file))")
+                    ProgramSizeView(state: state)
                 }
                 Spacer()
                 ClearMenu(state: state)
-                    .frame(width: 65)
             }
         }
     }

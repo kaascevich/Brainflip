@@ -9,6 +9,10 @@ final class ProgramState: ObservableObject {
         self.filename = filename
     }
     
+    deinit {
+        execution.cancel()
+    }
+    
     @Published var convertedDocument: CSourceDocument? = nil
     @Published var filename: String = ""
     @Published var isShowingOutput: Bool = true

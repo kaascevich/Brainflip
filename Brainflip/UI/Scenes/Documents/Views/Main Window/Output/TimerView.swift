@@ -5,23 +5,22 @@ struct TimerView: View {
     @ObservedObject var state: ProgramState
     
     var body: some View {
-        Text(formatTimeElapsed(state.timeElapsed, startDate: state.startDate))
+        Text(formatTimeElapsed(state.timeElapsed))
             .monospacedDigit()
             .onReceive(state.timer ?? Timer.publish(every: .infinity, on: .main, in: .common).autoconnect()) {
                 state.timeElapsed = $0.timeIntervalSince(state.startDate)
             }
     }
     
-    func formatTimeElapsed(_ timeElapsed: TimeInterval, startDate: Date) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
+    func formatTimeElapsed(_ timeElapsed: TimeInterval) -> String {
+        let pattern = Duration.TimeFormatStyle.Pattern.hourMinuteSecond(
+            padHourToLength: 1,
+            fractionalSecondsLength: 2
+        )
+        let formatStyle = Duration.TimeFormatStyle(pattern: pattern)
         
-        let endDate = Date(timeInterval: timeElapsed, since: startDate)
-        
-        let milliseconds = Int(timeElapsed * 100).quotientAndRemainder(dividingBy: 100).remainder
-        let zero = milliseconds < 10 ? "0" : ""
-        
-        return "\(formatter.string(from: startDate, to: endDate)!).\(zero)\(milliseconds)"
+        let timeDuration = Duration.seconds(timeElapsed)
+        return timeDuration.formatted(formatStyle)
     }
 }
 

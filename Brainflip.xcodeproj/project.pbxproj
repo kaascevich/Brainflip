@@ -53,7 +53,6 @@
 		345B20A029C8AC6100405DD9 /* ShowProgressToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B209F29C8AC6000405DD9 /* ShowProgressToggle.swift */; };
 		345C398D29BE536B0025BA9C /* MenuCommandAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345C398C29BE536B0025BA9C /* MenuCommandAlerts.swift */; };
 		345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 345E18EC2A64253E002C66D0 /* HighlightedTextEditor */; };
-		345E18F02A642548002C66D0 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 345E18EF2A642548002C66D0 /* Introspect */; };
 		345E18F42A6452BE002C66D0 /* ShowArrayCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E18F32A6452BE002C66D0 /* ShowArrayCommand.swift */; };
 		345E190D2A645886002C66D0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E190C2A645886002C66D0 /* Notifications.swift */; };
 		345E190F2A64614A002C66D0 /* ShowNotificationsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E190E2A64614A002C66D0 /* ShowNotificationsToggle.swift */; };
@@ -96,6 +95,11 @@
 		348A002A2A663BEB00C7B056 /* InterpreterSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 348A00292A663BEB00C7B056 /* InterpreterSettings.png */; };
 		3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* ProgramState.swift */; };
 		3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778592A6F4CA60093B5C6 /* CopyButton.swift */; };
+		349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E19152A6465AE002C66D0 /* Quartz.framework */; };
+		3497787C2A6F748D0093B5C6 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */; };
+		349778842A6F748D0093B5C6 /* BF-QuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 349778762A6F748D0093B5C6 /* BF-QuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		349778A22A7001CA0093B5C6 /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778A12A7001CA0093B5C6 /* StopButton.swift */; };
+		349778A42A7002E80093B5C6 /* ProgramSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778A32A7002E80093B5C6 /* ProgramSizeView.swift */; };
 		34AD99482A59F72B0020CE37 /* GeneralDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */; };
 		34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */; };
 		34B0BFD02A60CD1400FF5769 /* SampleProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */; };
@@ -141,6 +145,16 @@
 		34FDFE5029CC87200020CDC8 /* BrainflipToC+Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4F29CC87200020CDC8 /* BrainflipToC+Symbols.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		349778822A6F748D0093B5C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34DF121229A7B9470021729B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 349778752A6F748D0093B5C6;
+			remoteInfo = "BF-QuickLook";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		345E190B2A6456BA002C66D0 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -148,6 +162,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				349778842A6F748D0093B5C6 /* BF-QuickLook.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +271,13 @@
 		348A00292A663BEB00C7B056 /* InterpreterSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterpreterSettings.png; sourceTree = "<group>"; };
 		3495634A29B15DE5009B0912 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
 		349778592A6F4CA60093B5C6 /* CopyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
+		349778762A6F748D0093B5C6 /* BF-QuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BF-QuickLook.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		349778802A6F748D0093B5C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		349778812A6F748D0093B5C6 /* BF_QuickLook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BF_QuickLook.entitlements; sourceTree = "<group>"; };
+		349778932A6F87C10093B5C6 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		349778A12A7001CA0093B5C6 /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		349778A32A7002E80093B5C6 /* ProgramSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramSizeView.swift; sourceTree = "<group>"; };
 		34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralDefaultsButton.swift; path = "Brainflip/UI/Scenes/Settings/Views/General Settings/GeneralDefaultsButton.swift"; sourceTree = SOURCE_ROOT; };
 		34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeNotEqualZeroToggle.swift; sourceTree = "<group>"; };
 		34AE6AC12A6820B00017C2CB /* Bugs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Bugs.md; sourceTree = "<group>"; };
@@ -310,13 +332,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		349778732A6F748D0093B5C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34DF121729A7B9470021729B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */,
 				345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */,
-				345E18F02A642548002C66D0 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +438,8 @@
 				34618C6B29AAE47000552568 /* EditorView.swift */,
 				3429EF2F29C51A22003D4525 /* Editor.swift */,
 				3404A21429B24A90004514DC /* ResetButton.swift */,
+				349778A12A7001CA0093B5C6 /* StopButton.swift */,
+				349778A32A7002E80093B5C6 /* ProgramSizeView.swift */,
 				3476C1FF2A636FC600EFE61C /* ShowArrayButton.swift */,
 				3433604A29B290CD00E9C4AD /* Clear Menu */,
 			);
@@ -692,6 +723,16 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		349778782A6F748D0093B5C6 /* BF-QuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */,
+				349778802A6F748D0093B5C6 /* Info.plist */,
+				349778812A6F748D0093B5C6 /* BF_QuickLook.entitlements */,
+			);
+			path = "BF-QuickLook";
+			sourceTree = "<group>";
+		};
 		34AEE2E52A65CE2200A06DC4 /* App Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,6 +877,7 @@
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
 				348A00262A663BCC00C7B056 /* Images */,
 				34DF121C29A7B9480021729B /* Brainflip */,
+				349778782A6F748D0093B5C6 /* BF-QuickLook */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -845,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				34DF121A29A7B9480021729B /* Brainflip.app */,
+				349778762A6F748D0093B5C6 /* BF-QuickLook.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -900,6 +943,7 @@
 				346011BC2A65BA3100029BB3 /* Intents.framework */,
 				346011CE2A65BA9D00029BB3 /* WidgetKit.framework */,
 				346011D02A65BA9D00029BB3 /* SwiftUI.framework */,
+				349778932A6F87C10093B5C6 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -930,6 +974,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		349778752A6F748D0093B5C6 /* BF-QuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "BF-QuickLook" */;
+			buildPhases = (
+				349778722A6F748D0093B5C6 /* Sources */,
+				349778732A6F748D0093B5C6 /* Frameworks */,
+				349778742A6F748D0093B5C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BF-QuickLook";
+			packageProductDependencies = (
+			);
+			productName = "BF-QuickLook";
+			productReference = 349778762A6F748D0093B5C6 /* BF-QuickLook.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		34DF121929A7B9470021729B /* Brainflip */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34DF122929A7B9490021729B /* Build configuration list for PBXNativeTarget "Brainflip" */;
@@ -943,11 +1006,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				349778832A6F748D0093B5C6 /* PBXTargetDependency */,
 			);
 			name = Brainflip;
 			packageProductDependencies = (
 				345E18EC2A64253E002C66D0 /* HighlightedTextEditor */,
-				345E18EF2A642548002C66D0 /* Introspect */,
 				346011862A659B2000029BB3 /* SwiftUIIntrospect */,
 			);
 			productName = BrainSwift;
@@ -964,6 +1027,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					349778752A6F748D0093B5C6 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					34DF121929A7B9470021729B = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -981,18 +1047,25 @@
 			packageReferences = (
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				346011852A659B2000029BB3 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				34DF121929A7B9470021729B /* Brainflip */,
+				349778752A6F748D0093B5C6 /* BF-QuickLook */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		349778742A6F748D0093B5C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34DF121829A7B9470021729B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1010,6 +1083,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		349778722A6F748D0093B5C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3497787C2A6F748D0093B5C6 /* PreviewProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34DF121629A7B9470021729B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1072,6 +1153,7 @@
 				342D92FA29B25DA8002461DA /* EndOfFilePicker.swift in Sources */,
 				34618C7329AAE5A000552568 /* StepButton.swift in Sources */,
 				343635B52A65D55D00CDA660 /* IntentProvider.swift in Sources */,
+				349778A42A7002E80093B5C6 /* ProgramSizeView.swift in Sources */,
 				3404A21D29B24DEC004514DC /* InputField.swift in Sources */,
 				34FDFE4A29CC815F0020CDC8 /* BrainflipToC+Header.swift in Sources */,
 				34618C7729AAECEC00552568 /* OutputView.swift in Sources */,
@@ -1097,6 +1179,7 @@
 				342D930029B25E96002461DA /* PointerLocationSlider.swift in Sources */,
 				34D05AC329B3B77D00711079 /* ToolbarRunButton.swift in Sources */,
 				3482EF0129AFC16D0001800E /* ASCIIChartView.swift in Sources */,
+				349778A22A7001CA0093B5C6 /* StopButton.swift in Sources */,
 				34AD994A2A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift in Sources */,
 				3433604929B28F3C00E9C4AD /* ClearMenu.swift in Sources */,
 				342D930529B273AA002461DA /* InspectorSettings.swift in Sources */,
@@ -1141,7 +1224,74 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		349778832A6F748D0093B5C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 349778752A6F748D0093B5C6 /* BF-QuickLook */;
+			targetProxy = 349778822A6F748D0093B5C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		349778862A6F748D0093B5C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = "BF-QuickLook/BF_QuickLook.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BF-QuickLook/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BF-QuickLook";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kascevich.brainflip.BF-QuickLook";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		349778872A6F748D0093B5C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = "BF-QuickLook/BF_QuickLook.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z3G8V4ANYY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BF-QuickLook/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "BF-QuickLook";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kascevich.brainflip.BF-QuickLook";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		34DF122729A7B9490021729B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1262,6 +1412,7 @@
 		34DF122A29A7B9490021729B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Brainflip/Brainflip.entitlements;
@@ -1294,6 +1445,7 @@
 		34DF122B29A7B9490021729B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Brainflip/Brainflip.entitlements;
@@ -1326,6 +1478,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		349778852A6F748D0093B5C6 /* Build configuration list for PBXNativeTarget "BF-QuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				349778862A6F748D0093B5C6 /* Debug */,
+				349778872A6F748D0093B5C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		34DF121529A7B9470021729B /* Build configuration list for PBXProject "Brainflip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1363,14 +1524,6 @@
 				minimumVersion = 0.9.1;
 			};
 		};
-		346011852A659B2000029BB3 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1378,11 +1531,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */;
 			productName = HighlightedTextEditor;
-		};
-		345E18EF2A642548002C66D0 /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
 		};
 		346011862A659B2000029BB3 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;

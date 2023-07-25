@@ -13,7 +13,7 @@ struct ToolbarRunButton: ToolbarContent {
             } label: {
                 Label("Run", systemImage: "play")
                     .symbolVariant(.fill)
-                    .symbolEffect(.bounce, value: symbolEffect)
+                    .symbolEffect(.bounce.down, value: symbolEffect)
             }
             .disabled(state.disableRunButton)
         }

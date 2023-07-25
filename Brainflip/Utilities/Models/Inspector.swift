@@ -109,18 +109,19 @@ struct Inspector {
                 enabledByDefault: false
             )
         ]
-        modules = moduleData.map { (name, data, tooltip, enabledByDefault) in
-            Module(                  name,
-                   data:             data,
-                   tooltip:          tooltip,
-                   enabledByDefault: enabledByDefault
+        modules = moduleData.map { name, data, tooltip, enabledByDefault in
+            Module(
+                name,
+                data: data,
+                tooltip: tooltip,
+                enabledByDefault: enabledByDefault
             )
         }
     }
     
-           let modules:        [Module]
-    static let defaultModules: [ Bool ] = Inspector().modules.map { $0.enabledByDefault }
-    static let moduleCount:      Int    = Inspector().modules.count
+    let modules: [Module]
+    static let defaultModules: [Bool] = Inspector().modules.map { $0.enabledByDefault }
+    static let moduleCount: Int = Inspector().modules.count
 }
 
 extension Inspector {

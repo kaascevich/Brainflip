@@ -13,7 +13,7 @@ struct RunButton: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                         .controlSize(.small)
-                        .padding(0.00000000001)
+                        .padding(.leastNonzeroMagnitude)
                 } else {
                     Image(systemName: "play")
                         .symbolVariant(.fill)
@@ -23,6 +23,7 @@ struct RunButton: View {
         }
         .disabled(state.disableRunButton)
         .buttonStyle(.borderedProminent)
+        .keyboardShortcut(.defaultAction)
     }
 }
 

@@ -7,11 +7,11 @@
 \margl1440\margr1440\vieww20460\viewh10480\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Brainflip is a very simple programming language, only consisting of nine instructions.
-\fs10 \
+\f0\fs26 \cf0 Brainflip is a very simple programming language, only consisting of nine instructions.
+\fs12 \
 \
 
-\fs24 All Brainflip programs manipulate a finite 
+\fs26 All Brainflip programs manipulate a finite 
 \f1\i \kerning1\expnd-2\expndtw-7
 array
 \f0\i0 \kerning1\expnd0\expndtw0  of 
@@ -21,14 +21,14 @@ cell\kerning1\expnd0\expndtw0 s
 \f1\i \kerning1\expnd-2\expndtw-7
 indexed
 \f0\i0 \kerning1\expnd0\expndtw0  starting from cell 0; with default settings, this means that the last cell has an index of 29,999.
-\fs10 \
+\fs12 \
 \
 
-\fs24 The array's size can be set between 30,000 and 60,000 cells. This setting, as well as many others, can be accessed by going to Brainflip > Settings... in the menu bar, or by pressing \uc0\u8984 , (command + comma).
-\fs10 \
+\fs26 The array's size can be set between 30,000 and 60,000 cells. This setting, as well as many others, can be accessed by going to Brainflip > Settings... in the menu bar, or by pressing \uc0\u8984 , (command + comma).
+\fs12 \
 \
 
-\fs24 Cells can be set to 
+\fs26 Cells can be set to 
 \f1\i \kerning1\expnd-2\expndtw-7
 1-bit
 \f0\i0 \kerning1\expnd0\expndtw0 , 
@@ -47,29 +47,29 @@ indexed
 \f1\i \kerning1\expnd-2\expndtw-7
 32-bit
 \f0\i0 \kerning1\expnd0\expndtw0 . With 8-bit cells (the default), the maximum number a cell can hold is 255 (2
-\fs16 \up8 8
-\fs24 \up0  - 1). Similarly, 1-bit cells can hold numbers up to 1 (2
-\fs16 \up8 1
-\fs24 \up0  - 1), 2-bit cells up to 3 (2
-\fs16 \up8 2
-\fs24 \up0  - 1), 4-bit cells up to 15 (2
-\fs16 \up8 4
-\fs24 \up0  - 1), 16-bit cells up to 65,535 (2
-\fs16 \up8 16
-\fs24 \up0  - 1), and 32-bit cells  up to 4,294,967,295 (2
-\fs16 \up8 32
-\fs24 \up0  - 1).
-\fs10 \
+\fs18 \up8 8
+\fs26 \up0  - 1). Similarly, 1-bit cells can hold numbers up to 1 (2
+\fs18 \up8 1
+\fs26 \up0  - 1), 2-bit cells up to 3 (2
+\fs18 \up8 2
+\fs26 \up0  - 1), 4-bit cells up to 15 (2
+\fs18 \up8 4
+\fs26 \up0  - 1), 16-bit cells up to 65,535 (2
+\fs18 \up8 16
+\fs26 \up0  - 1), and 32-bit cells  up to 4,294,967,295 (2
+\fs18 \up8 32
+\fs26 \up0  - 1).
+\fs12 \
 \
 
-\fs24 A 
+\fs26 A 
 \f1\i \kerning1\expnd-2\expndtw-7
 pointer
 \f0\i0 \kerning1\expnd0\expndtw0  is used to keep track of the cell that is currently being manipulated. Its initial location can be set between cell 0 and cell 100.
-\fs10 \
+\fs12 \
 \
 
-\fs24 Brainflip's instructions are as follows:
+\fs26 Brainflip's instructions are as follows:
 \f2 \
 
 \f3\b <
@@ -115,22 +115,20 @@ pointer
 \f3\b #
 \f4  
 \f0\b0 : If enabled in the settings, stops the program immediately.
-\fs10 \
+\fs12 \
 \
 
-\fs24 All characters other than the ones listed above are treated as comments and ignored.
-\fs10 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+\fs26 All characters other than the ones listed above are treated as comments and ignored.
+\fs12 \
+\
 
-\fs24 If a \'93
+\fs26 If a \'93
 \f5 ,
 \f0 \'94 command is encountered, and the value received is greater than the maximum value that will fit in the cell, the cell is set to its maximum value. If the value is greater than 255, the cell will be set to 0, regardless of settings.
-\fs10 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+\fs12 \
+\
 
-\fs24 In order for a Brainflip program to run, all brackets must 
+\fs26 In order for a Brainflip program to run, all brackets must 
 \f1\i \kerning1\expnd-2\expndtw-7
 match
 \f0\i0 \kerning1\expnd0\expndtw0 . For any "
@@ -151,7 +149,7 @@ match
  - The first "
 \f5 ]
 \f0 " that meets these two conditions.
-\fs10 \
+\fs12 \
 \
 
-\fs24 Brainflip programs terminate after executing the last instruction in the program (or upon encountering a stop instruction, if enabled).}
+\fs26 Brainflip programs terminate after executing the last instruction in the program (or upon encountering a stop instruction, if enabled).}

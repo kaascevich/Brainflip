@@ -12,9 +12,8 @@ struct StepButton: View {
         } label: {
             Label("Step Through", systemImage: "arrowshape.bounce.forward")
                 .symbolVariant(.fill)
-                .symbolEffect(.bounce, value: symbolEffect)
+                .symbolEffect(.bounce.down, value: symbolEffect)
         }
-        .buttonRepeatBehavior(.enabled)
         .buttonStyle(.bordered)
         .disabled(state.disableStepButton)
     }

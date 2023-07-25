@@ -14,8 +14,8 @@ struct InspectorModuleList: View {
                 }
         }
         .padding(5)
-        .animation(.easeInOut, value: settings.inspectorModuleOrder)
-        .animation(.easeInOut, value: settings.enabledInspectorModules)
+        .animation(.smooth, value: settings.inspectorModuleOrder)
+        .animation(.smooth, value: settings.enabledInspectorModules)
         
         HStack {
             Toggle("Select All", sources: settings.$enabledInspectorModules, isOn: \.self)
@@ -28,15 +28,13 @@ struct InspectorModuleList: View {
     }
     
     func sortModules() {
-        /*
-         The end goal here is to first partition the module array into two halves, with
-         enabled modules above disabled ones, and then sort each partition alphabetically.
-         
-         partition(by:) is perfect for the former, with one tiny issue: the array ordering
-         is not preserved during the partition. So we have to manually split the array into
-         the two halves, sort those, and then merge them back together before committing
-         the changes to settings.inspectorModuleOrder.
-         */
+        // The end goal here is to first partition the module array into two halves, with
+        // enabled modules above disabled ones, and then sort each partition alphabetically.
+        //
+        // partition(by:) is perfect for the former, with one tiny issue: the array ordering
+        // is not preserved during the partition. So we have to manually split the array into
+        // the two halves, sort those, and then merge them back together before committing
+        // the changes to settings.inspectorModuleOrder.
         
         let p = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
         var arrays = (

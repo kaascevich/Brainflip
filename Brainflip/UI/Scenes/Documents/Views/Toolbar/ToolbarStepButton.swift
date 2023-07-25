@@ -13,7 +13,7 @@ struct ToolbarStepButton: ToolbarContent {
             } label: {
                 Label("Step Through", systemImage: "arrowshape.bounce.forward")
                     .symbolVariant(.fill)
-                    .symbolEffect(.bounce, value: symbolEffect)
+                    .symbolEffect(.bounce.down, value: symbolEffect)
             }
             .buttonRepeatBehavior(.enabled)
             .disabled(state.disableStepButton)

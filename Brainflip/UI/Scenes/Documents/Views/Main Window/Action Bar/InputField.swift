@@ -19,7 +19,7 @@ struct InputField: View {
             }
             .labelStyle(.iconOnly)
             .controlSize(.large)
-            .symbolEffect(.bounce, value: symbolEffect)
+            .symbolEffect(.bounce.down, value: symbolEffect)
         }
     }
 }

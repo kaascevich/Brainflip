@@ -6,18 +6,6 @@ struct Editor: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     
-    private var highlightRules: [HighlightRule] {
-        SyntaxHighlighting.highlightRules + [
-            HighlightRule(
-                pattern: try! NSRegularExpression(pattern: "#"),
-                formattingRule: TextFormattingRule(
-                    key: .foregroundColor,
-                    value: NSColor(settings.breakOnHash ? Color.green : Color.gray)
-                )
-            )
-        ]
-    }
-    
     func applyTextViewSettings(_ textView: NSTextView) {
         textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
         textView.allowsCharacterPickerTouchBarItem = false
@@ -38,7 +26,7 @@ struct Editor: View {
             if settings.highlighting {
                 HighlightedTextEditor(
                     text: $state.document.contents,
-                    highlightRules: highlightRules
+                    highlightRules: SyntaxHighlighting.highlightRules
                 )
                 .introspect { applyTextViewSettings($0.textView) }
             } else {

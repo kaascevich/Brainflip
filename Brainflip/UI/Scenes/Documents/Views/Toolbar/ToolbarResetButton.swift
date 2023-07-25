@@ -13,7 +13,7 @@ struct ToolbarResetButton: ToolbarContent {
             } label: {
                 Label("Reset", systemImage: "arrow.triangle.2.circlepath")
                     .symbolVariant(.circle)
-                    .symbolEffect(.bounce, value: symbolEffect)
+                    .symbolEffect(.bounce.down, value: symbolEffect)
             }
             .disabled(state.disableResetButton)
         }

@@ -1,51 +1,51 @@
-//
-//  PreviewProvider.swift
-//  BF-QuickLook
-//
-//  Created by Kaleb on 7/24/23.
-//
-
 import Cocoa
 import Quartz
+import SwiftUI
 
 class PreviewProvider: QLPreviewProvider, QLPreviewingController {
-    
-
-    /*
-     Use a QLPreviewProvider to provide data-based previews.
-     
-     To set up your extension as a data-based preview extension:
-
-     - Modify the extension's Info.plist by setting
-       <key>QLIsDataBasedPreview</key>
-       <true/>
-     
-     - Add the supported content types to QLSupportedContentTypes array in the extension's Info.plist.
-
-     - Change the NSExtensionPrincipalClass to this class.
-       e.g.
-       <key>NSExtensionPrincipalClass</key>
-       <string>$(PRODUCT_MODULE_NAME).PreviewProvider</string>
-     
-     - Implement providePreview(for:)
-     */
+    static let highlightPatterns: [(Regex, Color)] = [
+        // One(.anyOf("<>"))
+        (/[<>]/, .orange),
+        // One(.anyOf("+-"))
+        (/[+-]/, .red),
+        // One(.anyOf("[]"))
+        (/[\[\]]/, .brown),
+        // One(.anyOf(".,"))
+        (/[.,]/, .purple),
+        // One("#")
+        (/#/, .green)
+    ]
     
     func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
-    
-        //You can create a QLPreviewReply in several ways, depending on the format of the data you want to return.
-        //To return Data of a supported content type:
+        let contentType = UTType.rtf
         
-        let contentType = UTType.plainText // replace with your data type
-        
-        let reply = QLPreviewReply.init(dataOfContentType: contentType, contentSize: CGSize.init(width: 800, height: 800)) { (replyToUpdate : QLPreviewReply) in
-
-            let data = Data("Hello world".utf8)
+        let reply = QLPreviewReply.init(
+            dataOfContentType: contentType,
+            contentSize: CGSize.init(width: 800, height: 800)
+        ) { replyToUpdate in
+            let string = try! String(contentsOf: request.fileURL)
+            let attributedString = NSMutableAttributedString(string: string)
             
-            //setting the stringEncoding for text and html data is optional and defaults to String.Encoding.utf8
-            replyToUpdate.stringEncoding = .utf8
+            let colorGroups = PreviewProvider.highlightPatterns.map { range, color in
+                (color: color, ranges: string.ranges(of: range))
+            }
+            for colorRanges in colorGroups {
+                for range in colorRanges.ranges {
+                    attributedString.addAttribute(
+                        .foregroundColor,
+                        value: NSColor(colorRanges.color),
+                        range: NSRange(range, in: string)
+                    )
+                }
+            }
             
-            //initialize your data here
+            attributedString.addAttribute(
+                .font,
+                value: NSFont.monospacedSystemFont(ofSize: 14, weight: .regular),
+                range: NSMakeRange(0, string.count)
+            )
             
+            let data = attributedString.rtf(from: NSMakeRange(0, attributedString.length))!
             return data
         }
                 

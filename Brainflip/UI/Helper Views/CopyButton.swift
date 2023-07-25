@@ -15,7 +15,7 @@ struct CopyButton: View {
             NSPasteboard.general.setString(action(), forType: .string)
         } label: {
             Image(systemName: "doc.on.doc")
-                .symbolEffect(.bounce, value: symbolEffect)
+                .symbolEffect(.bounce.down, value: symbolEffect)
         }
         .buttonStyle(.borderless)
     }

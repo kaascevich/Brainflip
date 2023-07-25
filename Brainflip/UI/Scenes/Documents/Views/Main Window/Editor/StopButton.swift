@@ -1,21 +1,21 @@
 import SwiftUI
 
-struct ResetButton: View {
+struct StopButton: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     
     var body: some View {
         Button {
-            state.reset()
+            state.stop()
         } label: {
-            Text("Reset")
+            Text("Stop")
                 .frame(width: 35)
         }
-        .disabled(state.disableResetButton)
+        .disabled(state.disableStopButton)
     }
 }
 
 #Preview {
-    ResetButton(state: previewState)
+    StopButton(state: previewState)
         .environmentObject(settings)
 }

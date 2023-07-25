@@ -8,7 +8,6 @@ struct StepCommand: View {
             state?.step()
         }
         .keyboardShortcut("r", modifiers: [.command, .shift])
-        .buttonRepeatBehavior(.enabled)
         .disabled(state?.disableStepButton ?? true)
     }
 }

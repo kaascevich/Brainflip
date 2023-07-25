@@ -1,5 +1,4 @@
 import SwiftUI
-import Introspect
 
 struct ProgramCommands: Commands {
     @FocusedObject<ProgramState> var state

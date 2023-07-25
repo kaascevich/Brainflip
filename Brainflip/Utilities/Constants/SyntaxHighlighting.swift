@@ -3,7 +3,7 @@ import HighlightedTextEditor
 import RegexBuilder
 
 struct SyntaxHighlighting {
-    static let highlightPatterns: [(String, Color)] = [
+    static var highlightPatterns: [(String, Color)] {[
         // One(.anyOf("<>"))
         ("[<>]", .orange),
         // One(.anyOf("+-"))
@@ -11,16 +11,20 @@ struct SyntaxHighlighting {
         // One(.anyOf("[]"))
         (#"[\[\]]"#, .brown),
         // One(.anyOf(".,"))
-        ("[.,]", .purple)
-    ]
+        ("[.,]", .purple),
+        // One("#")
+        ("#", settings.breakOnHash ? .green : .gray)
+    ]}
     
-    static let highlightRules: [HighlightRule] = highlightPatterns.map {
-        HighlightRule(
-            pattern: try! NSRegularExpression(pattern: $0.0),
-            formattingRule: TextFormattingRule(
-                key: .foregroundColor,
-                value: NSColor($0.1)
+    static var highlightRules: [HighlightRule] {
+        highlightPatterns.map {
+            HighlightRule(
+                pattern: try! NSRegularExpression(pattern: $0.0),
+                formattingRule: TextFormattingRule(
+                    key: .foregroundColor,
+                    value: NSColor($0.1)
+                )
             )
-        )
+        }
     }
 }

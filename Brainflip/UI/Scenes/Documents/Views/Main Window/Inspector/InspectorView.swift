@@ -43,11 +43,11 @@ struct InspectorView: View {
                         )
                         .help(inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
-                        .animation(.easeInOut, value: settings.expandedInspectorModules)
+                        .animation(.smooth, value: settings.expandedInspectorModules)
                     }
                 }
-                .animation(.easeInOut, value: settings.inspectorModuleOrder)
-                .animation(.easeInOut, value: settings.enabledInspectorModules)
+                .animation(.smooth, value: settings.inspectorModuleOrder)
+                .animation(.smooth, value: settings.enabledInspectorModules)
             }
             .scrollIndicatorsFlash(onAppear: true)
         }
