@@ -59,7 +59,7 @@ struct MainHelpView: View {
     }
 }
 
-//#Preview {
-//    MainHelpView(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    MainHelpView(state: previewState)
+        .environmentObject(settings)
+}

@@ -25,7 +25,7 @@ struct ActionButtons: View {
     }
 }
 
-//#Preview {
-//    ActionButtons(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    ActionButtons(state: previewState)
+        .environmentObject(settings)
+}

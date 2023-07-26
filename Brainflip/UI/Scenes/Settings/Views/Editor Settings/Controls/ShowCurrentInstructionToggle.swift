@@ -8,7 +8,7 @@ struct ShowCurrentInstructionToggle: View {
     }
 }
 
-//#Preview {
-//    ShowCurrentInstructionToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ShowCurrentInstructionToggle()
+        .environmentObject(settings)
+}

@@ -8,7 +8,7 @@ struct ShowProgressToggle: View {
     }
 }
 
-//#Preview {
-//    ShowProgressToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ShowProgressToggle()
+        .environmentObject(settings)
+}

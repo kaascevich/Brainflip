@@ -29,7 +29,7 @@ struct OutputView: View {
     }
 }
 
-//#Preview {
-//    OutputView(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    OutputView(state: previewState)
+        .environmentObject(settings)
+}

@@ -18,7 +18,7 @@ struct ClearMenu: View {
     }
 }
 
-//#Preview {
-//    ClearMenu(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    ClearMenu(state: previewState)
+        .environmentObject(settings)
+}

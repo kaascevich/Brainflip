@@ -12,7 +12,7 @@ struct ClearInputButton: View {
     }
 }
 
-//#Preview {
-//    ClearInputButton(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    ClearInputButton(state: previewState)
+        .environmentObject(settings)
+}

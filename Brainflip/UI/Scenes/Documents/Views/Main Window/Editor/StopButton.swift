@@ -15,7 +15,7 @@ struct StopButton: View {
     }
 }
 
-//#Preview {
-//    StopButton(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    StopButton(state: previewState)
+        .environmentObject(settings)
+}

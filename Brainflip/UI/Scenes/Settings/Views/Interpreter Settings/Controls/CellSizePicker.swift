@@ -22,7 +22,7 @@ struct CellSizePicker: View {
     }
 }
 
-//#Preview {
-//    CellSizePicker()
-//        .environmentObject(settings)
-//}
+#Preview {
+    CellSizePicker()
+        .environmentObject(settings)
+}

@@ -9,7 +9,7 @@ struct BreakOnHashToggle: View {
     }
 }
 
-//#Preview {
-//    BreakOnHashToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    BreakOnHashToggle()
+        .environmentObject(settings)
+}

@@ -28,8 +28,8 @@ struct EditorSettings: View {
     }
 }
 
-//#Preview {
-//    EditorSettings()
-//        .environmentObject(settings)
-//}
+#Preview {
+    EditorSettings()
+        .environmentObject(settings)
+}
 

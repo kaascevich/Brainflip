@@ -8,7 +8,7 @@ struct OpeningBraceBeforeNewLineToggle: View {
     }
 }
 
-//#Preview {
-//    OpeningBraceBeforeNewLineToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    OpeningBraceBeforeNewLineToggle()
+        .environmentObject(settings)
+}

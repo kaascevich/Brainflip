@@ -22,7 +22,7 @@ struct InspectorDefaultsButton: View {
     }
 }
 
-//#Preview {
-//    InspectorDefaultsButton()
-//        .environmentObject(settings)
-//}
+#Preview {
+    InspectorDefaultsButton()
+        .environmentObject(settings)
+}

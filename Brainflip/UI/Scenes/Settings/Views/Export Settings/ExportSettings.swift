@@ -30,8 +30,8 @@ struct ExportSettings: View {
     }
 }
 
-//#Preview {
-//    ExportSettings()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ExportSettings()
+        .environmentObject(settings)
+}
 

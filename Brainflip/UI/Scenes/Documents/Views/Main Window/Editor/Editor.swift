@@ -44,7 +44,7 @@ struct Editor: View {
     }
 }
 
-//#Preview {
-//    Editor(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    Editor(state: previewState)
+        .environmentObject(settings)
+}

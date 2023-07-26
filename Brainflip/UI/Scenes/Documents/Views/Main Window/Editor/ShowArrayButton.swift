@@ -36,7 +36,7 @@ extension Int: Identifiable {
     }
 }
 
-//#Preview {
-//    ShowArrayButton(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    ShowArrayButton(state: previewState)
+        .environmentObject(settings)
+}

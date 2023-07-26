@@ -44,7 +44,7 @@ struct SearchBar: NSViewRepresentable {
     }
 }
 
-//#Preview {
-//    SearchBar(.constant(""))
-//}
+#Preview {
+    SearchBar(.constant(""))
+}
 

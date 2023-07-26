@@ -47,7 +47,7 @@ struct InspectorModuleList: View {
     }
 }
 
-//#Preview {
-//    InspectorModuleList()
-//        .environmentObject(settings)
-//}
+#Preview {
+    InspectorModuleList()
+        .environmentObject(settings)
+}

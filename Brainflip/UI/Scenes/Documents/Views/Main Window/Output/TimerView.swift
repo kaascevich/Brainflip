@@ -35,7 +35,7 @@ struct TimerView: View {
     }
 }
 
-//#Preview {
-//    TimerView(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    TimerView(state: previewState)
+        .environmentObject(settings)
+}

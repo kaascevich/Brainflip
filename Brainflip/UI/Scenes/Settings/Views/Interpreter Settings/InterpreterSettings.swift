@@ -24,7 +24,7 @@ struct InterpreterSettings: View {
     }
 }
 
-//#Preview {
-//    InterpreterSettings()
-//        .environmentObject(settings)
-//}
+#Preview {
+    InterpreterSettings()
+        .environmentObject(settings)
+}

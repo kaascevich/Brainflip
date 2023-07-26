@@ -8,7 +8,7 @@ struct MonospacedToggle: View {
     }
 }
 
-//#Preview {
-//    MonospacedToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    MonospacedToggle()
+        .environmentObject(settings)
+}

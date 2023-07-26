@@ -13,7 +13,7 @@ struct ShowNotificationsToggle: View {
     }
 }
 
-//#Preview {
-//    ShowNotificationsToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ShowNotificationsToggle()
+        .environmentObject(settings)
+}

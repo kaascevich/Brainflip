@@ -44,7 +44,7 @@ struct WhitespaceList: View {
     }
 }
 
-//#Preview {
-//    WhitespaceList()
-//        .environmentObject(settings)
-//}
+#Preview {
+    WhitespaceList()
+        .environmentObject(settings)
+}

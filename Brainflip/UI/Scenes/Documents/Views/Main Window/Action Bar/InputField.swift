@@ -26,7 +26,7 @@ struct InputField: View {
     }
 }
 
-//#Preview {
-//    InputField(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    InputField(state: previewState)
+        .environmentObject(settings)
+}

@@ -21,7 +21,7 @@ struct DefaultsButton: View {
     }
 }
 
-//#Preview {
-//    DefaultsButton()
-//        .environmentObject(settings)
-//}
+#Preview {
+    DefaultsButton()
+        .environmentObject(settings)
+}

@@ -16,7 +16,7 @@ struct TextSizeSlider: View {
     }
 }
 
-//#Preview {
-//    TextSizeSlider()
-//        .environmentObject(settings)
-//}
+#Preview {
+    TextSizeSlider()
+        .environmentObject(settings)
+}

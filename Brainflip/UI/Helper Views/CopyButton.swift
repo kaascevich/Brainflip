@@ -21,6 +21,6 @@ struct CopyButton: View {
     }
 }
 
-//#Preview {
-//    CopyButton { "yay, it worked" }
-//}
+#Preview {
+    CopyButton { "yay, it worked" }
+}

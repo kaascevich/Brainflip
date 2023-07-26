@@ -21,7 +21,7 @@ struct ExportDefaultsButton: View {
     }
 }
 
-//#Preview {
-//    ExportDefaultsButton()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ExportDefaultsButton()
+        .environmentObject(settings)
+}

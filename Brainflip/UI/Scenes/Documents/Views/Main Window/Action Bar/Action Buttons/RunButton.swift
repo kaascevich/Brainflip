@@ -27,7 +27,7 @@ struct RunButton: View {
     }
 }
 
-//#Preview {
-//    RunButton(state: previewState)
-//        .environmentObject(settings)
-//}
+#Preview {
+    RunButton(state: previewState)
+        .environmentObject(settings)
+}

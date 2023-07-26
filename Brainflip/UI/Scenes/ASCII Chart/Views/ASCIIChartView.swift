@@ -15,7 +15,7 @@ struct ASCIIChartView: View {
     }
 }
 
-//#Preview {
-//    ASCIIChartView()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ASCIIChartView()
+        .environmentObject(settings)
+}

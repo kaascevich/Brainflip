@@ -8,7 +8,7 @@ struct ShowProgramSizeToggle: View {
     }
 }
 
-//#Preview {
-//    ShowProgramSizeToggle()
-//        .environmentObject(settings)
-//}
+#Preview {
+    ShowProgramSizeToggle()
+        .environmentObject(settings)
+}
