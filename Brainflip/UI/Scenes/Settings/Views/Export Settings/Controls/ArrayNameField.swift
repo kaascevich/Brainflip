@@ -13,7 +13,7 @@ struct ArrayNameField: View {
     }
 }
 
-#Preview {
-    ArrayNameField()
-        .environmentObject(settings)
-}
+//#Preview {
+//    ArrayNameField()
+//        .environmentObject(settings)
+//}

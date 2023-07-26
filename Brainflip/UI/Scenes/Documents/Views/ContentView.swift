@@ -39,7 +39,7 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    ContentView(state: previewState)
+//        .environmentObject(settings)
+//}

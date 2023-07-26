@@ -15,7 +15,7 @@ struct ResetButton: View {
     }
 }
 
-#Preview {
-    ResetButton(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    ResetButton(state: previewState)
+//        .environmentObject(settings)
+//}

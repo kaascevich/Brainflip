@@ -19,7 +19,7 @@ struct ProgramSizeView: View {
     }
 }
 
-#Preview {
-    ProgramSizeView(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    ProgramSizeView(state: previewState)
+//        .environmentObject(settings)
+//}

@@ -32,7 +32,7 @@ struct ProgramProgressView: View {
     }
 }
 
-#Preview {
-    ProgramProgressView(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    ProgramProgressView(state: previewState)
+//        .environmentObject(settings)
+//}

@@ -32,7 +32,7 @@ struct EditorView: View {
     }
 }
 
-#Preview {
-    EditorView(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    EditorView(state: previewState)
+//        .environmentObject(settings)
+//}

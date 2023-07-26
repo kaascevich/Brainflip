@@ -22,7 +22,7 @@ struct InterpreterDefaultsButton: View {
     }
 }
 
-#Preview {
-    InterpreterDefaultsButton()
-        .environmentObject(settings)
-}
+//#Preview {
+//    InterpreterDefaultsButton()
+//        .environmentObject(settings)
+//}

@@ -8,7 +8,7 @@ struct HighlightingToggle: View {
     }
 }
 
-#Preview {
-    HighlightingToggle()
-        .environmentObject(settings)
-}
+//#Preview {
+//    HighlightingToggle()
+//        .environmentObject(settings)
+//}

@@ -19,7 +19,7 @@ struct StepButton: View {
     }
 }
 
-#Preview {
-    StepButton(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    StepButton(state: previewState)
+//        .environmentObject(settings)
+//}

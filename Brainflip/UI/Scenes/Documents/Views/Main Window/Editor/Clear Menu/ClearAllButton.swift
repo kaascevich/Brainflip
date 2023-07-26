@@ -12,7 +12,7 @@ struct ClearAllButton: View {
     }
 }
 
-#Preview {
-    ClearAllButton(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    ClearAllButton(state: previewState)
+//        .environmentObject(settings)
+//}

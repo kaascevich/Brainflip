@@ -12,7 +12,7 @@ struct ArraySizeSlider: View {
     }
 }
 
-#Preview {
-    ArraySizeSlider()
-        .environmentObject(settings)
-}
+//#Preview {
+//    ArraySizeSlider()
+//        .environmentObject(settings)
+//}

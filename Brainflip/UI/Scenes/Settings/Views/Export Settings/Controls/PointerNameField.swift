@@ -13,7 +13,7 @@ struct PointerNameField: View {
     }
 }
 
-#Preview {
-    PointerNameField()
-        .environmentObject(settings)
-}
+//#Preview {
+//    PointerNameField()
+//        .environmentObject(settings)
+//}

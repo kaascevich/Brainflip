@@ -51,7 +51,7 @@ struct SettingsView: View {
     }
 }
 
-#Preview {
-    SettingsView()
-        .environmentObject(settings)
-}
+//#Preview {
+//    SettingsView()
+//        .environmentObject(settings)
+//}

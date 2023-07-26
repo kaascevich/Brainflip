@@ -8,7 +8,7 @@ struct LeftHandIncDecToggle: View {
     }
 }
 
-#Preview {
-    LeftHandIncDecToggle()
-        .environmentObject(settings)
-}
+//#Preview {
+//    LeftHandIncDecToggle()
+//        .environmentObject(settings)
+//}

@@ -61,7 +61,7 @@ struct InspectorView: View {
     }
 }
 
-#Preview {
-    InspectorView(state: previewState)
-        .environmentObject(settings)
-}
+//#Preview {
+//    InspectorView(state: previewState)
+//        .environmentObject(settings)
+//}

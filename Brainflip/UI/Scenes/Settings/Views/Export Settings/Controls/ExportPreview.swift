@@ -15,7 +15,7 @@ struct ExportPreview: View {
     }
 }
 
-#Preview {
-    ExportPreview()
-        .environmentObject(settings)
-}
+//#Preview {
+//    ExportPreview()
+//        .environmentObject(settings)
+//}

@@ -19,8 +19,8 @@ struct SoundSettings: View {
     }
 }
 
-#Preview {
-    SoundSettings()
-        .environmentObject(settings)
-}
+//#Preview {
+//    SoundSettings()
+//        .environmentObject(settings)
+//}
 

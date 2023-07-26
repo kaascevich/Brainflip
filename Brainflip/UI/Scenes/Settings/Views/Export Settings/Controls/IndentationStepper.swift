@@ -8,7 +8,7 @@ struct IndentationStepper: View {
     }
 }
 
-#Preview {
-    IndentationStepper()
-        .environmentObject(settings)
-}
+//#Preview {
+//    IndentationStepper()
+//        .environmentObject(settings)
+//}

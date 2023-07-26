@@ -8,7 +8,7 @@ struct ShowTimerToggle: View {
     }
 }
 
-#Preview {
-    ShowTimerToggle()
-        .environmentObject(settings)
-}
+//#Preview {
+//    ShowTimerToggle()
+//        .environmentObject(settings)
+//}

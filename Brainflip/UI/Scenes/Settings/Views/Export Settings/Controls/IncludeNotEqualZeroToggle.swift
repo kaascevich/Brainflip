@@ -8,7 +8,7 @@ struct IncludeNotEqualZeroToggle: View {
     }
 }
 
-#Preview {
-    IncludeNotEqualZeroToggle()
-        .environmentObject(settings)
-}
+//#Preview {
+//    IncludeNotEqualZeroToggle()
+//        .environmentObject(settings)
+//}
