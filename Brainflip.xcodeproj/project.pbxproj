@@ -345,6 +345,7 @@
 		34E87B1D29B921D000B850C2 /* InspectorDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorDefaultsButton.swift; sourceTree = "<group>"; };
 		34EC0D9F29AF9C1800CBC87C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34EE8A952A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeVoidWithinMainToggle.swift; sourceTree = "<group>"; };
+		34F1B0482A71BF96003949DE /* Brainflip.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brainflip.xctestplan; sourceTree = "<group>"; };
 		34FDFE3F29CC6ECD0020CDC8 /* Whitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitespace.swift; sourceTree = "<group>"; };
 		34FDFE4229CC6F5D0020CDC8 /* CellSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSize.swift; sourceTree = "<group>"; };
 		34FDFE4529CC80070020CDC8 /* BrainflipToC+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Components.swift"; sourceTree = "<group>"; };
@@ -937,9 +938,7 @@
 			isa = PBXGroup;
 			children = (
 				3422F3BB2A661556006DB1BF /* Readme.md */,
-				347F22A42A67640D00754651 /* To Do.md */,
-				34AE6AC12A6820B00017C2CB /* Bugs.md */,
-				348A00262A663BCC00C7B056 /* Images */,
+				34F1B0492A71C4DB003949DE /* Meta */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
 				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
@@ -1014,6 +1013,33 @@
 				349778932A6F87C10093B5C6 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34F1B0492A71C4DB003949DE /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				34F1B04B2A71C4F9003949DE /* Docs */,
+				34F1B04A2A71C4E7003949DE /* Test Plans */,
+			);
+			path = Meta;
+			sourceTree = "<group>";
+		};
+		34F1B04A2A71C4E7003949DE /* Test Plans */ = {
+			isa = PBXGroup;
+			children = (
+				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+			);
+			path = "Test Plans";
+			sourceTree = "<group>";
+		};
+		34F1B04B2A71C4F9003949DE /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				348A00262A663BCC00C7B056 /* Images */,
+				347F22A42A67640D00754651 /* To Do.md */,
+				34AE6AC12A6820B00017C2CB /* Bugs.md */,
+			);
+			path = Docs;
 			sourceTree = "<group>";
 		};
 		34FDFE4129CC6F4E0020CDC8 /* Enums */ = {
@@ -1106,7 +1132,6 @@
 				34DF121829A7B9470021729B /* Resources */,
 				345E190B2A6456BA002C66D0 /* Embed Foundation Extensions */,
 				346011A02A65B0C500029BB3 /* Embed ExtensionKit Extensions */,
-				34F1B0472A71BC6C003949DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1210,26 +1235,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		34F1B0472A71BC6C003949DE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3473D2A02A7027870067F7F9 /* Sources */ = {

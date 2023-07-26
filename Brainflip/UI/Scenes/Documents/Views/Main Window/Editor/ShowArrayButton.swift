@@ -14,14 +14,16 @@ struct ShowArrayButton: View {
                 TableColumn("Index") {
                     Text(String($0))
                         .foregroundColor(state.interpreter.pointer == $0 ? .green : .primary)
-                        .accessibilityIdentifier("Cell \($0) index")
+                        .accessibilityLabel("Cell \($0) index")
+                        .accessibilityValue(String($0))
                 }
                 .width(45)
                 
                 TableColumn("Value") {
                     Text(String(state.interpreter.cellArray[$0]))
                         .bold()
-                        .accessibilityIdentifier("Cell \($0) value")
+                        .accessibilityLabel("Cell \($0) value")
+                        .accessibilityValue(String(state.interpreter.cellArray[$0]))
                 }
                 .width(155)
             }

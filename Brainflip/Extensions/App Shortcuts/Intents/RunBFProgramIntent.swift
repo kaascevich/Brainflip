@@ -111,10 +111,10 @@ struct RunBFProgramIntent: AppIntent {
     }
 }
 
-struct IntentError: Error, CustomLocalizedStringResourceConvertible {
-    var localizedStringResource: LocalizedStringResource
+struct IntentError: Error, CustomStringConvertible {
+    var description: String
     
-    init(_ localizedStringResource: String) {
-        self.localizedStringResource = LocalizedStringResource(stringLiteral: localizedStringResource)
+    init(_ description: String) {
+        self.description = description
     }
 }

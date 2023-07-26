@@ -195,6 +195,7 @@ final class ProgramState: ObservableObject {
         || justRanProgram
     }
     
+    @MainActor
     func exportToC() {
         Task {
             isConversionProgressShowing = true

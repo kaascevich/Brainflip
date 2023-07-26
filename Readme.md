@@ -19,13 +19,13 @@ Not very enticing, is it?
 
 Brainflip attempts (*attempts*) to remedy that.
 
-![Typical Brainflip usage. You gotta admit, it's certainly better than the command line.](Images/Demonstration.png)
+![Typical Brainflip usage. You gotta admit, it's certainly better than the command line.](Meta/Docs/Images/Demonstration.png)
 
 You're provided with a relatively full-fledged editor to do your ~~evildoings~~ programming with. You can run programs, trim those programs to make them *really* unreadable, step through programs to identify that *one stupid instruction* that's breaking ***literally everything***, and inspect just about every aspect of the interpreter, from the total instructions executed to the exact contents of the array.
 
 Oh, and did I mention it's highly configurable? It's highly configurable. Like, *really* highly configurable. Like, *so* ridiculously configurable it's excessive.
 
-![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](Images/InterpreterSettings.png)
+![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](Meta/Docs/Images/InterpreterSettings.png)
 
 ## Configurable Settings
 

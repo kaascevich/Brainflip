@@ -19,10 +19,11 @@ struct Editor: View {
         )
         .introspect {
             $0.textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
-       //     $0.textView.allowsCharacterPickerTouchBarItem = false
+            $0.textView.defaultParagraphStyle = Editor.wrappingParagraphStyle
+            
             $0.textView.allowsUndo = true
             $0.textView.isEditable = !state.isRunningProgram
-//            $0.textView.isSelectable = !state.isRunningProgram
+            
             if settings.showCurrentInstruction {
                 $0.textView.textStorage?.addAttributes(
                     [
@@ -32,9 +33,8 @@ struct Editor: View {
                     range: NSRange(state.selection)
                 )
             }
-            $0.textView.setAccessibilityLabel("Editor")
             
-            $0.textView.defaultParagraphStyle = Editor.wrappingParagraphStyle
+            $0.textView.setAccessibilityLabel("Editor")
         }
         .onChange(of: state.document.program) {
             if state.interpreter.currentInstructionIndex != 0 {

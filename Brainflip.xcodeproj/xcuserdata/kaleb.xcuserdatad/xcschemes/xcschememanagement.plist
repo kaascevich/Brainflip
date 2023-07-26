@@ -14,11 +14,6 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Brainflip (Release).xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>Brainflip.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -48,7 +43,7 @@
 		<key>QuickLook.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -59,6 +54,16 @@
 			<true/>
 		</dict>
 		<key>346011BA2A65BA3100029BB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3473D2A32A7027870067F7F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>34848B682A7046E100EBD2C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
