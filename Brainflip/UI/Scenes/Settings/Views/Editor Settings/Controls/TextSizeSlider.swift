@@ -11,6 +11,7 @@ struct TextSizeSlider: View {
         } maximumValueLabel: {
             Image(systemName: "textformat.size.larger")
         }
+        .accessibilityValue(String(settings.textSize))
         .help(String(settings.textSize))
     }
 }

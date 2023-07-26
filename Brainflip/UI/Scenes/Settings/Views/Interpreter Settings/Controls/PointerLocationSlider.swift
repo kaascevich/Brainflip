@@ -13,6 +13,7 @@ struct PointerLocationSlider: View {
         Slider(value: settings.$pointerLocation, in: 0...100, step: 5) {
             StepperField(value: settings.$pointerLocation, in: 0...100, label: "Pointer location")
         }
+        .accessibilityValue(String(settings.pointerLocation))
         .help("Controls which cell the pointer starts on when the program begins running; useful for programs which would otherwise require going below the bounds of the array.")
     }
 }

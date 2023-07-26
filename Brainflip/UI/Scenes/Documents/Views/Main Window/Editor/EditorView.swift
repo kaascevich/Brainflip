@@ -8,6 +8,7 @@ struct EditorView: View {
         Form {
             HStack {
                 Text("Type your program here...")
+                    .accessibilityHidden(true)
                 Spacer()
                 ShowArrayButton(state: state)
                 

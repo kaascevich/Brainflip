@@ -4,15 +4,15 @@ struct Inspector {
     @EnvironmentObject private var settings: AppSettings
                                var state:    ProgramState?
     
+    typealias ModuleData = (
+        name:             String,
+        data:             Any?,
+        tooltip:          String,
+        enabledByDefault: Bool
+    )
+    
     init(state: ProgramState? = nil) {
         self.state = state
-        
-        typealias ModuleData = (
-            name:             String,
-            data:             Any?,
-            tooltip:          String,
-            enabledByDefault: Bool
-        )
         
         let moduleData: [ModuleData] = [
             // MARK: Instructions
@@ -125,7 +125,7 @@ struct Inspector {
 }
 
 extension Inspector {
-    class Module {
+    struct Module {
         let name:             String
         var data:             Any?
         let tooltip:          String

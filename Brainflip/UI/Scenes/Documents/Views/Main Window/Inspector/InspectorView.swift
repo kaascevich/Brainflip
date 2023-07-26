@@ -28,6 +28,7 @@ struct InspectorView: View {
                             }
                         }
                     }
+                    .accessibilityLabel(settings.expandedInspectorModules.allSatisfy{ $0 == true } ? "Collapse All" : "Expand All")
             }
             .padding(1)
             

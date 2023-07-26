@@ -21,7 +21,7 @@ struct TextFieldWithLabel: View {
                     $0.isEditable = false
                     $0.focusRingType = .none
                 }
-                .accessibilityIdentifier(label)
+                .accessibilityLabel(label)
         }
         .disclosureGroupStyle(AnimatedDisclosureGroupStyle())
     }
@@ -29,7 +29,7 @@ struct TextFieldWithLabel: View {
 
 #Preview {
     TextFieldWithLabel(
-        "Testing, testing",
+        "Testing, content",
         label: "Testing, testing",
         isShown: .constant(true)
     )

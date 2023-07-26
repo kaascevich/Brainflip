@@ -98,27 +98,6 @@ final class Interpreter {
         self.program         = Program(string: program)
         self.input           = input
         self.breakOnHash     = breakOnHash
-        self.loops = {
-            var array:   [Int] = [ ]
-            var stack:   [Int] = [0]
-            var numLoops: Int  =  0
-            var current:  Int  =  0
-            for instruction in self.program {
-                switch instruction {
-                    case .conditional:
-                        stack.append(current)
-                        numLoops += 1
-                        current   = numLoops
-                        array.append(current)
-                    case .loop:
-                        array.append(current)
-                        current = stack.popLast() ?? 0
-                    default:
-                        array.append(current)
-                }
-            }
-            return array
-        }()
     }
     
     /// The `String` representation of the program, including comments.
@@ -162,7 +141,27 @@ final class Interpreter {
         return array
     }
     
-    private(set) var loops: [Int] = []
+    private(set) lazy var loops: [Int] = {
+        var array:   [Int] = [ ]
+        var stack:   [Int] = [0]
+        var numLoops: Int  =  0
+        var current:  Int  =  0
+        for instruction in self.program {
+            switch instruction {
+                case .conditional:
+                    stack.append(current)
+                    numLoops += 1
+                    current   = numLoops
+                    array.append(current)
+                case .loop:
+                    array.append(current)
+                    current = stack.popLast() ?? 0
+                default:
+                    array.append(current)
+            }
+        }
+        return array
+    }()
     
     /// The maximum size of the array.
     let arraySize: Int

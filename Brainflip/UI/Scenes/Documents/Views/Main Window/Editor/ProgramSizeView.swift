@@ -4,11 +4,18 @@ struct ProgramSizeView: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     
-    var body: some View {
-        Text("Program size: " + ByteCountFormatter.string(
+    private var programSize: String {
+        ByteCountFormatter.string(
             fromByteCount: Int64(state.document.contents.count),
             countStyle: .file
-        ))
+        )
+    }
+    
+    var body: some View {
+        Text("Program size: " + programSize)
+            .accessibilityRespondsToUserInteraction()
+            .accessibilityLabel("Program Size")
+            .accessibilityValue(programSize)
     }
 }
 

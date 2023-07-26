@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let asciiValues: [String] = [
+let asciiValues: [String] = [
     // MARK: Control characters
     "Null", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",
     "Backspace", "Horizontal tab", "Line feed", "Vertical tab", "Form feed", "Carriage return",

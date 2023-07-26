@@ -2,36 +2,41 @@ import SwiftUI
 
 struct StepperField: View {
     @Binding var value: Int
-             var range: ClosedRange<Int>
-             var step:  Int
-             var label: String
+    var range: ClosedRange<Int>
+    var step: Int
+    var label: String
     
-    init(value:    Binding<Int>,
-         in range: ClosedRange<Int>,
-         step:     Int    = 1,
-         label:    String = ""
+    init(
+        value: Binding<Int>,
+        in range: ClosedRange<Int>,
+        step: Int = 1,
+        label: String = ""
     ) {
         self._value = value
-        self.range  = range
-        self.step   = step
-        self.label  = label
+        self.range = range
+        self.step = step
+        self.label = label
         formatter = {
-            let formatter          = NumberFormatter()
+            let formatter = NumberFormatter()
             formatter.allowsFloats = false
-            formatter.minimum      = range.lowerBound as NSNumber
-            formatter.maximum      = range.upperBound as NSNumber
+            formatter.minimum = range.lowerBound as NSNumber
+            formatter.maximum = range.upperBound as NSNumber
             return formatter
         }()
     }
     
-    init(value:    Binding<Double>,
-         in range: ClosedRange<Int>,
-         step:     Int    = 1,
-         label:    String = "") {
-        self.init(value: value.int,
-                  in: range,
-                  step: step,
-                  label: label)
+    init(
+        value: Binding<Double>,
+        in range: ClosedRange<Int>,
+        step: Int = 1,
+        label: String = ""
+    ) {
+        self.init(
+            value: value.int,
+            in: range,
+            step: step,
+            label: label
+        )
     }
     
     private var formatter: NumberFormatter
@@ -48,12 +53,13 @@ struct StepperField: View {
                     .font(.monospacedDigit(.body)())
             }
         }
+        .accessibilityValue(String(value))
     }
 }
 
 extension Double {
     var int: Int {
-        get { Int(self)               }
+        get { Int(self) }
         set { self = Double(newValue) }
     }
 }

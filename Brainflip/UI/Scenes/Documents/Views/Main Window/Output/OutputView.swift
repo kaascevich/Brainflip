@@ -9,6 +9,7 @@ struct OutputView: View {
         VStack {
             HStack {
                 Text("Output")
+                    .accessibilityHidden(true)
                 Spacer()
                 if settings.showTimer {
                     TimerView(state: state)
@@ -20,8 +21,10 @@ struct OutputView: View {
                 .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
                     $0.usesFindPanel = true
-                    $0.identifier = .init("Output")
                 }
+                .accessibilityTextContentType(.sourceCode)
+                .accessibilityLabel("Output")
+                .speechSpellsOutCharacters()
         }
     }
 }
