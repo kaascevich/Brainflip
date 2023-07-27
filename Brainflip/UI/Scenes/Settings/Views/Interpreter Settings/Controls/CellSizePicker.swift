@@ -1,11 +1,12 @@
 import SwiftUI
+import Interpreter
 
 struct CellSizePicker: View {
     @EnvironmentObject private var settings: AppSettings
     
     var body: some View {
         Picker("Cell size", selection: settings.$cellSize) {
-            ForEach(CellSize.allCases, id: \.self) { size in
+            ForEach(Interpreter.CellSize.allCases, id: \.self) { size in
                 Text(size.localizedStringResource)
             }
         }

@@ -1,6 +1,7 @@
 import Foundation
 import RegexBuilder
 import os.log
+import Interpreter
 
 enum BrainflipToC {
     static let logger = Logger(subsystem: bundleID, category: "Brainflip-to-C conversion")
@@ -28,7 +29,7 @@ enum BrainflipToC {
         // Quick check to make sure all loops are closed -- we can't convert an invalid program
         guard Interpreter(program: program).loops.last == 0 else {
             logger.error("Error: invalid program \"\(program.description)\"; cannot continue")
-            throw InterpreterError.mismatchedBrackets
+            throw Interpreter.Error.mismatchedBrackets
         }
         
         logger.log("Generating header")

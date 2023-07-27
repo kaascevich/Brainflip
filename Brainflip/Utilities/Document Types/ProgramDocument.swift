@@ -1,5 +1,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import Interpreter
 
 final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
     let id = UUID()

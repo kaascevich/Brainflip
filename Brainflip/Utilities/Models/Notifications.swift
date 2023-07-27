@@ -2,6 +2,7 @@ import Foundation
 import UserNotifications
 import SwiftUI
 import os.log
+import Interpreter
 
 struct Notifications {
     private init() { }
@@ -32,7 +33,7 @@ struct Notifications {
             let content = UNMutableNotificationContent()
             content.subtitle = filename
             content.body = "Run \(error == nil ? "succeeded" : "failed")"
-            if let error = error as? InterpreterError {
+            if let error = error as? Interpreter.Error {
                 content.body += ": "
                 switch error {
                     case .overflow:           content.body += "overflow"

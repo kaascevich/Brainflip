@@ -1,4 +1,5 @@
 import AppIntents
+import Interpreter
 
 struct RunBFProgramIntent: AppIntent {
     static let title: LocalizedStringResource = "Run Brainflip Program"
@@ -73,7 +74,7 @@ struct RunBFProgramIntent: AppIntent {
         description: "The size of the array's cells.",
         default: .eightBit,
         requestValueDialog: "How big should the cells be?"
-    ) var cellSize: CellSize
+    ) var cellSize: Interpreter.CellSize
     
     @Parameter(
         title: "Stop on Break Instruction",
@@ -96,7 +97,7 @@ struct RunBFProgramIntent: AppIntent {
         do {
             try await interpreter.run()
         } catch {
-            if let error = error as? InterpreterError {
+            if let error = error as? Interpreter.Error {
                 let errorDescription = switch error {
                     case .mismatchedBrackets: "There are mismatched brackets within the program."
                     case .overflow:           "An attempt was made to go above the array bounds."

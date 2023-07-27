@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import Interpreter
 
 //@MainActor
 final class ProgramState: ObservableObject {
@@ -24,7 +25,7 @@ final class ProgramState: ObservableObject {
     @Published var justRanProgram: Bool = false
     @Published var isSteppingThrough: Bool = false
     @Published var errorDescription: String = ""
-    @Published var errorType: InterpreterError? = nil
+    @Published var errorType: Interpreter.Error? = nil
     @Published var hasError: Bool = false
     @Published var isClearAlertShowing: Bool = false
     @Published var isWarningAboutTrim: Bool = false
@@ -40,20 +41,20 @@ final class ProgramState: ObservableObject {
     @Published var execution: Task = .init { }
     
     private func processError(_ error: Error) {
-        errorType = error as? InterpreterError
+        errorType = error as? Interpreter.Error
         
         errorDescription = switch error {
-            case let error as InterpreterError: error.rawValue
+            case let error as Interpreter.Error: error.rawValue
             default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
         
         switch error {
-            case InterpreterError.mismatchedBrackets: break
-            case InterpreterError.break: stop()
+            case Interpreter.Error.mismatchedBrackets: break
+            case Interpreter.Error.break: stop()
             default: updateSelection()
         }
         
-        if error is InterpreterError, error as! InterpreterError != .break {
+        if error is Interpreter.Error, error as! Interpreter.Error != .break {
             hasError = true
         }
     }

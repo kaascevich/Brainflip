@@ -1,4 +1,5 @@
 import SwiftUI
+import Interpreter
 
 struct MenuCommandAlerts: View {
     @EnvironmentObject private var settings: AppSettings

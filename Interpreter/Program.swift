@@ -1,9 +1,9 @@
 import Foundation
 
 /// Represents a Brainflip program.
-typealias Program = Array<Instruction>
+public typealias Program = Array<Instruction>
 
-extension Program {
+public extension Program {
     /// Creates a program from a `String`.
     ///
     /// - Parameters:

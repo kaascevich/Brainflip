@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftUIIntrospect
+import Interpreter
 
 struct ExportPreview: View {
     @EnvironmentObject private var settings: AppSettings

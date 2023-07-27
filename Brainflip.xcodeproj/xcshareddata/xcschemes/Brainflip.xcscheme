@@ -56,6 +56,17 @@
                ReferencedContainer = "container:Brainflip.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34F913502A72F21D00F6BB1C"
+               BuildableName = "InterpreterTests.xctest"
+               BlueprintName = "InterpreterTests"
+               ReferencedContainer = "container:Brainflip.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -1,5 +1,6 @@
 import SwiftUI
 import AppKit
+import Interpreter
 
 struct ExportToCCommand: View {
     @FocusedObject<ProgramState> var state

@@ -1,4 +1,5 @@
 import Foundation
+import Interpreter
 
 extension BrainflipToC {
     @StringBuilder static var moveRightInstruction: String {

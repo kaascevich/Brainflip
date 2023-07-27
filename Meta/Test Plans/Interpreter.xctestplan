@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "D1C5EE47-649A-4A84-B025-F809D710E1B3",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Brainflip.xcodeproj",
+        "identifier" : "34F913502A72F21D00F6BB1C",
+        "name" : "InterpreterTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,7 +1,7 @@
 import Foundation
 
 /// Instructions that can be executed by the Brainflip interpreter.
-enum Instruction: Character, CaseIterable {
+public enum Instruction: Character, CaseIterable {
     /// Moves the pointer 1 cell to the right.
     ///
     /// This instruction is represented as `>`.
@@ -51,7 +51,7 @@ enum Instruction: Character, CaseIterable {
     case blank = "\0"
     
     /// Returns a `String` containing all valid instructions except for the blank instruction.
-    static var validInstructions: String {
+    public static var validInstructions: String {
         String(allCases.filter { $0 != .blank }.map(\.rawValue))
     }
 }

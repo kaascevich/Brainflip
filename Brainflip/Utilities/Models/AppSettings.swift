@@ -1,6 +1,7 @@
 import SwiftUI
 import Foundation
 import os.log
+import Interpreter
 
 /// The global ``AppSettings`` object.
 ///
@@ -61,7 +62,7 @@ final class AppSettings: ObservableObject {
     var pointerLocation: Double = 0
     
     @AppStorage("cellSize", store: interpreterSettings)
-    var cellSize: CellSize = .eightBit
+    var cellSize: Interpreter.CellSize = .eightBit
     
     @AppStorage("breakOnHash", store: interpreterSettings)
     var breakOnHash: Bool = false
