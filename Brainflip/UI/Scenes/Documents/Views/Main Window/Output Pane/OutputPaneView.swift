@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftUIIntrospect
 
-struct OutputView: View {
+struct OutputPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     
@@ -30,6 +30,6 @@ struct OutputView: View {
 }
 
 #Preview {
-    OutputView(state: previewState)
+    OutputPaneView(state: previewState)
         .environmentObject(settings)
 }

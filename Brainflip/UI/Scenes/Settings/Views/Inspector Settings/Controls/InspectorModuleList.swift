@@ -2,13 +2,13 @@ import SwiftUI
 
 struct InspectorModuleList: View {
     @EnvironmentObject private var settings: AppSettings
-    private var inspector = Inspector()
+    private static let inspector = Inspector()
     
     var body: some View {
         List(settings.$inspectorModuleOrder, id: \.self, editActions: .move, selection: settings.$enabledInspectorModules) { index in
             let index = index.wrappedValue
-            Toggle(inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
-                .help(inspector.modules[index].tooltip)
+            Toggle(Self.inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
+                .help(Self.inspector.modules[index].tooltip)
                 .onChange(of: settings.enabledInspectorModules[index]) {
                     settings.expandedInspectorModules[index] = true
                 }
@@ -37,13 +37,13 @@ struct InspectorModuleList: View {
         // the two halves, sort those, and then merge them back together before committing
         // the changes to settings.inspectorModuleOrder.
         
-        let p = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
+        let partitioned = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
         var arrays = (
-            Array(settings.inspectorModuleOrder[..<p]),
-            Array(settings.inspectorModuleOrder[p...])
+            Array(settings.inspectorModuleOrder[..<partitioned]),
+            Array(settings.inspectorModuleOrder[partitioned...])
         )
-        arrays.0.sort { inspector.modules[$0].name < inspector.modules[$1].name }
-        arrays.1.sort { inspector.modules[$0].name < inspector.modules[$1].name }
+        arrays.0.sort { Self.inspector.modules[$0].name < Self.inspector.modules[$1].name }
+        arrays.1.sort { Self.inspector.modules[$0].name < Self.inspector.modules[$1].name }
         settings.inspectorModuleOrder = arrays.0 + arrays.1
     }
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct InspectorView: View {
+struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     @State private var searchText: String = ""
@@ -63,6 +63,6 @@ struct InspectorView: View {
 }
 
 #Preview {
-    InspectorView(state: previewState)
+    InspectorPaneView(state: previewState)
         .environmentObject(settings)
 }

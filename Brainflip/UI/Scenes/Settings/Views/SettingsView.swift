@@ -9,7 +9,7 @@ struct SettingsView: View {
         view:   any View
     )
     
-    let tabs: [Tab] = [
+    static let tabs: [Tab] = [
         (
             name: "General",
             symbol: "gearshape",
@@ -39,7 +39,7 @@ struct SettingsView: View {
     
     var body: some View {
         TabView {
-            ForEach(tabs, id: \.name) { tab in
+            ForEach(SettingsView.tabs, id: \.name) { tab in
                 AnyView(tab.view)
                     .tabItem {
                         Label(tab.name, systemImage: tab.symbol)

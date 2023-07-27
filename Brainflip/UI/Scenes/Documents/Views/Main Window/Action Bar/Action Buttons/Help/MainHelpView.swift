@@ -7,7 +7,7 @@ struct MainHelpView: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
         
-    let helpContent: AttributedString = {
+    static let helpContent: AttributedString = {
         let fileURL = Bundle.main.url(
             forResource: "MainHelp",
             withExtension: "rtf"
@@ -31,7 +31,7 @@ struct MainHelpView: View {
         .sheet(isPresented: $state.showingMainHelp) {
             NavigationStack {
                 ScrollView {
-                    Text(helpContent)
+                    Text(MainHelpView.helpContent)
                         .padding()
                         .textSelection(.enabled)
                 }

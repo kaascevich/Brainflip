@@ -5,4 +5,4 @@
 /// ```
 /// ,[>+<-.]
 /// ```
-var previewState = ProgramState(document: ProgramDocument(",[>+<-.]"))
+let previewState = ProgramState(document: ProgramDocument(",[>+<-.]"))

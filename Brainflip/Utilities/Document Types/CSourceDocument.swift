@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 final class CSourceDocument: FileDocument, Identifiable {
-    var id = UUID()
+    let id = UUID()
         
     var contents: String
     init?(_ contents: String? = "") {
@@ -10,7 +10,7 @@ final class CSourceDocument: FileDocument, Identifiable {
         else { return nil }
     }
         
-    static var readableContentTypes: [UTType] = [.cSource]
+    static let readableContentTypes: [UTType] = [.cSource]
     
     convenience init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents else {

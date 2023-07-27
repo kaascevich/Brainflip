@@ -1,7 +1,7 @@
 import SwiftUI
 import Foundation
 
-struct EditorView: View {
+struct EditorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     @ObservedObject var state: ProgramState
     var body: some View {
@@ -33,6 +33,6 @@ struct EditorView: View {
 }
 
 #Preview {
-    EditorView(state: previewState)
+    EditorPaneView(state: previewState)
         .environmentObject(settings)
 }

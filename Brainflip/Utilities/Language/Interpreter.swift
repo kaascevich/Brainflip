@@ -8,15 +8,15 @@ import AppIntents
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
 final class Interpreter {
-    private let logger = Logger(subsystem: bundleID, category: "Interpreter")
+    private static let logger = Logger(subsystem: bundleID, category: "Interpreter")
     
     /// The action to perform  when encountering an input instruction after end-of-input has been reached.
     let endOfInput: EndOfInput
     
     /// Actions to perform when encountering an input instruction after end-of-input has been reached.
     enum EndOfInput: Int, CaseIterable, AppEnum {
-        static var typeDisplayRepresentation: TypeDisplayRepresentation = "End-of-Input Action"
-        static var caseDisplayRepresentations: [EndOfInput: DisplayRepresentation] = [
+        static let typeDisplayRepresentation: TypeDisplayRepresentation = "End-of-Input Action"
+        static let caseDisplayRepresentations: [EndOfInput: DisplayRepresentation] = [
             .noChange:  "Don't change the current cell",
             .setToZero: "Set the current cell to zero",
             .setToMax:  "Set the current cell to its maximum"
@@ -44,35 +44,6 @@ final class Interpreter {
     /// Creates a new ``Interpreter``.
     ///
     /// - Parameters:
-    ///   - program: The program that will be executed by this interpreter.
-    ///   - input: The user input to be supplied to the program.
-    ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
-    ///   - arraySize: The maximum capacity of the array.
-    ///   - pointerLocation: The initial location for the ``pointer``.
-    ///   - cellSize: The maximum value a cell can hold, plus 1.
-    ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
-    convenience init(
-        program:         Program,
-        input:           String     = "",
-        onEndOfInput:    EndOfInput = .noChange,
-        arraySize:       Int        = 30_000,
-        pointerLocation: Int        = 0,
-        cellSize:        Int        = 256,
-        breakOnHash:     Bool       = false
-    ) {
-        self.init(
-            program:         String(program.map(\.rawValue)),
-            input:           input,
-            onEndOfInput:    onEndOfInput,
-            arraySize:       arraySize,
-            pointerLocation: pointerLocation,
-            cellSize:        cellSize,
-            breakOnHash:     breakOnHash)
-    }
-    
-    /// Creates a new ``Interpreter``.
-    ///
-    /// - Parameters:
     ///   - program: The program that will be executed by this interpreter, as a `String`.
     ///   - input: The user input to be supplied to the program.
     ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
@@ -80,13 +51,14 @@ final class Interpreter {
     ///   - pointerLocation: The initial location for the ``pointer``.
     ///   - cellSize: The maximum value a cell can hold, plus 1.
     ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
-    init(program: String,
-         input:                   String     = "",
-         onEndOfInput:            EndOfInput = .noChange,
-         arraySize:               Int        = 30_000,
-         pointerLocation:         Int        = 0,
-         cellSize:                Int        = 256,
-         breakOnHash:             Bool       = false
+    init(
+        program: String,
+        input:                   String     = "",
+        onEndOfInput:            EndOfInput = .noChange,
+        arraySize:               Int        = 30_000,
+        pointerLocation:         Int        = 0,
+        cellSize:                Int        = 256,
+        breakOnHash:             Bool       = false
     ) {
         self.cellSize        = cellSize
         self.arraySize       = arraySize
@@ -301,7 +273,7 @@ final class Interpreter {
     ///
     /// - Throws: `InterpreterError`.
     func run() async throws {
-        logger.info("Running full program")
+        Interpreter.logger.info("Running full program")
         
         totalInstructionsExecuted = 0
         currentInstructionIndex   = 0
@@ -311,20 +283,20 @@ final class Interpreter {
         while currentInstructionIndex != program.count {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
-            if Task.isCancelled { logger.error("Run cancelled!"); return }
+            if Task.isCancelled { Interpreter.logger.error("Run cancelled!"); return }
         }
         
         currentInstructionIndex   -= 1
         totalInstructionsExecuted -= 1
         
-        logger.info("Done running program")
+        Interpreter.logger.info("Done running program")
     }
     
     /// Steps through the program, one instruction at a time.
     ///
     /// - Throws: `InterpreterError`.
     func step() throws {
-        logger.info("Stepping through program")
+        Interpreter.logger.info("Stepping through program")
         try checkForMismatchedBrackets()
         if currentInstructionIndex != program.count - 1 {
             try processInstruction(currentInstruction)
@@ -356,5 +328,96 @@ final class Interpreter {
             { return index }
         }
         throw InterpreterError.mismatchedBrackets
+    }
+}
+
+// MARK: - Convenience Initializers
+
+extension Interpreter {
+    /// Creates a new ``Interpreter``.
+    ///
+    /// - Parameters:
+    ///   - program: The program that will be executed by this interpreter.
+    ///   - input: The user input to be supplied to the program.
+    ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
+    ///   - arraySize: The maximum capacity of the array.
+    ///   - pointerLocation: The initial location for the ``pointer``.
+    ///   - cellSize: The maximum value a cell can hold, plus 1.
+    ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
+    convenience init(
+        program:         Program,
+        input:           String     = "",
+        onEndOfInput:    EndOfInput = .noChange,
+        arraySize:       Int        = 30_000,
+        pointerLocation: Int        = 0,
+        cellSize:        Int        = 256,
+        breakOnHash:     Bool       = false
+    ) {
+        self.init(
+            program:         String(program.map(\.rawValue)),
+            input:           input,
+            onEndOfInput:    onEndOfInput,
+            arraySize:       arraySize,
+            pointerLocation: pointerLocation,
+            cellSize:        cellSize,
+            breakOnHash:     breakOnHash)
+    }
+    
+    /// Creates a new ``Interpreter``.
+    ///
+    /// - Parameters:
+    ///   - program: The program that will be executed by this interpreter, as a `String`.
+    ///   - input: The user input to be supplied to the program.
+    ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
+    ///   - arraySize: The maximum capacity of the array.
+    ///   - pointerLocation: The initial location for the ``pointer``.
+    ///   - cellSize: A `cellSize` instance representing the maximum value a cell can hold.
+    ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
+    convenience init(
+        program:         String,
+        input:           String     = "",
+        onEndOfInput:    EndOfInput = .noChange,
+        arraySize:       Int        = 30_000,
+        pointerLocation: Int        = 0,
+        cellSize:        CellSize,
+        breakOnHash:     Bool       = false
+    ) {
+        self.init(
+            program:         program,
+            input:           input,
+            onEndOfInput:    onEndOfInput,
+            arraySize:       arraySize,
+            pointerLocation: pointerLocation,
+            cellSize:        cellSize.rawValue + 1,
+            breakOnHash:     breakOnHash)
+    }
+    
+    /// Creates a new ``Interpreter``.
+    ///
+    /// - Parameters:
+    ///   - program: The program that will be executed by this interpreter.
+    ///   - input: The user input to be supplied to the program.
+    ///   - onEndOfInput: The action taken when encountering an input instruction after end-of-input has been reached.
+    ///   - arraySize: The maximum capacity of the array.
+    ///   - pointerLocation: The initial location for the ``pointer``.
+    ///   - cellSize: A `cellSize` instance representing the maximum value a cell can hold.
+    ///   - breakOnHash: Whether to stop the program when a break instruction is encountered.
+    convenience init(
+        program:         Program,
+        input:           String     = "",
+        onEndOfInput:    EndOfInput = .noChange,
+        arraySize:       Int        = 30_000,
+        pointerLocation: Int        = 0,
+        cellSize:        CellSize,
+        breakOnHash:     Bool       = false
+    ) {
+        self.init(
+            program:         String(program.map(\.rawValue)),
+            input:           input,
+            onEndOfInput:    onEndOfInput,
+            arraySize:       arraySize,
+            pointerLocation: pointerLocation,
+            cellSize:        cellSize.rawValue + 1,
+            breakOnHash:     breakOnHash)
     }
 }

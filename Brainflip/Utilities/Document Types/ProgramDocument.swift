@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
-    var id = UUID()
+    let id = UUID()
         
     var contents: String
     init(_ contents: String = "") {
@@ -11,7 +11,7 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
     
     var program: Program { Program(string: contents) }
         
-    static var readableContentTypes: [UTType] = [.brainflipSource]
+    static let readableContentTypes: [UTType] = [.brainflipSource]
     
     convenience init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents else {
@@ -30,7 +30,5 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
 }
 
 extension UTType {
-    static var brainflipSource: UTType {
-        UTType(exportedAs: "com.kascevich.brainflip-source")
-    }
+    static let brainflipSource: UTType = UTType(exportedAs: "com.kascevich.brainflip-source")
 }

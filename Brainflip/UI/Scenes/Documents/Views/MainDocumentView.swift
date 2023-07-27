@@ -12,7 +12,7 @@ struct MainDocumentView: View {
         HSplitView {
             VSplitView {
                 VStack {
-                    EditorView(state: state)
+                    EditorPaneView(state: state)
                     ActionBarView(state: state)
                 }
                 .padding()
@@ -20,7 +20,7 @@ struct MainDocumentView: View {
                 .layoutPriority(1)
                 
                 if state.isShowingOutput {
-                    OutputView(state: state)
+                    OutputPaneView(state: state)
                         .padding()
                         .frame(minWidth: 500, maxWidth: .infinity, minHeight: 115, maxHeight: .infinity)
                 }
@@ -29,7 +29,7 @@ struct MainDocumentView: View {
             .focusedSceneObject(state)
             
             if state.isShowingInspector {
-                InspectorView(state: state)
+                InspectorPaneView(state: state)
                     .frame(minWidth: 235, maxWidth: .infinity, maxHeight: .infinity)
             }
         }

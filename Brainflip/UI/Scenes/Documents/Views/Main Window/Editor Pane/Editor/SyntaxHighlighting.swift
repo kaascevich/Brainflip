@@ -11,9 +11,9 @@ struct SyntaxHighlighting {
         // One(.anyOf("[]"))
         (#"[\[\]]"#, .brown),
         // One(.anyOf(".,"))
-        ("[.,]", .purple),
+        ("[\\.,]", .purple),
         // One("#")
-        ("#", settings.breakOnHash ? .green : .gray)
+        ("#", settings.breakOnHash ? .green : .gray),
     ]}
     
     static var highlightRules: [HighlightRule] {

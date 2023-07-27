@@ -1,8 +1,8 @@
 import AppIntents
 
 struct RunBFProgramIntent: AppIntent {
-    static var title: LocalizedStringResource = "Run Brainflip Program"
-    static var description = IntentDescription(
+    static let title: LocalizedStringResource = "Run Brainflip Program"
+    static let description = IntentDescription(
         """
         Runs a Brainflip program using the specified interpreter settings, giving it the provided input. Returns the program's output.
         """,

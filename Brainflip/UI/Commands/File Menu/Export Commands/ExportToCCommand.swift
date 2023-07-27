@@ -3,8 +3,7 @@ import AppKit
 
 struct ExportToCCommand: View {
     @FocusedObject<ProgramState> var state
-    var convertedDocument = CSourceDocument("")
-            
+    
     var body: some View {
         Button("Export to C Source...") {
             if settings.exportToCAlertHidden {

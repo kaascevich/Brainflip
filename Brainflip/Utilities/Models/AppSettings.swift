@@ -12,7 +12,7 @@ let bundleID = Bundle.main.bundleIdentifier!
 
 // TODO: Create a macro to help out with the AppSettings class
 final class AppSettings: ObservableObject {
-    private let logger = Logger(subsystem: bundleID, category: "Settings")
+    private static let logger = Logger(subsystem: bundleID, category: "Settings")
     
     // MARK: - Store Definitions
     
@@ -124,7 +124,7 @@ final class AppSettings: ObservableObject {
     var includeVoidWithinMain: Bool = true
     
     @AppStorage("whitespace", store: exportSettings)
-    var whitespace: [Whitespace] = [
+    var whitespace: [BrainflipToC.Whitespace] = [
         .beforeWhileOrIf,
         .beforeBrace,
         .aroundAssignment,
@@ -148,7 +148,7 @@ final class AppSettings: ObservableObject {
 
 extension AppSettings {
     func resetAllToDefaults() {
-        logger.notice("Resetting ALL settings")
+        AppSettings.logger.notice("Resetting ALL settings")
         resetGeneralToDefaults()
         resetSoundToDefaults()
         resetInterpreterToDefaults()
@@ -159,13 +159,13 @@ extension AppSettings {
     }
     
     func resetGeneralToDefaults() {
-        logger.notice("Resetting general settings")
+        AppSettings.logger.notice("Resetting general settings")
         showTimer                = true
         showNotifications        = false
     }
     
     func resetSoundToDefaults() {
-        logger.notice("Resetting sound settings")
+        AppSettings.logger.notice("Resetting sound settings")
         playSounds               = false
         playStartSound           = true
         playSuccessSound         = true
@@ -174,7 +174,7 @@ extension AppSettings {
     }
     
     func resetInterpreterToDefaults() {
-        logger.notice("Resetting interpreter settings")
+        AppSettings.logger.notice("Resetting interpreter settings")
         endOfInput               = .noChange
         arraySize                = 30_000
         pointerLocation          = 0
@@ -183,14 +183,14 @@ extension AppSettings {
     }
     
     func resetInspectorToDefaults() {
-        logger.notice("Resetting inspector settings")
+        AppSettings.logger.notice("Resetting inspector settings")
         enabledInspectorModules  = Inspector.defaultModules
         inspectorModuleOrder     = Array(0...(Inspector.moduleCount - 1))
         expandedInspectorModules = Array(repeating: true, count: Inspector.moduleCount)
     }
     
     func resetEditorToDefaults() {
-        logger.notice("Resetting editor settings")
+        AppSettings.logger.notice("Resetting editor settings")
         monospaced               = true
         highlighting             = false
         showProgress             = true
@@ -200,7 +200,7 @@ extension AppSettings {
     }
     
     func resetExportToDefaults() {
-        logger.notice("Resetting export settings")
+        AppSettings.logger.notice("Resetting export settings")
         indentation              = 3
         pointerName              = "ptr"
         arrayName                = "array"
@@ -225,7 +225,7 @@ extension AppSettings {
     }
     
     func resetHiddenToDefaults() {
-        logger.notice("Resetting hidden settings")
+        AppSettings.logger.notice("Resetting hidden settings")
         exportToCAlertHidden     = false
     }
 }

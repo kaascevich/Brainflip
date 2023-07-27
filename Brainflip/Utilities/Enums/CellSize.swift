@@ -3,8 +3,8 @@ import AppIntents
 
 /// The possible sizes for a cell.
 enum CellSize: Int, CaseIterable, Hashable, AppEnum {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Cell Size"
-    static var caseDisplayRepresentations: [CellSize: DisplayRepresentation] = [
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = "Cell Size"
+    static let caseDisplayRepresentations: [CellSize: DisplayRepresentation] = [
         .oneBit:       "1-Bit",
         .twoBit:       "2-Bit",
         .fourBit:      "4-Bit",

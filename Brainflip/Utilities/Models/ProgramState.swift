@@ -136,9 +136,9 @@ final class ProgramState: ObservableObject {
            interpreter.previousInstructionIndex >= 0
         {
             let commentCountAtCurrentInstruction = interpreter.commentCharacters[interpreter.previousInstructionIndex]
-            let startIndex                       = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
-            let endIndex                         = startIndex + 1
-                selection                        = startIndex..<endIndex
+            let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
+            let endIndex = startIndex + 1
+            selection = startIndex..<endIndex
         }
     }
     
