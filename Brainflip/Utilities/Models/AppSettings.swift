@@ -8,7 +8,7 @@ import os.log
 let settings = AppSettings()
 
 /// The bundle ID of this app.
-var bundleID: String { Bundle.main.bundleIdentifier! }
+let bundleID = Bundle.main.bundleIdentifier!
 
 // TODO: Create a macro to help out with the AppSettings class
 final class AppSettings: ObservableObject {
@@ -81,7 +81,7 @@ final class AppSettings: ObservableObject {
     var showProgress: Bool = true
     
     @AppStorage("showCurrentInstruction", store: editorSettings)
-    var showCurrentInstruction: Bool = false
+    var showCurrentInstruction: Bool = true
     
     @AppStorage("showProgramSize", store: editorSettings)
     var showProgramSize: Bool = true
@@ -194,7 +194,7 @@ extension AppSettings {
         monospaced               = true
         highlighting             = false
         showProgress             = true
-        showCurrentInstruction   = false
+        showCurrentInstruction   = true
         showProgramSize          = true
         textSize                 = 14.0
     }

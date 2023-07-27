@@ -5,7 +5,7 @@ struct MainDocumentScene: Scene {
         DocumentGroup(newDocument: ProgramDocument()) { file in
             let state = ProgramState(document: file.document, filename: file.fileURL?.lastPathComponent ?? "Untitled")
             
-            ContentView(state: state)
+            MainDocumentView(state: state)
                 .frame(minWidth: 735, minHeight: 460)
                 .environmentObject(settings)
             

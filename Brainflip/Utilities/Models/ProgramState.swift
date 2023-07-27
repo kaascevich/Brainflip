@@ -101,25 +101,27 @@ final class ProgramState: ObservableObject {
     
     @MainActor
     func step() {
-        if shouldReset() {
-            reset()
-        }
-        justRanProgram = false
-        isSteppingThrough = true
-        Task {
-            do {
-                try interpreter.step()
-                if settings.playSounds, settings.playStepSound { SystemSounds.step.play() }
-                output = interpreter.output
-                updateSelection()
-            } catch {
-                NSApp.requestUserAttention(.informationalRequest)
-                processError(error)
-                if !errorDescription.isEmpty {
-                    if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
-                }
+        if !isSteppingThrough {
+            if shouldReset() {
+                reset()
             }
-            isSteppingThrough = false
+            justRanProgram = false
+            isSteppingThrough = true
+            Task {
+                do {
+                    try interpreter.step()
+                    if settings.playSounds, settings.playStepSound { SystemSounds.step.play() }
+                    output = interpreter.output
+                    updateSelection()
+                } catch {
+                    NSApp.requestUserAttention(.informationalRequest)
+                    processError(error)
+                    if !errorDescription.isEmpty {
+                        if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
+                    }
+                }
+                isSteppingThrough = false
+            }
         }
     }
     var disableStepButton: Bool {

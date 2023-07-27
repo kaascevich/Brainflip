@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MainDocumentView: View {
     @EnvironmentObject private var settings: AppSettings
     @StateObject var state: ProgramState
     
@@ -40,6 +40,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(state: previewState)
+    MainDocumentView(state: previewState)
         .environmentObject(settings)
 }

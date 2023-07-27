@@ -2,15 +2,19 @@ import SwiftUI
 
 struct ASCIIChartView: View {
     var body: some View {
-        Table(Array<Int>(asciiValues.indices)) {
-            TableColumn("Number") {
-                Text("\($0)")
+        List {
+            ForEach(asciiValues.indices, id: \.self) { index in
+                HStack {
+                    Text("\(index).")
+                        .accessibilityLabel("Cell \(index) index")
+                        .accessibilityValue(String(index))
+                    Spacer()
+                    Text(String(asciiValues[index]))
+                        .bold()
+                        .accessibilityLabel("Cell \(index) value")
+                        .accessibilityValue(String(asciiValues[index]))
+                }
             }
-            .width(50)
-            TableColumn("ASCII Equivalent") {
-                Text(asciiValues[$0])
-            }
-            .width(100)
         }
     }
 }

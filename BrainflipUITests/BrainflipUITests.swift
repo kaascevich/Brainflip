@@ -50,7 +50,7 @@ final class BrainflipUITests: XCTestCase {
         XCTAssertEqual("98", arrayPopoverCell1Value.value as! String)
         
         mainMenu.menuBarItems["Brainflip"].menuItems["Settings…"].click()
-
+        
         let settingsWindow = app.windows["com_apple_SwiftUI_Settings_window"]
         XCTAssert(settingsWindow.waitForExistence(timeout: 1))
     }

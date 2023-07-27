@@ -5,7 +5,7 @@ struct InspectorModuleList: View {
     private var inspector = Inspector()
     
     var body: some View {
-        List(settings.$inspectorModuleOrder, editActions: .move, selection: settings.$enabledInspectorModules) { index in
+        List(settings.$inspectorModuleOrder, id: \.self, editActions: .move, selection: settings.$enabledInspectorModules) { index in
             let index = index.wrappedValue
             Toggle(inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
                 .help(inspector.modules[index].tooltip)
@@ -16,6 +16,7 @@ struct InspectorModuleList: View {
         .padding(5)
         .animation(.smooth, value: settings.inspectorModuleOrder)
         .animation(.smooth, value: settings.enabledInspectorModules)
+        .accessibilityLabel("Inspector Modules")
         
         HStack {
             Toggle("Select All", sources: settings.$enabledInspectorModules, isOn: \.self)

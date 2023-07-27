@@ -19,6 +19,7 @@ struct TextFieldWithLabel: View {
                 .font(.body.monospacedDigit())
                 .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
+                    $0.isSelectable = false
                     $0.focusRingType = .none
                 }
                 .accessibilityLabel(label)

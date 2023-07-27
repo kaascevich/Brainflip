@@ -33,7 +33,7 @@ struct InspectorView: View {
             .padding(1)
             
             ScrollView {
-                ForEach(settings.inspectorModuleOrder) { index in
+                ForEach(settings.inspectorModuleOrder, id: \.self) { index in
                     if settings.enabledInspectorModules[index]
                         && meetsSearchCriteria(inspector.modules[index].name)
                     {
@@ -51,6 +51,7 @@ struct InspectorView: View {
                 .animation(.smooth, value: settings.enabledInspectorModules)
             }
             .scrollIndicatorsFlash(onAppear: true)
+            .accessibilityLabel("Inspector")
         }
         .padding(10)
         .overlay {
