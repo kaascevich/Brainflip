@@ -84,7 +84,7 @@
 		3480FF8829A916760021D5FD /* MainHelp.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3480FF8729A916760021D5FD /* MainHelp.rtf */; };
 		3482EF0129AFC16D0001800E /* ASCIIChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0029AFC16D0001800E /* ASCIIChartView.swift */; };
 		3482EF0329AFC5EA0001800E /* ASCIIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0229AFC5EA0001800E /* ASCIIValues.swift */; };
-		34848B6C2A7046E100EBD2C9 /* InterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */; };
+		34848B6C2A7046E100EBD2C9 /* BrainflipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34848B6B2A7046E100EBD2C9 /* BrainflipTests.swift */; };
 		34848B742A704C7D00EBD2C9 /* AssertAsyncThrowsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34848B732A704C7D00EBD2C9 /* AssertAsyncThrowsError.swift */; };
 		3486AA2D29BE667B004C12B6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA2C29BE667B004C12B6 /* TimerView.swift */; };
 		3486AA2F29BE7E8E004C12B6 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA2E29BE7E8E004C12B6 /* GeneralSettings.swift */; };
@@ -149,6 +149,7 @@
 		34F9136A2A72F37000F6BB1C /* MeasureAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D6B802A706B3700571DF7 /* MeasureAsync.swift */; };
 		34F9136B2A72F38400F6BB1C /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5D29AADE6C00552568 /* Instruction.swift */; };
 		34F9136C2A72F38400F6BB1C /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6229AAE02B00552568 /* Program.swift */; };
+		34FBD3862A7339A70077DF02 /* InterpreterTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 34FBD3852A7339A70077DF02 /* InterpreterTests.xctestplan */; };
 		34FDFE4029CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE3F29CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift */; };
 		34FDFE4629CC80070020CDC8 /* BrainflipToC+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4529CC80070020CDC8 /* BrainflipToC+Components.swift */; };
 		34FDFE4829CC81030020CDC8 /* BrainflipToC+Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4729CC81030020CDC8 /* BrainflipToC+Instructions.swift */; };
@@ -323,7 +324,7 @@
 		3482EF0029AFC16D0001800E /* ASCIIChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCIIChartView.swift; sourceTree = "<group>"; };
 		3482EF0229AFC5EA0001800E /* ASCIIValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCIIValues.swift; sourceTree = "<group>"; };
 		34848B692A7046E100EBD2C9 /* BrainflipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainflipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterTests.swift; sourceTree = "<group>"; usesTabs = 0; };
+		34848B6B2A7046E100EBD2C9 /* BrainflipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipTests.swift; sourceTree = "<group>"; usesTabs = 0; };
 		34848B732A704C7D00EBD2C9 /* AssertAsyncThrowsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertAsyncThrowsError.swift; sourceTree = "<group>"; };
 		3486AA2C29BE667B004C12B6 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		3486AA2E29BE7E8E004C12B6 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
@@ -386,7 +387,7 @@
 		34E8AB852A7202B900371450 /* ArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayView.swift; sourceTree = "<group>"; };
 		34EC0D9F29AF9C1800CBC87C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34EE8A952A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeVoidWithinMainToggle.swift; sourceTree = "<group>"; };
-		34F1B0482A71BF96003949DE /* Brainflip.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brainflip.xctestplan; sourceTree = "<group>"; };
+		34F1B0482A71BF96003949DE /* BrainflipTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = BrainflipTests.xctestplan; sourceTree = "<group>"; };
 		34F9133F2A72EE3B00F6BB1C /* Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializers.swift; sourceTree = "<group>"; };
 		34F913412A72EEB500F6BB1C /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		34F913432A72EED600F6BB1C /* Processing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Processing.swift; sourceTree = "<group>"; };
@@ -394,7 +395,7 @@
 		34F9134C2A72F21D00F6BB1C /* Interpreter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interpreter.h; sourceTree = "<group>"; };
 		34F913512A72F21D00F6BB1C /* InterpreterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterpreterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F913582A72F21D00F6BB1C /* InterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterTests.swift; sourceTree = "<group>"; };
-		34FBD3162A72F4E30077DF02 /* Interpreter.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = Interpreter.xctestplan; path = "Meta/Test Plans/Interpreter.xctestplan"; sourceTree = SOURCE_ROOT; };
+		34FBD3852A7339A70077DF02 /* InterpreterTests.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InterpreterTests.xctestplan; sourceTree = "<group>"; };
 		34FDFE3F29CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Whitespace.swift"; sourceTree = "<group>"; };
 		34FDFE4529CC80070020CDC8 /* BrainflipToC+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Components.swift"; sourceTree = "<group>"; };
 		34FDFE4729CC81030020CDC8 /* BrainflipToC+Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Instructions.swift"; sourceTree = "<group>"; };
@@ -585,7 +586,6 @@
 				34266C0D29C4F1C60045337D /* Extensions */,
 				347FDE7429AD37BC00D21D91 /* Helpers */,
 				34D18DFE29ABC8C400FCA167 /* Models */,
-				34618C5F29AADE7200552568 /* Language */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -663,13 +663,6 @@
 				344E528F29BD359300F4DB50 /* ExportToCCommand.swift */,
 			);
 			path = "Export Commands";
-			sourceTree = "<group>";
-		};
-		34618C5F29AADE7200552568 /* Language */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Language;
 			sourceTree = "<group>";
 		};
 		34618C6F29AAE58700552568 /* Action Bar */ = {
@@ -800,7 +793,7 @@
 		34848B6A2A7046E100EBD2C9 /* BrainflipTests */ = {
 			isa = PBXGroup;
 			children = (
-				34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */,
+				34848B6B2A7046E100EBD2C9 /* BrainflipTests.swift */,
 			);
 			path = BrainflipTests;
 			sourceTree = "<group>";
@@ -1025,7 +1018,9 @@
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34F1B0492A71C4DB003949DE /* Meta */,
 				34DF121C29A7B9480021729B /* Brainflip */,
+				34F913662A72F2E500F6BB1C /* BrainflipTests */,
 				34F9134B2A72F21D00F6BB1C /* Interpreter */,
+				34F913572A72F21D00F6BB1C /* InterpreterTests */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -1054,7 +1049,6 @@
 				343635B42A65D53C00CDA660 /* Extensions */,
 				34D18DFD29AB972700FCA167 /* Resources */,
 				34DF122329A7B9490021729B /* Preview Content */,
-				34F913662A72F2E500F6BB1C /* Tests */,
 			);
 			path = Brainflip;
 			sourceTree = "<group>";
@@ -1114,18 +1108,8 @@
 			isa = PBXGroup;
 			children = (
 				34F1B04B2A71C4F9003949DE /* Docs */,
-				34F1B04A2A71C4E7003949DE /* Test Plans */,
 			);
 			path = Meta;
-			sourceTree = "<group>";
-		};
-		34F1B04A2A71C4E7003949DE /* Test Plans */ = {
-			isa = PBXGroup;
-			children = (
-				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
-				34FBD3162A72F4E30077DF02 /* Interpreter.xctestplan */,
-			);
-			path = "Test Plans";
 			sourceTree = "<group>";
 		};
 		34F1B04B2A71C4F9003949DE /* Docs */ = {
@@ -1145,27 +1129,29 @@
 				34618C6229AAE02B00552568 /* Program.swift */,
 				34618C5D29AADE6C00552568 /* Instruction.swift */,
 				34ACE7A42A72ED860049FDF4 /* Interpreter */,
-				34F913572A72F21D00F6BB1C /* Tests */,
 			);
 			path = Interpreter;
 			sourceTree = "<group>";
 		};
-		34F913572A72F21D00F6BB1C /* Tests */ = {
+		34F913572A72F21D00F6BB1C /* InterpreterTests */ = {
 			isa = PBXGroup;
 			children = (
+				34FBD3852A7339A70077DF02 /* InterpreterTests.xctestplan */,
 				34F913582A72F21D00F6BB1C /* InterpreterTests.swift */,
 			);
-			path = Tests;
+			path = InterpreterTests;
 			sourceTree = "<group>";
 		};
-		34F913662A72F2E500F6BB1C /* Tests */ = {
+		34F913662A72F2E500F6BB1C /* BrainflipTests */ = {
 			isa = PBXGroup;
 			children = (
+				34F1B0482A71BF96003949DE /* BrainflipTests.xctestplan */,
 				34848B722A704C5A00EBD2C9 /* Helpers */,
 				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
 				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
 			);
-			path = Tests;
+			name = BrainflipTests;
+			path = Brainflip/BrainflipTests;
 			sourceTree = "<group>";
 		};
 		34FDFE4429CC7F8E0020CDC8 /* Brainflip To C */ = {
@@ -1421,6 +1407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FBD3862A7339A70077DF02 /* InterpreterTests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1443,7 +1430,7 @@
 			files = (
 				341D6B812A706B3700571DF7 /* MeasureAsync.swift in Sources */,
 				34848B742A704C7D00EBD2C9 /* AssertAsyncThrowsError.swift in Sources */,
-				34848B6C2A7046E100EBD2C9 /* InterpreterTests.swift in Sources */,
+				34848B6C2A7046E100EBD2C9 /* BrainflipTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1971,6 +1958,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2008,6 +1996,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

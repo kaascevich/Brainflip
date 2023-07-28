@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Meta/Test Plans/Brainflip.xctestplan"
+            reference = "container:Brainflip/Tests/Brainflip.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

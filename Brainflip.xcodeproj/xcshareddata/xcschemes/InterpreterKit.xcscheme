@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "34F913492A72F21D00F6BB1C"
-               BuildableName = "Interpreter.framework"
-               BlueprintName = "Interpreter"
+               BlueprintIdentifier = "34FBD3272A7319EA0077DF02"
+               BuildableName = "InterpreterKit.framework"
+               BlueprintName = "InterpreterKit"
                ReferencedContainer = "container:Brainflip.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Interpreter/Tests/Interpreter.xctestplan"
+            reference = "container:InterpreterKitTests/InterpreterKit.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -54,9 +54,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "34F913492A72F21D00F6BB1C"
-            BuildableName = "Interpreter.framework"
-            BlueprintName = "Interpreter"
+            BlueprintIdentifier = "34FBD3272A7319EA0077DF02"
+            BuildableName = "InterpreterKit.framework"
+            BlueprintName = "InterpreterKit"
             ReferencedContainer = "container:Brainflip.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
