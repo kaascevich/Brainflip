@@ -7,6 +7,7 @@
 - [ ] Further simplify `AppSettings` in one of two ways:
   - Adding support for `@dynamicMemberLookup`
   - Creating a macro (preferred)
+- [ ] Enable changing the state of the interpreter (i.e. actual debugging)
 
 ## Completed
 - [x] Allow 1-bit, 2-bit, and 4-bit cell sizes
