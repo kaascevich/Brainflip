@@ -3,7 +3,7 @@ import SwiftUI
 struct MainDocumentScene: Scene {
     var body: some Scene {
         DocumentGroup(newDocument: ProgramDocument()) { file in
-            let state = ProgramState(document: file.document, filename: file.fileURL?.lastPathComponent ?? "Untitled")
+            let state = ProgramState(document: file.document)
             
             MainDocumentView(state: state)
                 .frame(minWidth: 735, minHeight: 460)

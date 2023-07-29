@@ -3,6 +3,8 @@ import UniformTypeIdentifiers
 
 final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
     let id = UUID()
+    
+    var filename: String = "Untitled"
         
     var contents: String
     init(_ contents: String = "") {
@@ -14,10 +16,15 @@ final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
     static let readableContentTypes: [UTType] = [.brainflipSource]
     
     convenience init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents else {
+        guard let data = configuration.file.regularFileContents,
+              let contents = String(data: data, encoding: .utf8),
+              let filename = configuration.file.preferredFilename
+        else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        self.init(String(data: data, encoding: .ascii) ?? "")
+        
+        self.init(contents)
+        self.filename = filename
     }
     
     func snapshot(contentType: UTType) throws -> String { contents }

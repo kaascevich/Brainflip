@@ -10,7 +10,9 @@ struct MenuCommandAlerts: View {
             .fileExporter(
                 isPresented: $state.isAskingForOutputFile,
                 document: state.convertedDocument,
-                contentType: .cSource) { _ in }
+                contentType: .cSource,
+                defaultFilename: state.document.filename
+            ) { _ in }
             .confirmationDialog("Trimming will remove all characters that are not valid Brainflip instructions, such as comments and newlines. Are you sure you want to do this?", isPresented: $state.isWarningAboutTrim) {
                 Button("Trim") {
                     state.document.contents.removeAll { !Instruction.validInstructions.contains($0) }

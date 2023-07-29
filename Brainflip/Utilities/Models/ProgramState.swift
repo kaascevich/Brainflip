@@ -4,9 +4,8 @@ import Combine
 //@MainActor
 final class ProgramState: ObservableObject {
     @Published var document: ProgramDocument
-    init(document: ProgramDocument, filename: String = "") {
+    init(document: ProgramDocument) {
         self.document = document
-        self.filename = filename
     }
     
     deinit {
@@ -14,7 +13,6 @@ final class ProgramState: ObservableObject {
     }
     
     @Published var convertedDocument: CSourceDocument? = nil
-    @Published var filename: String = ""
     @Published var isShowingOutput: Bool = true
     @Published var isShowingInspector: Bool = true
     @Published var interpreter: Interpreter = .init(program: "\0")
@@ -80,11 +78,11 @@ final class ProgramState: ObservableObject {
             do {
                 try await interpreter.run()
                 if settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
-                Notifications.sendNotification(filename)
+                Notifications.sendNotification(document.filename)
             } catch {
                 processError(error)
                 if !errorDescription.isEmpty {
-                    Notifications.sendNotification(filename, error: error)
+                    Notifications.sendNotification(document.filename, error: error)
                     execution.cancel()
                     if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
                 }
