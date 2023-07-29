@@ -5,14 +5,14 @@ struct ToolbarContentView: ToolbarContent {
     @Environment(ProgramState.self) var state: ProgramState
     
     var body: some ToolbarContent {
-        ToolbarRunButton(state: state)
-        ToolbarStepButton(state: state)
+        ToolbarRunButton()
+        ToolbarStepButton()
         
         ToolbarDivider()
         
-        ToolbarResetButton(state: state)
-        ToolbarStopButton(state: state)
-        ToolbarClearMenu(state: state)
+        ToolbarResetButton()
+        ToolbarStopButton()
+        ToolbarClearMenu()
         
         ToolbarDivider()
         

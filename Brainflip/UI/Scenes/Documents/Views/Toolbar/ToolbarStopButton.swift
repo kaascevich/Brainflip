@@ -2,7 +2,8 @@ import SwiftUI
 
 struct ToolbarStopButton: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
+    
     @State private var symbolEffect = false
     
     var body: some ToolbarContent {

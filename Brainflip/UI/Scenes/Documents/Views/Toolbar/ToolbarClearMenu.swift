@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ToolbarClearMenu: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some ToolbarContent {
         ToolbarItem {
