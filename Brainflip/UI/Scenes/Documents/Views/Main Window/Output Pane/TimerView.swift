@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(ProgramState.self) var state: ProgramState
+    @Environment(ProgramState.self) private var state: ProgramState
     
     var body: some View {
         Text(formatTimeElapsed(state.timeElapsed))

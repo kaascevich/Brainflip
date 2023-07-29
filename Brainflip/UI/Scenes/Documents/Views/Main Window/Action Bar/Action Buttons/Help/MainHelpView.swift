@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct MainHelpView: View {
-    @Environment(\.openWindow) var openWindow
-    @Environment(\.openURL) var openURL
+    @Environment(\.openWindow) private var openWindow
+    @Environment(\.openURL) private var openURL
     
     @EnvironmentObject private var settings: AppSettings
     @Bindable var state: ProgramState

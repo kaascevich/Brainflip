@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 
 struct SampleProgramCommands: Commands {
-    @Environment(\.openDocument) var openDocument
+    @Environment(\.openDocument) private var openDocument
     @FocusedValue(\.programState) private var state
     
     var samplePrograms: [URL] {

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProgramProgressView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(ProgramState.self) var state: ProgramState
+    @Environment(ProgramState.self) private var state: ProgramState
     
     var actualMax: Double {
         Double(state.document.program.count - 1)
