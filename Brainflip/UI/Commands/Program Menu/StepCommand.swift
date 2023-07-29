@@ -9,5 +9,6 @@ struct StepCommand: View {
         }
         .keyboardShortcut("r", modifiers: [.command, .shift])
         .disabled(state?.disableStepButton ?? true)
+        .accessibilityIdentifier("stepThroughProgram:")
     }
 }

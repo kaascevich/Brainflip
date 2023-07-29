@@ -9,5 +9,6 @@ struct RunCommand: View {
         }
         .keyboardShortcut("r")
         .disabled(state?.disableRunButton ?? true)
+        .accessibilityIdentifier("runProgram:")
     }
 }

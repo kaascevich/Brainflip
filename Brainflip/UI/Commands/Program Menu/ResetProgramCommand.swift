@@ -9,5 +9,6 @@ struct ResetProgramCommand: View {
         }
         .keyboardShortcut(".", modifiers: [.shift, .command])
         .disabled(state?.disableResetButton ?? true)
+        .accessibilityIdentifier("resetProgramState:")
     }
 }

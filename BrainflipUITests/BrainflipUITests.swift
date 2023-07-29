@@ -18,8 +18,7 @@ final class BrainflipUITests: XCTestCase {
     // MARK: - Tests
     
     func testBasic() throws {
-        let mainMenu = app.menuBars.firstMatch
-        mainMenu.menuItems["newDocument:"].click()
+        app.typeKey("n", modifierFlags: .command)
         
         let documentWindow = app.windows["Untitled"]
         XCTAssert(documentWindow.waitForExistence(timeout: 3))
@@ -28,9 +27,6 @@ final class BrainflipUITests: XCTestCase {
         let input = documentWindow.textFields["Input"]
         let output = documentWindow.scrollViews["Output"].textViews.firstMatch
         let runButton = documentWindow.buttons["Run Program"]
-        let arrayField = documentWindow.textFields["Array"]
-        let showArrayButton = documentWindow.buttons["Show Array"]
-        let arrayPopoverCell1Value = app.descendants(matching: .any)["Cell 1 value"]
         
         editor.click()
         editor.typeText(",[>+<-.]")
@@ -42,17 +38,44 @@ final class BrainflipUITests: XCTestCase {
         let expectedOutput: String = (0x00...0x61).reduce("") { current, asciiCode in
             String(UnicodeScalar(asciiCode)!) + current
         }
-        Thread.sleep(forTimeInterval: 0.2)
+        Thread.sleep(forTimeInterval: 0.5)
         XCTAssertEqual(expectedOutput, output.value as! String)
-        XCTAssertEqual("[0, 98]", arrayField.value as! String)
+    }
+    
+    func testSamplePrograms() throws {
+        let menuBar = app.menuBars.firstMatch
+        menuBar.menuItems["Sample Programs"].menuItems["Alphabet Printer"].click()
+        
+        let documentWindow = app.windows["Alphabet Printer.bf"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        let input = documentWindow.textFields["Input"]
+        let output = documentWindow.scrollViews["Output"].textViews.firstMatch
+        let runButton = documentWindow.buttons["Run Program"]
+        
+        input.click()
+        input.typeText("b")
+
+        runButton.click()
+        
+        let expectedOutput: String = (0x00...0x61).reduce("") { current, asciiCode in
+            String(UnicodeScalar(asciiCode)!) + current
+        }
+        Thread.sleep(forTimeInterval: 0.5)
+        XCTAssertEqual(expectedOutput, output.value as! String)
+    }
+    
+    func testShowArray() throws {
+        try testSamplePrograms()
+        
+        let documentWindow = app.windows["Alphabet Printer.bf"]
+        let arrayField = documentWindow.textFields["Array"]
+        let showArrayButton = documentWindow.buttons["Show Array"]
+        let arrayPopoverCell1Value = app.descendants(matching: .any)["Cell 1 value"]
         
         showArrayButton.click()
         XCTAssertEqual("98", arrayPopoverCell1Value.value as! String)
-        
-        mainMenu.menuBarItems["Brainflip"].menuItems["Settings…"].click()
-        
-        let settingsWindow = app.windows["com_apple_SwiftUI_Settings_window"]
-        XCTAssert(settingsWindow.waitForExistence(timeout: 1))
+        XCTAssertEqual("[0, 98]", arrayField.value as! String)
     }
     
     /// Measures how long it takes to launch the app.

@@ -9,5 +9,6 @@ struct ClearAllCommand: View {
         }
         .keyboardShortcut(.delete, modifiers: [.shift, .command])
         .disabled(state == nil)
+        .accessibilityIdentifier("clearAllDocumentContents:")
     }
 }

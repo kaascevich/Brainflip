@@ -8,5 +8,6 @@ struct TrimCommand: View {
             state?.isWarningAboutTrim.toggle()
         }
         .disabled(state == nil)
+        .accessibilityIdentifier("trimProgram:")
     }
 }

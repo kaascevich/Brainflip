@@ -10,6 +10,9 @@
   ],
   "defaultOptions" : {
     "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+
+    ],
     "targetForVariableExpansion" : {
       "containerPath" : "container:Brainflip.xcodeproj",
       "identifier" : "34DF121929A7B9470021729B",

@@ -9,8 +9,10 @@ struct HelpCommands: Commands {
                 state?.showingMainHelp = true
             }
             .disabled(state == nil)
+            .accessibilityIdentifier("revealHelpContent:")
             
             Link("Algorithms...", destination: URL(string: "https://esolangs.org/wiki/Brainfuck_algorithms")!)
+                .accessibilityIdentifier("revealAlgorithmsWebPage:")
         }
     }
 }

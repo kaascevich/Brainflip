@@ -17,8 +17,10 @@ struct SampleProgramCommands: Commands {
                     Button(sampleProgram.lastPathComponent.dropLast(sampleProgram.pathExtension.count + 1)) {
                         Task { try await openDocument(at: sampleProgram) }
                     }
+                    .accessibilityIdentifier("openSampleProgram:")
                 }
             }
+            .accessibilityIdentifier("samplePrograms:")
         }
     }
 }

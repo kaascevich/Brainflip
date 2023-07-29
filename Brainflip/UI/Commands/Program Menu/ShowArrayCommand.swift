@@ -8,5 +8,6 @@ struct ShowArrayCommand: View {
             state?.showingArray.toggle()
         }
         .disabled(state?.disableResetButton ?? true)
+        .accessibilityIdentifier("revealProgramArray:")
     }
 }

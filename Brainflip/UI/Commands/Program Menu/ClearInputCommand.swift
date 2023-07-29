@@ -9,5 +9,6 @@ struct ClearInputCommand: View {
         }
         .keyboardShortcut(.delete, modifiers: [.option, .shift, .command])
         .disabled(state?.input.isEmpty ?? true)
+        .accessibilityIdentifier("clearProgramInput:")
     }
 }

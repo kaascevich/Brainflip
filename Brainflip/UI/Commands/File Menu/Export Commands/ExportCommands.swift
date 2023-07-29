@@ -8,6 +8,7 @@ struct ExportCommands: Commands {
             Menu("Export") {
                 ExportToCCommand()
             }
+            .accessibilityIdentifier("exportDocument:")
         }
     }
 }

@@ -8,5 +8,6 @@ struct HideOutputCommand: View {
             state?.isShowingOutput.toggle()
         }
         .disabled(state == nil)
+        .accessibilityIdentifier("showOutputPane:")
     }
 }
