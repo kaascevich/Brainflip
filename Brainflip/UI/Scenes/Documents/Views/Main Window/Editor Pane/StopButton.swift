@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StopButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         Button {
@@ -16,6 +16,7 @@ struct StopButton: View {
 }
 
 #Preview {
-    StopButton(state: previewState)
+    StopButton()
         .environmentObject(settings)
+        .environment(previewState)
 }

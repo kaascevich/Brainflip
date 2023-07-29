@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ClearAllButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         Button("Clear All...", role: .destructive) {
@@ -13,6 +13,7 @@ struct ClearAllButton: View {
 }
 
 #Preview {
-    ClearAllButton(state: previewState)
+    ClearAllButton()
         .environmentObject(settings)
+        .environment(previewState)
 }

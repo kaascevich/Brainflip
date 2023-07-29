@@ -1,6 +1,5 @@
 import SwiftUI
 import HighlightedTextEditor
-import RegexBuilder
 
 struct SyntaxHighlighting {
     static var highlightPatterns: [(String, Color)] {[

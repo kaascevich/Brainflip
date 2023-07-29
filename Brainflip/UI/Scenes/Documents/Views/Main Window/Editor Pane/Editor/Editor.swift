@@ -4,7 +4,7 @@ import SwiftUIIntrospect
 
 struct Editor: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Bindable var state: ProgramState
     
     var body: some View {
         HighlightedTextEditor(

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ShowArrayButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Bindable var state: ProgramState
     
     var body: some View {
         Button("Show Array") {
@@ -10,8 +10,8 @@ struct ShowArrayButton: View {
         }
         .disabled(state.disableResetButton)
         .popover(isPresented: $state.showingArray) {
-            ArrayView(state: state)
-                .frame(width: 200, height: 300)
+            ArrayView()
+                .frame(width: 200)
         }
     }
 }

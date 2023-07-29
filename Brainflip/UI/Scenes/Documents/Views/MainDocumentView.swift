@@ -12,7 +12,7 @@ struct MainDocumentView: View {
         HSplitView {
             VSplitView {
                 VStack {
-                    EditorPaneView(state: state)
+                    EditorPaneView()
                     ActionBarView(state: state)
                 }
                 .padding()

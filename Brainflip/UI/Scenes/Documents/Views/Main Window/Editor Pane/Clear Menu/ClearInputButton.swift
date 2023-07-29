@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ClearInputButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         Button("Clear Input") {
@@ -13,6 +13,7 @@ struct ClearInputButton: View {
 }
 
 #Preview {
-    ClearInputButton(state: previewState)
+    ClearInputButton()
         .environmentObject(settings)
+        .environmentObject(previewState)
 }

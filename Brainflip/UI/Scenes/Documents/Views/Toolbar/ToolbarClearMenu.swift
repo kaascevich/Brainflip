@@ -7,8 +7,8 @@ struct ToolbarClearMenu: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem {
             Menu {
-                ClearInputButton(state: state)
-                ClearAllButton(state: state)
+                ClearInputButton()
+                ClearAllButton()
             } label: {
                 Label("Clear", systemImage: "xmark")
                     .symbolVariant(.circle)

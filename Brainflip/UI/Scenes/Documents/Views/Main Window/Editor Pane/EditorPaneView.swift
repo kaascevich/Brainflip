@@ -3,7 +3,8 @@ import Foundation
 
 struct EditorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
+    
     var body: some View {
         Form {
             HStack {
@@ -13,9 +14,9 @@ struct EditorPaneView: View {
                 ShowArrayButton(state: state)
                 
                 if state.isRunningProgram {
-                    StopButton(state: state)
+                    StopButton()
                 } else {
-                    ResetButton(state: state)
+                    ResetButton()
                 }
             }
             
@@ -23,7 +24,7 @@ struct EditorPaneView: View {
             
             HStack {
                 if settings.showProgramSize {
-                    ProgramSizeView(state: state)
+                    ProgramSizeView()
                 }
                 Spacer()
                 ClearMenu(state: state)
@@ -33,6 +34,7 @@ struct EditorPaneView: View {
 }
 
 #Preview {
-    EditorPaneView(state: previewState)
+    EditorPaneView()
         .environmentObject(settings)
+        .environment(previewState)
 }
