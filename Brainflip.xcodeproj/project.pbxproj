@@ -303,6 +303,8 @@
 		349778A32A7002E80093B5C6 /* ProgramSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramSizeView.swift; sourceTree = "<group>"; };
 		34AD99472A59F72B0020CE37 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralDefaultsButton.swift; path = "Brainflip/UI/Scenes/Settings/Views/General Settings/GeneralDefaultsButton.swift"; sourceTree = SOURCE_ROOT; };
 		34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeNotEqualZeroToggle.swift; sourceTree = "<group>"; };
+		34ADA5E42A7554DD001B6FCB /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
+		34ADA5E52A755565001B6FCB /* Planned Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Planned Features.md"; sourceTree = "<group>"; };
 		34AE6AC12A6820B00017C2CB /* Bugs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Bugs.md; sourceTree = "<group>"; };
 		34AEE2E62A65CE2200A06DC4 /* IntentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentProvider.swift; sourceTree = "<group>"; };
 		34AEE2E82A65CE2200A06DC4 /* RunBFProgramIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunBFProgramIntent.swift; sourceTree = "<group>"; };
@@ -1053,6 +1055,8 @@
 			children = (
 				348A00262A663BCC00C7B056 /* Images */,
 				347F22A42A67640D00754651 /* To Do.md */,
+				34ADA5E42A7554DD001B6FCB /* Features.md */,
+				34ADA5E52A755565001B6FCB /* Planned Features.md */,
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
 			);
 			path = Docs;

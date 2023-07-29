@@ -1,0 +1,6 @@
+# Planned Features
+
+- [ ] Detachable array popover
+- [ ] Signed cells in addition to unsigned
+- [ ] Option to disable cell overflow/underflow
+- [ ] Changing the state of the interpreter (i.e. actual debugging)
