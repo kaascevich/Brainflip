@@ -12,7 +12,6 @@ struct ExportToCCommand: View {
                 state?.isInformingAboutCExport.toggle()
             }
         }
-        .disabled(state == nil || state!.isAskingForOutputFile == true || state?.isInformingAboutCExport == true || state!.isConversionProgressShowing == true || (try? Interpreter(program: state!.document.program).checkForMismatchedBrackets()) == nil)
         .accessibilityIdentifier("exportDocumentToCSource:")
     }
 }

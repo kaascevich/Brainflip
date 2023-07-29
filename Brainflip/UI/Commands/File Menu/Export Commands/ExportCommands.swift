@@ -8,6 +8,14 @@ struct ExportCommands: Commands {
             Menu("Export") {
                 ExportToCCommand()
             }
+            .disabled(
+                state == nil
+                || state!.isAskingForOutputFile
+                || state!.isInformingAboutCExport
+                || state!.isConversionProgressShowing
+                || (try? Interpreter(program: state!.document.program).checkForMismatchedBrackets()) == nil
+                || state!.isRunningProgram
+            )
             .accessibilityIdentifier("exportDocument:")
         }
     }

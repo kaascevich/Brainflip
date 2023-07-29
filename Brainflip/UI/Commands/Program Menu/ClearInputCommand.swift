@@ -8,7 +8,7 @@ struct ClearInputCommand: View {
             state?.input = ""
         }
         .keyboardShortcut(.delete, modifiers: [.option, .shift, .command])
-        .disabled(state?.input.isEmpty ?? true)
+        .disabled(state == nil || state!.input.isEmpty || state!.isConversionProgressShowing)
         .accessibilityIdentifier("clearProgramInput:")
     }
 }

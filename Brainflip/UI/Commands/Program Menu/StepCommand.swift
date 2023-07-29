@@ -8,7 +8,7 @@ struct StepCommand: View {
             state?.step()
         }
         .keyboardShortcut("r", modifiers: [.command, .shift])
-        .disabled(state?.disableStepButton ?? true)
+        .disabled(state == nil || state!.disableStepButton || state!.isConversionProgressShowing)
         .accessibilityIdentifier("stepThroughProgram:")
     }
 }

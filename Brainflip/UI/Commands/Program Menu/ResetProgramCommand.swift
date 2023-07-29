@@ -8,7 +8,7 @@ struct ResetProgramCommand: View {
             state?.reset()
         }
         .keyboardShortcut(".", modifiers: [.shift, .command])
-        .disabled(state?.disableResetButton ?? true)
+        .disabled(state == nil || state!.disableResetButton || state!.isConversionProgressShowing)
         .accessibilityIdentifier("resetProgramState:")
     }
 }

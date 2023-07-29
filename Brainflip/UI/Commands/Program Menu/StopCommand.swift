@@ -8,7 +8,7 @@ struct StopCommand: View {
             state?.stop()
         }
         .keyboardShortcut(".")
-        .disabled(state?.disableStopButton ?? true)
+        .disabled(state == nil || state!.disableStopButton)
         .accessibilityIdentifier("stopRunningProgram:")
     }
 }
