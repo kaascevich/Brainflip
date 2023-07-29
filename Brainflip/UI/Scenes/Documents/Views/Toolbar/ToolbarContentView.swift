@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ToolbarContentView: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
-    @StateObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some ToolbarContent {
         ToolbarRunButton(state: state)

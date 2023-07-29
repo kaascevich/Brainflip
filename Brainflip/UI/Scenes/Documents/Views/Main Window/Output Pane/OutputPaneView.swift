@@ -3,7 +3,7 @@ import SwiftUIIntrospect
 
 struct OutputPaneView: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         VStack {
@@ -12,7 +12,7 @@ struct OutputPaneView: View {
                     .accessibilityHidden(true)
                 Spacer()
                 if settings.showTimer {
-                    TimerView(state: state)
+                    TimerView()
                 }
                 CopyButton { state.output }
             }
@@ -30,6 +30,7 @@ struct OutputPaneView: View {
 }
 
 #Preview {
-    OutputPaneView(state: previewState)
+    OutputPaneView()
         .environmentObject(settings)
+        .environment(previewState)
 }

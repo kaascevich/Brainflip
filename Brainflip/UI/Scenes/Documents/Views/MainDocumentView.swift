@@ -2,11 +2,11 @@ import SwiftUI
 
 struct MainDocumentView: View {
     @EnvironmentObject private var settings: AppSettings
-    @StateObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
-    init(state: ProgramState) {
-        self._state = StateObject(wrappedValue: state)
-    }
+//    init(state: ProgramState) {
+//        self._state = StateObject(wrappedValue: state)
+//    }
     
     var body: some View {
         HSplitView {
@@ -20,7 +20,7 @@ struct MainDocumentView: View {
                 .layoutPriority(1)
                 
                 if state.isShowingOutput {
-                    OutputPaneView(state: state)
+                    OutputPaneView()
                         .padding()
                         .frame(minWidth: 500, maxWidth: .infinity, minHeight: 115, maxHeight: .infinity)
                 }
@@ -34,12 +34,13 @@ struct MainDocumentView: View {
             }
         }
         .toolbar {
-            ToolbarContentView(state: state)
+            ToolbarContentView()
         }
     }
 }
 
 #Preview {
-    MainDocumentView(state: previewState)
+    MainDocumentView()
         .environmentObject(settings)
+        .environment(previewState)
 }

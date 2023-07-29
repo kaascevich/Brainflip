@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MenuCommandAlerts: View {
     @EnvironmentObject private var settings: AppSettings
-    @StateObject var state: ProgramState
+    @Bindable var state: ProgramState
     
     var body: some View {
         Rectangle()

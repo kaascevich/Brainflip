@@ -5,9 +5,10 @@ struct MainDocumentScene: Scene {
         DocumentGroup(newDocument: ProgramDocument()) { file in
             let state = ProgramState(document: file.document)
             
-            MainDocumentView(state: state)
+            MainDocumentView()
                 .frame(minWidth: 735, minHeight: 460)
                 .environmentObject(settings)
+                .environment(state)
             
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)
