@@ -1,9 +1,12 @@
 import SwiftUI
 import Combine
+import Observation
 
-//@MainActor
-final class ProgramState: ObservableObject {
-    @Published var document: ProgramDocument
+// We still have to conform to ObservableObject in order to make
+// menu bar items work. As far as I can tell, @FocusedObject does
+// not yet have an @Observable equivalent.
+@Observable final class ProgramState: ObservableObject {
+    var document: ProgramDocument
     init(document: ProgramDocument) {
         self.document = document
     }
@@ -12,30 +15,30 @@ final class ProgramState: ObservableObject {
         execution.cancel()
     }
     
-    @Published var convertedDocument: CSourceDocument? = nil
-    @Published var isShowingOutput: Bool = true
-    @Published var isShowingInspector: Bool = true
-    @Published var interpreter: Interpreter = .init(program: "\0")
-    @Published var output: String = ""
-    @Published var input: String = ""
-    @Published var isRunningProgram: Bool = false
-    @Published var justRanProgram: Bool = false
-    @Published var isSteppingThrough: Bool = false
-    @Published var errorDescription: String = ""
-    @Published var errorType: InterpreterError? = nil
-    @Published var hasError: Bool = false
-    @Published var isClearAlertShowing: Bool = false
-    @Published var isWarningAboutTrim: Bool = false
-    @Published var isInformingAboutCExport: Bool = false
-    @Published var isAskingForOutputFile: Bool = false
-    @Published var isConversionProgressShowing: Bool = false
-    @Published var showingArray: Bool = false
-    @Published var showingMainHelp: Bool = false
-    @Published var selection: Range<Int> = 0..<0
-    @Published var timeElapsed: TimeInterval = 0
-    @Published var startDate: Date = .now
-    @Published var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
-    @Published var execution: Task = .init { }
+    var convertedDocument: CSourceDocument? = nil
+    var isShowingOutput: Bool = true
+    var isShowingInspector: Bool = true
+    var interpreter: Interpreter = .init(program: "\0")
+    var output: String = ""
+    var input: String = ""
+    var isRunningProgram: Bool = false
+    var justRanProgram: Bool = false
+    var isSteppingThrough: Bool = false
+    var errorDescription: String = ""
+    var errorType: InterpreterError? = nil
+    var hasError: Bool = false
+    var isClearAlertShowing: Bool = false
+    var isWarningAboutTrim: Bool = false
+    var isInformingAboutCExport: Bool = false
+    var isAskingForOutputFile: Bool = false
+    var isConversionProgressShowing: Bool = false
+    var showingArray: Bool = false
+    var showingMainHelp: Bool = false
+    var selection: Range<Int> = 0..<0
+    var timeElapsed: TimeInterval = 0
+    var startDate: Date = .now
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
+    var execution: Task = .init { }
     
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
