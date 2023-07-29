@@ -8,7 +8,7 @@ struct InspectorPaneView: View {
     let inspector: Inspector
     
     init(state: ProgramState) {
-        self.state     = state
+        self.state = state
         self.inspector = Inspector(state: state)
     }
     

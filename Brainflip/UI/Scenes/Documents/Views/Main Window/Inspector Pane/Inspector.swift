@@ -4,13 +4,6 @@ struct Inspector {
     @EnvironmentObject private var settings: AppSettings
     var state: ProgramState?
     
-    typealias ModuleData = (
-        name:             String,
-        data:             Any?,
-        tooltip:          String,
-        enabledByDefault: Bool
-    )
-    
     init(state: ProgramState? = nil) {
         self.state = state
         
