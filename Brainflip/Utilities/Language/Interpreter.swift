@@ -1,13 +1,14 @@
 import Foundation
 import os.log
 import AppIntents
+import Observation
 
 /// Provides interpretation features for a Brainflip program.
 ///
 /// All Brainflip programs manipulate an array of at least 30,000 cells. These cells
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
-final class Interpreter {
+@Observable final class Interpreter {
     private static let logger = Logger(subsystem: bundleID, category: "Interpreter")
     
     /// The action to perform  when encountering an input instruction after end-of-input has been reached.
@@ -70,6 +71,28 @@ final class Interpreter {
         self.program         = Program(string: program)
         self.input           = input
         self.breakOnHash     = breakOnHash
+        
+        self.loops = {
+            var array:   [Int] = [ ]
+            var stack:   [Int] = [0]
+            var numLoops: Int  =  0
+            var current:  Int  =  0
+            for instruction in Program(string: program) {
+                switch instruction {
+                    case .conditional:
+                        stack.append(current)
+                        numLoops += 1
+                        current   = numLoops
+                        array.append(current)
+                    case .loop:
+                        array.append(current)
+                        current = stack.popLast() ?? 0
+                    default:
+                        array.append(current)
+                }
+            }
+            return array
+        }()
     }
     
     /// The `String` representation of the program, including comments.
@@ -113,27 +136,7 @@ final class Interpreter {
         return array
     }
     
-    private(set) lazy var loops: [Int] = {
-        var array:   [Int] = [ ]
-        var stack:   [Int] = [0]
-        var numLoops: Int  =  0
-        var current:  Int  =  0
-        for instruction in self.program {
-            switch instruction {
-                case .conditional:
-                    stack.append(current)
-                    numLoops += 1
-                    current   = numLoops
-                    array.append(current)
-                case .loop:
-                    array.append(current)
-                    current = stack.popLast() ?? 0
-                default:
-                    array.append(current)
-            }
-        }
-        return array
-    }()
+    private(set) var loops: [Int]
     
     /// The maximum size of the array.
     let arraySize: Int

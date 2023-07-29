@@ -111,9 +111,16 @@ struct Inspector {
 
 extension Inspector {
     struct Module {
-        let name:             String
-        var data:             Any?
-        let tooltip:          String
+        let name: String
+        var data: () -> Any?
+        let tooltip: String
         let enabledByDefault: Bool
+        
+        init(name: String, data: @autoclosure @escaping () -> Any?, tooltip: String, enabledByDefault: Bool) {
+            self.name = name
+            self.data = data
+            self.tooltip = tooltip
+            self.enabledByDefault = enabledByDefault
+        }
     }
 }

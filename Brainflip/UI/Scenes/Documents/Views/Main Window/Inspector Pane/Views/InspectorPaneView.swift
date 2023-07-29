@@ -66,7 +66,7 @@ struct InspectorPaneView: View {
         if !settings.updateInspectorInRealTime, state.isRunningProgram {
             return ""
         } else {
-            return "\(module.data!)"
+            return "\(module.data()!)"
         }
     }
 }
