@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ClearAllCommand: View {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some View {
         Button("Clear All...") {

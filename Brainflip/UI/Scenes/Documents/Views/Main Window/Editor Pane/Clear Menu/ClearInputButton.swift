@@ -15,5 +15,5 @@ struct ClearInputButton: View {
 #Preview {
     ClearInputButton()
         .environmentObject(settings)
-        .environmentObject(previewState)
+        .environment(previewState)
 }

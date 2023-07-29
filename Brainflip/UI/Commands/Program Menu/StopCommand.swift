@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StopCommand: View {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some View {
         Button("Stop") {

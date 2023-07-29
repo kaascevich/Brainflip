@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ExportCommands: Commands {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some Commands {
         CommandGroup(replacing: .importExport) {

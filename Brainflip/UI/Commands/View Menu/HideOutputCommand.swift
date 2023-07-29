@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HideOutputCommand: View {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some View {
         Button((state?.isShowingOutput ?? false) ? "Hide Output" : "Show Output") {

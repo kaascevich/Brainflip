@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FileCommands: Commands {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some Commands {
         SampleProgramCommands()

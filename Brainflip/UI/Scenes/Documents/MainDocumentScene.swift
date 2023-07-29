@@ -9,6 +9,7 @@ struct MainDocumentScene: Scene {
                 .frame(minWidth: 735, minHeight: 460)
                 .environmentObject(settings)
                 .environment(state)
+                .focusedSceneValue(\.programState, state)
             
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)
@@ -20,5 +21,20 @@ struct MainDocumentScene: Scene {
             TextEditingCommands()
         }
         .windowToolbarStyle(.unifiedCompact)
+    }
+}
+
+extension FocusedValues {
+    struct ProgramStateFocusedValues: FocusedValueKey {
+        typealias Value = ProgramState
+    }
+    
+    var programState: ProgramState? {
+        get {
+            self[ProgramStateFocusedValues.self]
+        }
+        set {
+            self[ProgramStateFocusedValues.self] = newValue
+        }
     }
 }

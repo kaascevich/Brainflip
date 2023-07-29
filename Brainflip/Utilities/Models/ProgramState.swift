@@ -2,10 +2,7 @@ import SwiftUI
 import Combine
 import Observation
 
-// We still have to conform to ObservableObject in order to make
-// menu bar items work. As far as I can tell, @FocusedObject does
-// not yet have an @Observable equivalent.
-@Observable final class ProgramState: ObservableObject {
+@Observable final class ProgramState {
     var document: ProgramDocument
     init(document: ProgramDocument) {
         self.document = document

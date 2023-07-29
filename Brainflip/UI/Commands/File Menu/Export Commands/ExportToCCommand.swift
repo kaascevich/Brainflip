@@ -2,7 +2,7 @@ import SwiftUI
 import AppKit
 
 struct ExportToCCommand: View {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some View {
         Button("Export to C Source...") {

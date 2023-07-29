@@ -3,7 +3,7 @@ import Foundation
 
 struct SampleProgramCommands: Commands {
     @Environment(\.openDocument) var openDocument
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var samplePrograms: [URL] {
         Bundle.main.urls(forResourcesWithExtension: "bf", subdirectory: "Sample Programs")!.sorted { $0.absoluteString < $1.absoluteString }

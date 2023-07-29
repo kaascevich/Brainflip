@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TrimCommand: View {
-    @FocusedObject<ProgramState> var state
+    @FocusedValue(\.programState) private var state
     
     var body: some View {
         Button("Trim") {

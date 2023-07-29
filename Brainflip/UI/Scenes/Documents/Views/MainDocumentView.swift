@@ -26,7 +26,6 @@ struct MainDocumentView: View {
                 }
             }
             .layoutPriority(1)
-            .focusedSceneObject(state)
             
             if state.isShowingInspector {
                 InspectorPaneView(state: state)
