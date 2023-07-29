@@ -38,7 +38,7 @@ struct InspectorPaneView: View {
                         && meetsSearchCriteria(inspector.modules[index].name)
                     {
                         TextFieldWithLabel(
-                            state.isRunningProgram ? "" : "\(inspector.modules[index].data!)",
+                            moduleData(for: inspector.modules[index]),
                             label: inspector.modules[index].name,
                             isShown: settings.$expandedInspectorModules[index]
                         )
@@ -58,6 +58,14 @@ struct InspectorPaneView: View {
             if inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name) }) {
                 ContentUnavailableView.search
             }
+        }
+    }
+    
+    func moduleData(for module: Inspector.Module) -> String {
+        if !settings.updateInspectorInRealTime, state.isRunningProgram {
+            return ""
+        } else {
+            return "\(module.data!)"
         }
     }
 }

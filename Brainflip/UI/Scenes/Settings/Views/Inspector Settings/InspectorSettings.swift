@@ -14,6 +14,9 @@ struct InspectorSettings: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
+                Section {
+                    UpdateInspectorInRealTimeToggle()
+                }
             }
             .formStyle(.grouped)
             

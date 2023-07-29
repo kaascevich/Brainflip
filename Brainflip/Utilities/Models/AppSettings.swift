@@ -88,6 +88,9 @@ final class AppSettings: ObservableObject {
     
     // MARK: - Inspector Settings
     
+    @AppStorage("updateInspectorInRealTime", store: inspectorSettings)
+    var updateInspectorInRealTime: Bool = false
+    
     @AppStorage("enabledInspectorModules", store: inspectorSettings)
     var enabledInspectorModules: [Bool] = Inspector.defaultModules
     
@@ -160,55 +163,56 @@ extension AppSettings {
     
     func resetGeneralToDefaults() {
         AppSettings.logger.notice("Resetting general settings")
-        showTimer                = true
-        showNotifications        = false
+        showTimer                 = true
+        showNotifications         = false
     }
     
     func resetSoundToDefaults() {
         AppSettings.logger.notice("Resetting sound settings")
-        playSounds               = false
-        playStartSound           = true
-        playSuccessSound         = true
-        playFailSound            = true
-        playStepSound            = false
+        playSounds                = false
+        playStartSound            = true
+        playSuccessSound          = true
+        playFailSound             = true
+        playStepSound             = false
     }
     
     func resetInterpreterToDefaults() {
         AppSettings.logger.notice("Resetting interpreter settings")
-        endOfInput               = .noChange
-        arraySize                = 30_000
-        pointerLocation          = 0
-        cellSize                 = .eightBit
-        breakOnHash              = false
+        endOfInput                = .noChange
+        arraySize                 = 30_000
+        pointerLocation           = 0
+        cellSize                  = .eightBit
+        breakOnHash               = false
     }
     
     func resetInspectorToDefaults() {
         AppSettings.logger.notice("Resetting inspector settings")
-        enabledInspectorModules  = Inspector.defaultModules
-        inspectorModuleOrder     = Array(0...(Inspector.moduleCount - 1))
-        expandedInspectorModules = Array(repeating: true, count: Inspector.moduleCount)
+        updateInspectorInRealTime = false
+        enabledInspectorModules   = Inspector.defaultModules
+        inspectorModuleOrder      = Array(0...(Inspector.moduleCount - 1))
+        expandedInspectorModules  = Array(repeating: true, count: Inspector.moduleCount)
     }
     
     func resetEditorToDefaults() {
         AppSettings.logger.notice("Resetting editor settings")
-        monospaced               = true
-        highlighting             = false
-        showProgress             = true
-        showCurrentInstruction   = true
-        showProgramSize          = true
-        textSize                 = 14.0
+        monospaced                = true
+        highlighting              = false
+        showProgress              = true
+        showCurrentInstruction    = true
+        showProgramSize           = true
+        textSize                  = 14.0
     }
     
     func resetExportToDefaults() {
         AppSettings.logger.notice("Resetting export settings")
-        indentation              = 3
-        pointerName              = "ptr"
-        arrayName                = "array"
-        leftHandIncDec           = false
-        includeNotEqualZero      = true
-        includeDisabledBreak     = false
-        openingBraceOnNewLine    = false
-        includeVoidWithinMain    = true
+        indentation               = 3
+        pointerName               = "ptr"
+        arrayName                 = "array"
+        leftHandIncDec            = false
+        includeNotEqualZero       = true
+        includeDisabledBreak      = false
+        openingBraceOnNewLine     = false
+        includeVoidWithinMain     = true
         whitespace = [
             .beforeWhileOrIf,
             .beforeBrace,
@@ -226,6 +230,6 @@ extension AppSettings {
     
     func resetHiddenToDefaults() {
         AppSettings.logger.notice("Resetting hidden settings")
-        exportToCAlertHidden     = false
+        exportToCAlertHidden = false
     }
 }

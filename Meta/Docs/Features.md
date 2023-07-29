@@ -16,6 +16,7 @@
 - [x] Viewing the program size for the same reason as the timer
 
 ### Inspector
+- [x] Updating modules in real time
 - [x] Customizing modules, namely:
   - [x] Current instruction
   - [x] Current instruction location
