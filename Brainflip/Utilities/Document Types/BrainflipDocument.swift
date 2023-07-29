@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 import Observation
 
-@Observable final class ProgramDocument: FileDocument, Identifiable {
+@Observable final class BrainflipDocument: FileDocument, Identifiable {
     let id = UUID()
     
     var filename: String = "Untitled"

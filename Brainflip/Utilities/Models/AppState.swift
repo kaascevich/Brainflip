@@ -3,8 +3,8 @@ import Combine
 import Observation
 
 @Observable final class AppState {
-    var document: ProgramDocument
-    init(document: ProgramDocument) {
+    var document: BrainflipDocument
+    init(document: BrainflipDocument) {
         self.document = document
     }
     

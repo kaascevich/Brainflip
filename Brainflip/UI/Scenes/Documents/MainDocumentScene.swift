@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainDocumentScene: Scene {
     var body: some Scene {
-        DocumentGroup(newDocument: ProgramDocument()) { file in
+        DocumentGroup(newDocument: BrainflipDocument()) { file in
             let state = AppState(document: file.document)
             
             MainDocumentView()

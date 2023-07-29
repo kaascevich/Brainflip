@@ -61,7 +61,7 @@
 		346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 346011862A659B2000029BB3 /* SwiftUIIntrospect */; };
 		346011892A659F6400029BB3 /* TextSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346011882A659F6400029BB3 /* TextSizeSlider.swift */; };
 		3460118D2A65AEBF00029BB3 /* Sample Programs in Resources */ = {isa = PBXBuildFile; fileRef = 3460118C2A65AEBF00029BB3 /* Sample Programs */; };
-		34618C5C29AADDDC00552568 /* ProgramDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5B29AADDDC00552568 /* ProgramDocument.swift */; };
+		34618C5C29AADDDC00552568 /* BrainflipDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5B29AADDDC00552568 /* BrainflipDocument.swift */; };
 		34618C5E29AADE6C00552568 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5D29AADE6C00552568 /* Instruction.swift */; };
 		34618C6129AADEA200552568 /* InterpreterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6029AADEA200552568 /* InterpreterError.swift */; };
 		34618C6329AAE02B00552568 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6229AAE02B00552568 /* Program.swift */; };
@@ -254,7 +254,7 @@
 		346011BC2A65BA3100029BB3 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		346011CE2A65BA9D00029BB3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		346011D02A65BA9D00029BB3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		34618C5B29AADDDC00552568 /* ProgramDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDocument.swift; sourceTree = "<group>"; };
+		34618C5B29AADDDC00552568 /* BrainflipDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipDocument.swift; sourceTree = "<group>"; };
 		34618C5D29AADE6C00552568 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		34618C6029AADEA200552568 /* InterpreterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterError.swift; sourceTree = "<group>"; };
 		34618C6229AAE02B00552568 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -545,7 +545,7 @@
 		34266C1029C4F6530045337D /* Document Types */ = {
 			isa = PBXGroup;
 			children = (
-				34618C5B29AADDDC00552568 /* ProgramDocument.swift */,
+				34618C5B29AADDDC00552568 /* BrainflipDocument.swift */,
 				344E529129BD362200F4DB50 /* CSourceDocument.swift */,
 			);
 			path = "Document Types";
@@ -1281,7 +1281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34618C5C29AADDDC00552568 /* ProgramDocument.swift in Sources */,
+				34618C5C29AADDDC00552568 /* BrainflipDocument.swift in Sources */,
 				3495634B29B15DE5009B0912 /* AppState.swift in Sources */,
 				34044E3D2A5B903C001FB589 /* TrimCommand.swift in Sources */,
 				34E09D7B29BB8E6B00CF2299 /* SoundSettings.swift in Sources */,

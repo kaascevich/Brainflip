@@ -5,4 +5,4 @@
 /// ```
 /// ,[>+<-.]
 /// ```
-let previewState = AppState(document: ProgramDocument(",[>+<-.]"))
+let previewState = AppState(document: BrainflipDocument(",[>+<-.]"))
