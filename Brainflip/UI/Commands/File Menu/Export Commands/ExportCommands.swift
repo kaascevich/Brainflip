@@ -10,8 +10,6 @@ struct ExportCommands: Commands {
             }
             .disabled(
                 state == nil
-                || state!.isAskingForOutputFile
-                || state!.isInformingAboutCExport
                 || state!.isConversionProgressShowing
                 || (try? Interpreter(program: state!.document.program).checkForMismatchedBrackets()) == nil
                 || state!.isRunningProgram

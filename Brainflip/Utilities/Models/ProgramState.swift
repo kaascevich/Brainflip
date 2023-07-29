@@ -176,6 +176,16 @@ final class ProgramState: ObservableObject {
     }
     var disableStopButton: Bool { !isRunningProgram }
     
+    var disableMenuItems: Bool {
+        isAskingForOutputFile
+        || isInformingAboutCExport
+        || isWarningAboutTrim
+        || isClearAlertShowing
+        || isConversionProgressShowing
+        || hasError
+        || showingMainHelp
+    }
+    
     private func createInterpreter() -> Interpreter {
         Interpreter(program:         document.contents,
                     input:           input,

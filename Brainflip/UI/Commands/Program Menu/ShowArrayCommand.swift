@@ -7,7 +7,7 @@ struct ShowArrayCommand: View {
         Button("Show Array") {
             state?.showingArray.toggle()
         }
-        .disabled(state == nil || state!.disableResetButton || state!.isConversionProgressShowing)
+        .disabled(state == nil || state!.disableResetButton || state!.disableMenuItems)
         .accessibilityIdentifier("revealProgramArray:")
     }
 }

@@ -8,7 +8,7 @@ struct RunCommand: View {
             state?.run()
         }
         .keyboardShortcut("r")
-        .disabled(state == nil || state!.disableRunButton || state!.isConversionProgressShowing)
+        .disabled(state == nil || state!.disableRunButton || state!.disableMenuItems)
         .accessibilityIdentifier("runProgram:")
     }
 }
