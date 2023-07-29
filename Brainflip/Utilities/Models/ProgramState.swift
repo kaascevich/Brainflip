@@ -44,6 +44,8 @@ final class ProgramState: ObservableObject {
         
         errorDescription = switch error {
             case let error as InterpreterError: error.rawValue
+            case let error as LocalizedError: "Error description: \(error.localizedDescription)"
+            case let error as CustomStringConvertible: "Error description: \(error.description)"
             default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
         
@@ -61,20 +63,20 @@ final class ProgramState: ObservableObject {
     @MainActor
     func run()  {
         if isValidKonamiCode(document.contents) {
-            document.contents = "Ha ha‚ nice try․"
+            document.contents = "That ain't gonna fly here"
         }
         
-        timeElapsed    = TimeInterval(0)
-        startDate      = Date()
-        timer          = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+        timeElapsed = TimeInterval(0)
+        startDate = Date()
+        timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         justRanProgram = false
         
         execution = Task {
             isRunningProgram = true
             if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
             interpreter = createInterpreter()
-            output      = ""
-            selection   = 0..<0
+            output = ""
+            selection = 0..<0
             do {
                 try await interpreter.run()
                 if settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
@@ -91,8 +93,7 @@ final class ProgramState: ObservableObject {
             output = interpreter.output
             isRunningProgram = false
             justRanProgram = true
-            timer?.upstream.connect().cancel()
-            timer = nil
+            timer?.upstream.connect().cancel(); timer = nil
         }
     }
     var disableRunButton: Bool {
@@ -102,9 +103,7 @@ final class ProgramState: ObservableObject {
     @MainActor
     func step() {
         if !isSteppingThrough {
-            if shouldReset() {
-                reset()
-            }
+            if shouldReset() { reset() }
             justRanProgram = false
             isSteppingThrough = true
             Task {
