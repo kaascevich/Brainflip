@@ -10,9 +10,7 @@ struct DefaultsButton: View {
         }
         .confirmationDialog("Are you sure you want to reset all settings to their defaults?", isPresented: $isWarningAboutSettingsReset) {
             Button("Reset", role: .destructive) {
-                withAnimation {
-                    settings.resetAllToDefaults()
-                }
+                settings.resetAllToDefaults()
             }
             Button("Cancel", role: .cancel) { }
         } message: {

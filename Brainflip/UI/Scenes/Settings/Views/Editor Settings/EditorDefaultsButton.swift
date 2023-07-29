@@ -10,9 +10,7 @@ struct EditorDefaultsButton: View {
         }
         .confirmationDialog("Are you sure you want to reset the edtior to its default settings?", isPresented: $isWarningAboutSettingsReset) {
             Button("Reset") {
-                withAnimation {
-                    settings.resetEditorToDefaults()
-                }
+                settings.resetEditorToDefaults()
             }
             Button("Cancel", role: .cancel) { }
         } message: {

@@ -10,9 +10,7 @@ struct SoundDefaultsButton: View {
         }
         .confirmationDialog("Are you sure you want to restore the default sound settings?", isPresented: $isWarningAboutSettingsReset) {
             Button("Reset") {
-                withAnimation {
-                    settings.resetSoundToDefaults()
-                }
+                settings.resetSoundToDefaults()
             }
             Button("Cancel", role: .cancel) { }
         } message: {

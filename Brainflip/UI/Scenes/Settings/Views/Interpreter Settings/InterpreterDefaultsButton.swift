@@ -11,9 +11,7 @@ struct InterpreterDefaultsButton: View {
         }
         .confirmationDialog("Are you sure you want to reset the interpreter to its default settings?", isPresented: $isWarningAboutSettingsReset) {
             Button("Reset") {
-                withAnimation {
-                    settings.resetInterpreterToDefaults()
-                }
+                settings.resetInterpreterToDefaults()
             }
             Button("Cancel", role: .cancel) { }
         } message: {

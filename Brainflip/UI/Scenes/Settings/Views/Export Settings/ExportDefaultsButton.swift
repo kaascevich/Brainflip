@@ -10,9 +10,7 @@ struct ExportDefaultsButton: View {
         }
         .confirmationDialog("Are you sure you want to restore the default export settings?", isPresented: $isWarningAboutSettingsReset) {
             Button("Reset") {
-                withAnimation {
-                    settings.resetExportToDefaults()
-                }
+                settings.resetExportToDefaults()
             }
             Button("Cancel", role: .cancel) { }
         } message: {
