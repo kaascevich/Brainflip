@@ -11,7 +11,7 @@ struct TimerView: View {
                 state.timeElapsed = $0.timeIntervalSince(state.startDate)
             }
             .accessibilityLabel("Timer")
-            .accessibilityValue(accessibilityTimerString)
+            .accessibilityValue(accessibilityTimerString(state.timeElapsed))
     }
     
     func formatTimeElapsed(_ timeElapsed: TimeInterval) -> String {
@@ -25,13 +25,13 @@ struct TimerView: View {
         return timeDuration.formatted(formatStyle)
     }
     
-    var accessibilityTimerString: String {
+    func accessibilityTimerString(_ timeInterval: TimeInterval) -> String {
         let formatStyle = Duration.UnitsFormatStyle(
             allowedUnits: [.hours, .minutes, .seconds, .milliseconds],
             width: .wide
         )
         
-        return Duration.seconds(state.timeElapsed).formatted(formatStyle)
+        return Duration.seconds(timeInterval).formatted(formatStyle)
     }
 }
 
