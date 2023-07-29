@@ -496,6 +496,7 @@
 			children = (
 				34618C7629AAECEC00552568 /* OutputPaneView.swift */,
 				3486AA2C29BE667B004C12B6 /* TimerView.swift */,
+				349778592A6F4CA60093B5C6 /* CopyButton.swift */,
 			);
 			path = "Output Pane";
 			sourceTree = "<group>";
@@ -621,7 +622,7 @@
 			children = (
 				34618C6D29AAE54400552568 /* ActionBarView.swift */,
 				34E09D8E29BBB5C800CF2299 /* ProgramProgressView.swift */,
-				34ACE7A12A72C1400049FDF4 /* Input */,
+				3404A21C29B24DEC004514DC /* InputField.swift */,
 				3404A1FA29B23C72004514DC /* Action Buttons */,
 			);
 			path = "Action Bar";
@@ -789,15 +790,6 @@
 				349778812A6F748D0093B5C6 /* QuickLook.entitlements */,
 			);
 			path = QuickLook;
-			sourceTree = "<group>";
-		};
-		34ACE7A12A72C1400049FDF4 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				3404A21C29B24DEC004514DC /* InputField.swift */,
-				349778592A6F4CA60093B5C6 /* CopyButton.swift */,
-			);
-			path = Input;
 			sourceTree = "<group>";
 		};
 		34ACE7A22A72C1940049FDF4 /* Views */ = {

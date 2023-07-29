@@ -13,7 +13,7 @@ struct MainDocumentView: View {
             VSplitView {
                 VStack {
                     EditorPaneView()
-                    ActionBarView(state: state)
+                    ActionBarView()
                 }
                 .padding()
                 .frame(minWidth: 500, maxWidth: .infinity, minHeight: 310, maxHeight: .infinity)

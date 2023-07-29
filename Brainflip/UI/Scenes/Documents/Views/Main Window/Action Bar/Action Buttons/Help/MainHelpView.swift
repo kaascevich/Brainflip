@@ -5,7 +5,7 @@ struct MainHelpView: View {
     @Environment(\.openURL) var openURL
     
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Bindable var state: ProgramState
         
     static let helpContent: AttributedString = {
         let fileURL = Bundle.main.url(

@@ -2,7 +2,8 @@ import SwiftUI
 
 struct StepButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
+    
     @State private var symbolEffect = false
     
     var body: some View {
@@ -20,6 +21,7 @@ struct StepButton: View {
 }
 
 #Preview {
-    StepButton(state: previewState)
+    StepButton()
         .environmentObject(settings)
+        .environment(previewState)
 }

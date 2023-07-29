@@ -2,13 +2,13 @@ import SwiftUI
 
 struct ActionBarView: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         VStack {
             InputField(state: state)
             if settings.showProgress {
-                ProgramProgressView(state: state)
+                ProgramProgressView()
             }
             HStack {
                 MainHelpView(state: state)
@@ -21,6 +21,7 @@ struct ActionBarView: View {
 }
 
 #Preview {
-    ActionBarView(state: previewState)
+    ActionBarView()
         .environmentObject(settings)
+        .environment(previewState)
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RunButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Environment(ProgramState.self) var state: ProgramState
     
     var body: some View {
         Button {
@@ -28,6 +28,7 @@ struct RunButton: View {
 }
 
 #Preview {
-    RunButton(state: previewState)
+    RunButton()
         .environmentObject(settings)
+        .environment(previewState)
 }

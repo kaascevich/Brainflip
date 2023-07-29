@@ -2,12 +2,12 @@ import SwiftUI
 
 struct ActionButtons: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    @Bindable var state: ProgramState
     
     var body: some View {
         Group {
-            RunButton(state: state)
-            StepButton(state: state)
+            RunButton()
+            StepButton()
         }
         .controlSize(.large)
         .alert("An error occured while running your program.", isPresented: $state.hasError) {
