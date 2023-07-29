@@ -2,7 +2,8 @@ import SwiftUI
 
 struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
-    @ObservedObject var state: ProgramState
+    var state: ProgramState
+    
     @State private var searchText: String = ""
     let inspector: Inspector
     

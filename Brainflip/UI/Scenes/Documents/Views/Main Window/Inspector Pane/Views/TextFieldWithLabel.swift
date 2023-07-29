@@ -2,8 +2,8 @@ import SwiftUI
 import SwiftUIIntrospect
 
 struct TextFieldWithLabel: View {
-             var text:             String
-             let label:            String
+    var text: String
+    let label: String
     @Binding var isTextFieldShown: Bool
     
     
