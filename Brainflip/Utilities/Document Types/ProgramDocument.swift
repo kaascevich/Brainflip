@@ -1,7 +1,8 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import Observation
 
-final class ProgramDocument: FileDocument, Identifiable, ObservableObject {
+@Observable final class ProgramDocument: FileDocument, Identifiable {
     let id = UUID()
     
     var filename: String = "Untitled"

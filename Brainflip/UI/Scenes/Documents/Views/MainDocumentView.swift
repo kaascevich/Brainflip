@@ -4,10 +4,6 @@ struct MainDocumentView: View {
     @EnvironmentObject private var settings: AppSettings
     @Environment(ProgramState.self) var state: ProgramState
     
-//    init(state: ProgramState) {
-//        self._state = StateObject(wrappedValue: state)
-//    }
-    
     var body: some View {
         HSplitView {
             VSplitView {

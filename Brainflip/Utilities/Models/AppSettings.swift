@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 import os.log
 
-/// The global ``AppSettings`` object.
+/// The global ``AppSettings`` instance.
 ///
 /// - TODO: Get rid of this somehow.
 let settings = AppSettings()
