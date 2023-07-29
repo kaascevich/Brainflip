@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProgramCommands: Commands {
-    @FocusedValue(\.programState) private var state
+    @FocusedValue(\.appState) private var state
     
     @MainActor
     var body: some Commands {

@@ -3,7 +3,7 @@ import SwiftUIIntrospect
 
 struct OutputPaneView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(ProgramState.self) private var state: ProgramState
+    @Environment(AppState.self) private var state: AppState
     
     var body: some View {
         VStack {

@@ -2,9 +2,9 @@ import SwiftUI
 
 struct Inspector {
     @EnvironmentObject private var settings: AppSettings
-    var state: ProgramState?
+    var state: AppState?
     
-    init(state: ProgramState? = nil) {
+    init(state: AppState? = nil) {
         self.state = state
         
         modules = [

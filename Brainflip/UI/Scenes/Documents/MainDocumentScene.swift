@@ -3,13 +3,13 @@ import SwiftUI
 struct MainDocumentScene: Scene {
     var body: some Scene {
         DocumentGroup(newDocument: ProgramDocument()) { file in
-            let state = ProgramState(document: file.document)
+            let state = AppState(document: file.document)
             
             MainDocumentView()
                 .frame(minWidth: 735, minHeight: 460)
                 .environmentObject(settings)
                 .environment(state)
-                .focusedSceneValue(\.programState, state)
+                .focusedSceneValue(\.appState, state)
             
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)
@@ -25,16 +25,16 @@ struct MainDocumentScene: Scene {
 }
 
 extension FocusedValues {
-    struct ProgramStateFocusedValues: FocusedValueKey {
-        typealias Value = ProgramState
+    struct AppStateFocusedValues: FocusedValueKey {
+        typealias Value = AppState
     }
     
-    var programState: ProgramState? {
+    var appState: AppState? {
         get {
-            self[ProgramStateFocusedValues.self]
+            self[AppStateFocusedValues.self]
         }
         set {
-            self[ProgramStateFocusedValues.self] = newValue
+            self[AppStateFocusedValues.self] = newValue
         }
     }
 }

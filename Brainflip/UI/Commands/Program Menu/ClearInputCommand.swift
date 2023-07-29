@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ClearInputCommand: View {
-    @FocusedValue(\.programState) private var state
+    @FocusedValue(\.appState) private var state
     
     var body: some View {
         Button("Clear Input") {

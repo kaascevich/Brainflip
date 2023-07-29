@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StepCommand: View {
-    @FocusedValue(\.programState) private var state
+    @FocusedValue(\.appState) private var state
     
     var body: some View {
         Button("Step Through") {

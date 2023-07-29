@@ -96,7 +96,7 @@
 		3486AA4029BF55CB004C12B6 /* BreakOnHashToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486AA3F29BF55CB004C12B6 /* BreakOnHashToggle.swift */; };
 		3486B4E829C934B800A7A13F /* IndentationStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486B4E729C934B800A7A13F /* IndentationStepper.swift */; };
 		3486B4EA29C935D300A7A13F /* StepperField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486B4E929C935D300A7A13F /* StepperField.swift */; };
-		3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* ProgramState.swift */; };
+		3495634B29B15DE5009B0912 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* AppState.swift */; };
 		3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778592A6F4CA60093B5C6 /* CopyButton.swift */; };
 		349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E19152A6465AE002C66D0 /* Quartz.framework */; };
 		3497787C2A6F748D0093B5C6 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */; };
@@ -293,7 +293,7 @@
 		3486B4E729C934B800A7A13F /* IndentationStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentationStepper.swift; sourceTree = "<group>"; };
 		3486B4E929C935D300A7A13F /* StepperField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperField.swift; sourceTree = "<group>"; };
 		348A00292A663BEB00C7B056 /* InterpreterSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterpreterSettings.png; sourceTree = "<group>"; };
-		3495634A29B15DE5009B0912 /* ProgramState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramState.swift; sourceTree = "<group>"; };
+		3495634A29B15DE5009B0912 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		349778592A6F4CA60093B5C6 /* CopyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 		349778762A6F748D0093B5C6 /* QuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3497787B2A6F748D0093B5C6 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
@@ -849,7 +849,7 @@
 			isa = PBXGroup;
 			children = (
 				34618C7429AAE7EF00552568 /* AppSettings.swift */,
-				3495634A29B15DE5009B0912 /* ProgramState.swift */,
+				3495634A29B15DE5009B0912 /* AppState.swift */,
 				345E190C2A645886002C66D0 /* Notifications.swift */,
 			);
 			path = Models;
@@ -1282,7 +1282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34618C5C29AADDDC00552568 /* ProgramDocument.swift in Sources */,
-				3495634B29B15DE5009B0912 /* ProgramState.swift in Sources */,
+				3495634B29B15DE5009B0912 /* AppState.swift in Sources */,
 				34044E3D2A5B903C001FB589 /* TrimCommand.swift in Sources */,
 				34E09D7B29BB8E6B00CF2299 /* SoundSettings.swift in Sources */,
 				3404A20D29B23FF1004514DC /* ResetProgramCommand.swift in Sources */,

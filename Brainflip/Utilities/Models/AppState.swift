@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 import Observation
 
-@Observable final class ProgramState {
+@Observable final class AppState {
     var document: ProgramDocument
     init(document: ProgramDocument) {
         self.document = document

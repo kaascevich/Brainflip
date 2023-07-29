@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ToolbarPanelToggles: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
-    @Bindable var state: ProgramState
+    @Bindable var state: AppState
     
     var body: some ToolbarContent {
         ToolbarItemGroup {

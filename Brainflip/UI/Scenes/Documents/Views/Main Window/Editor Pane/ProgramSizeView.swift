@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProgramSizeView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(ProgramState.self) private var state: ProgramState
+    @Environment(AppState.self) private var state: AppState
     
     private var programSize: String {
         ByteCountFormatter.string(

@@ -1,6 +1,5 @@
 # To Do
 
-- [ ] Clean up `ProgramState` (*god*, that thing's a mess)
 - [ ] Further simplify `AppSettings` in one of two ways:
   - Adding support for `@dynamicMemberLookup`
   - Creating a macro (preferred)

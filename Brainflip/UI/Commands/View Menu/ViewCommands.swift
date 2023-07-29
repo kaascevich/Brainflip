@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ViewCommands: Commands {
-    @FocusedValue(\.programState) private var state
+    @FocusedValue(\.appState) private var state
     
     var body: some Commands {
         CommandGroup(before: .sidebar) {

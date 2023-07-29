@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ToolbarResetButton: ToolbarContent {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(ProgramState.self) private var state: ProgramState
+    @Environment(AppState.self) private var state: AppState
     
     @State private var symbolEffect = false
     

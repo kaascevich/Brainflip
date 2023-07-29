@@ -3,7 +3,7 @@ import SwiftUIIntrospect
 
 struct InputField: View {
     @EnvironmentObject private var settings: AppSettings
-    @Bindable var state: ProgramState
+    @Bindable var state: AppState
     
     @State private var symbolEffect = false
     
