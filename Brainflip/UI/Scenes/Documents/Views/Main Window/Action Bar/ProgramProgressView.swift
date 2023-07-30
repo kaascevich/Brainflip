@@ -8,13 +8,11 @@ struct ProgramProgressView: View {
         Double(state.document.program.count - 1)
     }
     var max: Double {
-        if actualMax == 0 { 1 }
-        else { actualMax }
+        Swift.max(1, actualMax)
     }
     var current: Double? {
-        if state.isRunningProgram { nil }
-        else if max <= 0 { 0 }
-        else { Double(state.interpreter.currentInstructionIndex) }
+        guard !state.isRunningProgram else { return nil }
+        return Swift.max(0, Double(state.interpreter.currentInstructionIndex))
     }
     
     var body: some View {
