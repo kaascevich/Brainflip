@@ -8,7 +8,7 @@ import Observation
 /// All Brainflip programs manipulate an array of at least 30,000 cells. These cells
 /// store integer values, from `0` to `cellSize - 1`. A ``pointer`` is used to
 /// keep track of the cell that the `+` and `-` instructions will apply to.
-final class Interpreter {
+@Observable final class Interpreter {
     private static let logger = Logger(subsystem: bundleID, category: "Interpreter")
     
     /// The action to perform  when encountering an input instruction after end-of-input has been reached.
