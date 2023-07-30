@@ -1,7 +1,7 @@
 # Known Bugs
 
 - [ ] App shortcut is completely broken (naturally)
-- [ ] Buttons don't update their enabled status until a button is clicked
+- [ ] Many views don't update when they should
   - I suspect this is a bug with `@Observable`
 
 ## Fixed
