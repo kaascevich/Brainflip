@@ -91,9 +91,6 @@ final class AppSettings: ObservableObject {
     @AppStorage("enabledInspectorModules", store: inspectorSettings)
     var enabledInspectorModules: [Bool] = Inspector.defaultModules
     
-    @AppStorage("expandedInspectorModules", store: inspectorSettings)
-    var expandedInspectorModules: [Bool] = Array(repeating: true, count: Inspector.moduleCount)
-    
     @AppStorage("inspectorModuleOrder", store: inspectorSettings)
     var inspectorModuleOrder: [Int] = Array(0...(Inspector.moduleCount - 1))
     
@@ -186,7 +183,6 @@ extension AppSettings {
         AppSettings.logger.notice("Resetting inspector settings")
         enabledInspectorModules   = Inspector.defaultModules
         inspectorModuleOrder      = Array(0...(Inspector.moduleCount - 1))
-        expandedInspectorModules  = Array(repeating: true, count: Inspector.moduleCount)
     }
     
     func resetEditorToDefaults() {

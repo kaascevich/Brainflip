@@ -4,42 +4,44 @@ struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     var state: AppState
     
+    @SceneStorage("expandedInspectorModules") var expandedInspectorModules: [Bool] = Array(repeating: true, count: Inspector.moduleCount)
+    
     @State private var searchText: String = ""
     
-    func meetsSearchCriteria(_ string: String) -> Bool {
-        searchText.isEmpty ? true : string.lowercased().contains(searchText.lowercased())
+    func meetsSearchCriteria(_ string: String, query: String) -> Bool {
+        query.isEmpty || string.lowercased().contains(query.lowercased())
     }
     
     var body: some View {
         VStack {
             HStack {
                 SearchBar($searchText, prompt: "Find a module")
-                Toggle("", sources: settings.$expandedInspectorModules, isOn: \.self)
+                Toggle("", sources: $expandedInspectorModules, isOn: \.self)
                     .toggleStyle(DisclosureToggleStyle())
-                    .onChange(of: settings.expandedInspectorModules) {
-                        settings.expandedInspectorModules.indices.forEach {
+                    .onChange(of: expandedInspectorModules) {
+                        expandedInspectorModules.indices.forEach {
                             if !settings.enabledInspectorModules[$0] {
-                                settings.expandedInspectorModules[$0] = true
+                                expandedInspectorModules[$0] = true
                             }
                         }
                     }
-                    .accessibilityLabel(settings.expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All")
+                    .accessibilityLabel(expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All")
             }
             .padding(1)
             
             ScrollView {
-                ForEach(settings.inspectorModuleOrder, id: \.self) { index in
+                ForEach(settings.inspectorModuleOrder.filter { settings.enabledInspectorModules[$0] }, id: \.self) { index in
                     if settings.enabledInspectorModules[index]
-                        && meetsSearchCriteria(state.inspector.modules[index].name)
+                        && meetsSearchCriteria(state.inspector.modules[index].name, query: searchText)
                     {
                         TextFieldWithLabel(
                             state.isRunningProgram ? "" : "\(state.inspector.modules[index].data!)",
                             label: state.inspector.modules[index].name,
-                            isShown: settings.$expandedInspectorModules[index]
+                            isShown: $expandedInspectorModules[index]
                         )
                         .help(state.inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
-                        .animation(.smooth, value: settings.expandedInspectorModules)
+                        .animation(.smooth, value: expandedInspectorModules)
                     }
                 }
                 .animation(.smooth, value: settings.inspectorModuleOrder)
@@ -51,7 +53,7 @@ struct InspectorPaneView: View {
         }
         .padding(10)
         .overlay {
-            if state.inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name) }) {
+            if state.inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name, query: searchText) }) {
                 ContentUnavailableView.search
             }
         }

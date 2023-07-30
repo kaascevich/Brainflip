@@ -9,9 +9,6 @@ struct InspectorModuleList: View {
             let index = index.wrappedValue
             Toggle(Self.inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
                 .help(Self.inspector.modules[index].tooltip)
-                .onChange(of: settings.enabledInspectorModules[index]) {
-                    settings.expandedInspectorModules[index] = true
-                }
         }
         .padding(5)
         .animation(.smooth, value: settings.inspectorModuleOrder)
