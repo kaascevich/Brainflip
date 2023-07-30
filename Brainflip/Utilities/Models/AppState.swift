@@ -8,18 +8,13 @@ import Observation
         self.document = document
     }
     
-    deinit { execution.cancel() }
-    
     var convertedDocument: CSourceDocument? = nil
+    
     var isShowingOutput: Bool = true
-    var isShowingInspector: Bool = true
-    var interpreter: Interpreter = .init(program: "\0")
-    var output: String = ""
-    var input: String = ""
-    var justRanProgram: Bool = false
-    var errorDescription: String = ""
-    var errorType: InterpreterError? = nil
-    var hasError: Bool = false
+    var isShowingInspector: Bool = true {
+        willSet { updateInspector() }
+    }
+    
     var isClearAlertShowing: Bool = false
     var isWarningAboutTrim: Bool = false
     var isInformingAboutCExport: Bool = false
@@ -27,19 +22,29 @@ import Observation
     var isConversionProgressShowing: Bool = false
     var showingArray: Bool = false
     var showingMainHelp: Bool = false
+    
+    var interpreter: Interpreter = .init(program: "\0")
+    var output: String = ""
+    var input: String = ""
+    
+    var execution: Task = .init { }
+    deinit { execution.cancel() }
+    
+    var errorDescription: String = ""
+    var errorType: InterpreterError? = nil
+    var hasError: Bool = false
+    
     var selection: Range<Int> = 0..<0
+    
     var timeElapsed: TimeInterval = 0
     var startDate: Date = .now
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
-    var execution: Task = .init { }
+    
     var inspector: Inspector = .init(interpreter: .init(program: "\0"))
     
-    var isRunningProgram: Bool = false {
-        didSet { inspector = .init(interpreter: interpreter) }
-    }
-    var isSteppingThrough: Bool = false {
-        didSet { inspector = .init(interpreter: interpreter) }
-    }
+    var justRanProgram: Bool = false
+    var isRunningProgram: Bool = false
+    var isSteppingThrough: Bool = false
 }
 
 @Observable extension AppState {
@@ -79,7 +84,6 @@ import Observation
             interpreter = createInterpreter()
             isRunningProgram = true
             if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
-//            inspector = .init(interpreter: interpreter)
             output = ""
             selection = 0..<0
             do {
@@ -95,6 +99,7 @@ import Observation
                 }
             }
             NSApp.requestUserAttention(.informationalRequest)
+            updateInspector()
             output = interpreter.output
             isRunningProgram = false
             justRanProgram = true
@@ -122,6 +127,7 @@ import Observation
                         if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
                     }
                 }
+                updateInspector()
                 isSteppingThrough = false
             }
         }
@@ -207,6 +213,12 @@ import Observation
         || settings.cellSize.rawValue    != interpreter.cellSize
         || interpreter.program           != Program(string: document.contents)
         || justRanProgram
+    }
+    
+    private func updateInspector() {
+        if isShowingInspector {
+            inspector = .init(interpreter: interpreter)
+        }
     }
     
     @MainActor
