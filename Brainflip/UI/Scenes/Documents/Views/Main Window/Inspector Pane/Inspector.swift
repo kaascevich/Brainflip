@@ -74,32 +74,27 @@ struct Inspector {
             
             // MARK: Instruction counts
             
-//            Module(
-//                name:             "Pointer movement instructions",
-//                data:             state?.document.program.instructionCount(.moveLeft, .moveRight),
-//                tooltip:          "The total amount of pointer movement instructions (< >) within the program.",
-//                enabledByDefault: false
-//            ), Module(
-//                name:             "Cell manipulation instructions",
-//                data:             state?.document.program.instructionCount(.increment, .decrement),
-//                tooltip:          "The total amount of cell manipulation instructions (+ -) within the program.",
-//                enabledByDefault: false
-//            ), Module(
-//                name:             "Control flow instructions",
-//                data:             state?.document.program.instructionCount(.conditional, .loop),
-//                tooltip:          "The total amount of control flow instructions ([ ]) within the program.",
-//                enabledByDefault: false
-//            ), Module(
-//                name:             "I/O instructions",
-//                data:             state?.document.program.instructionCount(.output, .input),
-//                tooltip:          "The total amount of I/O instructions (. ,) within the program.",
-//                enabledByDefault: false
-//            ), Module(
-//                name:             "Break instructions",
-//                data:             state?.document.program.instructionCount(.break),
-//                tooltip:          "The total amount of break instructions (#) within the program.",
-//                enabledByDefault: false
-//            )
+            Module(
+                name:             "Pointer movement instructions",
+                data:             interpreter?.totalPointerMovementInstructionsExecuted,
+                tooltip:          "The total amount of pointer movement instructions (<>) that have been executed so far.",
+                enabledByDefault: false
+            ), Module(
+                name:             "Cell manipulation instructions",
+                data:             interpreter?.totalCellManipulationInstructionsExecuted,
+                tooltip:          "The total amount of cell manipulation instructions (+-) that have been executed so far.",
+                enabledByDefault: false
+            ), Module(
+                name:             "Control flow instructions",
+                data:             interpreter?.totalControlFlowInstructionsExecuted,
+                tooltip:          "The total amount of control flow instructions ([]) that have been executed so far.",
+                enabledByDefault: false
+            ), Module(
+                name:             "I/O instructions",
+                data:             interpreter?.totalIOInstructionsExecuted,
+                tooltip:          "The total amount of I/O instructions (.,) that have been executed so far.",
+                enabledByDefault: false
+            )
         ]
     }
     

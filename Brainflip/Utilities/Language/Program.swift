@@ -9,19 +9,9 @@ extension Program {
     /// - Parameters:
     ///   - from: The `String` to convert.
     init(string program: String) {
-        self = Self()
+        self.init()
         program.compactMap(Instruction.init).filter { $0 != .blank }.forEach { append($0) }
         append(.blank)
-    }
-    
-    /// Returns how many times the given instructions appear in this program.
-    ///
-    /// - Parameters:
-    ///   - instructions: The instructions to look for when counting.
-    ///
-    /// - Returns: The amount of times the given instructions appear in this program.
-    func instructionCount(_ instructions: Instruction...) -> Int {
-        filter { instructions.contains($0) }.count
     }
     
     var description: String {

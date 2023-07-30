@@ -207,6 +207,21 @@ final class Interpreter {
     /// The total number of instructions that have been executed.
     private(set) var totalInstructionsExecuted = 0
     
+    /// The total number of pointer movement instructions (<>) that have been executed.
+    private(set) var totalPointerMovementInstructionsExecuted = 0
+
+    
+    /// The total number of cell manipulation instructions (+-) that have been executed.
+    private(set) var totalCellManipulationInstructionsExecuted = 0
+
+    
+    /// The total number of control flow instructions ([]) that have been executed.
+    private(set) var totalControlFlowInstructionsExecuted = 0
+
+    
+    /// The total number of I/O instructions (.,) that have been executed.
+    private(set) var totalIOInstructionsExecuted = 0
+    
     /// Executes an `Instruction`.
     ///
     /// - Parameters:
@@ -269,7 +284,15 @@ final class Interpreter {
                 
             default: break
         }
+        
         totalInstructionsExecuted += 1
+        switch instruction {
+            case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted  += 1
+            case .increment,   .decrement: totalCellManipulationInstructionsExecuted += 1
+            case .conditional, .loop:      totalControlFlowInstructionsExecuted      += 1
+            case .output,      .input:     totalIOInstructionsExecuted               += 1
+            default: break
+        }
     }
     
     /// Runs the program.
