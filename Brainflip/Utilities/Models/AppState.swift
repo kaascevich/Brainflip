@@ -59,7 +59,7 @@ import Observation
     }
     
     @MainActor
-    func run()  {
+    func run() {
         if isValidKonamiCode(document.contents) {
             document.contents = "That ain't gonna fly here"
         }

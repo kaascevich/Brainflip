@@ -3,17 +3,15 @@ import Quartz
 import SwiftUI
 
 class PreviewProvider: QLPreviewProvider, QLPreviewingController {
-    static let highlightPatterns: [(Regex, Color)] = [
-        // One(.anyOf("<>"))
-        (/[<>]/, .orange),
-        // One(.anyOf("+-"))
-        (/[+-]/, .red),
-        // One(.anyOf("[]"))
-        (/[\[\]]/, .brown),
-        // One(.anyOf(".,"))
-        (/[.,]/, .purple),
-        // One("#")
-        (/#/, .green)
+    // We're using SwiftUI's Color type here instead of NSColor
+    // to ensure pairity with the main app.
+    typealias ColorHighlightRule = (Regex<Substring>, Color)
+    static let highlightRules: [ColorHighlightRule] = [
+        (/[<>]/,   .orange), // "<>"
+        (/[+-]/,   .red),    // "+-"
+        (/[\[\]]/, .brown),  // "[]"
+        (/[.,]/,   .purple), // ".,"
+        (/#/,      .green)   // "#"
     ]
     
     func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
@@ -26,8 +24,8 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             let string = try! String(contentsOf: request.fileURL)
             let attributedString = NSMutableAttributedString(string: string)
             
-            let colorGroups = PreviewProvider.highlightPatterns.map { range, color in
-                (color: color, ranges: string.ranges(of: range))
+            let colorGroups = PreviewProvider.highlightRules.map { regex, color in
+                (color: color, ranges: string.ranges(of: regex))
             }
             for colorRanges in colorGroups {
                 for range in colorRanges.ranges {
@@ -42,10 +40,10 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             attributedString.addAttribute(
                 .font,
                 value: NSFont.monospacedSystemFont(ofSize: 14, weight: .regular),
-                range: NSMakeRange(0, string.count)
+                range: NSRange(0..<string.count)
             )
             
-            let data = attributedString.rtf(from: NSMakeRange(0, attributedString.length))!
+            let data = attributedString.rtf(from: NSRange(0..<attributedString.length))!
             return data
         }
                 

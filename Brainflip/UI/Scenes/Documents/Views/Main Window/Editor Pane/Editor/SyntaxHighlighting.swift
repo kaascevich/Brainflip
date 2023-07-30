@@ -2,28 +2,24 @@ import SwiftUI
 import HighlightedTextEditor
 
 struct SyntaxHighlighting {
-    static var highlightPatterns: [(String, Color)] {[
-        // One(.anyOf("<>"))
-        ("[<>]", .orange),
-        // One(.anyOf("+-"))
-        ("[+-]", .red),
-        // One(.anyOf("[]"))
-        (#"[\[\]]"#, .brown),
-        // One(.anyOf(".,"))
-        ("[\\.,]", .purple),
-        // One("#")
-        ("#", settings.breakOnHash ? .green : .gray),
-    ]}
+    typealias ColorHighlightRule = (String, Color)
     
-    static var highlightRules: [HighlightRule] {
-        highlightPatterns.map { (regex, color) in
-            HighlightRule(
-                pattern: try! NSRegularExpression(pattern: regex),
-                formattingRule: TextFormattingRule(
-                    key: .foregroundColor,
-                    value: NSColor(color)
-                )
+    static var hashColor: Color = settings.breakOnHash ? .green : .gray
+    static var highlightPatterns: [ColorHighlightRule] = [
+        ("[<>]",     .orange),   // "<>"
+        ("[+-]",     .red),      // "+-"
+        (#"[\[\]]"#, .brown),    // "[]"
+        ("[\\.,]",   .purple),   // ".,"
+        ("#",         hashColor) // "#"
+    ]
+    
+    static var highlightRules: [HighlightRule] = highlightPatterns.map { (regex, color) in
+        HighlightRule(
+            pattern: try! NSRegularExpression(pattern: regex),
+            formattingRule: TextFormattingRule(
+                key: .foregroundColor,
+                value: NSColor(color)
             )
-        }
+        )
     }
 }
