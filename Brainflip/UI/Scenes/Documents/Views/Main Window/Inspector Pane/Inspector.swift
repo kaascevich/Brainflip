@@ -2,14 +2,11 @@ import SwiftUI
 import os.log
 
 struct Inspector {
-    private static let logger = Logger(subsystem: bundleID, category: "Inspector")
-    
     @EnvironmentObject private var settings: AppSettings
     var interpreter: Interpreter?
     
     init(interpreter: Interpreter? = nil) {
         self.interpreter = interpreter
-        Inspector.logger.log("Creating inspector")
         
         modules = [
             Module(
