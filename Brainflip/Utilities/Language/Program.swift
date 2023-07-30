@@ -10,11 +10,7 @@ extension Program {
     ///   - from: The `String` to convert.
     init(string program: String) {
         self = Self()
-        for char in program {
-            if let instruction = Instruction(rawValue: char), instruction != .blank {
-                append(instruction)
-            }
-        }
+        program.compactMap(Instruction.init).filter { $0 != .blank }.forEach { append($0) }
         append(.blank)
     }
     

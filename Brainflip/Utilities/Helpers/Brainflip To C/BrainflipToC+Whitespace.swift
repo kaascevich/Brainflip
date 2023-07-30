@@ -40,9 +40,7 @@ extension BrainflipToC {
             get: {
                 allCases.map(\.enabled)
             }, set: { newValues in
-                for (type, newValue) in zip(allCases, newValues) {
-                    type.enabled = newValue
-                }
+                zip(allCases, newValues).forEach { $0.enabled = $1 }
             }
         ) static var enabledWhitespace: [Bool]
     }

@@ -8,8 +8,6 @@ struct Inspector {
         self.state = state
         
         modules = [
-            // MARK: Instructions
-            
             Module(
                 name:             "Current instruction",
                 data:             state?.interpreter.previousInstruction.rawValue,
@@ -105,18 +103,18 @@ struct Inspector {
     }
     
     let modules: [Module]
-    static let defaultModules: [Bool] = Inspector().modules.map { $0.enabledByDefault }
+    static let defaultModules: [Bool] = Inspector().modules.map(\.enabledByDefault)
     static let moduleCount: Int = Inspector().modules.count
 }
 
 extension Inspector {
     struct Module {
         let name: String
-        var data: () -> Any?
+        var data: Any?
         let tooltip: String
         let enabledByDefault: Bool
         
-        init(name: String, data: @autoclosure @escaping () -> Any?, tooltip: String, enabledByDefault: Bool) {
+        init(name: String, data: Any?, tooltip: String, enabledByDefault: Bool) {
             self.name = name
             self.data = data
             self.tooltip = tooltip

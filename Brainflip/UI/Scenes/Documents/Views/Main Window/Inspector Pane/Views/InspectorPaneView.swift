@@ -63,10 +63,10 @@ struct InspectorPaneView: View {
     }
     
     func moduleData(for module: Inspector.Module) -> String {
-        if !settings.updateInspectorInRealTime, state.isRunningProgram {
+        if state.isRunningProgram {
             return ""
         } else {
-            return "\(module.data()!)"
+            return "\(module.data!)"
         }
     }
 }

@@ -88,9 +88,6 @@ final class AppSettings: ObservableObject {
     
     // MARK: - Inspector Settings
     
-    @AppStorage("updateInspectorInRealTime", store: inspectorSettings)
-    var updateInspectorInRealTime: Bool = false
-    
     @AppStorage("enabledInspectorModules", store: inspectorSettings)
     var enabledInspectorModules: [Bool] = Inspector.defaultModules
     
@@ -187,7 +184,6 @@ extension AppSettings {
     
     func resetInspectorToDefaults() {
         AppSettings.logger.notice("Resetting inspector settings")
-        updateInspectorInRealTime = false
         enabledInspectorModules   = Inspector.defaultModules
         inspectorModuleOrder      = Array(0...(Inspector.moduleCount - 1))
         expandedInspectorModules  = Array(repeating: true, count: Inspector.moduleCount)

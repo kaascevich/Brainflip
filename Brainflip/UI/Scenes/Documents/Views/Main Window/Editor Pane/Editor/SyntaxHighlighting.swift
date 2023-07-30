@@ -16,12 +16,12 @@ struct SyntaxHighlighting {
     ]}
     
     static var highlightRules: [HighlightRule] {
-        highlightPatterns.map {
+        highlightPatterns.map { (regex, color) in
             HighlightRule(
-                pattern: try! NSRegularExpression(pattern: $0.0),
+                pattern: try! NSRegularExpression(pattern: regex),
                 formattingRule: TextFormattingRule(
                     key: .foregroundColor,
-                    value: NSColor($0.1)
+                    value: NSColor(color)
                 )
             )
         }

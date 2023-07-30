@@ -16,13 +16,9 @@ fileprivate let konamiSequence: [KonamiCharacters] = [.up, .up, .down, .down, .l
 /// - Returns: `true` if `code` is a valid valid variant of the Konami code;
 ///   otherwise, `false`.
 func isValidKonamiCode(_ code: String) -> Bool {
-    let code = Array(code)
-    
     guard code.count == konamiSequence.count else { return false }
     
-    for i in konamiSequence.indices {
-        guard konamiSequence[i].rawValue.contains(code[i]) else { return false }
+    return code.enumerated().allSatisfy { (index, character) in
+        konamiSequence[index].rawValue.contains(character)
     }
-    
-    return true
 }
