@@ -1,26 +1,30 @@
 import SwiftUI
+import os.log
 
 struct Inspector {
-    @EnvironmentObject private var settings: AppSettings
-    var state: AppState?
+    private static let logger = Logger(subsystem: bundleID, category: "Inspector")
     
-    init(state: AppState? = nil) {
-        self.state = state
+    @EnvironmentObject private var settings: AppSettings
+    var interpreter: Interpreter?
+    
+    init(interpreter: Interpreter? = nil) {
+        self.interpreter = interpreter
+        Inspector.logger.log("Creating inspector")
         
         modules = [
             Module(
                 name:             "Current instruction",
-                data:             state?.interpreter.previousInstruction.rawValue,
+                data:             interpreter?.previousInstruction.rawValue,
                 tooltip:          "The instruction that has just been executed by the interpreter.",
                 enabledByDefault: true
             ), Module(
                 name:             "Current instruction location",
-                data:             state?.interpreter.currentInstructionIndex,
+                data:             interpreter?.currentInstructionIndex,
                 tooltip:          "The location of the current instruction within the program, excluding comments.",
                 enabledByDefault: true
             ), Module(
                 name:             "Total instructions executed",
-                data:             state?.interpreter.totalInstructionsExecuted,
+                data:             interpreter?.totalInstructionsExecuted,
                 tooltip:          "The total number of instructions that have been executed so far.",
                 enabledByDefault: true
             ),
@@ -29,7 +33,7 @@ struct Inspector {
             
             Module(
                 name:             "Pointer location",
-                data:             state?.interpreter.pointer,
+                data:             interpreter?.pointer,
                 tooltip:          "The current location of the pointer.",
                 enabledByDefault: true
             ),
@@ -38,12 +42,12 @@ struct Inspector {
             
             Module(
                 name:             "Cell contents",
-                data:             state?.interpreter.currentCell,
+                data:             interpreter?.currentCell,
                 tooltip:          "The number stored in the cell currently being pointed at.",
                 enabledByDefault: true
             ), Module(
                 name:             "Cell contents (ASCII)",
-                data:             state?.interpreter.currentCellAsASCII,
+                data:             interpreter?.currentCellAsASCII,
                 tooltip:          "The ASCII equivalent of the current cell’s value.",
                 enabledByDefault: true
             ),
@@ -52,12 +56,12 @@ struct Inspector {
             
             Module(
                 name:             "Current input",
-                data:             state?.interpreter.currentInputCharacter,
+                data:             interpreter?.currentInputCharacter,
                 tooltip:          "The input character that will be processed upon reaching an input instruction.",
                 enabledByDefault: true
             ), Module(
                 name:             "Current input index",
-                data:             state?.interpreter.currentInputIndex,
+                data:             interpreter?.currentInputIndex,
                 tooltip:          "The position of the current input character within the input string.",
                 enabledByDefault: true
             ),
@@ -66,39 +70,39 @@ struct Inspector {
             
             Module(
                 name:             "Array",
-                data:             state?.interpreter.cellArray,
+                data:             interpreter?.cellArray,
                 tooltip:          "The entire contents of the array.",
                 enabledByDefault: true
             ),
             
             // MARK: Instruction counts
             
-            Module(
-                name:             "Pointer movement instructions",
-                data:             state?.document.program.instructionCount(.moveLeft, .moveRight),
-                tooltip:          "The total amount of pointer movement instructions (< >) within the program.",
-                enabledByDefault: false
-            ), Module(
-                name:             "Cell manipulation instructions",
-                data:             state?.document.program.instructionCount(.increment, .decrement),
-                tooltip:          "The total amount of cell manipulation instructions (+ -) within the program.",
-                enabledByDefault: false
-            ), Module(
-                name:             "Control flow instructions",
-                data:             state?.document.program.instructionCount(.conditional, .loop),
-                tooltip:          "The total amount of control flow instructions ([ ]) within the program.",
-                enabledByDefault: false
-            ), Module(
-                name:             "I/O instructions",
-                data:             state?.document.program.instructionCount(.output, .input),
-                tooltip:          "The total amount of I/O instructions (. ,) within the program.",
-                enabledByDefault: false
-            ), Module(
-                name:             "Break instructions",
-                data:             state?.document.program.instructionCount(.break),
-                tooltip:          "The total amount of break instructions (#) within the program.",
-                enabledByDefault: false
-            )
+//            Module(
+//                name:             "Pointer movement instructions",
+//                data:             state?.document.program.instructionCount(.moveLeft, .moveRight),
+//                tooltip:          "The total amount of pointer movement instructions (< >) within the program.",
+//                enabledByDefault: false
+//            ), Module(
+//                name:             "Cell manipulation instructions",
+//                data:             state?.document.program.instructionCount(.increment, .decrement),
+//                tooltip:          "The total amount of cell manipulation instructions (+ -) within the program.",
+//                enabledByDefault: false
+//            ), Module(
+//                name:             "Control flow instructions",
+//                data:             state?.document.program.instructionCount(.conditional, .loop),
+//                tooltip:          "The total amount of control flow instructions ([ ]) within the program.",
+//                enabledByDefault: false
+//            ), Module(
+//                name:             "I/O instructions",
+//                data:             state?.document.program.instructionCount(.output, .input),
+//                tooltip:          "The total amount of I/O instructions (. ,) within the program.",
+//                enabledByDefault: false
+//            ), Module(
+//                name:             "Break instructions",
+//                data:             state?.document.program.instructionCount(.break),
+//                tooltip:          "The total amount of break instructions (#) within the program.",
+//                enabledByDefault: false
+//            )
         ]
     }
     

@@ -5,11 +5,11 @@ struct InspectorPaneView: View {
     var state: AppState
     
     @State private var searchText: String = ""
-    let inspector: Inspector
+//    let inspector: Inspector
     
     init(state: AppState) {
         self.state = state
-        self.inspector = Inspector(state: state)
+//        self.inspector = Inspector(interpreter: state.interpreter)
     }
     
     func meetsSearchCriteria(_ string: String) -> Bool {
@@ -29,44 +29,37 @@ struct InspectorPaneView: View {
                             }
                         }
                     }
-                    .accessibilityLabel(settings.expandedInspectorModules.allSatisfy{ $0 == true } ? "Collapse All" : "Expand All")
+                    .accessibilityLabel(settings.expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All")
             }
             .padding(1)
             
             ScrollView {
                 ForEach(settings.inspectorModuleOrder, id: \.self) { index in
                     if settings.enabledInspectorModules[index]
-                        && meetsSearchCriteria(inspector.modules[index].name)
+                        && meetsSearchCriteria(state.inspector.modules[index].name)
                     {
                         TextFieldWithLabel(
-                            moduleData(for: inspector.modules[index]),
-                            label: inspector.modules[index].name,
+                            state.isRunningProgram ? "" : "\(state.inspector.modules[index].data!)",
+                            label: state.inspector.modules[index].name,
                             isShown: settings.$expandedInspectorModules[index]
                         )
-                        .help(inspector.modules[index].tooltip)
+                        .help(state.inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
                         .animation(.smooth, value: settings.expandedInspectorModules)
                     }
                 }
                 .animation(.smooth, value: settings.inspectorModuleOrder)
                 .animation(.smooth, value: settings.enabledInspectorModules)
+                .disabled(state.isRunningProgram)
             }
             .scrollIndicatorsFlash(onAppear: true)
             .accessibilityLabel("Inspector")
         }
         .padding(10)
         .overlay {
-            if inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name) }) {
+            if state.inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name) }) {
                 ContentUnavailableView.search
             }
-        }
-    }
-    
-    func moduleData(for module: Inspector.Module) -> String {
-        if state.isRunningProgram {
-            return ""
-        } else {
-            return "\(module.data!)"
         }
     }
 }

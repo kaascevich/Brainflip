@@ -8,9 +8,7 @@ import Observation
         self.document = document
     }
     
-    deinit {
-        execution.cancel()
-    }
+    deinit { execution.cancel() }
     
     var convertedDocument: CSourceDocument? = nil
     var isShowingOutput: Bool = true
@@ -18,9 +16,7 @@ import Observation
     var interpreter: Interpreter = .init(program: "\0")
     var output: String = ""
     var input: String = ""
-    var isRunningProgram: Bool = false
     var justRanProgram: Bool = false
-    var isSteppingThrough: Bool = false
     var errorDescription: String = ""
     var errorType: InterpreterError? = nil
     var hasError: Bool = false
@@ -36,7 +32,17 @@ import Observation
     var startDate: Date = .now
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
     var execution: Task = .init { }
+    var inspector: Inspector = .init(interpreter: .init(program: "\0"))
     
+    var isRunningProgram: Bool = false {
+        didSet { inspector = .init(interpreter: interpreter) }
+    }
+    var isSteppingThrough: Bool = false {
+        didSet { inspector = .init(interpreter: interpreter) }
+    }
+}
+
+@Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
         
@@ -70,9 +76,10 @@ import Observation
         justRanProgram = false
         
         execution = Task {
+            interpreter = createInterpreter()
             isRunningProgram = true
             if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
-            interpreter = createInterpreter()
+//            inspector = .init(interpreter: interpreter)
             output = ""
             selection = 0..<0
             do {
@@ -94,9 +101,7 @@ import Observation
             timer?.upstream.connect().cancel(); timer = nil
         }
     }
-    var disableRunButton: Bool {
-        isRunningProgram
-    }
+    var disableRunButton: Bool { isRunningProgram }
     
     @MainActor
     func step() {
