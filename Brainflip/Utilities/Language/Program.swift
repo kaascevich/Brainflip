@@ -10,7 +10,7 @@ extension Program {
     ///   - from: The `String` to convert.
     init(string program: String) {
         self.init()
-        program.compactMap(Instruction.init).filter { $0 != .blank }.forEach { append($0) }
+        program.compactMap(Instruction.init(rawValue:)).filter { $0 != .blank }.forEach { append($0) }
         append(.blank)
     }
     

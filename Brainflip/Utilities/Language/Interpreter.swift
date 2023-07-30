@@ -148,7 +148,7 @@ final class Interpreter {
     /// When the interpreter is initialized, the array is completely filled with `nil`s, save for
     /// a single `0` at index `0`. When the pointer moves to a cell that is `nil`, the cell
     /// is automatically set to `0`. This enables a more concise inspector implementation.
-    var cellArray: [Int] { array.compactMap( { $0 }) }
+    var cellArray: [Int] { array.compactMap { $0 } }
     
     /// The amount of non-`nil` cells that are currently in the array.
     private(set) var currentArraySize = 1
