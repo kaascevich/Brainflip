@@ -1,21 +1,21 @@
 # Features
 
-## Configurable Settings
+## ⚙️ Configurable Settings
 
-### Interpreter
+### 🤖 Interpreter
 - [x] Changing the behavior on end-of-input
 - [x] Customizing the array size
 - [x] Altering the intiial pointer location
 - [x] Choosing between 1-, 2-, 4-, 8-, 16-, or 32-bit cells
 - [x] Break instructions (#)
 
-### Editor
+### ✍️ Editor
 - [x] Syntax highlighting (off by default 'cause it's slow)
 - [x] Custom font size
 - [x] Highlighting the current instruction
 - [x] Viewing the program size for the same reason as the timer
 
-### Inspector
+### 🔍 Inspector
 - [x] Updating modules in real time
 - [x] Customizing modules, namely:
   - [x] Current instruction
@@ -33,7 +33,7 @@
   - [x] I/O instructions
   - [x] Break instructions
   
-### Exporting
+### 📤 Exporting
 - [x] Exporting BF programs to C source, with support for customizing:
   - [x] Indentation
   - [x] The pointer name

@@ -15,7 +15,7 @@ We've all heard of brainf\*\*k -- you know, that "*programming language*" where 
 ]<+.
 ```
 
-Not very enticing, is it?
+Not very enticing, is it? 🫤
 
 Brainflip attempts (*attempts*) to remedy that.
 

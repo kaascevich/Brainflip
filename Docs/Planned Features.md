@@ -1,4 +1,4 @@
-# Planned Features
+# 📓 Planned Features
 
 - [ ] Detachable array popover
 - [ ] Signed cells in addition to unsigned
