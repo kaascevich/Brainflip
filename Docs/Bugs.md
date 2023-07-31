@@ -1,6 +1,7 @@
 # 🐞 Known Bugs
 
 - [ ] App shortcut is completely broken (naturally)
+- [ ] Program menu refreshes like mad when running a program
 
 ## 💀 Squashed
 - [X] Highlighting the current instruction is nonfunctional
