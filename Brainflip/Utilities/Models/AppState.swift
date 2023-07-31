@@ -237,16 +237,3 @@ import Observation
         }
     }
 }
-
-// MARK: - Environment
-
-extension EnvironmentValues {
-    var appState: AppState {
-        get { self[AppStateKey.self]            }
-        set { self[AppStateKey.self] = newValue }
-    }
-    
-    private struct AppStateKey: EnvironmentKey {
-        static var defaultValue = AppState(document: BrainflipDocument())
-    }
-}
