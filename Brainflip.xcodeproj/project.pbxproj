@@ -122,12 +122,6 @@
 		34D663AF29B8EDDE00CB7481 /* ASCIIChartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D663AE29B8EDDE00CB7481 /* ASCIIChartScene.swift */; };
 		34D663B129B8F00600CB7481 /* HideOutputCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D663B029B8F00600CB7481 /* HideOutputCommand.swift */; };
 		34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D663B229B8F03F00CB7481 /* HideInspectorCommand.swift */; };
-		34DCABAA2A7751F700714418 /* 2023-07-30-welcome-to-jekyll.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA42A7751F700714418 /* 2023-07-30-welcome-to-jekyll.markdown */; };
-		34DCABAB2A7751F700714418 /* 404.html in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA52A7751F700714418 /* 404.html */; };
-		34DCABAC2A7751F700714418 /* _config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA62A7751F700714418 /* _config.yml */; };
-		34DCABAD2A7751F700714418 /* about.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA72A7751F700714418 /* about.markdown */; };
-		34DCABAE2A7751F700714418 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA82A7751F700714418 /* Gemfile */; };
-		34DCABAF2A7751F700714418 /* index.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 34DCABA92A7751F700714418 /* index.markdown */; };
 		34DF121E29A7B9480021729B /* BrainflipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF121D29A7B9480021729B /* BrainflipApp.swift */; };
 		34DF122029A7B9480021729B /* MainDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF121F29A7B9480021729B /* MainDocumentView.swift */; };
 		34DF122229A7B9490021729B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DF122129A7B9490021729B /* Assets.xcassets */; };
@@ -334,12 +328,6 @@
 		34D663AE29B8EDDE00CB7481 /* ASCIIChartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCIIChartScene.swift; sourceTree = "<group>"; };
 		34D663B029B8F00600CB7481 /* HideOutputCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideOutputCommand.swift; sourceTree = "<group>"; };
 		34D663B229B8F03F00CB7481 /* HideInspectorCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideInspectorCommand.swift; sourceTree = "<group>"; };
-		34DCABA42A7751F700714418 /* 2023-07-30-welcome-to-jekyll.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "2023-07-30-welcome-to-jekyll.markdown"; sourceTree = "<group>"; };
-		34DCABA52A7751F700714418 /* 404.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
-		34DCABA62A7751F700714418 /* _config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = _config.yml; sourceTree = "<group>"; };
-		34DCABA72A7751F700714418 /* about.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = about.markdown; sourceTree = "<group>"; };
-		34DCABA82A7751F700714418 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		34DCABA92A7751F700714418 /* index.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = index.markdown; sourceTree = "<group>"; };
 		34DF121A29A7B9480021729B /* Brainflip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brainflip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DF121D29A7B9480021729B /* BrainflipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipApp.swift; sourceTree = "<group>"; };
 		34DF121F29A7B9480021729B /* MainDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDocumentView.swift; sourceTree = "<group>"; };
@@ -956,33 +944,11 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
-		34DCABA22A77514500714418 /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				34DCABA32A7751F700714418 /* _posts */,
-				34DCABA62A7751F700714418 /* _config.yml */,
-				34DCABA52A7751F700714418 /* 404.html */,
-				34DCABA72A7751F700714418 /* about.markdown */,
-				34DCABA82A7751F700714418 /* Gemfile */,
-				34DCABA92A7751F700714418 /* index.markdown */,
-			);
-			path = docs;
-			sourceTree = "<group>";
-		};
-		34DCABA32A7751F700714418 /* _posts */ = {
-			isa = PBXGroup;
-			children = (
-				34DCABA42A7751F700714418 /* 2023-07-30-welcome-to-jekyll.markdown */,
-			);
-			path = _posts;
-			sourceTree = "<group>";
-		};
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
 				3422F3BB2A661556006DB1BF /* Readme.md */,
-				34DCABA22A77514500714418 /* docs */,
-				34F1B04B2A71C4F9003949DE /* Meta */,
+				34F1B04B2A71C4F9003949DE /* Docs */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
 				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
@@ -1068,7 +1034,7 @@
 			path = "Array View";
 			sourceTree = "<group>";
 		};
-		34F1B04B2A71C4F9003949DE /* Meta */ = {
+		34F1B04B2A71C4F9003949DE /* Docs */ = {
 			isa = PBXGroup;
 			children = (
 				348A00262A663BCC00C7B056 /* Images */,
@@ -1077,7 +1043,7 @@
 				34ADA5E52A755565001B6FCB /* Planned Features.md */,
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
 			);
-			path = Meta;
+			path = Docs;
 			sourceTree = "<group>";
 		};
 		34FDFE4129CC6F4E0020CDC8 /* Enums */ = {
@@ -1263,16 +1229,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34DCABAC2A7751F700714418 /* _config.yml in Resources */,
-				34DCABAB2A7751F700714418 /* 404.html in Resources */,
-				34DCABAE2A7751F700714418 /* Gemfile in Resources */,
 				3422F3BD2A661717006DB1BF /* Credits.rtf in Resources */,
-				34DCABAD2A7751F700714418 /* about.markdown in Resources */,
 				3460118D2A65AEBF00029BB3 /* Sample Programs in Resources */,
 				34DF122529A7B9490021729B /* Preview Assets.xcassets in Resources */,
 				34DF122229A7B9490021729B /* Assets.xcassets in Resources */,
-				34DCABAA2A7751F700714418 /* 2023-07-30-welcome-to-jekyll.markdown in Resources */,
-				34DCABAF2A7751F700714418 /* index.markdown in Resources */,
 				3480FF8829A916760021D5FD /* MainHelp.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
