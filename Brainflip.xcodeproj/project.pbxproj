@@ -232,6 +232,7 @@
 		342D930129B26233002461DA /* CellSizePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellSizePicker.swift; sourceTree = "<group>"; };
 		342D930429B273AA002461DA /* InspectorSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorSettings.swift; sourceTree = "<group>"; };
 		342D930629B2791C002461DA /* MenuBarCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCommands.swift; sourceTree = "<group>"; };
+		342DA12F2A78294B005753FC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		3433604429B280D200E9C4AD /* InspectorModuleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorModuleList.swift; sourceTree = "<group>"; };
 		3433604829B28F3C00E9C4AD /* ClearMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMenu.swift; sourceTree = "<group>"; };
 		344E528A29BD34D200F4DB50 /* FileCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
@@ -947,6 +948,7 @@
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
+				342DA12F2A78294B005753FC /* .gitignore */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34DF121C29A7B9480021729B /* Brainflip */,

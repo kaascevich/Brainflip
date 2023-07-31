@@ -25,9 +25,7 @@ struct InspectorPaneView: View {
             
             ScrollView {
                 ForEach(settings.inspectorModuleOrder.filter { settings.enabledInspectorModules[$0] }, id: \.self) { index in
-                    if settings.enabledInspectorModules[index]
-                        && meetsSearchCriteria(state.inspector.modules[index].name, query: searchText)
-                    {
+                    if meetsSearchCriteria(state.inspector.modules[index].name, query: searchText) {
                         TextFieldWithLabel(
                             state.isRunningProgram ? "" : "\(state.inspector.modules[index].data!)",
                             label: state.inspector.modules[index].name,
