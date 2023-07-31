@@ -78,6 +78,31 @@ final class BrainflipUITests: XCTestCase {
         XCTAssertEqual("[0, 98]", arrayField.value as! String)
     }
     
+    func testPaneHiding() throws {
+        let menuBar = app.menuBars.firstMatch
+        menuBar/*@START_MENU_TOKEN@*/.menuItems["newDocument:"]/*[[".menuBarItems[\"File\"]",".menus",".menuItems[\"New\"]",".menuItems[\"newDocument:\"]"],[[[-1,3],[-1,2],[-1,1,2],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        // MARK: View Menu
+        let viewMenu = menuBar.menuBarItems["View"]
+        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Hide Output"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Hide Output\"]",".menuItems[\"Hide Output\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Show Output"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Show Output\"]",".menuItems[\"Show Output\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Hide Inspector"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Hide Inspector\"]",".menuItems[\"Hide Inspector\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Show Inspector"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Show Inspector\"]",".menuItems[\"Show Inspector\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+        // MARK: Toolbar
+        let toolbar = app.windows["Untitled"].toolbars
+        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Hide Output"]/*[[".groups.checkBoxes[\"Hide Output\"]",".checkBoxes[\"Hide Output\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Show Output"]/*[[".groups.checkBoxes[\"Show Output\"]",".checkBoxes[\"Show Output\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Hide Inspector"]/*[[".groups.checkBoxes[\"Hide Inspector\"]",".checkBoxes[\"Hide Inspector\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Show Inspector"]/*[[".groups.checkBoxes[\"Show Inspector\"]",".checkBoxes[\"Show Inspector\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        
+    }
+    
     /// Measures how long it takes to launch the app.
     func testLaunchPerformance() throws {
         let metrics = [
