@@ -108,7 +108,9 @@ import Observation
             timer?.upstream.connect().cancel(); timer = nil
         }
     }
-    var disableRunButton: Bool { isRunningProgram }
+    var disableRunButton: Bool {
+        isRunningProgram || document.contents.isEmpty
+    }
     
     @MainActor
     func step() {
@@ -138,6 +140,7 @@ import Observation
         (interpreter.currentInstruction == .blank
             && interpreter.currentInstructionIndex != 0)
             || isRunningProgram
+            || document.contents.isEmpty
     }
     
     private func updateSelection() {
