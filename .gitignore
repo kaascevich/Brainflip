@@ -1,1 +1,5 @@
+# build artifacts
 /DerivedData/
+
+# user settings
+xcuserdata/
