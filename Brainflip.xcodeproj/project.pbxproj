@@ -944,11 +944,19 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
+		34DCABA22A77514500714418 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
 				3422F3BB2A661556006DB1BF /* Readme.md */,
-				34F1B04B2A71C4F9003949DE /* Docs */,
+				34DCABA22A77514500714418 /* Docs */,
+				34F1B04B2A71C4F9003949DE /* Meta */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
 				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
@@ -1034,7 +1042,7 @@
 			path = "Array View";
 			sourceTree = "<group>";
 		};
-		34F1B04B2A71C4F9003949DE /* Docs */ = {
+		34F1B04B2A71C4F9003949DE /* Meta */ = {
 			isa = PBXGroup;
 			children = (
 				348A00262A663BCC00C7B056 /* Images */,
@@ -1043,7 +1051,7 @@
 				34ADA5E52A755565001B6FCB /* Planned Features.md */,
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
 			);
-			path = Docs;
+			path = Meta;
 			sourceTree = "<group>";
 		};
 		34FDFE4129CC6F4E0020CDC8 /* Enums */ = {
