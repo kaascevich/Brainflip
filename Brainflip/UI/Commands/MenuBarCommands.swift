@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MainMenuCommands: Commands {
+struct MenuBarCommands: Commands {
     var body: some Commands {
         FileCommands()
         EditCommands()

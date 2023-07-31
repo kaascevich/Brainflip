@@ -16,7 +16,7 @@ struct MainDocumentScene: Scene {
         }
         .defaultSize(width: 735, height: 460)
         .commands {
-            MainMenuCommands()
+            MenuBarCommands()
             ToolbarCommands()
             TextEditingCommands()
         }
