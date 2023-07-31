@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 import Observation
 
+// MARK: - Properties
 @Observable final class AppState {
     var document: BrainflipDocument
     init(document: BrainflipDocument) {
@@ -47,6 +48,7 @@ import Observation
     var isSteppingThrough: Bool = false
 }
 
+// MARK: - Methods
 @Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
@@ -230,5 +232,18 @@ import Observation
             isConversionProgressShowing = false
             isAskingForOutputFile.toggle()
         }
+    }
+}
+
+// MARK: - Environment
+
+extension EnvironmentValues {
+    var appState: AppState {
+        get { self[AppStateKey.self]            }
+        set { self[AppStateKey.self] = newValue }
+    }
+    
+    private struct AppStateKey: EnvironmentKey {
+        static var defaultValue = AppState(document: BrainflipDocument())
     }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainDocumentView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(AppState.self) private var state: AppState
+    @Environment(\.appState) private var state: AppState
     
     var body: some View {
         HSplitView {
