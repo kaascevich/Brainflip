@@ -5,7 +5,7 @@ struct ExportToCCommand: View {
     @FocusedValue(\.appState) private var state
     
     var body: some View {
-        Button("Export to C Source...") {
+        Button("Export to C Source…") {
             if settings.exportToCAlertHidden {
                 state?.exportToC()
             } else {

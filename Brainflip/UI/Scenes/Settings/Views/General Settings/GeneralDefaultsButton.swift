@@ -5,7 +5,7 @@ struct GeneralDefaultsButton: View {
     @State private var isWarningAboutSettingsReset = false
     
     var body: some View {
-        Button("Reset General Settings...") {
+        Button("Reset General Settings…") {
             isWarningAboutSettingsReset = true
         }
         .confirmationDialog("Are you sure you want to restore the default general settings?", isPresented: $isWarningAboutSettingsReset) {

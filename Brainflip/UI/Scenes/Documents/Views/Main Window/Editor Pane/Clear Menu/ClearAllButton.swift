@@ -5,7 +5,7 @@ struct ClearAllButton: View {
     @Environment(\.appState) private var state: AppState
     
     var body: some View {
-        Button("Clear All...", role: .destructive) {
+        Button("Clear All…", role: .destructive) {
             state.isClearAlertShowing.toggle()
         }
         .disabled(state.isRunningProgram)

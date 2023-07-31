@@ -5,7 +5,7 @@ struct ExportDefaultsButton: View {
     @State private var isWarningAboutSettingsReset = false
     
     var body: some View {
-        Button("Reset Export Settings...") {
+        Button("Reset Export Settings…") {
             isWarningAboutSettingsReset = true
         }
         .confirmationDialog("Are you sure you want to restore the default export settings?", isPresented: $isWarningAboutSettingsReset) {

@@ -6,7 +6,7 @@ struct InspectorDefaultsButton: View {
     @State private var isWarningAboutSettingsReset = false
     
     var body: some View {
-        Button("Reset Inspector Settings...") {
+        Button("Reset Inspector Settings…") {
             isWarningAboutSettingsReset = true
         }
         .confirmationDialog("Are you sure you want to reset the inspector to its default settings?", isPresented: $isWarningAboutSettingsReset) {

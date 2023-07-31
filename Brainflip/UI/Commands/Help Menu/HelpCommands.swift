@@ -11,7 +11,7 @@ struct HelpCommands: Commands {
             .disabled(state == nil || state!.disableMenuItems)
             .accessibilityIdentifier("revealHelpContent:")
             
-            Link("Algorithms...", destination: URL(string: "https://esolangs.org/wiki/Brainfuck_algorithms")!)
+            Link("Algorithms…", destination: URL(string: "https://esolangs.org/wiki/Brainfuck_algorithms")!)
                 .accessibilityIdentifier("revealAlgorithmsWebPage:")
         }
     }

@@ -7,7 +7,7 @@ struct WhitespaceList: View {
     typealias Whitespace = BrainflipToC.Whitespace
         
     var body: some View {
-        Button("Whitespace...") {
+        Button("Whitespace…") {
             isShowingWhitespaceSettings.toggle()
         }
         .sheet(isPresented: $isShowingWhitespaceSettings) {

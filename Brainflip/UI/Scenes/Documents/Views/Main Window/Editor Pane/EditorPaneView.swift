@@ -8,7 +8,7 @@ struct EditorPaneView: View {
     var body: some View {
         Form {
             HStack {
-                Text("Type your program here...")
+                Text("Type your program here…")
                     .accessibilityHidden(true)
                 Spacer()
                 ShowArrayButton(state: state)

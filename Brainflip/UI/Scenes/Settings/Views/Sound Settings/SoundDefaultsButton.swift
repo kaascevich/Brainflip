@@ -5,7 +5,7 @@ struct SoundDefaultsButton: View {
     @State private var isWarningAboutSettingsReset = false
     
     var body: some View {
-        Button("Reset Sound Settings...") {
+        Button("Reset Sound Settings…") {
             isWarningAboutSettingsReset = true
         }
         .confirmationDialog("Are you sure you want to restore the default sound settings?", isPresented: $isWarningAboutSettingsReset) {

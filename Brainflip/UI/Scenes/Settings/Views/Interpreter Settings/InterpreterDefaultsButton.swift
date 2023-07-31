@@ -6,7 +6,7 @@ struct InterpreterDefaultsButton: View {
     @State private var isWarningAboutSettingsReset = false
     
     var body: some View {
-        Button("Reset Interpreter Settings...") {
+        Button("Reset Interpreter Settings…") {
             isWarningAboutSettingsReset = true
         }
         .confirmationDialog("Are you sure you want to reset the interpreter to its default settings?", isPresented: $isWarningAboutSettingsReset) {
