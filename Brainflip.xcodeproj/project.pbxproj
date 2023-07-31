@@ -744,7 +744,6 @@
 		34848B6A2A7046E100EBD2C9 /* BrainflipTests */ = {
 			isa = PBXGroup;
 			children = (
-				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
 				34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */,
 				34848B722A704C5A00EBD2C9 /* Helpers */,
 			);
@@ -953,8 +952,7 @@
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
-				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
-				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
+				34F01C722A784F7A009BA385 /* Tests */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -1034,6 +1032,16 @@
 				34E8AB852A7202B900371450 /* ArrayView.swift */,
 			);
 			path = "Array View";
+			sourceTree = "<group>";
+		};
+		34F01C722A784F7A009BA385 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
+				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		34F1B04B2A71C4F9003949DE /* Docs */ = {
@@ -1560,6 +1568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1624,6 +1633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

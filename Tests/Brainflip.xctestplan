@@ -24,16 +24,16 @@
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",
-        "identifier" : "3473D2A32A7027870067F7F9",
-        "name" : "BrainflipUITests"
+        "identifier" : "34848B682A7046E100EBD2C9",
+        "name" : "BrainflipTests"
       }
     },
     {
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",
-        "identifier" : "34848B682A7046E100EBD2C9",
-        "name" : "BrainflipTests"
+        "identifier" : "3473D2A32A7027870067F7F9",
+        "name" : "BrainflipUITests"
       }
     }
   ],
