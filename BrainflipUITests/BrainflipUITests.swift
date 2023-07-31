@@ -28,10 +28,8 @@ final class BrainflipUITests: XCTestCase {
         let output = documentWindow.scrollViews["Output"].textViews.firstMatch
         let runButton = documentWindow.buttons["Run Program"]
         
-        editor.click()
-        editor.typeText(",[>+<-.]")
-        input.click()
-        input.typeText("b")
+        editor.click(); editor.typeText(",[>+<-.]")
+        input.click(); input.typeText("b")
 
         runButton.click()
         
@@ -80,26 +78,36 @@ final class BrainflipUITests: XCTestCase {
     
     func testPaneHiding() throws {
         let menuBar = app.menuBars.firstMatch
-        menuBar/*@START_MENU_TOKEN@*/.menuItems["newDocument:"]/*[[".menuBarItems[\"File\"]",".menus",".menuItems[\"New\"]",".menuItems[\"newDocument:\"]"],[[[-1,3],[-1,2],[-1,1,2],[-1,0,1]],[[-1,3],[-1,2],[-1,1,2]],[[-1,3],[-1,2]]],[0]]@END_MENU_TOKEN@*/.click()
+        menuBar.menuItems["newDocument:"].click()
         
         let documentWindow = app.windows["Untitled"]
         XCTAssert(documentWindow.waitForExistence(timeout: 3))
         
+        let hideOutput = "Hide Output"
+        let showOutput = "Show Output"
+        let hideInspector = "Hide Inspector"
+        let showInspector = "Show Inspector"
+        
+        func assertExistsAndClick(_ element: XCUIElement, after timeout: TimeInterval) throws {
+            XCTAssert(element.waitForExistence(timeout: 1))
+            element.click()
+        }
+        
         // MARK: View Menu
         let viewMenu = menuBar.menuBarItems["View"]
-        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Hide Output"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Hide Output\"]",".menuItems[\"Hide Output\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
-        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Show Output"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Show Output\"]",".menuItems[\"Show Output\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        try assertExistsAndClick(viewMenu.menuItems[hideOutput], after: 0.75)
+        try assertExistsAndClick(viewMenu.menuItems[showOutput], after: 0.75)
         
-        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Hide Inspector"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Hide Inspector\"]",".menuItems[\"Hide Inspector\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
-        viewMenu/*@START_MENU_TOKEN@*/.menuItems["Show Inspector"]/*[[".menuBarItems[\"View\"]",".menus.menuItems[\"Show Inspector\"]",".menuItems[\"Show Inspector\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+        try assertExistsAndClick(viewMenu.menuItems[hideInspector], after: 0.75)
+        try assertExistsAndClick(viewMenu.menuItems[showInspector], after: 0.75)
         
         // MARK: Toolbar
-        let toolbar = app.windows["Untitled"].toolbars
-        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Hide Output"]/*[[".groups.checkBoxes[\"Hide Output\"]",".checkBoxes[\"Hide Output\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
-        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Show Output"]/*[[".groups.checkBoxes[\"Show Output\"]",".checkBoxes[\"Show Output\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        let toolbar = documentWindow.toolbars
+        try assertExistsAndClick(toolbar.checkBoxes[hideOutput], after: 0.75)
+        try assertExistsAndClick(toolbar.checkBoxes[showOutput], after: 0.75)
         
-        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Hide Inspector"]/*[[".groups.checkBoxes[\"Hide Inspector\"]",".checkBoxes[\"Hide Inspector\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
-        toolbar/*@START_MENU_TOKEN@*/.checkBoxes["Show Inspector"]/*[[".groups.checkBoxes[\"Show Inspector\"]",".checkBoxes[\"Show Inspector\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.click()
+        try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 0.75)
+        try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 0.75)
         
     }
     
