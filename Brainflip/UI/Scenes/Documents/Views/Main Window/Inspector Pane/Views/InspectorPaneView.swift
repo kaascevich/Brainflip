@@ -4,7 +4,8 @@ struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     var state: AppState
     
-    @SceneStorage("expandedInspectorModules") var expandedInspectorModules: [Bool] = Array(repeating: true, count: Inspector.staticInspector.modules.count)
+    @SceneStorage("expandedInspectorModules")
+    var expandedInspectorModules = Array(repeating: true, count: Inspector.staticInspector.modules.count)
     
     @State private var searchText: String = ""
     
@@ -17,14 +18,7 @@ struct InspectorPaneView: View {
             HStack {
                 SearchBar($searchText, prompt: "Find a module")
                 Toggle("", sources: $expandedInspectorModules, isOn: \.self)
-                    .toggleStyle(DisclosureToggleStyle())
-                    .onChange(of: expandedInspectorModules) {
-                        expandedInspectorModules.indices.forEach {
-                            if !settings.enabledInspectorModules[$0] {
-                                expandedInspectorModules[$0] = true
-                            }
-                        }
-                    }
+                    .toggleStyle(.disclosure)
                     .accessibilityLabel(expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All")
             }
             .padding(1)

@@ -14,6 +14,10 @@ struct DisclosureToggleStyle: ToggleStyle {
     }
 }
 
+extension ToggleStyle where Self == DisclosureToggleStyle {
+    static var disclosure: DisclosureToggleStyle { .init() }
+}
+
 struct AnimatedDisclosureGroupStyle: DisclosureGroupStyle {
     func makeBody(configuration: Configuration) -> some View {
         VStack {
