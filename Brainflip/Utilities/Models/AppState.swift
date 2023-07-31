@@ -109,7 +109,7 @@ import Observation
         }
     }
     var disableRunButton: Bool {
-        isRunningProgram || document.contents.isEmpty
+        isRunningProgram || document.program.count <= 1
     }
     
     @MainActor
@@ -140,7 +140,7 @@ import Observation
         (interpreter.currentInstruction == .blank
             && interpreter.currentInstructionIndex != 0)
             || isRunningProgram
-            || document.contents.isEmpty
+            || document.program.count <= 1
     }
     
     private func updateSelection() {
