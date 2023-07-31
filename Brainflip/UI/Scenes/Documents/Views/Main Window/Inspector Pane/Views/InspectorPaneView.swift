@@ -4,7 +4,7 @@ struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     var state: AppState
     
-    @SceneStorage("expandedInspectorModules") var expandedInspectorModules: [Bool] = Array(repeating: true, count: Inspector.moduleCount)
+    @SceneStorage("expandedInspectorModules") var expandedInspectorModules: [Bool] = Array(repeating: true, count: Inspector.staticInspector.modules.count)
     
     @State private var searchText: String = ""
     

@@ -2,13 +2,12 @@ import SwiftUI
 
 struct InspectorModuleList: View {
     @EnvironmentObject private var settings: AppSettings
-    private static let inspector = Inspector()
     
     var body: some View {
         List(settings.$inspectorModuleOrder, id: \.self, editActions: .move, selection: settings.$enabledInspectorModules) { index in
             let index = index.wrappedValue
-            Toggle(Self.inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
-                .help(Self.inspector.modules[index].tooltip)
+            Toggle(Inspector.staticInspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
+                .help(Inspector.staticInspector.modules[index].tooltip)
         }
         .padding(5)
         .animation(.smooth, value: settings.inspectorModuleOrder)
@@ -35,13 +34,13 @@ struct InspectorModuleList: View {
         // the changes to settings.inspectorModuleOrder.
         
         let partitioned = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
-        var arrays = (
-            Array(settings.inspectorModuleOrder[..<partitioned]),
-            Array(settings.inspectorModuleOrder[partitioned...])
-        )
-        arrays.0.sort { Self.inspector.modules[$0].name < Self.inspector.modules[$1].name }
-        arrays.1.sort { Self.inspector.modules[$0].name < Self.inspector.modules[$1].name }
-        settings.inspectorModuleOrder = arrays.0 + arrays.1
+        var enabled  = Array(settings.inspectorModuleOrder[..<partitioned])
+        var disabled = Array(settings.inspectorModuleOrder[partitioned...])
+        
+        let sortPredicate: (Int, Int) -> Bool = { Inspector.staticInspector.modules[$0].name < Inspector.staticInspector.modules[$1].name }
+        enabled .sort(by: sortPredicate)
+        disabled.sort(by: sortPredicate)
+        settings.inspectorModuleOrder = enabled + disabled
     }
 }
 

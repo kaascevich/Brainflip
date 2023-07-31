@@ -99,8 +99,8 @@ struct Inspector {
     }
     
     let modules: [Module]
-    static let defaultModules: [Bool] = Inspector().modules.map(\.enabledByDefault)
-    static let moduleCount: Int = Inspector().modules.count
+    
+    static let staticInspector = Inspector()
 }
 
 extension Inspector {
