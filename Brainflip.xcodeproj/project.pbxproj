@@ -956,7 +956,7 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
-		34DCABA22A77514500714418 /* Docs */ = {
+		34DCABA22A77514500714418 /* docs */ = {
 			isa = PBXGroup;
 			children = (
 				34DCABA32A7751F700714418 /* _posts */,
@@ -966,7 +966,7 @@
 				34DCABA82A7751F700714418 /* Gemfile */,
 				34DCABA92A7751F700714418 /* index.markdown */,
 			);
-			path = Docs;
+			path = docs;
 			sourceTree = "<group>";
 		};
 		34DCABA32A7751F700714418 /* _posts */ = {
@@ -981,7 +981,7 @@
 			isa = PBXGroup;
 			children = (
 				3422F3BB2A661556006DB1BF /* Readme.md */,
-				34DCABA22A77514500714418 /* Docs */,
+				34DCABA22A77514500714418 /* docs */,
 				34F1B04B2A71C4F9003949DE /* Meta */,
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
