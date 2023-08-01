@@ -752,7 +752,6 @@
 			children = (
 				34848B6B2A7046E100EBD2C9 /* InterpreterTests.swift */,
 				34AE69EA2A794696003D202B /* Performance */,
-				34848B722A704C5A00EBD2C9 /* Helpers */,
 			);
 			path = BrainflipTests;
 			sourceTree = "<group>";
@@ -1061,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+				34848B722A704C5A00EBD2C9 /* Helpers */,
 				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
 				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
 			);
