@@ -22,6 +22,9 @@
   "testTargets" : [
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "InterpreterPerformanceTests"
+      ],
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",
         "identifier" : "34848B682A7046E100EBD2C9",
@@ -30,6 +33,9 @@
     },
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "BrainflipPerformanceTests"
+      ],
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",
         "identifier" : "3473D2A32A7027870067F7F9",
