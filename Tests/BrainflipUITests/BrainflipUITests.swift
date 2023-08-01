@@ -11,10 +11,6 @@ final class BrainflipUITests: XCTestCase {
         app.launch()
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     // MARK: - Tests
     
     func testBasic() throws {
@@ -108,17 +104,5 @@ final class BrainflipUITests: XCTestCase {
         
         try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 0.75)
         try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 0.75)
-        
-    }
-    
-    /// Measures how long it takes to launch the app.
-    func testLaunchPerformance() throws {
-        let metrics = [
-            XCTApplicationLaunchMetric(waitUntilResponsive: true)
-        ]
-        
-        measure(metrics: metrics) {
-            app.launch()
-        }
     }
 }
