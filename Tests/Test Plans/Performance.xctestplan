@@ -1,6 +1,12 @@
 {
   "configurations" : [
+    {
+      "id" : "CEC622FA-FEBB-45DA-AB32-54A3B8C7B455",
+      "name" : "Default",
+      "options" : {
 
+      }
+    }
   ],
   "defaultOptions" : {
     "codeCoverage" : false,
