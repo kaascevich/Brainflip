@@ -24,6 +24,7 @@ struct RunButton: View {
         .disabled(state.disableRunButton)
         .buttonStyle(.borderedProminent)
         .keyboardShortcut(.defaultAction)
+        .accessibilityIdentifier("run-button-main")
     }
 }
 

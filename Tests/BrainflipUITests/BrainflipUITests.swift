@@ -11,6 +11,8 @@ final class BrainflipUITests: XCTestCase {
         app.launch()
     }
     
+    let simpleTestProgram = ",[>+<-.]"
+    
     // MARK: - Tests
     
     func testBasic() throws {
@@ -22,9 +24,9 @@ final class BrainflipUITests: XCTestCase {
         let editor = documentWindow.textViews["Editor"]
         let input = documentWindow.textFields["Input"]
         let output = documentWindow.scrollViews["Output"].textViews.firstMatch
-        let runButton = documentWindow.buttons["Run Program"]
+        let runButton = documentWindow.buttons["run-button-main"]
         
-        editor.click(); editor.typeText(",[>+<-.]")
+        editor.click(); editor.typeText(simpleTestProgram)
         input.click(); input.typeText("b")
 
         runButton.click()
@@ -37,20 +39,15 @@ final class BrainflipUITests: XCTestCase {
     }
     
     func testSamplePrograms() throws {
-        let menuBar = app.menuBars.firstMatch
-        menuBar.menuItems["Sample Programs"].menuItems["Alphabet Printer"].click()
+        let sampleProgramName = "Alphabet Printer"
         
-        let documentWindow = app.windows["Alphabet Printer.bf"]
+        let menuBar = app.menuBars.firstMatch
+        menuBar.menuItems["Sample Programs"].menuItems[sampleProgramName].click()
+        
+        let documentWindow = app.windows["\(sampleProgramName).bf"]
         XCTAssert(documentWindow.waitForExistence(timeout: 3))
         
-        let input = documentWindow.textFields["Input"]
         let output = documentWindow.scrollViews["Output"].textViews.firstMatch
-        let runButton = documentWindow.buttons["Run Program"]
-        
-        input.click()
-        input.typeText("b")
-
-        runButton.click()
         
         let expectedOutput: String = (0x00...0x61).reduce("") { current, asciiCode in
             String(UnicodeScalar(asciiCode)!) + current
@@ -60,12 +57,22 @@ final class BrainflipUITests: XCTestCase {
     }
     
     func testShowArray() throws {
-        try testSamplePrograms()
+        app.typeKey("n", modifierFlags: .command)
         
-        let documentWindow = app.windows["Alphabet Printer.bf"]
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+                
+        let editor = documentWindow.textViews["Editor"]
+        let input = documentWindow.textFields["Input"]
         let arrayField = documentWindow.textFields["Array"]
         let showArrayButton = documentWindow.buttons["Show Array"]
         let arrayPopoverCell1Value = app.descendants(matching: .any)["Cell 1 value"]
+        let runButton = documentWindow.buttons["run-button-main"]
+        
+        editor.click(); editor.typeText(simpleTestProgram)
+        input.click(); input.typeText("b")
+        
+        runButton.click()
         
         showArrayButton.click()
         XCTAssertEqual("98", arrayPopoverCell1Value.value as! String)
@@ -104,5 +111,23 @@ final class BrainflipUITests: XCTestCase {
         
         try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 1.5)
         try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 1.5)
+    }
+    
+    func testStepThrough() throws {
+        app.typeKey("n", modifierFlags: .command)
+        
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        let editor = documentWindow.textViews["Editor"]
+        let stepButton = documentWindow.buttons["step-button-main"]
+                
+        editor.click(); editor.typeText("++[>+<-]")
+
+        for _ in 1...13 {
+            XCTAssert(stepButton.isEnabled)
+            stepButton.click()
+        }
+        XCTAssertFalse(stepButton.isEnabled)
     }
 }

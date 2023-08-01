@@ -17,6 +17,7 @@ struct StepButton: View {
         }
         .buttonStyle(.bordered)
         .disabled(state.disableStepButton)
+        .accessibilityIdentifier("step-button-main")
     }
 }
 
