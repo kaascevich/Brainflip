@@ -2,9 +2,21 @@
   "configurations" : [
     {
       "id" : "9B7EDE99-A122-4F11-8794-F4335E0A3CE5",
-      "name" : "Configuration 1",
+      "name" : "Address Sanitizer",
       "options" : {
-
+        "addressSanitizer" : {
+          "detectStackUseAfterReturn" : true,
+          "enabled" : true
+        },
+        "undefinedBehaviorSanitizerEnabled" : true
+      }
+    },
+    {
+      "id" : "EA640619-5FFE-49FF-AC12-56C16CDC2559",
+      "name" : "Thread Sanitizer",
+      "options" : {
+        "threadSanitizerEnabled" : true,
+        "undefinedBehaviorSanitizerEnabled" : true
       }
     }
   ],

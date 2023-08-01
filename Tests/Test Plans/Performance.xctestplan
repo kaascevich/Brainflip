@@ -1,12 +1,6 @@
 {
   "configurations" : [
-    {
-      "id" : "9B7EDE99-A122-4F11-8794-F4335E0A3CE5",
-      "name" : "Configuration 1",
-      "options" : {
 
-      }
-    }
   ],
   "defaultOptions" : {
     "codeCoverage" : false,

@@ -33,12 +33,10 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Test Plans/Unit.xctestplan"
-            default = "YES">
+            reference = "container:Tests/Test Plans/Unit.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Test Plans/UI.xctestplan"
-            default = "YES">
+            reference = "container:Tests/Test Plans/UI.xctestplan">
          </TestPlanReference>
          <TestPlanReference
             reference = "container:Tests/Test Plans/Performance.xctestplan">

@@ -85,24 +85,24 @@ final class BrainflipUITests: XCTestCase {
         let showInspector = "Show Inspector"
         
         func assertExistsAndClick(_ element: XCUIElement, after timeout: TimeInterval) throws {
-            XCTAssert(element.waitForExistence(timeout: 1))
+            XCTAssert(element.waitForExistence(timeout: timeout))
             element.click()
         }
         
         // MARK: View Menu
         let viewMenu = menuBar.menuBarItems["View"]
-        try assertExistsAndClick(viewMenu.menuItems[hideOutput], after: 0.75)
-        try assertExistsAndClick(viewMenu.menuItems[showOutput], after: 0.75)
+        try assertExistsAndClick(viewMenu.menuItems[hideOutput], after: 1.5)
+        try assertExistsAndClick(viewMenu.menuItems[showOutput], after: 1.5)
         
-        try assertExistsAndClick(viewMenu.menuItems[hideInspector], after: 0.75)
-        try assertExistsAndClick(viewMenu.menuItems[showInspector], after: 0.75)
+        try assertExistsAndClick(viewMenu.menuItems[hideInspector], after: 1.5)
+        try assertExistsAndClick(viewMenu.menuItems[showInspector], after: 1.5)
         
         // MARK: Toolbar
         let toolbar = documentWindow.toolbars
-        try assertExistsAndClick(toolbar.checkBoxes[hideOutput], after: 0.75)
-        try assertExistsAndClick(toolbar.checkBoxes[showOutput], after: 0.75)
+        try assertExistsAndClick(toolbar.checkBoxes[hideOutput], after: 1.5)
+        try assertExistsAndClick(toolbar.checkBoxes[showOutput], after: 1.5)
         
-        try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 0.75)
-        try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 0.75)
+        try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 1.5)
+        try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 1.5)
     }
 }
