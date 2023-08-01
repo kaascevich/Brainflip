@@ -1,4 +1,6 @@
-# Brainflip
+Brainflip
+![Swift 5.9] ![macOS Sonoma] ![Xcode 15]
+===============================
 a human-usable brainf\*\*k interpreter for macOS
 
 ## Overview
@@ -29,12 +31,19 @@ Oh, and did I mention it's highly configurable? It's highly configurable. Like, 
 
 (A somewhat full list of features can be found under `/Docs/Features.md`.)
 
-## Contextual Junk
+## Building and Running
 
-This is basically my pet project. I've been working on it since 10:09 AM on February 23, 2023, if APFS folder creation dates are to be trusted.
+First, [download Xcode](https://developer.apple.com/xcode) if you haven't already.
+
+Clone this repo, and open `Brainflip.xcodeproj`. Once Xcode's done with package resolution, hit ⌘R to build and run the project.
 
 ## References
 
 I used the [epistle to the implementors] as a reference when putting together the interpreter and some of its settings. I don't know who the heck you are, but thanks anyway, Daniel.
 
 [epistle to the implementors]: http://brainfuck.org/epistle.html "Hey Siri, define \"epistle\""
+
+[Swift 5.9]: https://img.shields.io/badge/Swift-5.9-%23f05138?logo=swift
+[macOS Sonoma]: https://img.shields.io/badge/macOS-Sonoma-brightgreen?logo=apple
+[Xcode 15]: https://img.shields.io/badge/Xcode-15-%23147efb?logo=Xcode
+
