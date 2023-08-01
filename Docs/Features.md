@@ -5,9 +5,9 @@
 ### 🤖 Interpreter
 - [x] Changing the behavior on end-of-input
 - [x] Customizing the array size
-- [x] Altering the intiial pointer location
+- [x] Altering the intial pointer location
 - [x] Choosing between 1-, 2-, 4-, 8-, 16-, or 32-bit cells
-- [x] Break instructions (#)
+- [x] Break instructions (`#`)
 
 ### ✍️ Editor
 - [x] Syntax highlighting (off by default 'cause it's slow)
@@ -16,7 +16,6 @@
 - [x] Viewing the program size for the same reason as the timer
 
 ### 🔍 Inspector
-- [x] Updating modules in real time
 - [x] Customizing modules, namely:
   - [x] Current instruction
   - [x] Current instruction location
@@ -31,7 +30,6 @@
   - [x] Cell manipulation instructions
   - [x] Control flow instructions
   - [x] I/O instructions
-  - [x] Break instructions
   
 ### 📤 Exporting
 - [x] Exporting BF programs to C source, with support for customizing:
@@ -50,7 +48,7 @@
 - [x] Sound effects when something happens
 
 ## Other Features
-- [x] An App Shortcut, so you can ~~inflict your pain~~ run BF programs *anywhere*!
+- [x] ~~An App Shortcut, so you can inflict your pain run BF programs *anywhere*!~~ Broken right now. I blame the beta.
 - [x] Semi-comprehensive help
 - [x] An extended ASCII chart (extended 'cause it's actually Unicode)
 - [x] Copy and paste buttons
