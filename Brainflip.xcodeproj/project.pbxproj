@@ -241,7 +241,7 @@
 		344E528D29BD355200F4DB50 /* ExportCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportCommands.swift; sourceTree = "<group>"; };
 		344E528F29BD359300F4DB50 /* ExportToCCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportToCCommand.swift; sourceTree = "<group>"; };
 		344E529129BD362200F4DB50 /* CSourceDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceDocument.swift; sourceTree = "<group>"; };
-		3458A0C62A7883A2003E00F5 /* .gitattributes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes.txt; sourceTree = "<group>"; };
+		3453D52E2A795A890014D4FC /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		345B209B29C88BD500405DD9 /* MonospacedToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedToggle.swift; sourceTree = "<group>"; };
 		345B209D29C8A5D700405DD9 /* DisclosureStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureStyles.swift; sourceTree = "<group>"; };
 		345B209F29C8AC6000405DD9 /* ShowProgressToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowProgressToggle.swift; sourceTree = "<group>"; };
@@ -984,7 +984,7 @@
 			isa = PBXGroup;
 			children = (
 				342DA12F2A78294B005753FC /* .gitignore */,
-				3458A0C62A7883A2003E00F5 /* .gitattributes.txt */,
+				3453D52E2A795A890014D4FC /* .gitattributes */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34F01C742A785683009BA385 /* Sources */,
