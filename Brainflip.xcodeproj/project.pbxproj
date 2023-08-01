@@ -1210,6 +1210,7 @@
 			packageReferences = (
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				345C35A02A788F9E00F8CB00 /* XCRemoteSwiftPackageReference "Publish" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -1828,6 +1829,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+        345C35A02A788F9E00F8CB00 /* XCRemoteSwiftPackageReference "Publish" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Publish";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};      
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1840,6 +1849,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		345C35A12A788F9E00F8CB00 /* Publish */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 345C35A02A788F9E00F8CB00 /* XCRemoteSwiftPackageReference "Publish" */;
+			productName = Publish;
+		};
+		345C35A32A788F9E00F8CB00 /* publish-cli */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 345C35A02A788F9E00F8CB00 /* XCRemoteSwiftPackageReference "Publish" */;
+			productName = "publish-cli";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
