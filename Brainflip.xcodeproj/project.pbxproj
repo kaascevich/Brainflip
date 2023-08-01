@@ -838,6 +838,14 @@
 			path = "App Shortcuts";
 			sourceTree = "<group>";
 		};
+		34B9FCD32A794E5D003A003B /* Test Plans */ = {
+			isa = PBXGroup;
+			children = (
+				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+			);
+			path = "Test Plans";
+			sourceTree = "<group>";
+		};
 		34D05ABF29B3B2DC00711079 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1059,7 +1067,7 @@
 		34F01C722A784F7A009BA385 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+				34B9FCD32A794E5D003A003B /* Test Plans */,
 				34848B722A704C5A00EBD2C9 /* Helpers */,
 				34848B6A2A7046E100EBD2C9 /* BrainflipTests */,
 				3473D2A52A7027870067F7F9 /* BrainflipUITests */,
