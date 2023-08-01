@@ -1,15 +1,24 @@
-Brainflip
-![Swift 5.9] ![macOS Sonoma] ![Xcode 15]
-===============================
+# Brainflip
+
+[![Swift 5.9]](https://developer.apple.com/swift/) [![macOS Sonoma]](https://developer.apple.com/macos/) [![Xcode 15]](https://developer.apple.com/xcode/)
+
 a human-usable brainf\*\*k interpreter for macOS
+
+ - [Overview]
+ - [To Do]
+ - [Features]
+ - [Planned Features]
+ - [Bugs]
+ 
+ [Overview]: #overview
+ [To Do]: Docs/To%20Do.md
+ [Features]: Docs/Features.md
+ [Planned Features]: Docs/Planned%20Features.md
+ [Bugs]: Docs/Bugs.md
 
 ## Overview
 
-*Quick disclaimer: This readme doubles as a testing ground for Markdown formatting. So expect to see a lot of mostly pointless shenanigans.*
-
---------------------------------------------------------------------
-
-We've all heard of brainf\*\*k -- you know, that "*programming language*" where the standard "Hello, World!" program looks like this:
+We've all heard of brainf\*\*k -- you know, that "programming language" where the standard `Hello, World!` program looks like this:
 
 ```brainfuck
 >++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<+
@@ -39,11 +48,8 @@ Clone this repo, and open `Brainflip.xcodeproj`. Once Xcode's done with package 
 
 ## References
 
-I used the [epistle to the implementors] as a reference when putting together the interpreter and some of its settings. I don't know who the heck you are, but thanks anyway, Daniel.
-
-[epistle to the implementors]: http://brainfuck.org/epistle.html "Hey Siri, define \"epistle\""
+I used the [epistle to the implementors](http://brainfuck.org/epistle.html "Hey Siri, define \"epistle\"") as a reference when putting together the interpreter and some of its settings. I don't know who the heck you are, but thanks anyway, Daniel.
 
 [Swift 5.9]: https://img.shields.io/badge/Swift-5.9-%23f05138?logo=swift
 [macOS Sonoma]: https://img.shields.io/badge/macOS-Sonoma-brightgreen?logo=apple
 [Xcode 15]: https://img.shields.io/badge/Xcode-15-%23147efb?logo=Xcode
-
