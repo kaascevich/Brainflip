@@ -953,6 +953,7 @@
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34F01C742A785683009BA385 /* Sources */,
+				34F01C722A784F7A009BA385 /* Tests */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -1049,7 +1050,6 @@
 			children = (
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
-				34F01C722A784F7A009BA385 /* Tests */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
