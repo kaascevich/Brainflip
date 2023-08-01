@@ -952,8 +952,7 @@
 				3458A0C62A7883A2003E00F5 /* .gitattributes.txt */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
-				34F01C742A785683009BA385 /* Targets */,
-				34F01C722A784F7A009BA385 /* Tests */,
+				34F01C742A785683009BA385 /* Sources */,
 				34DF121B29A7B9480021729B /* Products */,
 				34E51E292A58ED3A0020FB77 /* Frameworks */,
 			);
@@ -1045,13 +1044,14 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		34F01C742A785683009BA385 /* Targets */ = {
+		34F01C742A785683009BA385 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
+				34F01C722A784F7A009BA385 /* Tests */,
 			);
-			path = Targets;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		34F1B04B2A71C4F9003949DE /* Docs */ = {
@@ -1523,13 +1523,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = Targets/QuickLook/QuickLook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/QuickLook/QuickLook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Targets/QuickLook/Info.plist;
+				INFOPLIST_FILE = Sources/QuickLook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BFQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1551,13 +1551,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = Targets/QuickLook/QuickLook.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/QuickLook/QuickLook.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Targets/QuickLook/Info.plist;
+				INFOPLIST_FILE = Sources/QuickLook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BFQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1704,16 +1704,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_TIDY_BUGPRONE_REDUNDANT_BRANCH_CONDITION = NO;
-				CODE_SIGN_ENTITLEMENTS = Targets/Brainflip/Brainflip.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/Brainflip/Brainflip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Targets/Brainflip/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Brainflip/Preview Content\"";
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Targets/Brainflip/Info.plist;
+				INFOPLIST_FILE = Sources/Brainflip/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© Kaleb Ascevich, 2023";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
@@ -1736,16 +1736,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_TIDY_BUGPRONE_REDUNDANT_BRANCH_CONDITION = NO;
-				CODE_SIGN_ENTITLEMENTS = Targets/Brainflip/Brainflip.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Sources/Brainflip/Brainflip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Targets/Brainflip/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Brainflip/Preview Content\"";
 				DEVELOPMENT_TEAM = Z3G8V4ANYY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Targets/Brainflip/Info.plist;
+				INFOPLIST_FILE = Sources/Brainflip/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© Kaleb Ascevich, 2023";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
