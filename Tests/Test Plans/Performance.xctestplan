@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "9B7EDE99-A122-4F11-8794-F4335E0A3CE5",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Brainflip.xcodeproj",
+      "identifier" : "34DF121929A7B9470021729B",
+      "name" : "Brainflip"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "InterpreterTests"
+      ],
+      "target" : {
+        "containerPath" : "container:Brainflip.xcodeproj",
+        "identifier" : "34848B682A7046E100EBD2C9",
+        "name" : "BrainflipTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "BrainflipUITests"
+      ],
+      "target" : {
+        "containerPath" : "container:Brainflip.xcodeproj",
+        "identifier" : "3473D2A32A7027870067F7F9",
+        "name" : "BrainflipUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

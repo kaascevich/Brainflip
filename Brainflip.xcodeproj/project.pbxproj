@@ -315,6 +315,7 @@
 		34AEE2E82A65CE2200A06DC4 /* RunBFProgramIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunBFProgramIntent.swift; sourceTree = "<group>"; };
 		34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleProgramCommands.swift; sourceTree = "<group>"; };
 		34B3BAD929B6686F009E06A7 /* InterpreterDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpreterDefaultsButton.swift; sourceTree = "<group>"; };
+		34B9FCD42A79503A003A003B /* Performance.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Performance.xctestplan; sourceTree = "<group>"; };
 		34BB2C0D2A6768E800E3E812 /* Demonstration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demonstration.png; sourceTree = "<group>"; };
 		34CECCA52A64E07E003F936D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		34CECCA72A64E07F003F936D /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -353,7 +354,7 @@
 		34EC0D9F29AF9C1800CBC87C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34EE8A952A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeVoidWithinMainToggle.swift; sourceTree = "<group>"; };
 		34F01C752A785742009BA385 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralDefaultsButton.swift; sourceTree = "<group>"; };
-		34F1B0482A71BF96003949DE /* Brainflip.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Brainflip.xctestplan; sourceTree = "<group>"; };
+		34F1B0482A71BF96003949DE /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = All.xctestplan; sourceTree = "<group>"; };
 		34FDFE3F29CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Whitespace.swift"; sourceTree = "<group>"; };
 		34FDFE4229CC6F5D0020CDC8 /* CellSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSize.swift; sourceTree = "<group>"; };
 		34FDFE4529CC80070020CDC8 /* BrainflipToC+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Components.swift"; sourceTree = "<group>"; };
@@ -841,7 +842,8 @@
 		34B9FCD32A794E5D003A003B /* Test Plans */ = {
 			isa = PBXGroup;
 			children = (
-				34F1B0482A71BF96003949DE /* Brainflip.xctestplan */,
+				34F1B0482A71BF96003949DE /* All.xctestplan */,
+				34B9FCD42A79503A003A003B /* Performance.xctestplan */,
 			);
 			path = "Test Plans";
 			sourceTree = "<group>";
