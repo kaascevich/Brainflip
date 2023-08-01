@@ -6,7 +6,7 @@ final class InterpreterTests: XCTestCase {
         let interpreter = Interpreter(program: "hello ,[>+<-.]", input: "b")
         try await interpreter.run()
         let expectedOutput: String = (0x00...0x61).reduce("") { current, asciiCode in
-            String(UnicodeScalar(asciiCode)!) + current
+            String(Unicode.Scalar(asciiCode)!) + current
         }
         XCTAssertEqual(expectedOutput, interpreter.output)
     }

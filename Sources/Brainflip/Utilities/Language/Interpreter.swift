@@ -263,7 +263,7 @@ import Observation
                 
             case .output:
                 if currentCell < 256 {
-                    output.append(Character(UnicodeScalar(UInt8(currentCell))))
+                    output.append(Character(Unicode.Scalar(UInt8(currentCell))))
                 }
                 
             case .input:

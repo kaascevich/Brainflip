@@ -38,7 +38,7 @@ final class BrainflipUITests: XCTestCase {
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
         let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
-            String(UnicodeScalar(asciiCode))
+            String(Unicode.Scalar(asciiCode))
         }.reduce("", +)
         
         Thread.sleep(forTimeInterval: 0.5)
@@ -67,7 +67,7 @@ final class BrainflipUITests: XCTestCase {
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
         let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
-            String(UnicodeScalar(asciiCode))
+            String(Unicode.Scalar(asciiCode))
         }.reduce("", +)
         
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
