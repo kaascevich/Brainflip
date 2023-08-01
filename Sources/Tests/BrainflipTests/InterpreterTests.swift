@@ -25,24 +25,28 @@ final class InterpreterTests: XCTestCase {
     }
     
     func testEndOfInput() async throws {
-        let interpreter = Interpreter(program: ",[>+<-.]", onEndOfInput: .setToMax)
-        try await interpreter.run()
-        let expectedOutput: String = (0x00...0xFE).reduce("") { current, asciiCode in
-            String(UnicodeScalar(asciiCode)!) + current
+        for endOfInputSetting in Interpreter.EndOfInput.allCases {
+            let expectedResult = switch endOfInputSetting {
+                case .noChange:  7
+                case .setToZero: 0
+                case .setToMax:  255
+            }
+            let interpreter = Interpreter(program: "+++++++,", onEndOfInput: endOfInputSetting)
+            try await interpreter.run()
+            XCTAssertEqual(interpreter.currentCell, expectedResult)
         }
-        XCTAssertEqual(expectedOutput, interpreter.output)
     }
     
     func testBracketMatching() async throws {
-        let programs = [
+        let invalidPrograms = [
             ",[>+<-.",
             ",[[>+<-.]",
             ",>+<-.]",
             ",>+<-.]]",
         ]
         
-        for program in programs {
-            let interpreter = Interpreter(program: program)
+        for invalidProgram in invalidPrograms {
+            let interpreter = Interpreter(program: invalidProgram)
             await assertAsyncThrowsError(try await interpreter.run())
         }
     }
