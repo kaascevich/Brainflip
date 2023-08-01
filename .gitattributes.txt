@@ -1,0 +1,2 @@
+# let git resolve pbxproj merge conflicts for us
+*.pbxproj binary merge=union
