@@ -52,6 +52,10 @@ import Observation
 @Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
+        hasError = true
+        
+        let ordinalFormatter = NumberFormatter()
+        ordinalFormatter.numberStyle = .ordinal
         
         let ordinalFormatter = NumberFormatter()
         ordinalFormatter.numberStyle = .ordinal
@@ -86,7 +90,7 @@ import Observation
         }
         
         if error as? InterpreterError != .break {
-            hasError = true
+            hasError = false
         }
     }
     
