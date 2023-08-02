@@ -56,16 +56,25 @@ import Observation
         let ordinalFormatter = NumberFormatter()
         ordinalFormatter.numberStyle = .ordinal
         
-        let spelledOutNumberFormatter = NumberFormatter()
-        spelledOutNumberFormatter.numberStyle = .spellOut
+        
+        func mismatchedBracketsMessage(leftBracketCount: Int, rightBracketCount: Int) -> String {
+            // If the bracket counts are equal, there isn't really a point in echoing them.
+            let firstSentence = "There are unmatched brackets within your code."
+            guard leftBracketCount != rightBracketCount else {
+                return firstSentence
+            }
+            
+            let extraBracketCount = abs(leftBracketCount - rightBracketCount)
+            let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
+            let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
+            
+            return firstSentence + " " + secondSentence
+        }
         
         errorDescription = switch error {
             case let error as InterpreterError: switch error {
-                case .mismatchedBrackets(
-                    let leftBracketCount as NSNumber,
-                    let rightBracketCount as NSNumber
-                ):
-                    "There are unmatched brackets within your code. There \(leftBracketCount == 1 ? "is" : "are") \(spelledOutNumberFormatter.string(from: leftBracketCount)!) left \(leftBracketCount == 1 ? "bracket" : "brackets") and \(spelledOutNumberFormatter.string(from: rightBracketCount)!) right \(rightBracketCount == 1 ? "bracket" : "brackets")."
+                case .mismatchedBrackets(let leftBracketCount, let rightBracketCount):
+                    mismatchedBracketsMessage(leftBracketCount: leftBracketCount, rightBracketCount: rightBracketCount)
                 case .underflow(let location):
                     """
                     An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
