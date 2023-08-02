@@ -52,12 +52,27 @@ import Observation
 @Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
+        hasError = true
+        
+        let ordinalFormatter = NumberFormatter()
+        ordinalFormatter.numberStyle = .ordinal
         
         errorDescription = switch error {
             case let error as InterpreterError: switch error {
-                case .mismatchedBrackets: "There are unmatched brackets within your code."
-                case .underflow: "An attempt was made to go below the bounds of the array. \n\n(Hint: try raising the initial pointer location in the interpreter settings.)"
-                case .overflow: "An attempt was made to go above the bounds of the array. \n\n(Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)"
+                case .mismatchedBrackets:
+                    "There are unmatched brackets within your code."
+                case .underflow(let location as NSNumber):
+                    """
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location)!) instruction.
+
+                    (Hint: try raising the initial pointer location in the interpreter settings.)
+                    """
+                case .overflow(let location as NSNumber):
+                    """
+                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location)!) instruction.
+                    
+                    (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
+                    """
                 default: ""
             }
             case let error as LocalizedError: "Error description: \(error.localizedDescription)"
@@ -72,7 +87,7 @@ import Observation
         }
         
         if error as? InterpreterError != .break {
-            hasError = true
+            hasError = false
         }
     }
     
