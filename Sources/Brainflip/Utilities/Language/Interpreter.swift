@@ -183,6 +183,9 @@ import Observation
     /// The input passed to the program.
     let input: String
     
+    /// Whether the program has run out of input characters.
+    private(set) var hasReachedEndOfInput = false
+    
     /// The amount of times the program has executed the `,` instruction.
     ///
     /// This is used to keep track of the next character that will be passed to the program.
@@ -274,15 +277,19 @@ import Observation
                     output += String(Unicode.Scalar(currentCell)!)
                 }
                 
-            case .input:
-                currentCell = if currentInputIndex == input.count {
+            case .input where !hasReachedEndOfInput:
+                if currentInputIndex == input.count {
                     switch endOfInput {
-                        case .noChange: currentCell
-                        case .setToZero: 0
-                        case .setToMax: cellSize - 1
+                        case .noChange:  currentCell = currentCell
+                        case .setToZero: currentCell = 0
+                        case .setToMax:  currentCell = cellSize - 1
                     }
+                    hasReachedEndOfInput = true
                 } else {
-                    min(cellSize - 1, Int(currentInputCharacter.unicodeScalars.first?.value ?? 0))
+                    currentCell = min(
+                        cellSize - 1,
+                        Int(currentInputCharacter.unicodeScalars.first?.value ?? 0)
+                    )
                 }
                 
                 currentInputIndex += 1
@@ -311,13 +318,17 @@ import Observation
         
         totalInstructionsExecuted = 0
         currentInstructionIndex   = 0
+        hasReachedEndOfInput      = false
         output                    = ""
         try checkForMismatchedBrackets()
         
         while currentInstructionIndex != program.count {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
-            if Task.isCancelled { Interpreter.logger.error("Run cancelled!"); return }
+            guard !Task.isCancelled else {
+                Interpreter.logger.error("Run cancelled!")
+                return
+            }
         }
         
         currentInstructionIndex   -= 1
