@@ -219,7 +219,10 @@ import Observation
     
     /// The total number of I/O instructions (.,) that have been executed.
     private(set) var totalIOInstructionsExecuted = 0
-    
+}
+
+// MARK: - Running
+@Observable extension Interpreter {
     /// Executes an `Instruction`.
     ///
     /// - Parameters:
@@ -232,45 +235,51 @@ import Observation
         switch instruction {
             case .moveRight:
                 pointer += 1
-                if pointer >= array.count { throw InterpreterError.overflow(location: previousInstructionIndex) }
+                if pointer >= array.count {
+                    throw InterpreterError.overflow(location: previousInstructionIndex)
+                }
                 else if array[pointer] == nil {
-                    array[pointer]    = 0
+                    array[pointer] = 0
                     currentArraySize += 1
                 }
                 
             case .moveLeft:
                 pointer -= 1
-                if pointer < 0 { throw InterpreterError.underflow(location: previousInstructionIndex) }
+                guard pointer >= 0 else {
+                    throw InterpreterError.underflow(location: previousInstructionIndex)
+                }
                 
             case .increment:
-                if currentCell < cellSize { currentCell += 1 }
-                else                      { currentCell  = 0 }
+                if currentCell < cellSize {
+                    currentCell += 1
+                } else {
+                    currentCell = 0
+                }
                 
             case .decrement:
-                if currentCell > 0 { currentCell -=            1 }
-                else               { currentCell  = cellSize - 1 }
-                
-            case .conditional:
-                if currentCell == 0 {
-                    currentInstructionIndex = try searchForClosingBracket() // skip the loop
+                if currentCell > 0 {
+                    currentCell -= 1
+                } else {
+                    currentCell = cellSize - 1
                 }
                 
-            case .loop:
-                if currentCell != 0 {
-                    currentInstructionIndex = try searchForOpeningBracket() // restart the loop
-                }
+            case .conditional where currentCell == 0:
+                currentInstructionIndex = try searchForClosingBracket() // skip the loop
+                
+            case .loop where currentCell != 0:
+                currentInstructionIndex = try searchForOpeningBracket() // restart the loop
                 
             case .output:
                 if currentCell < 256 {
-                    output.append(Character(Unicode.Scalar(UInt8(currentCell))))
+                    output += String(Unicode.Scalar(currentCell)!)
                 }
                 
             case .input:
-                currentCell = if currentInputCharacter.asciiValue != nil, currentInputCharacter.asciiValue! == 0 {
+                currentCell = if currentInputIndex == input.count {
                     switch endOfInput {
-                        case .noChange:  currentCell
+                        case .noChange: currentCell
                         case .setToZero: 0
-                        case .setToMax:  cellSize - 1
+                        case .setToMax: cellSize - 1
                     }
                 } else {
                     min(cellSize - 1, Int(currentInputCharacter.unicodeScalars.first?.value ?? 0))
@@ -278,8 +287,8 @@ import Observation
                 
                 currentInputIndex += 1
                 
-            case .break:
-                if breakOnHash { throw InterpreterError.break }
+            case .break where breakOnHash:
+                throw InterpreterError.break
                 
             default: break
         }
@@ -364,7 +373,7 @@ import Observation
 
 // MARK: - Convenience Initializers
 
-extension Interpreter {
+@Observable extension Interpreter {
     /// Creates a new ``Interpreter``.
     ///
     /// - Parameters:

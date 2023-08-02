@@ -73,7 +73,7 @@ import Observation
                 Notifications.sendNotification(document.filename)
             } catch {
                 processError(error)
-                if !errorDescription.isEmpty {
+                if errorType != .break {
                     Notifications.sendNotification(document.filename, error: error)
                     execution.cancel()
                     if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
@@ -104,10 +104,8 @@ import Observation
                     output = interpreter.output
                     updateSelection()
                 } catch {
-                    NSApp.requestUserAttention(.informationalRequest)
                     processError(error)
-                    if !errorDescription.isEmpty {
-                        if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
+                    if errorType != .break {
                     }
                 }
                 updateInspector()
@@ -232,6 +230,7 @@ import Observation
         
         if error as? InterpreterError != .break {
             hasError = true
+            if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
         }
     }
     
