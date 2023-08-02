@@ -272,10 +272,8 @@ import Observation
             case .loop where currentCell != 0:
                 currentInstructionIndex = try searchForOpeningBracket() // restart the loop
                 
-            case .output:
-                if currentCell < 256 {
-                    output += String(Unicode.Scalar(currentCell)!)
-                }
+            case .output where currentCell < 256:
+                output += String(Unicode.Scalar(currentCell)!)
                 
             case .input where !hasReachedEndOfInput:
                 if currentInputIndex == input.count {
