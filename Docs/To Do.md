@@ -4,5 +4,5 @@
   - Adding support for `@dynamicMemberLookup`
   - Creating a macro (preferred)
 
-## ✅ Completed
+## Completed
 - [x] Get unit/UI tests up and running

@@ -1,20 +1,29 @@
-# Brainflip
+# 🧠 Brainflip
 
-[![Swift 5.9]](https://developer.apple.com/swift/) [![macOS Sonoma]](https://developer.apple.com/macos/) [![Xcode 15]](https://developer.apple.com/xcode/)
+![Swift 5.9] ![macOS Sonoma] ![Xcode 15]
+
+[Swift 5.9]: https://img.shields.io/badge/Swift-5.9-%23f05138?logo=swift
+[macOS Sonoma]: https://img.shields.io/badge/macOS-Sonoma-brightgreen?logo=apple
+[Xcode 15]: https://img.shields.io/badge/Xcode-15-%23147efb?logo=Xcode
 
 a human-usable brainf\*\*k interpreter for macOS
 
- - [Overview]
- - [To Do]
- - [Features]
- - [Planned Features]
- - [Bugs]
- 
- [Overview]: #overview
- [To Do]: Docs/To%20Do.md
- [Features]: Docs/Features.md
- [Planned Features]: Docs/Planned%20Features.md
- [Bugs]: Docs/Bugs.md
+ - [Overview](#overview)
+   - [Building and Running](#building-and-running)
+   - [References](#references)
+ - [To Do](Docs/To%20Do.md)
+   - [Completed](Docs/To%20Do.md#completed)
+ - [Features](Docs/Features.md)
+   - [Configurable Settings](Docs/Features.md#configurable-settings)
+     - [Interpreter](Docs/Features.md#interpreter)
+     - [Editor](Docs/Features.md#editor)
+     - [Inspector](Docs/Features.md#inspector)
+     - [Exporting](Docs/Features.md#exporting)
+     - [Other](Docs/Features.md#other)
+   - [Other Features](Docs/Features.md#other-features)
+ - [Planned Features](Docs/Planned%20Features.md)
+ - [Known Bugs](Docs/Bugs.md)
+   - [Squashed](Docs/Bugs.md#squashed)
 
 ## Overview
 
@@ -38,18 +47,14 @@ Oh, and did I mention it's highly configurable? It's highly configurable. Like, 
 
 ![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](Docs/Images/InterpreterSettings.png)
 
-(A somewhat full list of features can be found under `/Docs/Features.md`.)
+(A somewhat full list of features can be found under [`Docs/Features.md`](Docs/Features.md).)
 
 ## Building and Running
 
-First, [download Xcode](https://developer.apple.com/xcode) if you haven't already.
+First, [download the Xcode 15 beta](https://developer.apple.com/xcode) if you haven't already.
 
-Clone this repo, and open `Brainflip.xcodeproj`. Once Xcode's done with package resolution, hit ⌘R to build and run the project.
+[Clone this repo](https://github.com/kaascevich/Brainflip.git), and open `Brainflip.xcodeproj`. Once Xcode's done with package resolution, hit ⌘R to build and run the project.
 
 ## References
 
 I used the [epistle to the implementors](http://brainfuck.org/epistle.html "Hey Siri, define \"epistle\"") as a reference when putting together the interpreter and some of its settings. I don't know who the heck you are, but thanks anyway, Daniel.
-
-[Swift 5.9]: https://img.shields.io/badge/Swift-5.9-%23f05138?logo=swift
-[macOS Sonoma]: https://img.shields.io/badge/macOS-Sonoma-brightgreen?logo=apple
-[Xcode 15]: https://img.shields.io/badge/Xcode-15-%23147efb?logo=Xcode
