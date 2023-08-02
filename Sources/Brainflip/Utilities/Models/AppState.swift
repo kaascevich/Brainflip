@@ -11,7 +11,10 @@ import Observation
     
     var convertedDocument: CSourceDocument? = nil
     
+    /// Whether or not the output pane is shown.
     var isShowingOutput: Bool = true
+    
+    /// Whether or not the inspector pane is shown.
     var isShowingInspector: Bool = true {
         willSet { updateInspector() }
     }
@@ -31,7 +34,11 @@ import Observation
     var execution: Task = .init { }
     deinit { execution.cancel() }
     
+    
     var errorDescription: String = ""
+    
+    /// An InterpreterError instance if error is an InterpreterError;
+    /// otherwise, nil.
     var errorType: InterpreterError? = nil
     var hasError: Bool = false
     
@@ -222,15 +229,15 @@ import Observation
         
         errorDescription = message(for: error)
         
-        switch error {
-            case InterpreterError.mismatchedBrackets: break
-            case InterpreterError.break: stop()
-            default: updateSelection()
+        if errorType != .mismatchedBrackets {
+            updateSelection()
         }
         
-        if error as? InterpreterError != .break {
+        if errorType != .break {
             hasError = true
             if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
+        } else {
+            stop()
         }
     }
     
