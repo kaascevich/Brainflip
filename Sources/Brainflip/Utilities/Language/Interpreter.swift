@@ -322,7 +322,7 @@ import Observation
         output                    = ""
         try checkForMismatchedBrackets()
         
-        while currentInstructionIndex != program.count {
+        while currentInstructionIndex < program.count {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
             guard !Task.isCancelled else {
@@ -341,12 +341,11 @@ import Observation
     ///
     /// - Throws: `InterpreterError`.
     func step() throws {
+        guard currentInstructionIndex < program.count - 1 else { return }
         Interpreter.logger.info("Stepping through program")
         try checkForMismatchedBrackets()
-        if currentInstructionIndex != program.count - 1 {
-            try processInstruction(currentInstruction)
-            currentInstructionIndex += 1
-        }
+        try processInstruction(currentInstruction)
+        currentInstructionIndex += 1
     }
     
     func checkForMismatchedBrackets() throws {
