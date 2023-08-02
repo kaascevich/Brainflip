@@ -233,7 +233,7 @@ import Observation
         switch instruction {
             case .moveRight:
                 pointer += 1
-                if pointer >= array.count { throw InterpreterError.overflow }
+                if pointer >= array.count { throw InterpreterError.overflow(location: previousInstructionIndex) }
                 else if array[pointer] == nil {
                     array[pointer]    = 0
                     currentArraySize += 1
@@ -241,7 +241,7 @@ import Observation
                 
             case .moveLeft:
                 pointer -= 1
-                if pointer < 0 { throw InterpreterError.underflow }
+                if pointer < 0 { throw InterpreterError.underflow(location: previousInstructionIndex) }
                 
             case .increment:
                 if currentCell < cellSize { currentCell += 1 }

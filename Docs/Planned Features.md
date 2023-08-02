@@ -7,3 +7,4 @@
 - [ ] Respecting the main app's settings in the Quick Look extension
 - [ ] Changing how the timer is shown
 - [ ] Automatically matching brackets
+- [ ] More helpful information in errors
