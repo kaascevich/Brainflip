@@ -61,6 +61,7 @@
 		346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 346011862A659B2000029BB3 /* SwiftUIIntrospect */; };
 		346011892A659F6400029BB3 /* TextSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346011882A659F6400029BB3 /* TextSizeSlider.swift */; };
 		3460118D2A65AEBF00029BB3 /* Sample Programs in Resources */ = {isa = PBXBuildFile; fileRef = 3460118C2A65AEBF00029BB3 /* Sample Programs */; };
+		346180892A7AD5B000015BAC /* Collection+CountOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346180882A7AD5B000015BAC /* Collection+CountOf.swift */; };
 		34618C5C29AADDDC00552568 /* BrainflipDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5B29AADDDC00552568 /* BrainflipDocument.swift */; };
 		34618C5E29AADE6C00552568 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C5D29AADE6C00552568 /* Instruction.swift */; };
 		34618C6129AADEA200552568 /* InterpreterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C6029AADEA200552568 /* InterpreterError.swift */; };
@@ -257,6 +258,7 @@
 		346011BC2A65BA3100029BB3 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		346011CE2A65BA9D00029BB3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		346011D02A65BA9D00029BB3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		346180882A7AD5B000015BAC /* Collection+CountOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+CountOf.swift"; sourceTree = "<group>"; };
 		34618C5B29AADDDC00552568 /* BrainflipDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipDocument.swift; sourceTree = "<group>"; };
 		34618C5D29AADE6C00552568 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		34618C6029AADEA200552568 /* InterpreterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterError.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				34D05ADA29B3E67300711079 /* Array+RawRepresentable.swift */,
+				346180882A7AD5B000015BAC /* Collection+CountOf.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1383,6 +1386,7 @@
 				3486B4E829C934B800A7A13F /* IndentationStepper.swift in Sources */,
 				3404A21929B24CD7004514DC /* ClearAllButton.swift in Sources */,
 				34D05AC129B3B2E800711079 /* ToolbarContentView.swift in Sources */,
+				346180892A7AD5B000015BAC /* Collection+CountOf.swift in Sources */,
 				34618C6E29AAE54400552568 /* ActionBarView.swift in Sources */,
 				342D92FA29B25DA8002461DA /* EndOfFilePicker.swift in Sources */,
 				34618C7329AAE5A000552568 /* StepButton.swift in Sources */,
