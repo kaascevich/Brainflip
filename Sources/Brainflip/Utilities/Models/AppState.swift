@@ -66,7 +66,7 @@ import Observation
             default: updateSelection()
         }
         
-        if error is InterpreterError, error as! InterpreterError != .break {
+        if error as? InterpreterError != .break {
             hasError = true
         }
     }
