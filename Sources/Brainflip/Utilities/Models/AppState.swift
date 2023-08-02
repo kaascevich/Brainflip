@@ -54,7 +54,12 @@ import Observation
         errorType = error as? InterpreterError
         
         errorDescription = switch error {
-            case let error as InterpreterError: error.rawValue
+            case let error as InterpreterError: switch error {
+                case .mismatchedBrackets: "There are unmatched brackets within your code."
+                case .underflow: "An attempt was made to go below the bounds of the array. \n\n(Hint: try raising the initial pointer location in the interpreter settings.)"
+                case .overflow: "An attempt was made to go above the bounds of the array. \n\n(Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)"
+                default: ""
+            }
             case let error as LocalizedError: "Error description: \(error.localizedDescription)"
             case let error as CustomStringConvertible: "Error description: \(error.description)"
             default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
