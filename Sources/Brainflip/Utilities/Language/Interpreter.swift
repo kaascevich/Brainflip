@@ -330,10 +330,10 @@ import Observation
     }
     
     func checkForMismatchedBrackets() throws {
-        let leftBrackets  = program.filter { $0 == .conditional }
-        let rightBrackets = program.filter { $0 == .loop        }
+        let leftBracketCount  = program.count(of: .conditional)
+        let rightBracketCount = program.count(of: .loop)
         
-        guard leftBrackets.count == rightBrackets.count, loops.last == 0
+        guard leftBracketCount == rightBracketCount, loops.last == 0
         else { throw InterpreterError.mismatchedBrackets }
     }
     
