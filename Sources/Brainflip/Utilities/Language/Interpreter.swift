@@ -330,11 +330,11 @@ import Observation
     }
     
     func checkForMismatchedBrackets() throws {
-        let conditionalCount  = program.count(of: .conditional)
-        let loopCount         = program.count(of: .loop)
+        let leftBracketCount  = program.count(of: .conditional)
+        let rightBracketCount = program.count(of: .loop)
         
-        guard conditionalCount == loopCount, loops.last == 0
-        else { throw InterpreterError.mismatchedBrackets }
+        guard leftBracketCount == rightBracketCount, loops.last == 0
+        else { throw InterpreterError.mismatchedBrackets(leftBracketCount: leftBracketCount, rightBracketCount: rightBracketCount) }
     }
     
     private func searchForClosingBracket() throws -> Int {
@@ -343,7 +343,10 @@ import Observation
                loops[index] ==  loops[currentInstructionIndex]
             { return index }
         }
-        throw InterpreterError.mismatchedBrackets
+        throw InterpreterError.mismatchedBrackets(
+            leftBracketCount:  program.count(of: .conditional),
+            rightBracketCount: program.count(of: .loop)
+        )
     }
     
     private func searchForOpeningBracket() throws -> Int {
@@ -352,7 +355,10 @@ import Observation
                loops[index] ==  loops[currentInstructionIndex]
             { return index }
         }
-        throw InterpreterError.mismatchedBrackets
+        throw InterpreterError.mismatchedBrackets(
+            leftBracketCount:  program.count(of: .conditional),
+            rightBracketCount: program.count(of: .loop)
+        )
     }
 }
 

@@ -50,6 +50,7 @@
 ## Other Features
 - [x] ~~An App Shortcut, so you can inflict your pain run BF programs *anywhere*!~~ Broken right now. I blame the beta.
 - [x] Semi-comprehensive help
+- [x] Marginally helpful error messages
 - [x] An extended ASCII chart (extended 'cause it's actually Unicode)
 - [x] Copy and paste buttons
 - [x] Viewing the array in a friendly interface

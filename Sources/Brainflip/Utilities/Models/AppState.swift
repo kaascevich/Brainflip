@@ -56,10 +56,16 @@ import Observation
         let ordinalFormatter = NumberFormatter()
         ordinalFormatter.numberStyle = .ordinal
         
+        let spelledOutNumberFormatter = NumberFormatter()
+        spelledOutNumberFormatter.numberStyle = .spellOut
+        
         errorDescription = switch error {
             case let error as InterpreterError: switch error {
-                case .mismatchedBrackets:
-                    "There are unmatched brackets within your code."
+                case .mismatchedBrackets(
+                    let leftBracketCount as NSNumber,
+                    let rightBracketCount as NSNumber
+                ):
+                    "There are unmatched brackets within your code. There \(leftBracketCount == 1 ? "is" : "are") \(spelledOutNumberFormatter.string(from: leftBracketCount)!) left \(leftBracketCount == 1 ? "bracket" : "brackets") and \(spelledOutNumberFormatter.string(from: rightBracketCount)!) right \(rightBracketCount == 1 ? "bracket" : "brackets")."
                 case .underflow(let location):
                     """
                     An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
@@ -72,11 +78,15 @@ import Observation
                     
                     (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
                     """
-                default: ""
+                case .break: ""
             }
-            case let error as LocalizedError: "Error description: \(error.localizedDescription)"
-            case let error as CustomStringConvertible: "Error description: \(error.description)"
-            default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
+            case let error as LocalizedError:
+                "Error description: \(error.localizedDescription)"
+            case let error as CustomStringConvertible:
+                "Error description: \(error.description)"
+                
+            default:
+                "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
         
         switch error {
