@@ -50,65 +50,6 @@ import Observation
 
 // MARK: - Methods
 @Observable extension AppState {
-    private func processError(_ error: Error) {
-        errorType = error as? InterpreterError
-        
-        let ordinalFormatter = NumberFormatter()
-        ordinalFormatter.numberStyle = .ordinal
-        
-        
-        func mismatchedBracketsMessage(leftBracketCount: Int, rightBracketCount: Int) -> String {
-            // If the bracket counts are equal, there isn't really a point in echoing them.
-            let firstSentence = "There are unmatched brackets within your code."
-            guard leftBracketCount != rightBracketCount else {
-                return firstSentence
-            }
-            
-            let extraBracketCount = abs(leftBracketCount - rightBracketCount)
-            let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
-            let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
-            
-            return firstSentence + " " + secondSentence
-        }
-        
-        errorDescription = switch error {
-            case let error as InterpreterError: switch error {
-                case .mismatchedBrackets(let leftBracketCount, let rightBracketCount):
-                    mismatchedBracketsMessage(leftBracketCount: leftBracketCount, rightBracketCount: rightBracketCount)
-                case .underflow(let location):
-                    """
-                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
-
-                    (Hint: try raising the initial pointer location in the interpreter settings.)
-                    """
-                case .overflow(let location):
-                    """
-                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
-                    
-                    (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
-                    """
-                case .break: ""
-            }
-            case let error as LocalizedError:
-                "Error description: \(error.localizedDescription)"
-            case let error as CustomStringConvertible:
-                "Error description: \(error.description)"
-                
-            default:
-                "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
-        }
-        
-        switch error {
-            case InterpreterError.mismatchedBrackets: break
-            case InterpreterError.break: stop()
-            default: updateSelection()
-        }
-        
-        if error as? InterpreterError != .break {
-            hasError = true
-        }
-    }
-    
     @MainActor
     func run() {
         if isValidKonamiCode(document.contents) {
@@ -272,6 +213,76 @@ import Observation
             convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
             isConversionProgressShowing = false
             isAskingForOutputFile.toggle()
+        }
+    }
+}
+
+// MARK: - Error Handling
+@Observable extension AppState {
+    private func processError(_ error: Error) {
+        errorType = error as? InterpreterError
+        
+        errorDescription = message(for: error)
+        
+        switch error {
+            case InterpreterError.mismatchedBrackets: break
+            case InterpreterError.break: stop()
+            default: updateSelection()
+        }
+        
+        if error as? InterpreterError != .break {
+            hasError = true
+        }
+    }
+    
+    private func message<T: Error>(for error: T) -> String {
+        let ordinalFormatter = NumberFormatter()
+        ordinalFormatter.numberStyle = .ordinal
+        
+        switch error {
+            case let error as InterpreterError: switch error {
+                case .mismatchedBrackets(let leftBracketCount, let rightBracketCount):
+                    // If the bracket counts are equal, there isn't really a point in echoing them.
+                    let firstSentence = "There are unmatched brackets within your code."
+                    guard leftBracketCount != rightBracketCount else {
+                        return firstSentence
+                    }
+                    
+                    // Get the difference in bracket amounts
+                    let extraBracketCount = abs(leftBracketCount - rightBracketCount)
+                    
+                    // Check whether we have more left brackets than right brackets, or vice versa
+                    let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
+                    
+                    let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
+                    
+                    return firstSentence + " " + secondSentence
+                    
+                case .underflow(let location):
+                    return """
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
+                    
+                    (Hint: try raising the initial pointer location in the interpreter settings.)
+                    """
+                    
+                case .overflow(let location):
+                    return """
+                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
+                    
+                    (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
+                    """
+                    
+                case .break: return "" // we're not going to show the message anyway
+            }
+                
+            case let error as LocalizedError:
+                return "Error description: \(error.localizedDescription)"
+                
+            case let error as CustomStringConvertible:
+                return "Error description: \(error.description)"
+                
+            default:
+                return "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
     }
 }
