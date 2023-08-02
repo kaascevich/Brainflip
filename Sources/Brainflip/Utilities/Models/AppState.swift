@@ -60,15 +60,15 @@ import Observation
             case let error as InterpreterError: switch error {
                 case .mismatchedBrackets:
                     "There are unmatched brackets within your code."
-                case .underflow(let location as NSNumber):
+                case .underflow(let location):
                     """
-                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location)!) instruction.
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
 
                     (Hint: try raising the initial pointer location in the interpreter settings.)
                     """
-                case .overflow(let location as NSNumber):
+                case .overflow(let location):
                     """
-                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location)!) instruction.
+                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
                     
                     (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
                     """

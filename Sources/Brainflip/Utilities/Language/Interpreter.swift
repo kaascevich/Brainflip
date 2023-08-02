@@ -107,10 +107,8 @@ import Observation
         return program[currentInstructionIndex]
     }
     
-    /// The current location of the instruction ``pointer``, minus 1.
-    var previousInstructionIndex: Int {
-        currentInstructionIndex - 1
-    }
+    /// The previous location of the instruction ``pointer``.
+    var previousInstructionIndex = 0
     
     /// The ``Instruction`` that was previously executed.
     var previousInstruction: Instruction {
@@ -230,6 +228,7 @@ import Observation
     /// - Throws: `InterpreterError`.
     private func processInstruction(_ instruction: Instruction) throws {
         //logger.log("Processing instruction \"\(instruction.rawValue)\"")
+        previousInstructionIndex = currentInstructionIndex
         switch instruction {
             case .moveRight:
                 pointer += 1
