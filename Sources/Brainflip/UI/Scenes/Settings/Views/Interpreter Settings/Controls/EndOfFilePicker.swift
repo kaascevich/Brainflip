@@ -19,7 +19,7 @@ struct EndOfFilePicker: View {
         case .setToZero:
             return "Set the current cell to zero"
         case .setToMax:
-            return "Set the current cell to \((settings.cellSize.rawValue).formatted())"
+            return "Set the current cell to \(settings.cellSize.rawValue.formatted())"
         }
     }
 }
