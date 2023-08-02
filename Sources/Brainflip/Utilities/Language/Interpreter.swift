@@ -116,24 +116,6 @@ import Observation
         return program[previousInstructionIndex]
     }
     
-    /// An array of `Int`s that stores the total number of comment characters encountered so far.
-    ///
-    /// One can think of this as the difference between `string.count` and
-    /// `Program(from: string).count`, where
-    /// `string == programString[0..<index]`.
-    var commentCharacters: [Int] {
-        var array: [Int] = []
-        var numCommentCharacters = 0
-        for character in programString {
-            array.append(numCommentCharacters)
-            if !Instruction.validInstructions.contains(character) {
-                numCommentCharacters += 1
-                array.removeLast()
-            }
-        }
-        return array
-    }
-    
     private(set) var loops: [Int]
     
     /// The maximum size of the array.

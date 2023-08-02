@@ -128,11 +128,29 @@ import Observation
     }
     
     private func updateSelection() {
+        /// An array of `Int`s that stores the total number of comment characters encountered so far.
+        ///
+        /// One can think of this as the difference between `string.count` and
+        /// `Program(from: string).count`, where
+        /// `string == programString[0..<index]`.
+        func commentCharacters(in string: String) -> [Int] {
+            var array: [Int] = []
+            var numCommentCharacters = 0
+            for character in string {
+                array.append(numCommentCharacters)
+                if !Instruction.validInstructions.contains(character) {
+                    numCommentCharacters += 1
+                    array.removeLast()
+                }
+            }
+            return array
+        }
+        
         if settings.showCurrentInstruction,
-           interpreter.previousInstructionIndex < interpreter.commentCharacters.count,
+           interpreter.previousInstructionIndex < commentCharacters(in: document.contents).count,
            interpreter.previousInstructionIndex >= 0
         {
-            let commentCountAtCurrentInstruction = interpreter.commentCharacters[interpreter.previousInstructionIndex]
+            let commentCountAtCurrentInstruction = commentCharacters(in: document.contents)[interpreter.previousInstructionIndex]
             let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
             let endIndex = startIndex + 1
             selection = startIndex..<endIndex
