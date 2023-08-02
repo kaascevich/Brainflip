@@ -3,7 +3,7 @@ import Foundation
 /// Errors that can be thrown by the Brainflip interpreter.
 enum InterpreterError: Error, Equatable {
     /// Thrown when the interpreter finds unmatched brackets.
-    case mismatchedBrackets(leftBracketCount: Int, rightBracketCount: Int)
+    case mismatchedBrackets
     
     /// Thrown when the pointer points to a cell that is below the bounds of the array.
     case underflow(location: Int)

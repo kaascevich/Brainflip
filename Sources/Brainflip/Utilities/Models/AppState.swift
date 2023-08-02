@@ -240,7 +240,10 @@ import Observation
         
         switch error {
             case let error as InterpreterError: switch error {
-                case .mismatchedBrackets(let leftBracketCount, let rightBracketCount):
+                case .mismatchedBrackets:
+                    let leftBracketCount  = document.program.count(of: .conditional)
+                    let rightBracketCount = document.program.count(of: .loop)
+                    
                     // If the bracket counts are equal, there isn't really a point in echoing them.
                     let firstSentence = "There are unmatched brackets within your code."
                     guard leftBracketCount != rightBracketCount else {
