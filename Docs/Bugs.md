@@ -2,6 +2,7 @@
 
 - [ ] App shortcut is completely broken (naturally)
 - [ ] Program menu refreshes like mad when running a program
+- [ ] Progress bar sometimes gets initialized with an out-of-bounds value
 
 ## Squashed
 - [X] Highlighting the current instruction is nonfunctional
