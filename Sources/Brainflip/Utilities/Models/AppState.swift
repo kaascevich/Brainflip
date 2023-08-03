@@ -285,16 +285,16 @@ import Observation
                     
                     return firstSentence + " " + secondSentence
                     
-                case .underflow(let location):
+                case .underflow:
                     return """
-                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex> + 1 as NSNumber)!) instruction.
                     
                     (Hint: try raising the initial pointer location in the interpreter settings.)
                     """
                     
-                case .overflow(let location):
+                case .overflow:
                     return """
-                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: location + 1 as NSNumber)!) instruction.
+                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
                     
                     (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
                     """

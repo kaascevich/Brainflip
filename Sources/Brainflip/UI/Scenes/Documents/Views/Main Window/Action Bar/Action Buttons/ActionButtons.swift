@@ -12,7 +12,7 @@ struct ActionButtons: View {
         .controlSize(.large)
         .alert("An error occured while running your program.", isPresented: $state.hasError) {
             Button("OK") { }
-            if case .overflow(_)? = state.errorType, case .underflow(_)? = state.errorType {
+            if state.errorType == .overflow || state.errorType == .underflow {
                 SettingsLink()
             }
         } message: {

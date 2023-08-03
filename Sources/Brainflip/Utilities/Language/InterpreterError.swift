@@ -6,10 +6,10 @@ enum InterpreterError: Error, Equatable {
     case mismatchedBrackets
     
     /// Thrown when the pointer points to a cell that is below the bounds of the array.
-    case underflow(location: Int)
+    case underflow
     
     /// Thrown when the pointer points to a cell that is above the bounds of the array.
-    case overflow(location: Int)
+    case overflow
     
     /// Thrown when encountering a break instruction (if enabled).
     case `break`

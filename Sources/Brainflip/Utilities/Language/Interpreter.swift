@@ -221,7 +221,7 @@ import Observation
             case .moveRight:
                 pointer += 1
                 if pointer >= array.count {
-                    throw InterpreterError.overflow(location: previousInstructionIndex)
+                    throw InterpreterError.overflow
                 }
                 else if array[pointer] == nil {
                     array[pointer] = 0
@@ -231,7 +231,7 @@ import Observation
             case .moveLeft:
                 pointer -= 1
                 guard pointer >= 0 else {
-                    throw InterpreterError.underflow(location: previousInstructionIndex)
+                    throw InterpreterError.underflow
                 }
                 
             case .increment:

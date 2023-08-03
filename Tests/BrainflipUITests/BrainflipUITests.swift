@@ -153,7 +153,7 @@ final class BrainflipUITests: XCTestCase {
         XCTAssertFalse(stepButton.isEnabled)
     }
     
-    func testErrorMessages() throws {
+    func testBracketMatching() throws {
         app.typeKey("n", modifierFlags: .command)
         
         let documentWindow = app.windows["Untitled"]
