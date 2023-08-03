@@ -13,7 +13,9 @@ final class InterpreterTests: XCTestCase {
     
     func testBreak() async throws {
         let interpreter = Interpreter(program: ",[>+#<-.]", input: "b", breakOnHash: true)
-        await assertAsyncThrowsError(try await interpreter.run())
+        await assertAsyncThrowsError(try await interpreter.run()) { error in
+            XCTAssertEqual(error as? InterpreterError, .break)
+        }
     }
     
     func testEndOfInput() async throws {
@@ -48,7 +50,9 @@ final class InterpreterTests: XCTestCase {
         
         for invalidProgram in invalidPrograms {
             let interpreter = Interpreter(program: invalidProgram)
-            await assertAsyncThrowsError(try await interpreter.run())
+            await assertAsyncThrowsError(try await interpreter.run()) { error in
+                XCTAssertEqual(error as? InterpreterError, .mismatchedBrackets)
+            }
         }
     }
     
@@ -57,13 +61,17 @@ final class InterpreterTests: XCTestCase {
         let arraySizes = [30_000, 60_000, 30]
         for arraySize in arraySizes {
             let interpreter = Interpreter(program: "+[>+]", arraySize: arraySize)
-            await assertAsyncThrowsError(try await interpreter.run())
+            await assertAsyncThrowsError(try await interpreter.run()) { error in
+                XCTAssertEqual(error as? InterpreterError, .overflow)
+            }
             XCTAssertEqual(interpreter.cellArray.count, arraySize)
             XCTAssert(interpreter.cellArray.allSatisfy { $0 == 1 })
         }
         
         // MARK: Underflow
         let interpreter = Interpreter(program: "<")
-        await assertAsyncThrowsError(try await interpreter.run())
+        await assertAsyncThrowsError(try await interpreter.run()) { error in
+            XCTAssertEqual(error as? InterpreterError, .underflow)
+        }
     }
 }
