@@ -7,3 +7,5 @@
 - [ ] Respecting the main app's settings in the Quick Look extension
 - [ ] Changing how the timer is shown
 - [ ] Automatically matching brackets
+- [ ] Disabling word wrap in the editor and/or output and/or input
+- [ ] A Go To button in the array popover

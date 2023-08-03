@@ -48,6 +48,7 @@
 - [x] Sound effects when something happens
 
 ## Other Features
+- [x] Tabbed windows
 - [x] An App Shortcut, so you can ~~inflict your pain~~ run BF programs *anywhere*!
 - [x] Semi-comprehensive help
 - [x] Marginally helpful error messages
