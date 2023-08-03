@@ -42,7 +42,7 @@ final class BrainflipUITests: XCTestCase {
         }.reduce("", +).reversed())
         
         Thread.sleep(forTimeInterval: 0.5) // give the program some time to run
-        XCTAssertEqual(expectedOutput, output.value as! String)
+        XCTAssertEqual(expectedOutput, output.value as? String)
     }
     
     func testSamplePrograms() throws {
@@ -71,7 +71,7 @@ final class BrainflipUITests: XCTestCase {
         }.reduce("", +).reversed())
         
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
-        XCTAssertEqual(expectedOutput, output.value as! String)
+        XCTAssertEqual(expectedOutput, output.value as? String)
     }
     
     func testShowArray() throws {
@@ -97,8 +97,8 @@ final class BrainflipUITests: XCTestCase {
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
         
         showArrayButton.click()
-        XCTAssertEqual("\(inputASCIICode)", arrayPopoverCell1Value.value as! String)
-        XCTAssertEqual("[0, \(inputASCIICode)]", arrayField.value as! String)
+        XCTAssertEqual("\(inputASCIICode)", arrayPopoverCell1Value.value as? String)
+        XCTAssertEqual("[0, \(inputASCIICode)]", arrayField.value as? String)
     }
     
     func testPaneHiding() throws {
@@ -184,7 +184,7 @@ final class BrainflipUITests: XCTestCase {
             editor.click(); editor.typeText(program)
             runButton.click()
             
-            XCTAssert(alertSheet.waitForExistence(timeout: 1)) // confirm there is an error...
+            XCTAssert(alertSheet.waitForExistence(timeout: 0.5)) // confirm there is an error...
             XCTAssert(alertSheet.staticTexts[expectedErrorMessage].exists) // ...and that the message is correct
             okButton.click()
             
@@ -203,31 +203,40 @@ final class BrainflipUITests: XCTestCase {
         
         let editor = documentWindow.textViews["Editor"]
         let input = documentWindow.textFields["Input"]
+        let output = documentWindow.scrollViews["Output"].textViews.firstMatch
+        let runButton = documentWindow.buttons["run-button-main"]
+        
         let alertSheet = documentWindow.sheets["alert"]
         let clearButton = alertSheet.buttons["action-button-1"]
         
-        editor.click(); editor.typeText(",[>+<-.]")
+        editor.click(); editor.typeText("++++++[>++++++<-]>...")
         input.click(); input.typeText("testing, testing")
+        runButton.click()
+        XCTAssertEqual("$$$", output.value as? String)
         
         documentWindow.popUpButtons["Clear"].click()
         documentWindow.menuItems["Clear All…"].click()
         
-        XCTAssert(alertSheet.waitForExistence(timeout: 1))
+        XCTAssert(alertSheet.waitForExistence(timeout: 0.5))
         clearButton.click()
         
-        Thread.sleep(forTimeInterval: 1) // Give the clear command some time to work
-        XCTAssertEqual("", editor.value as! String)
-        XCTAssertEqual("", input.value as! String)
+        Thread.sleep(forTimeInterval: 0.5) // Give the clear command some time to work
+        XCTAssertEqual("", editor.value as? String)
+        XCTAssertEqual("", input.value as? String)
+        XCTAssertEqual("", output.value as? String)
         
-        editor.click(); editor.typeText(",[>+<-.]")
+        editor.click(); editor.typeText("++++++[>++++++<-]>...")
         input.click(); input.typeText("testing, testing")
+        runButton.click()
+        XCTAssertEqual("$$$", output.value as? String)
         
         documentWindow.popUpButtons["Clear"].click()
         documentWindow.menuItems["Clear Input"].click()
         
-        Thread.sleep(forTimeInterval: 1) // Give the clear command some time to work
-        XCTAssertEqual("", input.value as! String)
-        XCTAssertNotEqual("", editor.value as! String)
+        Thread.sleep(forTimeInterval: 0.5) // Give the clear command some time to work
+        XCTAssertEqual("", input.value as? String)
+        XCTAssertNotEqual("", editor.value as? String)
+        XCTAssertNotEqual("", output.value as? String)
     }
     
     func testCopyPasteButtons() throws {
@@ -253,12 +262,12 @@ final class BrainflipUITests: XCTestCase {
         
         runButton.click()
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
-        XCTAssertEqual(result, output.value as! String)
+        XCTAssertEqual(result, output.value as? String)
         
         copyButton.click()
         
         pasteButton.click()
-        XCTAssertEqual(result, input.value as! String)
+        XCTAssertEqual(result, input.value as? String)
         
         // Confirm that the text was actually put on the clipboard
         // (can't hurt to be sure, am I right?)
@@ -266,6 +275,6 @@ final class BrainflipUITests: XCTestCase {
         editor.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
         menuBar.menuItems["paste:"].click() // Paste the clipboard contents
         Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
-        XCTAssertEqual(program + result, editor.value as! String)
+        XCTAssertEqual(program + result, editor.value as? String)
     }
 }
