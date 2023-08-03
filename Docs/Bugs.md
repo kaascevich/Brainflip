@@ -2,6 +2,7 @@
 
 - [ ] App shortcut is completely broken (naturally)
 - [ ] Program menu refreshes like mad when running a program
+- [ ] Tests stall while building
 
 ## Squashed
 - [x] Highlighting the current instruction is nonfunctional
