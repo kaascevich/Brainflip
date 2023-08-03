@@ -16,7 +16,7 @@ struct Inspector {
                 enabledByDefault: true
             ), Module(
                 name:             "Current instruction location",
-                data:             interpreter?.currentInstructionIndex,
+                data:             interpreter?.previousInstructionIndex,
                 tooltip:          "The location of the current instruction within the program, excluding comments.",
                 enabledByDefault: true
             ), Module(
