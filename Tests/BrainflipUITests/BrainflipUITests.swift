@@ -184,7 +184,7 @@ final class BrainflipUITests: XCTestCase {
             editor.click(); editor.typeText(program)
             runButton.click()
             
-            XCTAssert(alertSheet.waitForExistence(timeout: 0.5)) // confirm there is an error...
+            XCTAssert(alertSheet.waitForExistence(timeout: 0.5)) // Confirm there is an error...
             XCTAssert(alertSheet.staticTexts[expectedErrorMessage].exists) // ...and that the message is correct
             okButton.click()
             
@@ -237,6 +237,67 @@ final class BrainflipUITests: XCTestCase {
         XCTAssertEqual("", input.value as? String)
         XCTAssertNotEqual("", editor.value as? String)
         XCTAssertNotEqual("", output.value as? String)
+    }
+    
+    func testBreak() throws {
+        // MARK: Setup
+        let menuBar = app.menuBars.firstMatch
+        app.typeKey("n", modifierFlags: .command)
+        
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        let editor = documentWindow.textViews["Editor"]
+        let output = documentWindow.scrollViews["Output"].textViews.firstMatch
+        let runButton = documentWindow.buttons["run-button-main"]
+        
+        let alertSheet = documentWindow.sheets["alert"]
+        
+        // MARK: Initial Test
+        
+        editor.click(); editor.typeText("++++++[>++++++<-]>..........") // Prints 10 dollar signs "$$$$$$$$$$"
+        runButton.click()
+        XCTAssertEqual("$$$$$$$$$$", output.value as? String) // Confirm that it works normally...
+        XCTAssertFalse(alertSheet.exists) // ...and that there is no error
+        
+        // MARK: Adding a Break Instruction
+        editor.click()
+        editor.typeKey(.downArrow, modifierFlags: .command) // Move to the end
+        for _ in 1...4 {
+            editor.typeKey(.leftArrow, modifierFlags: []) // Move the text cursor left
+        }
+        editor.typeText("#") // Add a break instruction
+        
+        // The program now looks like this: "++++++[>++++++<-]>......#...."
+        // If we were to enable break instructions it would only print
+        // 6 dollar signs "$$$$$$" before stopping
+        
+        // MARK: Test with Breaks Off
+        
+        // We have not yet enabled breaks, so it should run normally
+        runButton.click()
+        XCTAssertEqual("$$$$$$$$$$", output.value as? String) // Confirm that it works with breaks off...
+        XCTAssertFalse(alertSheet.exists) // ...and that there is no error
+        
+        // MARK: Enable the Break Instruction
+        
+        menuBar.menuBarItems["Brainflip"].menuItems["Settings…"].click() // Open the settings window
+        let settingsWindow = app.windows["com_apple_SwiftUI_Settings_window"]
+        settingsWindow.toolbars.buttons["Interpreter"].click() // Switch to the Interpreter tab, if needed
+        
+        let breakInstructionToggle = settingsWindow.groups.containing(.staticText, identifier: "Stop on break instruction").switches.firstMatch
+        breakInstructionToggle.click() // Enable break instructions
+        settingsWindow.buttons[XCUIIdentifierCloseWindow].click() // Close the window
+        
+        // MARK: Test with Breaks On
+        
+        // Now that breaks are on, it should stop after printing
+        // 6 dollar signs "$$$$$$"
+        runButton.click()
+        XCTAssertEqual("$$$$$$", output.value as? String) // Confirm that it works with breaks on
+        
+        // BUT, we don't want to show any sort of error on a break
+        XCTAssertFalse(alertSheet.exists)
     }
     
     func testCopyPasteButtons() throws {
