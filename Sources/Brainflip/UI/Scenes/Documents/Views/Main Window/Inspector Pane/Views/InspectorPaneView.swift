@@ -4,6 +4,8 @@ struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     var state: AppState
     
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    
     @SceneStorage("expandedInspectorModules")
     var expandedInspectorModules = Array(repeating: true, count: Inspector.staticInspector.modules.count)
     
@@ -33,11 +35,11 @@ struct InspectorPaneView: View {
                         )
                         .help(state.inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
-                        .animation(.smooth, value: expandedInspectorModules)
+                        .animation(reduceMotion ? nil : .smooth, value: expandedInspectorModules)
                     }
                 }
-                .animation(.smooth, value: settings.inspectorModuleOrder)
-                .animation(.smooth, value: settings.enabledInspectorModules)
+                .animation(reduceMotion ? nil : .smooth, value: settings.inspectorModuleOrder)
+                .animation(reduceMotion ? nil : .smooth, value: settings.enabledInspectorModules)
                 .disabled(state.isRunningProgram)
             }
             .scrollIndicatorsFlash(onAppear: true)

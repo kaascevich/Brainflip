@@ -2,6 +2,7 @@ import SwiftUI
 
 struct InspectorModuleList: View {
     @EnvironmentObject private var settings: AppSettings
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     var body: some View {
         List(settings.$inspectorModuleOrder, id: \.self, editActions: .move, selection: settings.$enabledInspectorModules) { index in
@@ -10,8 +11,8 @@ struct InspectorModuleList: View {
                 .help(Inspector.staticInspector.modules[index].tooltip)
         }
         .padding(5)
-        .animation(.smooth, value: settings.inspectorModuleOrder)
-        .animation(.smooth, value: settings.enabledInspectorModules)
+        .animation(reduceMotion ? nil : .smooth, value: settings.inspectorModuleOrder)
+        .animation(reduceMotion ? nil : .smooth, value: settings.enabledInspectorModules)
         .accessibilityLabel("Inspector Modules")
         
         HStack {
