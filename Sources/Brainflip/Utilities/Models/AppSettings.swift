@@ -16,13 +16,13 @@ final class AppSettings: ObservableObject {
     
     // MARK: - Store Definitions
     
-    private static let generalSettings     = UserDefaults(suiteName: "group.\(bundleID).settings.general")
-    private static let soundSettings       = UserDefaults(suiteName: "group.\(bundleID).settings.sound")
-    private static let interpreterSettings = UserDefaults(suiteName: "group.\(bundleID).settings.interpreter")
-    private static let editorSettings      = UserDefaults(suiteName: "group.\(bundleID).settings.editor")
-    private static let inspectorSettings   = UserDefaults(suiteName: "group.\(bundleID).settings.inspector")
-    private static let exportSettings      = UserDefaults(suiteName: "group.\(bundleID).settings.export")
-    private static let hiddenSettings      = UserDefaults(suiteName: "group.\(bundleID).settings.hidden")
+    private static let generalSettings     = UserDefaults(suiteName: "\(bundleID).settings.general")
+    private static let soundSettings       = UserDefaults(suiteName: "\(bundleID).settings.sound")
+    private static let interpreterSettings = UserDefaults(suiteName: "\(bundleID).settings.interpreter")
+    private static let editorSettings      = UserDefaults(suiteName: "\(bundleID).settings.editor")
+    private static let inspectorSettings   = UserDefaults(suiteName: "\(bundleID).settings.inspector")
+    private static let exportSettings      = UserDefaults(suiteName: "\(bundleID).settings.export")
+    private static let hiddenSettings      = UserDefaults(suiteName: "\(bundleID).settings.hidden")
     
     // MARK: - General Settings
     
