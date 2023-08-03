@@ -37,9 +37,9 @@ final class BrainflipUITests: XCTestCase {
         
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
-        let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
+        let expectedOutput = String((0...inputASCIICode - 1).map { asciiCode in
             String(Unicode.Scalar(asciiCode))
-        }.reduce("", +).reversed()
+        }.reduce("", +).reversed())
         
         Thread.sleep(forTimeInterval: 0.5) // give the program some time to run
         XCTAssertEqual(expectedOutput, output.value as! String)
@@ -66,9 +66,9 @@ final class BrainflipUITests: XCTestCase {
         
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
-        let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
+        let expectedOutput = String((0...inputASCIICode - 1).map { asciiCode in
             String(Unicode.Scalar(asciiCode))
-        }.reduce("", +).reversed()
+        }.reduce("", +).reversed())
         
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
         XCTAssertEqual(expectedOutput, output.value as! String)

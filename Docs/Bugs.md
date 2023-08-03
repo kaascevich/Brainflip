@@ -1,7 +1,6 @@
 # 🐞 Known Bugs
 
 - [ ] Program menu refreshes like mad when running a program
-- [ ] Tests stall while building
 
 ## Squashed
 - [x] Highlighting the current instruction is nonfunctional
@@ -11,3 +10,4 @@
 - [x] Progress bar sometimes gets initialized with an out-of-bounds value
 - [x] App crash after selecting all and typing
 - [x] App shortcut is completely broken (naturally)
+- [x] Tests stall while building
