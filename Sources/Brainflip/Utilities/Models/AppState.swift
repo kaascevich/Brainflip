@@ -287,7 +287,7 @@ import Observation
                     
                 case .underflow:
                     return """
-                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex> + 1 as NSNumber)!) instruction.
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
                     
                     (Hint: try raising the initial pointer location in the interpreter settings.)
                     """

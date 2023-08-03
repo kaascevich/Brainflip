@@ -12,7 +12,7 @@ struct ProgramProgressView: View {
     }
     var current: Double? {
         guard !state.isRunningProgram else { return nil }
-        return Swift.max(0, Double(state.interpreter.currentInstructionIndex))
+        return min(Swift.max(0, Double(state.interpreter.currentInstructionIndex)), max)
     }
     
     var body: some View {
