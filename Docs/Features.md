@@ -48,7 +48,7 @@
 - [x] Sound effects when something happens
 
 ## Other Features
-- [x] ~~An App Shortcut, so you can inflict your pain run BF programs *anywhere*!~~ Broken right now. I blame the beta.
+- [x] An App Shortcut, so you can ~~inflict your pain~~ run BF programs *anywhere*!
 - [x] Semi-comprehensive help
 - [x] Marginally helpful error messages
 - [x] An extended ASCII chart (extended 'cause it's actually Unicode)

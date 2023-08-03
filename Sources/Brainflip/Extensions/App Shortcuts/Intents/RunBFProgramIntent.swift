@@ -82,7 +82,7 @@ struct RunBFProgramIntent: AppIntent {
         requestValueDialog: "Should the program stop when encountering a hash?"
     ) var breakOnHash: Bool
     
-    func perform() async throws -> some IntentResult & ReturnsValue {
+    func perform() async throws -> some IntentResult & ReturnsValue<String> {
         let interpreter = Interpreter(
             program:         program,
             input:           input,
@@ -107,7 +107,7 @@ struct RunBFProgramIntent: AppIntent {
             } else { throw error }
         }
         
-        return .result(value: interpreter.output, dialog: "The program ran successfully.")
+        return .result(value: interpreter.output)
     }
 }
 
