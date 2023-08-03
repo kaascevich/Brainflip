@@ -1,11 +1,9 @@
 import SwiftUI
 import HighlightedTextEditor
 
-struct SyntaxHighlighting {
-    typealias ColorHighlightRule = (String, Color)
-    
+struct SyntaxHighlighting {    
     static var hashColor: Color = settings.breakOnHash ? .green : .gray
-    static var highlightPatterns: [ColorHighlightRule] = [
+    static var highlightPatterns: [(String, Color)] = [
         ("[<>]",     .orange),   // "<>"
         ("[+-]",     .red),      // "+-"
         (#"[\[\]]"#, .brown),    // "[]"
