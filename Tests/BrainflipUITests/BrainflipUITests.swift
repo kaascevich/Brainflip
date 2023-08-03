@@ -39,9 +39,9 @@ final class BrainflipUITests: XCTestCase {
         // So we need to put it together manually.
         let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
             String(Unicode.Scalar(asciiCode))
-        }.reduce("", +)
+        }.reduce("", +).reversed()
         
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 0.5) // give the program some time to run
         XCTAssertEqual(expectedOutput, output.value as! String)
     }
     
@@ -68,7 +68,7 @@ final class BrainflipUITests: XCTestCase {
         // So we need to put it together manually.
         let expectedOutput: String = (0...inputASCIICode - 1).map { asciiCode in
             String(Unicode.Scalar(asciiCode))
-        }.reduce("", +)
+        }.reduce("", +).reversed()
         
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
         XCTAssertEqual(expectedOutput, output.value as! String)
