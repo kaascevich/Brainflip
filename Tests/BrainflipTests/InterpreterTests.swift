@@ -32,9 +32,18 @@ final class InterpreterTests: XCTestCase {
     func testBracketMatching() async throws {
         let invalidPrograms = [
             ",[>+<-.",
-            ",[[>+<-.]",
+            ",[[>+<-.",
+            ",][>+<-.",
             ",>+<-.]",
             ",>+<-.]]",
+            ",>+<-.][",
+            ",[>+<-.][",
+            ",[[>+<-.]",
+            ",][>+<-.]",
+            ",]>+<-.]",
+            ",]>+<-.[",
+            ",[>+<-.[",
+            ",][>+<-.]["
         ]
         
         for invalidProgram in invalidPrograms {
