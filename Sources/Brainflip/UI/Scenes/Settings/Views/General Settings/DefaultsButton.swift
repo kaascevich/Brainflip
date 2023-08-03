@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DefaultsButton: View {
     @EnvironmentObject private var settings: AppSettings
-    @State private var isWarningAboutSettingsReset = false
+    @State private var isWarningAboutReset = false
     
     @State private var confirmationInput = ""
     
@@ -10,9 +10,9 @@ struct DefaultsButton: View {
 
     var body: some View {
         Button("Reset All Settings…") {
-            isWarningAboutSettingsReset = true
+            isWarningAboutReset.toggle()
         }
-        .confirmationDialog("Are you sure you want to reset all settings to their defaults?", isPresented: $isWarningAboutSettingsReset) {
+        .confirmationDialog("Are you sure you want to reset all settings to their defaults?", isPresented: $isWarningAboutReset) {
             TextField("Type \"\(appName)\" to reset", text: $confirmationInput)
             
             Button("Reset", role: .destructive) {
