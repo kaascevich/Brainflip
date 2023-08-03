@@ -23,6 +23,8 @@ struct Editor: View {
 }
 
 extension Editor {
+    // This gets called every time document.contents changes, so let's try
+    // to keep it as simple as possible.
     func applyTextViewAttributes(to textView: NSTextView) {
         textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
         
