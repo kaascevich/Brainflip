@@ -153,6 +153,83 @@ final class BrainflipUITests: XCTestCase {
         XCTAssertFalse(stepButton.isEnabled)
     }
     
+    func testErrorMessages() throws {
+        app.typeKey("n", modifierFlags: .command)
+        
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        let editor = documentWindow.textViews["Editor"]
+        let runButton = documentWindow.buttons["run-button-main"]
+        let alertSheet = documentWindow.sheets["alert"]
+        let okButton = alertSheet.buttons["action-button-1"]
+        
+        let invalidPrograms = [
+            ",[>+<-.":    "There are unmatched brackets within your code. You have 1 extra left bracket.",
+            ",[[>+<-.":   "There are unmatched brackets within your code. You have 2 extra left brackets.",
+            ",][>+<-.":   "There are unmatched brackets within your code.",
+            ",>+<-.]":    "There are unmatched brackets within your code. You have 1 extra right bracket.",
+            ",>+<-.]]":   "There are unmatched brackets within your code. You have 2 extra right brackets.",
+            ",>+<-.][":   "There are unmatched brackets within your code.",
+            ",[>+<-.][":  "There are unmatched brackets within your code. You have 1 extra left bracket.",
+            ",[[>+<-.]":  "There are unmatched brackets within your code. You have 1 extra left bracket.",
+            ",][>+<-.]":  "There are unmatched brackets within your code. You have 1 extra right bracket.",
+            ",]>+<-.]":   "There are unmatched brackets within your code. You have 2 extra right brackets.",
+            ",]>+<-.[":   "There are unmatched brackets within your code.",
+            ",[>+<-.[":   "There are unmatched brackets within your code. You have 2 extra left brackets.",
+            ",][>+<-.][": "There are unmatched brackets within your code."
+        ].map { $0 } // Converts a dictionary to an array of tuples
+        
+        for (program, expectedErrorMessage) in invalidPrograms {
+            editor.click(); editor.typeText(program)
+            runButton.click()
+            
+            XCTAssert(alertSheet.waitForExistence(timeout: 1)) // confirm there is an error...
+            XCTAssert(alertSheet.staticTexts[expectedErrorMessage].exists) // ...and that the message is correct
+            okButton.click()
+            
+            // Clear all text
+            editor.click()
+            editor.typeKey("a", modifierFlags: .command)
+            editor.typeKey(.delete, modifierFlags: [])
+        }
+    }
+    
+    func testClear() throws {
+        app.typeKey("n", modifierFlags: .command)
+        
+        let documentWindow = app.windows["Untitled"]
+        XCTAssert(documentWindow.waitForExistence(timeout: 3))
+        
+        let editor = documentWindow.textViews["Editor"]
+        let input = documentWindow.textFields["Input"]
+        let alertSheet = documentWindow.sheets["alert"]
+        let clearButton = alertSheet.buttons["action-button-1"]
+        
+        editor.click(); editor.typeText(",[>+<-.]")
+        input.click(); input.typeText("testing, testing")
+        
+        documentWindow.popUpButtons["Clear"].click()
+        documentWindow.menuItems["Clear All…"].click()
+        
+        XCTAssert(alertSheet.waitForExistence(timeout: 1))
+        clearButton.click()
+        
+        Thread.sleep(forTimeInterval: 1) // Give the clear command some time to work
+        XCTAssertEqual("", editor.value as! String)
+        XCTAssertEqual("", input.value as! String)
+        
+        editor.click(); editor.typeText(",[>+<-.]")
+        input.click(); input.typeText("testing, testing")
+        
+        documentWindow.popUpButtons["Clear"].click()
+        documentWindow.menuItems["Clear Input"].click()
+        
+        Thread.sleep(forTimeInterval: 1) // Give the clear command some time to work
+        XCTAssertEqual("", input.value as! String)
+        XCTAssertNotEqual("", editor.value as! String)
+    }
+    
     func testCopyPasteButtons() throws {
         let menuBar = app.menuBars.firstMatch
         app.typeKey("n", modifierFlags: .command)
