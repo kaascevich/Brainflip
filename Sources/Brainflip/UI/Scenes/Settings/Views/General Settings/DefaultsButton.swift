@@ -23,6 +23,7 @@ struct DefaultsButton: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text("Type \"\(appName)\" to confirm your intent. You cannot undo this action.")
+                .selectionDisabled()
         }
     }
 }
