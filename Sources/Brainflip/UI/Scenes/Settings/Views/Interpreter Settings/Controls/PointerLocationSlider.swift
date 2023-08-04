@@ -5,7 +5,7 @@ struct PointerLocationSlider: View {
     var formatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.minimum = 0
-        formatter.maximum = NSNumber(value: settings.arraySize - 1)
+        formatter.maximum = (settings.arraySize - 1) as NSNumber
         return formatter
     }
     
