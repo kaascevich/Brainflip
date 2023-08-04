@@ -1,6 +1,7 @@
 # 🐞 Known Bugs
 
 - [ ] Program menu refreshes like mad when running a program
+- [ ] Trim and Clear All are enabled with locked files
 - [ ] Turning on toolbar button shapes turns the run button blue (????)
 
 ## Squashed
