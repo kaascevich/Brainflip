@@ -1,18 +1,18 @@
 import SwiftUI
 
 struct CopyButton: View {
-    var action: () -> String
+    var textToCopy: () -> String
     @State private var symbolEffect = false
     
-    init(_ action: @escaping () -> String) {
-        self.action = action
+    init(_ textToCopy: @escaping () -> String) {
+        self.textToCopy = textToCopy
     }
     
     var body: some View {
         Button {
             symbolEffect.toggle()
             NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(action(), forType: .string)
+            NSPasteboard.general.setString(textToCopy(), forType: .string)
         } label: {
             Image(systemName: "doc.on.doc")
                 .symbolEffect(.bounce.down, value: symbolEffect)
