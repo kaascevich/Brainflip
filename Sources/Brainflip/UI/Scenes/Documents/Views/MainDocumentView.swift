@@ -2,41 +2,37 @@ import SwiftUI
 
 struct MainDocumentView: View {
     @EnvironmentObject private var settings: AppSettings
-    @Environment(AppState.self) private var state: AppState
+    @Bindable var state: AppState
     
     var body: some View {
-        HSplitView {
-            VSplitView {
-                VStack {
-                    EditorPaneView()
-                    ActionBarView()
-                }
-                .padding()
-                .frame(minWidth: 500, maxWidth: .infinity, minHeight: 310, maxHeight: .infinity)
-                .layoutPriority(1)
-                
-                if state.isShowingOutput {
-                    OutputPaneView()
-                        .padding()
-                        .frame(minWidth: 500, maxWidth: .infinity, minHeight: 115, maxHeight: .infinity)
-                }
+        VSplitView {
+            VStack {
+                EditorPaneView()
+                ActionBarView()
             }
+            .padding()
+            .frame(minHeight: 310)
             .layoutPriority(1)
             
-            if state.isShowingInspector {
-                InspectorPaneView(state: state)
-                    .frame(minWidth: 235, maxWidth: .infinity, maxHeight: .infinity)
+            if state.isShowingOutput {
+                OutputPaneView()
+                    .padding()
+                    .frame(minHeight: 115)
             }
         }
-        .frame(maxHeight: .infinity)
+        .frame(minWidth: 500)
+        .inspector(isPresented: $state.isShowingInspector) {
+            InspectorPaneView(state: state)
+        }
         .toolbar {
             ToolbarContentView()
         }
+        .frame(maxHeight: .infinity)
     }
 }
 
 #Preview {
-    MainDocumentView()
+    MainDocumentView(state: previewState)
         .environmentObject(settings)
         .environment(previewState)
 }

@@ -5,7 +5,7 @@ struct MainDocumentScene: Scene {
         DocumentGroup(newDocument: BrainflipDocument()) { file in
             let state = AppState(document: file.document)
             
-            MainDocumentView()
+            MainDocumentView(state: state)
                 .environmentObject(settings)
                 .environment(state)
                 .focusedSceneValue(\.appState, state)
