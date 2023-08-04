@@ -7,11 +7,13 @@ struct ToolbarPanelToggles: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItemGroup {
             Toggle(isOn: $state.isShowingOutput) {
-                Label(state.isShowingOutput ? "Hide Output" : "Show Output", systemImage: "square.bottomthird.inset.filled")
+                Label(state.isShowingOutput ? "Hide Output" : "Show Output", systemImage: "square.bottomthird.inset")
+                    .symbolVariant(.fill)
                     .symbolEffect(.bounce.down, value: state.isShowingOutput)
             }
             Toggle(isOn: $state.isShowingInspector) {
-                Label(state.isShowingInspector ? "Hide Inspector" : "Show Inspector", systemImage: "square.trailingthird.inset.filled")
+                Label(state.isShowingInspector ? "Hide Inspector" : "Show Inspector", systemImage: "square.trailingthird.inset")
+                    .symbolVariant(.fill)
                     .symbolEffect(.bounce.down, value: state.isShowingInspector)
             }
         }
