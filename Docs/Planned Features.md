@@ -10,3 +10,6 @@
 - [ ] Disabling word wrap in the editor and/or output and/or input
 - [ ] A Go To button in the array popover
 - [ ] A walkthrough in the Help menu
+- [ ] A menu extra to keep track of a running program
+- [ ] Resuming the program after stopping it
+- [ ] Real-time input
