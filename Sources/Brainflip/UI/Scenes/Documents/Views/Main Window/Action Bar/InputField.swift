@@ -11,7 +11,7 @@ struct InputField: View {
         HStack {
             TextField("Type your program's input here (type ⌥⏎ or ⇧⏎ for a newline)…", text: $state.input, axis: .vertical)
                 .fontDesign(settings.monospacedInput ? .monospaced : .default)
-                .lineLimit(3...3)
+                .lineLimit(3, reservesSpace: true)
                 .disabled(state.isRunningProgram)
                 .accessibilityLabel("Input")
                 .speechAlwaysIncludesPunctuation()
