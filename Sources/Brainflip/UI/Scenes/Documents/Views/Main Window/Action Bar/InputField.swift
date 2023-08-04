@@ -22,6 +22,9 @@ struct InputField: View {
             .introspect(.textField, on: .macOS(.v14)) {
                 $0.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
             }
+            .onSubmit {
+                state.run()
+            }
             
             if settings.showCopyPasteButtons {
                 VStack {
