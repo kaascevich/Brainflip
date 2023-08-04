@@ -12,11 +12,10 @@ struct GeneralSettings: View {
                 Section("Notifications") {
                     ShowNotificationsToggle()
                 }
-                Section("Output") {
+                Section("Output & Input") {
                     MonospacedOutputToggle()
-                }
-                Section("Input") {
                     MonospacedInputToggle()
+                    ShowCopyPasteButtonsToggle()
                 }
             }
             .formStyle(.grouped)

@@ -14,9 +14,11 @@ struct OutputPaneView: View {
                 if settings.showTimer {
                     TimerView()
                 }
-                CopyButton { state.output }
-                    .buttonStyle(.borderless)
-                    .labelStyle(.iconOnly)
+                if settings.showCopyPasteButtons {
+                    CopyButton { state.output }
+                        .buttonStyle(.borderless)
+                        .labelStyle(.iconOnly)
+                }
             }
             OutputView()
         }

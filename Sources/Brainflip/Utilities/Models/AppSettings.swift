@@ -38,6 +38,9 @@ final class AppSettings: ObservableObject {
     @AppStorage("monospacedInput", store: generalSettings)
     var monospacedInput: Bool = false
     
+    @AppStorage("showCopyPasteButtons", store: generalSettings)
+    var showCopyPasteButtons: Bool = true
+    
     // MARK: - Sound Settings
     
     @AppStorage("playSounds", store: soundSettings)
