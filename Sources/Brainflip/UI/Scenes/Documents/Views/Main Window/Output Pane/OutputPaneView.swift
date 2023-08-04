@@ -16,15 +16,7 @@ struct OutputPaneView: View {
                 }
                 CopyButton { state.output }
             }
-            TextEditor(text: .constant(state.output))
-                .fontDesign(settings.monospacedOutput ? .monospaced : .default)
-                .introspect(.textEditor, on: .macOS(.v14)) {
-                    $0.isEditable = false
-                    $0.usesFindPanel = true
-                }
-                .accessibilityTextContentType(.sourceCode)
-                .accessibilityLabel("Output")
-                .speechSpellsOutCharacters()
+            OutputView()
         }
     }
 }

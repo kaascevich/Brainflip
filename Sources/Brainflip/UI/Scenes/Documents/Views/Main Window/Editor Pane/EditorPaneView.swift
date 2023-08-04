@@ -20,7 +20,7 @@ struct EditorPaneView: View {
                 }
             }
             
-            Editor(state: state)
+            EditorView(state: state)
             
             HStack {
                 if settings.showProgramSize {

@@ -2,7 +2,7 @@ import SwiftUI
 import HighlightedTextEditor
 import SwiftUIIntrospect
 
-struct Editor: View {
+struct EditorView: View {
     @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
     
@@ -22,7 +22,7 @@ struct Editor: View {
     }
 }
 
-extension Editor {
+extension EditorView {
     // This gets called every time document.contents changes, so let's try
     // to keep it as simple as possible.
     func applyTextViewAttributes(to textView: NSTextView) {
@@ -54,6 +54,6 @@ extension Editor {
 }
 
 #Preview {
-    Editor(state: previewState)
+    EditorView(state: previewState)
         .environmentObject(settings)
 }
