@@ -19,15 +19,21 @@ struct InputField: View {
                     $0.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
                 }
             
-            PasteButton(payloadType: String.self) { strings in
-                symbolEffect.toggle()
-                DispatchQueue.main.async {
-                    state.input = strings[0]
+            VStack {
+                CopyButton { state.input }
+                    .help("Copy")
+                
+                PasteButton(payloadType: String.self) { strings in
+                    symbolEffect.toggle()
+                    DispatchQueue.main.async {
+                        state.input = strings[0]
+                    }
                 }
+                .symbolEffect(.bounce.down, value: symbolEffect)
+                .help("Paste")
             }
             .labelStyle(.iconOnly)
-            .controlSize(.large)
-            .symbolEffect(.bounce.down, value: symbolEffect)
+            .buttonStyle(.borderless)
         }
     }
 }

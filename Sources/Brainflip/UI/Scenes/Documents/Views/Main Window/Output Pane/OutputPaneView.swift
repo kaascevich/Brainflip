@@ -15,6 +15,8 @@ struct OutputPaneView: View {
                     TimerView()
                 }
                 CopyButton { state.output }
+                    .buttonStyle(.borderless)
+                    .labelStyle(.iconOnly)
             }
             OutputView()
         }
