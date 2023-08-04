@@ -1,7 +1,6 @@
 # 🐞 Known Bugs
 
 - [ ] Program menu refreshes like mad when running a program
-- [ ] Trim and Clear All are enabled with locked files
 - [ ] Turning on toolbar button shapes turns the run button blue (????)
 
 ## Squashed
@@ -13,3 +12,4 @@
 - [x] App crash after selecting all and typing
 - [x] App shortcut is completely broken (naturally)
 - [x] Tests stall while building
+- [x] Trim and Clear All are enabled with locked files

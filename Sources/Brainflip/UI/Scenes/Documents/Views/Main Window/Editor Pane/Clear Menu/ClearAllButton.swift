@@ -8,7 +8,7 @@ struct ClearAllButton: View {
         Button("Clear All…", role: .destructive) {
             state.isClearAlertShowing.toggle()
         }
-        .disabled(state.isRunningProgram)
+        .disabled(state.isRunningProgram || state.isLocked)
     }
 }
 

@@ -5,9 +5,13 @@ import Observation
 // MARK: - Properties
 @Observable final class AppState {
     var document: BrainflipDocument
-    init(document: BrainflipDocument) {
+    init(document: BrainflipDocument, isLocked: Bool = false) {
         self.document = document
+        self.isLocked = isLocked
     }
+    
+    /// Whether or not the document is locked.
+    let isLocked: Bool
     
     var convertedDocument: CSourceDocument? = nil
     

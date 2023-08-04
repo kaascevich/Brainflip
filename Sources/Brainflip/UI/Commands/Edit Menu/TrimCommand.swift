@@ -7,7 +7,7 @@ struct TrimCommand: View {
         Button("Trim") {
             state?.isWarningAboutTrim.toggle()
         }
-        .disabled(state == nil || state!.disableMenuItems)
+        .disabled(state == nil || state!.disableMenuItems || state!.isLocked)
         .accessibilityIdentifier("trimProgram:")
     }
 }
