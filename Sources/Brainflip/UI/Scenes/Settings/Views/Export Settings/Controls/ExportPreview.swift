@@ -8,7 +8,10 @@ struct ExportPreview: View {
     
     var body: some View {
         TextEditor(text: .constant(sampleCode))
-            .font(settings.monospaced ? .system(size: settings.textSize).monospaced() : .system(size: settings.textSize))
+            .font(.system(
+                size: settings.textSize,
+                design: settings.monospaced ? .monospaced: .default
+            ))
             .introspect(.textEditor, on: .macOS(.v14)) {
                 $0.isEditable = false
             }

@@ -10,7 +10,7 @@ struct InputField: View {
     var body: some View {
         HStack {
             TextField("Type your program's input here (type ⌥⏎ or ⇧⏎ for a newline)…", text: $state.input, axis: .vertical)
-                .font(settings.monospacedInput ? .body.monospaced() : .body)
+                .fontDesign(settings.monospacedInput ? .monospaced : .default)
                 .lineLimit(2...2)
                 .disabled(state.isRunningProgram)
                 .accessibilityLabel("Input")

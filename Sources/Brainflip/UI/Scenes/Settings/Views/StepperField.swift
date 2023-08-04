@@ -50,7 +50,7 @@ struct StepperField: View {
                     .textFieldStyle(.squareBorder)
                     .fixedSize()
                     .multilineTextAlignment(.trailing)
-                    .font(.monospacedDigit(.body)())
+                    .monospacedDigit()
             }
         }
         .accessibilityValue(String(value))

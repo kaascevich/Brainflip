@@ -26,7 +26,11 @@ extension Editor {
     // This gets called every time document.contents changes, so let's try
     // to keep it as simple as possible.
     func applyTextViewAttributes(to textView: NSTextView) {
-        textView.font = settings.monospaced ? .monospacedSystemFont(ofSize: settings.textSize, weight: .regular) : .systemFont(ofSize: settings.textSize)
+        textView.font = if settings.monospaced {
+            .monospacedSystemFont(ofSize: settings.textSize, weight: .regular)
+        } else {
+            .systemFont(ofSize: settings.textSize)
+        }
         
         textView.allowsUndo = true
         textView.isEditable = !state.isRunningProgram

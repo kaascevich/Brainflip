@@ -47,7 +47,7 @@
 - [x] A timer, so you know exactly how inefficient a programmer you are
 - [x] Sending notifications when something happens
 - [x] Sound effects when something happens
-- [x] Using either a monospaced or proportional font for the editor, input, and/or output
+- [x] Using either a monospaced or proportional font for the input and/or output
 
 ## Other Features
 - [x] Tabbed windows

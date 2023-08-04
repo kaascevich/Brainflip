@@ -16,7 +16,7 @@ struct TextFieldWithLabel: View {
     var body: some View {
         DisclosureGroup(label, isExpanded: $isTextFieldShown) {
             TextField("", text: .constant(text))
-                .font(.body.monospacedDigit())
+                .monospacedDigit()
                 .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
                     $0.isSelectable = false
