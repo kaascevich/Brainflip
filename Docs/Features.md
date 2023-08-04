@@ -10,6 +10,7 @@
 - [x] Break instructions (`#`)
 
 ### Editor
+- [x] Using either a monospaced or proportional font
 - [x] Syntax highlighting (off by default 'cause it's slow)
 - [x] Custom font size
 - [x] Highlighting the current instruction
@@ -46,6 +47,7 @@
 - [x] A timer, so you know exactly how inefficient a programmer you are
 - [x] Sending notifications when something happens
 - [x] Sound effects when something happens
+- [x] Using either a monospaced or proportional font for the editor, input, and/or output
 
 ## Other Features
 - [x] Tabbed windows

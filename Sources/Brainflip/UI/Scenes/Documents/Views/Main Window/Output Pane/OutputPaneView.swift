@@ -17,7 +17,7 @@ struct OutputPaneView: View {
                 CopyButton { state.output }
             }
             TextEditor(text: .constant(state.output))
-                .font(.monospaced(.body)())
+                .font(settings.monospacedOutput ? .body.monospaced() : .body)
                 .introspect(.textEditor, on: .macOS(.v14)) {
                     $0.isEditable = false
                     $0.usesFindPanel = true

@@ -32,6 +32,12 @@ final class AppSettings: ObservableObject {
     @AppStorage("showNotifications", store: generalSettings)
     var showNotifications: Bool = false
     
+    @AppStorage("monospacedOutput", store: generalSettings)
+    var monospacedOutput: Bool = true
+    
+    @AppStorage("monospacedInput", store: generalSettings)
+    var monospacedInput: Bool = false
+    
     // MARK: - Sound Settings
     
     @AppStorage("playSounds", store: soundSettings)
@@ -159,6 +165,8 @@ extension AppSettings {
         AppSettings.logger.notice("Resetting general settings")
         showTimer                 = true
         showNotifications         = false
+        monospacedOutput          = true
+        monospacedInput           = false
     }
     
     func resetSoundToDefaults() {

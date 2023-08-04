@@ -12,6 +12,12 @@ struct GeneralSettings: View {
                 Section("Notifications") {
                     ShowNotificationsToggle()
                 }
+                Section("Output") {
+                    MonospacedOutputToggle()
+                }
+                Section("Input") {
+                    MonospacedInputToggle()
+                }
             }
             .formStyle(.grouped)
             

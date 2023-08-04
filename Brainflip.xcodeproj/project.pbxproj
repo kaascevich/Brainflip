@@ -74,6 +74,8 @@
 		34618C7529AAE7EF00552568 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7429AAE7EF00552568 /* AppSettings.swift */; };
 		34618C7729AAECEC00552568 /* OutputPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7629AAECEC00552568 /* OutputPaneView.swift */; };
 		34679C4D2A6DD092008CE0C1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34679C4C2A6DD092008CE0C1 /* Debug.swift */; };
+		346E1F192A7D629B00678984 /* MonospacedOutputToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F182A7D629B00678984 /* MonospacedOutputToggle.swift */; };
+		346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */; };
 		3473D2A72A7027870067F7F9 /* BrainflipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */; };
 		3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */; };
 		3474D9BB29CB777100DCFDF2 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */; };
@@ -271,6 +273,8 @@
 		34618C7429AAE7EF00552568 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34618C7629AAECEC00552568 /* OutputPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputPaneView.swift; sourceTree = "<group>"; };
 		34679C4C2A6DD092008CE0C1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		346E1F182A7D629B00678984 /* MonospacedOutputToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedOutputToggle.swift; sourceTree = "<group>"; };
+		346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedInputToggle.swift; sourceTree = "<group>"; };
 		3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainflipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipUITests.swift; sourceTree = "<group>"; };
 		3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportDefaultsButton.swift; sourceTree = "<group>"; };
@@ -662,6 +666,8 @@
 			children = (
 				3486AA3329BE7F20004C12B6 /* ShowTimerToggle.swift */,
 				345E190E2A64614A002C66D0 /* ShowNotificationsToggle.swift */,
+				346E1F182A7D629B00678984 /* MonospacedOutputToggle.swift */,
+				346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -1369,6 +1375,7 @@
 				341F0DA429C106080091C494 /* SyntaxHighlighting.swift in Sources */,
 				345B209C29C88BD500405DD9 /* MonospacedToggle.swift in Sources */,
 				34266C0229C4D1F40045337D /* EditorSettings.swift in Sources */,
+				346E1F192A7D629B00678984 /* MonospacedOutputToggle.swift in Sources */,
 				3404A20729B23FCE004514DC /* StopCommand.swift in Sources */,
 				3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */,
 				34D663AD29B8EDD800CB7481 /* SettingsScene.swift in Sources */,
@@ -1443,6 +1450,7 @@
 				34FDFE4C29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift in Sources */,
 				34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */,
 				34E09D9429BBE37800CF2299 /* BrainflipToC.swift in Sources */,
+				346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */,
 				3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */,
 				34618C5E29AADE6C00552568 /* Instruction.swift in Sources */,
 				34D663AF29B8EDDE00CB7481 /* ASCIIChartScene.swift in Sources */,
