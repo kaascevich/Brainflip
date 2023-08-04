@@ -28,6 +28,7 @@ struct MainDocumentView: View {
                     .frame(minWidth: 235, maxWidth: .infinity, maxHeight: .infinity)
             }
         }
+        .frame(maxHeight: .infinity)
         .toolbar {
             ToolbarContentView()
         }

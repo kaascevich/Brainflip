@@ -6,7 +6,6 @@ struct MainDocumentScene: Scene {
             let state = AppState(document: file.document)
             
             MainDocumentView()
-                .frame(minWidth: 735, minHeight: 460)
                 .environmentObject(settings)
                 .environment(state)
                 .focusedSceneValue(\.appState, state)
@@ -14,7 +13,6 @@ struct MainDocumentScene: Scene {
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)
         }
-        .defaultSize(width: 735, height: 460)
         .commands {
             MenuBarCommands()
             ToolbarCommands()
