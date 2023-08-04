@@ -17,6 +17,7 @@ struct ArrayView: View {
                         .bold()
                         .accessibilityLabel("Cell \(index) value")
                         .accessibilityValue(String(state.interpreter.cellArray[index]))
+                        .textSelection(.enabled)
                 }
             }
         }

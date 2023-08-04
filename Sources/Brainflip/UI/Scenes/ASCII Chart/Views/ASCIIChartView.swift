@@ -13,6 +13,7 @@ struct ASCIIChartView: View {
                         .bold()
                         .accessibilityLabel("Cell \(index) value")
                         .accessibilityValue(String(asciiValues[index]))
+                        .textSelection(.enabled)
                 }
             }
         }
