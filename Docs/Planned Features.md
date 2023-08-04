@@ -9,4 +9,4 @@
 - [ ] Automatically matching brackets
 - [ ] Disabling word wrap in the editor and/or output and/or input
 - [ ] A Go To button in the array popover
-- [ ] An walkthrough in the Help menu
+- [ ] A walkthrough in the Help menu
