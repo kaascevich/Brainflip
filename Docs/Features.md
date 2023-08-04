@@ -1,5 +1,13 @@
 # ⚙️ Features
 
+- [Configurable Settings](#configurable-settings)
+  - [Interpreter](#interpreter)
+  - [Editor](#editor)
+  - [Inspector](#inspector)
+  - [Exporting](#exporting)
+  - [Other](#other)
+- [Other Features](#other-features)
+
 ## Configurable Settings
 
 ### Interpreter
@@ -48,6 +56,7 @@
 - [x] Sending notifications when something happens
 - [x] Sound effects when something happens
 - [x] Using either a monospaced or proportional font for the input and/or output
+- [x] Toggling the copy and paste buttons
 
 ## Other Features
 - [x] Tabbed windows
