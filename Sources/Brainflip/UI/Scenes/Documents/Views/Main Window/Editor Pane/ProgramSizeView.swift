@@ -5,20 +5,20 @@ struct ProgramSizeView: View {
     @Environment(AppState.self) private var state: AppState
     
     private var programSize: String {
-        ByteCountFormatter.string(
-            fromByteCount: Int64(state.document.contents.count),
-            countStyle: .file
+        let byteCountFormatStyle = ByteCountFormatStyle(
+            style: .file,
+            allowedUnits: .bytes,
+            spellsOutZero: false
         )
-        + ", "
-        + ByteCountFormatter.string(
-            fromByteCount: Int64(state.document.program.count - 1),
-            countStyle: .file
-        )
-        + " executable"
+        
+        let fullByteCount = (state.document.contents.utf8.count).formatted(byteCountFormatStyle)
+        let executableByteCount = (state.document.program.count - 1).formatted(byteCountFormatStyle)
+        
+        return "\(fullByteCount), \(executableByteCount) executable"
     }
     
     var body: some View {
-        Text("Program size: " + programSize)
+        Text("Program size: \(programSize)")
             .accessibilityRespondsToUserInteraction()
             .accessibilityLabel("Program Size")
             .accessibilityValue(programSize)
