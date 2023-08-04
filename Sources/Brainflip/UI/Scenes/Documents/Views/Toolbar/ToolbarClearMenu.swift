@@ -11,8 +11,7 @@ struct ToolbarClearMenu: ToolbarContent {
                 ClearAllButton()
             } label: {
                 Label("Clear", systemImage: "xmark")
-                    .symbolVariant(.circle)
-                    .symbolVariant(.fill)
+                    .symbolVariant(.circle.fill)
             }
         }
     }
