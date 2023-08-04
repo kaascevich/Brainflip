@@ -9,6 +9,12 @@ struct ProgramSizeView: View {
             fromByteCount: Int64(state.document.contents.count),
             countStyle: .file
         )
+        + ", "
+        + ByteCountFormatter.string(
+            fromByteCount: Int64(state.document.program.count - 1),
+            countStyle: .file
+        )
+        + " executable"
     }
     
     var body: some View {
