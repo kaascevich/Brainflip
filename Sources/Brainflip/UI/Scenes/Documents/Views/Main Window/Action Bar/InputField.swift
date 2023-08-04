@@ -9,15 +9,19 @@ struct InputField: View {
     
     var body: some View {
         HStack {
-            TextField("Type your program's input here (type ⌥⏎ or ⇧⏎ for a newline)…", text: $state.input, axis: .vertical)
-                .fontDesign(settings.monospacedInput ? .monospaced : .default)
-                .lineLimit(3, reservesSpace: true)
-                .disabled(state.isRunningProgram)
-                .accessibilityLabel("Input")
-                .speechAlwaysIncludesPunctuation()
-                .introspect(.textField, on: .macOS(.v14)) {
-                    $0.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
-                }
+            TextField(
+                "Type your program's input here (type ⌥⏎ or ⇧⏎ for a newline)…",
+                text: $state.input,
+                axis: .vertical
+            )
+            .fontDesign(settings.monospacedInput ? .monospaced : .default)
+            .lineLimit(3, reservesSpace: true)
+            .disabled(state.isRunningProgram)
+            .accessibilityLabel("Input")
+            .speechAlwaysIncludesPunctuation()
+            .introspect(.textField, on: .macOS(.v14)) {
+                $0.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
+            }
             
             VStack {
                 CopyButton { state.input }
