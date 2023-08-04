@@ -1,6 +1,7 @@
 # 🐞 Known Bugs
 
 - [ ] Program menu refreshes like mad when running a program
+- [ ] Turning on toolbar button shapes turns the run button blue (????)
 
 ## Squashed
 - [x] Highlighting the current instruction is nonfunctional
