@@ -13,6 +13,7 @@ struct MainDocumentScene: Scene {
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)
         }
+        .defaultSize(width: 735, height: 460)
         .commands {
             MenuBarCommands()
             ToolbarCommands()
