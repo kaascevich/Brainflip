@@ -153,7 +153,7 @@ Additional terms, permissive or non-permissive, may be stated in the form of a s
 
 ### 8. Termination
 
-You may not propagate or modify a covered work except as expressly provided under this License. Any attempt otherwise to propagate or modify it is void, and will automatically terminate your rights under this License (including any patent licenses granted under the third paragraph of [section 11](#11.%20Patents).
+You may not propagate or modify a covered work except as expressly provided under this License. Any attempt otherwise to propagate or modify it is void, and will automatically terminate your rights under this License (including any patent licenses granted under the third paragraph of [section 11](#11-Patents).
 
 However, if you cease all violation of this License, then your license from a particular copyright holder is reinstated:
  1. provisionally, unless and until the copyright holder explicitly and finally terminates your license, and 
