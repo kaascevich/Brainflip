@@ -9,21 +9,10 @@
 a human-usable brainf\*\*k interpreter for macOS
 
  - [Overview](#overview)
-   - [Building and Running](#building-and-running)
-   - [References](#references)
  - [To Do](Docs/To%20Do.md)
-   - [Completed](Docs/To%20Do.md#completed)
  - [Features](Docs/Features.md)
-   - [Configurable Settings](Docs/Features.md#configurable-settings)
-     - [Interpreter](Docs/Features.md#interpreter)
-     - [Editor](Docs/Features.md#editor)
-     - [Inspector](Docs/Features.md#inspector)
-     - [Exporting](Docs/Features.md#exporting)
-     - [Other](Docs/Features.md#other)
-   - [Other Features](Docs/Features.md#other-features)
  - [Planned Features](Docs/Planned%20Features.md)
  - [Known Bugs](Docs/Bugs.md)
-   - [Squashed](Docs/Bugs.md#squashed)
 
 ## Overview
 
