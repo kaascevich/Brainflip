@@ -221,7 +221,6 @@
 		3404A21829B24CD7004514DC /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
 		3404A21C29B24DEC004514DC /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		3404A21E29B24F11004514DC /* ClearInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearInputButton.swift; sourceTree = "<group>"; };
-		34152D3A2A8042B4001E9CE4 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		341D6B802A706B3700571DF7 /* MeasureAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureAsync.swift; sourceTree = "<group>"; };
 		341F0DA329C106080091C494 /* SyntaxHighlighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxHighlighting.swift; sourceTree = "<group>"; };
 		341F299829A960B0000843FA /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
@@ -999,7 +998,6 @@
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
-				34152D3A2A8042B4001E9CE4 /* .swiftformat */,
 				342DA12F2A78294B005753FC /* .gitignore */,
 				3453D52E2A795A890014D4FC /* .gitattributes */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
