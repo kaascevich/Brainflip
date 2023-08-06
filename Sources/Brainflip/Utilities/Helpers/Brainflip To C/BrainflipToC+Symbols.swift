@@ -22,7 +22,6 @@ extension BrainflipToC {
     /// - Remark: I've used `static let`s instead of `case`s because I'd
     ///   otherwise have to specify `.rawValue` every time.
     enum Symbols {
-
         // MARK: - Whitespace
         
         static let newline              = "\n"

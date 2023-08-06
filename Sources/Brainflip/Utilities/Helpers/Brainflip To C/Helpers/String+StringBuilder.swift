@@ -17,7 +17,7 @@
 import Foundation
 
 @resultBuilder
-struct StringBuilder {
+enum StringBuilder {
     static func buildBlock(_ components: String...) -> String { components.joined() }
     
     static func buildOptional(_ component: String?) -> String { component ?? "" }

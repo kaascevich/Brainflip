@@ -27,6 +27,7 @@ extension BrainflipToC {
         }
         semicolon
     }
+
     @StringBuilder static var moveLeftInstruction: String {
         if settings.leftHandIncDec {
             decrement
@@ -48,6 +49,7 @@ extension BrainflipToC {
         }
         semicolon
     }
+
     @StringBuilder static var decrementInstruction: String {
         if settings.leftHandIncDec {
             decrement
@@ -60,7 +62,7 @@ extension BrainflipToC {
     }
     
     @StringBuilder static var conditionalInstruction: String {
-        Symbols.`while`
+        Symbols.while
         whitespace(for: .beforeWhileOrIf)
         openingParenthesis
         
@@ -76,6 +78,7 @@ extension BrainflipToC {
         newLineBeforeBrace
         Symbols.openingBrace
     }
+
     @StringBuilder static var loopInstruction: String {
         Symbols.closingBrace
     }
@@ -90,13 +93,14 @@ extension BrainflipToC {
         closingParenthesis
         semicolon
     }
+
     @StringBuilder static var inputInstruction: String {
         if settings.endOfInput == .noChange {
             Symbols.tempVariableName
         } else {
             pointerWithName
         }
-        `assignment`
+        assignment
         Symbols.inputFuncName
         whitespace(for: .beforeFunctionCall)
         Symbols.openingParenthesis
@@ -108,8 +112,7 @@ extension BrainflipToC {
         if settings.endOfInput == .noChange {
             whitespace(for: .afterSemicolon)
             
-            
-            Symbols.`if`
+            Symbols.if
             whitespace(for: .beforeWhileOrIf)
             openingParenthesis
             
@@ -120,7 +123,7 @@ extension BrainflipToC {
             closingParenthesis
             whitespace(for: .afterIfStatement)
             pointerWithNameInParentheses
-            `assignment`
+            assignment
             Symbols.tempVariableName
             semicolon
         }

@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-import os.log
 import AppIntents
+import Foundation
 import Observation
+import os.log
 
 /// Provides interpretation features for a Brainflip program.
 ///
@@ -89,16 +89,16 @@ import Observation
         self.breakOnHash     = breakOnHash
         
         self.loops = {
-            var array:   [Int] = [ ]
-            var stack:   [Int] = [0]
-            var numLoops: Int  =  0
-            var current:  Int  =  0
+            var array: [Int] = []
+            var stack = [0]
+            var numLoops = 0
+            var current = 0
             for instruction in Program(string: program) {
                 switch instruction {
                     case .conditional:
                         stack.append(current)
                         numLoops += 1
-                        current   = numLoops
+                        current = numLoops
                         array.append(current)
                     case .loop:
                         array.append(current)
@@ -119,7 +119,7 @@ import Observation
     
     /// The next ``Instruction`` to be executed.
     var currentInstruction: Instruction {
-        guard  program.indices.contains(currentInstructionIndex) else { return .blank }
+        guard program.indices.contains(currentInstructionIndex) else { return .blank }
         return program[currentInstructionIndex]
     }
     
@@ -128,7 +128,7 @@ import Observation
     
     /// The ``Instruction`` that was previously executed.
     var previousInstruction: Instruction {
-        guard  program.count > 0, previousInstructionIndex > 0 else { return .blank }
+        guard !program.isEmpty, previousInstructionIndex > 0 else { return .blank }
         return program[previousInstructionIndex]
     }
     
@@ -171,7 +171,7 @@ import Observation
     
     /// The current cell's value, represeted as an ASCII character.
     var currentCellAsASCII: String {
-        guard  asciiValues.indices.contains(currentCell) else { return "N/A" }
+        guard asciiValues.indices.contains(currentCell) else { return "N/A" }
         return asciiValues[currentCell]
     }
     
@@ -193,14 +193,14 @@ import Observation
     ///
     /// This returns `"\0"` if end-of-input has been reached.
     var currentInputCharacter: Character {
-        guard  currentInputIndex <= input.count - 1 else { return Character("\0") }
+        guard currentInputIndex <= input.count - 1 else { return Character("\0") }
         return input[input.index(input.startIndex, offsetBy: currentInputIndex)]
     }
     
     /// The current input character, represented as an ASCII character.
     var currentInputCharacterAsASCII: String {
-        guard  currentInputIndex <= input.count - 1 else { return "Null" }
-        return asciiValues[Int(currentInputCharacter.asciiValue!)]
+        guard currentInputIndex <= input.count - 1 else { return "Null" }
+        return asciiValues[Int(currentInputCharacter.asciiValue ?? 0)]
     }
     
     /// The total number of instructions that have been executed.
@@ -209,20 +209,18 @@ import Observation
     /// The total number of pointer movement instructions (<>) that have been executed.
     private(set) var totalPointerMovementInstructionsExecuted = 0
 
-    
     /// The total number of cell manipulation instructions (+-) that have been executed.
     private(set) var totalCellManipulationInstructionsExecuted = 0
 
-    
     /// The total number of control flow instructions ([]) that have been executed.
     private(set) var totalControlFlowInstructionsExecuted = 0
 
-    
     /// The total number of I/O instructions (.,) that have been executed.
     private(set) var totalIOInstructionsExecuted = 0
 }
 
 // MARK: - Running
+
 @Observable extension Interpreter {
     /// Executes an `Instruction`.
     ///
@@ -231,15 +229,15 @@ import Observation
     ///
     /// - Throws: `InterpreterError`.
     private func processInstruction(_ instruction: Instruction) throws {
-        //logger.log("Processing instruction \"\(instruction.rawValue)\"")
+        // logger.log("Processing instruction \"\(instruction.rawValue)\"")
         previousInstructionIndex = currentInstructionIndex
         switch instruction {
             case .moveRight:
                 pointer += 1
-                if pointer >= array.count {
+                guard pointer < array.count else {
                     throw InterpreterError.overflow
                 }
-                else if array[pointer] == nil {
+                if array[pointer] == nil {
                     array[pointer] = 0
                     currentArraySize += 1
                 }
@@ -275,10 +273,10 @@ import Observation
                 
             case .input where !hasReachedEndOfInput:
                 if currentInputIndex == input.count {
-                    switch endOfInput {
-                        case .noChange:  currentCell = currentCell
-                        case .setToZero: currentCell = 0
-                        case .setToMax:  currentCell = cellSize - 1
+                    currentCell = switch endOfInput {
+                        case .noChange:  currentCell
+                        case .setToZero: 0
+                        case .setToMax:  cellSize - 1
                     }
                     hasReachedEndOfInput = true
                 } else {
@@ -313,21 +311,20 @@ import Observation
         Interpreter.logger.info("Running full program")
         
         totalInstructionsExecuted = 0
-        currentInstructionIndex   = 0
-        hasReachedEndOfInput      = false
-        output                    = ""
+        currentInstructionIndex = 0
+        hasReachedEndOfInput = false
+        output = ""
         try checkForMismatchedBrackets()
         
         while currentInstructionIndex < program.count {
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
             guard !Task.isCancelled else {
-                Interpreter.logger.error("Run cancelled!")
-                return
+                Interpreter.logger.error("Run cancelled!"); return
             }
         }
         
-        currentInstructionIndex   -= 1
+        currentInstructionIndex -= 1
         totalInstructionsExecuted -= 1
         
         Interpreter.logger.info("Done running program")
@@ -352,19 +349,21 @@ import Observation
         else { throw InterpreterError.mismatchedBrackets }
     }
     
+    // TODO: Merge this with searchForOpeningBracket()
     private func searchForClosingBracket() throws -> Int {
         for (index, instruction) in program.enumerated() {
-            if instruction  == .loop,
-               loops[index] ==  loops[currentInstructionIndex]
+            if instruction == .loop,
+               loops[index] == loops[currentInstructionIndex] // does NOT necessarily mean index == currentInstructionIndex!
             { return index }
         }
         throw InterpreterError.mismatchedBrackets
     }
     
+    // TODO: Merge this with searchForClosingBracket()
     private func searchForOpeningBracket() throws -> Int {
         for (index, instruction) in program.enumerated() {
-            if instruction  == .conditional,
-               loops[index] ==  loops[currentInstructionIndex]
+            if instruction == .conditional,
+               loops[index] == loops[currentInstructionIndex] // does NOT necessarily mean index == currentInstructionIndex!
             { return index }
         }
         throw InterpreterError.mismatchedBrackets
@@ -400,7 +399,8 @@ import Observation
             arraySize:       arraySize,
             pointerLocation: pointerLocation,
             cellSize:        cellSize,
-            breakOnHash:     breakOnHash)
+            breakOnHash:     breakOnHash
+        )
     }
     
     /// Creates a new ``Interpreter``.
@@ -419,7 +419,7 @@ import Observation
         onEndOfInput:    EndOfInput = .noChange,
         arraySize:       Int        = 30_000,
         pointerLocation: Int        = 0,
-        cellSize:        CellSize,
+        cellSize:        CellSize, // no default argument because that would cause ambiguity
         breakOnHash:     Bool       = false
     ) {
         self.init(
@@ -429,7 +429,8 @@ import Observation
             arraySize:       arraySize,
             pointerLocation: pointerLocation,
             cellSize:        cellSize.rawValue + 1,
-            breakOnHash:     breakOnHash)
+            breakOnHash:     breakOnHash
+        )
     }
     
     /// Creates a new ``Interpreter``.
@@ -448,7 +449,7 @@ import Observation
         onEndOfInput:    EndOfInput = .noChange,
         arraySize:       Int        = 30_000,
         pointerLocation: Int        = 0,
-        cellSize:        CellSize,
+        cellSize:        CellSize, // no default argument because that would cause ambiguity
         breakOnHash:     Bool       = false
     ) {
         self.init(
@@ -458,6 +459,7 @@ import Observation
             arraySize:       arraySize,
             pointerLocation: pointerLocation,
             cellSize:        cellSize.rawValue + 1,
-            breakOnHash:     breakOnHash)
+            breakOnHash:     breakOnHash
+        )
     }
 }

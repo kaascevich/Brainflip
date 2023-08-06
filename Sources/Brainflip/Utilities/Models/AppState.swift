@@ -14,11 +14,12 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import Combine
 import Observation
+import SwiftUI
 
 // MARK: - Properties
+
 @Observable final class AppState {
     var document: BrainflipDocument
     init(document: BrainflipDocument, isLocked: Bool = false) {
@@ -54,7 +55,6 @@ import Observation
     var execution: Task = .init { }
     deinit { execution.cancel() }
     
-    
     var errorDescription: String = ""
     
     /// An InterpreterError instance if error is an InterpreterError;
@@ -76,6 +76,7 @@ import Observation
 }
 
 // MARK: - Methods
+
 @Observable extension AppState {
     @MainActor
     func run() {
@@ -114,6 +115,7 @@ import Observation
             timer?.upstream.connect().cancel(); timer = nil
         }
     }
+
     var disableRunButton: Bool {
         isRunningProgram || document.program.count <= 1
     }
@@ -132,14 +134,14 @@ import Observation
                     updateSelection()
                 } catch {
                     processError(error)
-                    if errorType != .break {
-                    }
+                    if errorType != .break { }
                 }
                 updateInspector()
                 isSteppingThrough = false
             }
         }
     }
+
     var disableStepButton: Bool {
         (interpreter.currentInstruction == .blank
             && interpreter.currentInstructionIndex != 0)
@@ -148,11 +150,11 @@ import Observation
     }
     
     private func updateSelection() {
-        /// An array of `Int`s that stores the total number of comment characters encountered so far.
-        ///
-        /// One can think of this as the difference between `string.count` and
-        /// `Program(from: string).count`, where
-        /// `string == programString[0..<index]`.
+        // An array of `Int`s that stores the total number of comment characters encountered so far.
+        //
+        // One can think of this as the difference between `string.count` and
+        // `Program(from: string).count`, where
+        // `string == programString[0..<index]`.
         func commentCharacters(in string: String) -> [Int] {
             var array: [Int] = []
             var numCommentCharacters = 0
@@ -198,6 +200,7 @@ import Observation
         isRunningProgram = false
         justRanProgram   = false
     }
+
     var disableResetButton: Bool {
         (isRunningProgram || interpreter.currentInstructionIndex == 0)
             && !justRanProgram
@@ -210,16 +213,17 @@ import Observation
         isRunningProgram = false
         justRanProgram   = false
     }
+
     var disableStopButton: Bool { !isRunningProgram }
     
     var disableMenuItems: Bool {
         isAskingForOutputFile
-        || isInformingAboutCExport
-        || isWarningAboutTrim
-        || isClearAlertShowing
-        || isConversionProgressShowing
-        || hasError
-        || showingMainHelp
+            || isInformingAboutCExport
+            || isWarningAboutTrim
+            || isClearAlertShowing
+            || isConversionProgressShowing
+            || hasError
+            || showingMainHelp
     }
     
     private func createInterpreter() -> Interpreter {
@@ -229,17 +233,16 @@ import Observation
                     arraySize:       Int(settings.arraySize),
                     pointerLocation: Int(settings.pointerLocation),
                     cellSize:        settings.cellSize.rawValue,
-                    breakOnHash:     settings.breakOnHash
-        )
+                    breakOnHash:     settings.breakOnHash)
     }
     
     private func shouldReset() -> Bool {
-           settings.endOfInput           != interpreter.endOfInput
-        || Int(settings.arraySize)       != interpreter.arraySize
-        || Int(settings.pointerLocation) != interpreter.pointerLocation
-        || settings.cellSize.rawValue    != interpreter.cellSize
-        || interpreter.program           != Program(string: document.contents)
-        || justRanProgram
+        settings.endOfInput           != interpreter.endOfInput
+            || Int(settings.arraySize)       != interpreter.arraySize
+            || Int(settings.pointerLocation) != interpreter.pointerLocation
+            || settings.cellSize.rawValue    != interpreter.cellSize
+            || interpreter.program           != Program(string: document.contents)
+            || justRanProgram
     }
     
     private func updateInspector() {
@@ -261,6 +264,7 @@ import Observation
 }
 
 // MARK: - Error Handling
+
 @Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
@@ -279,7 +283,7 @@ import Observation
         }
     }
     
-    private func message<T: Error>(for error: T) -> String {
+    private func message(for error: some Error) -> String {
         let ordinalFormatter = NumberFormatter()
         ordinalFormatter.numberStyle = .ordinal
         
@@ -288,37 +292,37 @@ import Observation
                 case .mismatchedBrackets:
                     let leftBracketCount  = document.program.count(of: .conditional)
                     let rightBracketCount = document.program.count(of: .loop)
-                    
-                    // If the bracket counts are equal, there isn't really a point in echoing them.
+                
+                    /// If the bracket counts are equal, there isn't really a point in echoing them.
                     let firstSentence = "There are unmatched brackets within your code."
                     guard leftBracketCount != rightBracketCount else {
                         return firstSentence
                     }
-                    
-                    // Get the difference in bracket amounts
+                
+                    /// Get the difference in bracket amounts
                     let extraBracketCount = abs(leftBracketCount - rightBracketCount)
-                    
-                    // Check whether we have more left brackets than right brackets, or vice versa
+                
+                    /// Check whether we have more left brackets than right brackets, or vice versa
                     let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
-                    
+                
                     let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
-                    
+                
                     return firstSentence + " " + secondSentence
-                    
+                
                 case .underflow:
                     return """
                     An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
                     
                     (Hint: try raising the initial pointer location in the interpreter settings.)
                     """
-                    
+                
                 case .overflow:
                     return """
                     An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
                     
                     (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
                     """
-                    
+                
                 case .break: return "" // we're not going to show the message anyway
             }
                 

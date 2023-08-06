@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
 import AppKit
+import Foundation
 
 enum SystemSounds: String {
     case basso
@@ -33,13 +33,13 @@ enum SystemSounds: String {
     case submarine
     case tink
     
-    static let start   = purr
+    static let start = purr
     static let success = glass
-    static let step    = pop
-    static let fail    = sosumi
+    static let step = pop
+    static let fail = sosumi
     
     func play() {
-        let sound = NSSound(named: self.rawValue.capitalized)
+        let sound = NSSound(named: rawValue.capitalized)
         sound?.stop()
         sound?.play()
     }

@@ -39,6 +39,7 @@ extension BrainflipToC {
             Symbols.increment
         }
     }
+
     @StringBuilder static var decrement: String {
         if settings.leftHandIncDec {
             Symbols.decrement
@@ -55,6 +56,7 @@ extension BrainflipToC {
         Symbols.openingParenthesis
         whitespace(for: .inParentheses)
     }
+
     @StringBuilder static var closingParenthesis: String {
         whitespace(for: .inParentheses)
         Symbols.closingParenthesis
@@ -64,6 +66,7 @@ extension BrainflipToC {
         Symbols.openingBracket
         whitespace(for: .inBrackets)
     }
+
     @StringBuilder static var closingBracket: String {
         whitespace(for: .inBrackets)
         Symbols.closingBracket
@@ -79,10 +82,12 @@ extension BrainflipToC {
             closingParenthesis
         }
     }
+
     @StringBuilder static var pointerWithName: String {
         pointerMark(whitespaceBefore: false, whitespaceAfter: settings.leftHandIncDec)
         settings.pointerName
     }
+
     @StringBuilder static var pointerWithNameInParentheses: String {
         openingParenthesis
         pointerWithName
@@ -94,6 +99,7 @@ extension BrainflipToC {
     @StringBuilder static var assignment: String {
         surround(Symbols.assignment, with: .aroundAssignment)
     }
+
     @StringBuilder static var compoundAssignment: String {
         surround(Symbols.compoundAssignment, with: .aroundCompoundAssignment)
     }
@@ -105,6 +111,7 @@ extension BrainflipToC {
         whitespace(for: .beforeSemicolon)
         Symbols.semicolon
     }
+
     @StringBuilder static var comma: String {
         surround(Symbols.comma, before: .beforeCommas, after: .afterCommas)
     }
@@ -123,8 +130,8 @@ extension BrainflipToC {
                 Symbols.short
             case .thirtyTwoBit: // 4,294,967,295
                 Symbols.int
-            default:            // 1, 3, 15 -> 255
-                Symbols.char    // since the smallest type in C is char
+            default:            // 1, 3, 15
+                Symbols.char    // 255 (since the smallest type in C is char)
         }
     }
 }

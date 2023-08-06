@@ -15,14 +15,14 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import Foundation
-import UserNotifications
-import SwiftUI
 import os.log
+import SwiftUI
+import UserNotifications
 
 struct Notifications {
     private init() { }
     
-    static private let logger = Logger(subsystem: bundleID, category: "Notifications")
+    private static let logger = Logger(subsystem: bundleID, category: "Notifications")
     
     @discardableResult
     static func requestPermission() -> Bool {

@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
 import AppIntents
+import Foundation
 
 /// The possible sizes for a cell.
 enum CellSize: Int, CaseIterable, Hashable, AppEnum {
@@ -47,4 +47,3 @@ enum CellSize: Int, CaseIterable, Hashable, AppEnum {
     /// Represents a cell size of 2³²-1 = 4,294,967,295.
     case thirtyTwoBit = 4_294_967_295
 }
-

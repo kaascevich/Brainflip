@@ -15,8 +15,8 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import Foundation
-import RegexBuilder
 import os.log
+import RegexBuilder
 
 enum BrainflipToC {
     static let logger = Logger(subsystem: bundleID, category: "Brainflip-to-C conversion")
@@ -30,8 +30,8 @@ enum BrainflipToC {
     static let identifierRegex = Regex {
         CharacterClass(
             .anyOf("_"),
-            ("a"..."z"),
-            ("A"..."Z")
+            "a"..."z",
+            "A"..."Z"
         )
         Repeat(0...30) {
             One(.word)

@@ -21,6 +21,7 @@ extension BrainflipToC {
     enum Whitespace: String, Codable, CaseIterable {
         // For the uninitiated: Surrounding a string with hashes (#) lets you use
         // plain quote marks within the string.
+        
         case beforeWhileOrIf          = #"Before "(" in a "while" or "if" statement"#
         case beforeFunctionCall       = #"Before "(" in a function call or declaration"#
         case afterIfStatement         = #"After an "if" statement"#

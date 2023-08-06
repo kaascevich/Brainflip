@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+import Observation
 import SwiftUI
 import UniformTypeIdentifiers
-import Observation
 
 @Observable final class BrainflipDocument: FileDocument, Identifiable {
     let id = UUID()
@@ -44,9 +44,9 @@ import Observation
         self.filename = filename
     }
     
-    func snapshot(contentType: UTType) throws -> String { contents }
+    func snapshot(contentType _: UTType) throws -> String { contents }
     
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+    func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
         let data = contents.data(using: .ascii) ?? "\0".data(using: .ascii)!
         let fileWrapper = FileWrapper(regularFileWithContents: data)
         return fileWrapper
@@ -54,5 +54,5 @@ import Observation
 }
 
 extension UTType {
-    static let brainflipSource: UTType = UTType(exportedAs: "com.kascevich.brainflip-source")
+    static let brainflipSource: UTType = .init(exportedAs: "com.kascevich.brainflip-source")
 }

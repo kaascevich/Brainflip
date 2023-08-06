@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import Foundation
 import os.log
+import SwiftUI
 
 /// The global ``AppSettings`` instance.
 ///
@@ -80,7 +80,7 @@ final class AppSettings: ObservableObject {
     var endOfInput: Interpreter.EndOfInput = .noChange
     
     @AppStorage("arraySize", store: interpreterSettings)
-    var arraySize: Double = 30000
+    var arraySize: Double = 30_000
     
     @AppStorage("pointerLocation", store: interpreterSettings)
     var pointerLocation: Double = 0

@@ -60,7 +60,7 @@ extension BrainflipToC {
         cellType
         pointerMark()
         settings.pointerName
-        `assignment`
+        assignment
         settings.arrayName
         semicolon
     }
@@ -71,7 +71,7 @@ extension BrainflipToC {
             cellType
             Symbols.space
             Symbols.tempVariableName
-            `assignment`
+            assignment
             Symbols.tempVariableValue
             semicolon
         }

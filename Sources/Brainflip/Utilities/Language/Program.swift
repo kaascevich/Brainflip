@@ -17,7 +17,7 @@
 import Foundation
 
 /// Represents a Brainflip program.
-typealias Program = Array<Instruction>
+typealias Program = [Instruction]
 
 extension Program {
     /// Creates a program from a `String`.
