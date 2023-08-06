@@ -1,13 +1,5 @@
 # ⚙️ Features
 
-- [Configurable Settings](#configurable-settings)
-  - [Interpreter](#interpreter)
-  - [Editor](#editor)
-  - [Inspector](#inspector)
-  - [Exporting](#exporting)
-  - [Other](#other)
-- [Other Features](#other-features)
-
 ## Configurable Settings
 
 ### Interpreter
