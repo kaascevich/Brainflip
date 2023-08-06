@@ -330,6 +330,7 @@
 		34B9FCD52A795200003A003B /* Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Unit.xctestplan; sourceTree = "<group>"; };
 		34B9FCD62A795208003A003B /* UI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UI.xctestplan; sourceTree = "<group>"; };
 		34BB2C0D2A6768E800E3E812 /* Demonstration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demonstration.png; sourceTree = "<group>"; };
+		34BE8DAA2A800BE4001376A1 /* Code of Conduct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Code of Conduct.md"; sourceTree = "<group>"; };
 		34CECCA52A64E07E003F936D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		34CECCA72A64E07F003F936D /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		34D05AC029B3B2E800711079 /* ToolbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarContentView.swift; sourceTree = "<group>"; };
@@ -1003,6 +1004,7 @@
 				3453D52E2A795A890014D4FC /* .gitattributes */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34B2A04C2A7F3AF60019440D /* License.md */,
+				34BE8DAA2A800BE4001376A1 /* Code of Conduct.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34F01C742A785683009BA385 /* Sources */,
 				34F01C722A784F7A009BA385 /* Tests */,
