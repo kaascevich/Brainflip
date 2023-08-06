@@ -53,7 +53,7 @@ Oh, and did I mention it's highly configurable? It's highly configurable. Like, 
 
 First, [download the Xcode 15 beta](https://developer.apple.com/xcode) if you haven't already.
 
-[Clone this repo](https://github.com/kaascevich/Brainflip.git), and open `Brainflip.xcodeproj`. Once Xcode's done with package resolution, hit ⌘R to build and run the project.
+[Clone this repo](/Brainflip.git), and open `Brainflip.xcodeproj`. Once Xcode's done with package resolution, hit ⌘R to build and run the project.
 
 ## References
 
