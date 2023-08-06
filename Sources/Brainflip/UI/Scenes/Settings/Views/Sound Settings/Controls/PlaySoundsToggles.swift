@@ -1,4 +1,4 @@
-// ResetProgramCommand.swift
+// PlaySoundsToggles.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This app is free software: you can redistribute it and/or modify it
@@ -16,15 +16,23 @@
 
 import SwiftUI
 
-struct ResetProgramCommand: View {
-    @FocusedValue(\.appState) private var state
+struct PlaySoundsToggles: View {
+    @EnvironmentObject private var settings: AppSettings
     
     var body: some View {
-        Button("Reset Program") {
-            state?.reset()
+        Toggle("Play sound effects", isOn: settings.$playSounds)
+        
+        Section {
+            Toggle("When running program", isOn: settings.$playStartSound)
+            Toggle("When program finishes running", isOn: settings.$playSuccessSound)
+            Toggle("When program stops with an error", isOn: settings.$playFailSound)
+            Toggle("When stepping through program", isOn: settings.$playStepSound)
         }
-        .keyboardShortcut(".", modifiers: [.shift, .command])
-        .disabled(state == nil || state!.disableResetButton || state!.disableMenuItems)
-        .accessibilityIdentifier("resetProgramState:")
+        .disabled(!settings.playSounds)
     }
+}
+
+#Preview {
+    PlaySoundsToggles()
+        .environmentObject(settings)
 }

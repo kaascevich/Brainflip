@@ -134,7 +134,7 @@
 		34DF122529A7B9490021729B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DF122429A7B9490021729B /* Preview Assets.xcassets */; };
 		34E09D7B29BB8E6B00CF2299 /* SoundSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D7A29BB8E6B00CF2299 /* SoundSettings.swift */; };
 		34E09D7D29BB8E9A00CF2299 /* SoundDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D7C29BB8E9A00CF2299 /* SoundDefaultsButton.swift */; };
-		34E09D7F29BB90AD00CF2299 /* PlaySoundsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D7E29BB90AD00CF2299 /* PlaySoundsToggle.swift */; };
+		34E09D7F29BB90AD00CF2299 /* PlaySoundsToggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D7E29BB90AD00CF2299 /* PlaySoundsToggles.swift */; };
 		34E09D8129BB91C500CF2299 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D8029BB91C500CF2299 /* SoundEffect.swift */; };
 		34E09D8D29BBAEE700CF2299 /* Inspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D8C29BBAEE700CF2299 /* Inspector.swift */; };
 		34E09D8F29BBB5C800CF2299 /* ProgramProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E09D8E29BBB5C800CF2299 /* ProgramProgressView.swift */; };
@@ -356,7 +356,7 @@
 		34DF122F29A7CE290021729B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		34E09D7A29BB8E6B00CF2299 /* SoundSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSettings.swift; sourceTree = "<group>"; };
 		34E09D7C29BB8E9A00CF2299 /* SoundDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundDefaultsButton.swift; sourceTree = "<group>"; };
-		34E09D7E29BB90AD00CF2299 /* PlaySoundsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsToggle.swift; sourceTree = "<group>"; };
+		34E09D7E29BB90AD00CF2299 /* PlaySoundsToggles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsToggles.swift; sourceTree = "<group>"; };
 		34E09D8029BB91C500CF2299 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		34E09D8C29BBAEE700CF2299 /* Inspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inspector.swift; sourceTree = "<group>"; };
 		34E09D8E29BBB5C800CF2299 /* ProgramProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramProgressView.swift; sourceTree = "<group>"; };
@@ -682,7 +682,7 @@
 		3474D9C529CB97EB00DCFDF2 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				34E09D7E29BB90AD00CF2299 /* PlaySoundsToggle.swift */,
+				34E09D7E29BB90AD00CF2299 /* PlaySoundsToggles.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -1468,7 +1468,7 @@
 				34B3BADA29B6686F009E06A7 /* InterpreterDefaultsButton.swift in Sources */,
 				345E190D2A645886002C66D0 /* Notifications.swift in Sources */,
 				3474D9C329CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift in Sources */,
-				34E09D7F29BB90AD00CF2299 /* PlaySoundsToggle.swift in Sources */,
+				34E09D7F29BB90AD00CF2299 /* PlaySoundsToggles.swift in Sources */,
 				34D663B129B8F00600CB7481 /* HideOutputCommand.swift in Sources */,
 				34E09D8D29BBAEE700CF2299 /* Inspector.swift in Sources */,
 				34DF121E29A7B9480021729B /* BrainflipApp.swift in Sources */,
