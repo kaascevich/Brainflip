@@ -1001,6 +1001,7 @@
 			children = (
 				342DA12F2A78294B005753FC /* .gitignore */,
 				3453D52E2A795A890014D4FC /* .gitattributes */,
+				3422F3BB2A661556006DB1BF /* Readme.md */,
 				34B2A04C2A7F3AF60019440D /* License.md */,
 				34F1B04B2A71C4F9003949DE /* Docs */,
 				34F01C742A785683009BA385 /* Sources */,
@@ -1110,7 +1111,6 @@
 			isa = PBXGroup;
 			children = (
 				348A00262A663BCC00C7B056 /* Images */,
-				3422F3BB2A661556006DB1BF /* Readme.md */,
 				347F22A42A67640D00754651 /* To Do.md */,
 				34ADA5E42A7554DD001B6FCB /* Features.md */,
 				34ADA5E52A755565001B6FCB /* Planned Features.md */,
