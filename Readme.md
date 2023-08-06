@@ -10,9 +10,9 @@ a human-usable brainf\*\*k interpreter for macOS
 
  - [Overview](#overview)
  - [License](/License.md)
- - [To Do](/Docs/To-Do.md)
+ - [To Do](/Docs/To%20Do.md)
  - [Features](/Docs/Features.md)
- - [Planned Features](/Docs/Planned-Features.md)
+ - [Planned Features](/Docs/Planned%20Features.md)
  - [Known Bugs](/Docs/Bugs.md)
 
 ## Overview
