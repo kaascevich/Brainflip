@@ -1,0 +1,116 @@
+exclude:
+    - /DerivedData/
+
+disabled_rules:
+    - function_body_length
+    - file_length
+    - function_parameter_count
+    - type_body_length
+    #multiple_closures_with_trailing_closure
+    
+opt_in_rules:
+     - accessibility_label_for_image
+     - accessibility_trait_for_button
+     - anonymous_argument_in_multiline_closure
+     - anyobject_protocol
+     - array_init
+     - attributes
+     - closure_end_indentation
+     - closure_spacing
+     - collection_alignment
+     - comma_inheritance
+     - contains_over_filter_count
+     - contains_over_filter_is_empty
+     - contains_over_first_not_nil
+     - contains_over_range_nil_comparison
+     - convenience_type
+     - discouraged_assert
+     - discouraged_none_name
+     - empty_collection_literal
+     - empty_count
+     - empty_string
+     - empty_xctest_method
+     - extension_access_modifier
+     - fatal_error_message
+     - file_header
+     - file_name
+     - file_name_no_space
+     - file_types_order
+     - first_where
+     - flatmap_over_map_reduce
+     - identical_operands
+     - implicit_return
+     - inert_defer
+     - joined_default_parameter
+     - last_where
+     - legacy_multiple
+     - legacy_objc_type
+     - literal_expression_end_indentation
+     - lower_acl_than_parent
+     - modifier_order
+     - multiline_arguments
+     - multiline_arguments_brackets
+     - multiline_function_chains
+     - multiline_literal_brackets
+     - multiline_parameters
+     - multiline_parameters_brackets
+     - nslocalizedstring_key
+     - operator_usage_whitespace
+     - pattern_matching_keywords
+     - prefer_self_in_static_references
+     - prefer_self_type_over_type_of_self
+     - prefer_zero_over_explicit_init
+     - private_swiftui_state
+     - reduce_into
+     - redundant_nil_coalescing
+     - redundant_self_in_closure
+     - return_value_from_void_function
+     - shorthand_optional_binding
+     - single_test_class
+     - sorted_first_last
+     - sorted_imports
+     - toggle_bool
+     - trailing_closure
+     - type_contents_order
+     - unavailable_function
+     - unneeded_parentheses_in_closure_argument
+     - unused_capture_list
+     - vertical_parameter_alignment_on_call
+     - vertical_whitespace_closing_braces
+     - vertical_whitespace_opening_braces
+     - yoda_condition
+
+# I don't know why, but unindented switch cases are quite
+# the pet peeve of mine. I get that it removesa level of
+# indentation that isn't really necessary, but I still like
+# it the "old-fashioned" way, so to speak.
+switch_case_alignment:
+    indented_cases: true
+
+# Trailing whitespace on empty lines lets my tab key live
+# just a little bit longer.
+trailing_whitespace:
+    ignores_empty_lines: true
+
+# There are times when one actually needs to use these for
+# their intended purposes.
+force_cast: warning
+force_try: warning
+
+file_header:
+    required_pattern: |
+                      \/\/ SWIFTLINT_CURRENT_FILENAME
+                      \/\/ Copyright © \d{4} .+
+                      \/\/
+                      \/\/ This app is free software\: you can redistribute it and\/or modify it
+                      \/\/ under the terms of the GNU General Public License as published by the
+                      \/\/ Free Software Foundation, either version 3 of the License, or \(at your
+                      \/\/ option\) any later version\.
+                      \/\/
+                      \/\/ This app is distributed in the hope that it will be useful, but WITHOUT
+                      \/\/ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+                      \/\/ FITNESS FOR A PARTICULAR PURPOSE\. See the GNU General Public License
+                      \/\/ for more details\.
+                      \/\/
+                      \/\/ You should have received a copy of the GNU General Public License along
+                      \/\/ with this app\. If not, see https\:\/\/www\.gnu\.org\/licenses\/\.

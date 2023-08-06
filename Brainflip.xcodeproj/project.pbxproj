@@ -365,6 +365,7 @@
 		34E8AB852A7202B900371450 /* ArrayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayView.swift; sourceTree = "<group>"; };
 		34EC0D9F29AF9C1800CBC87C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		34EE8A952A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeVoidWithinMainToggle.swift; sourceTree = "<group>"; };
+		34EFB99F2A8047FD008794DF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		34F01C752A785742009BA385 /* GeneralDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralDefaultsButton.swift; sourceTree = "<group>"; };
 		34F1B0482A71BF96003949DE /* All.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = All.xctestplan; sourceTree = "<group>"; };
 		34FDFE3F29CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Whitespace.swift"; sourceTree = "<group>"; };
@@ -998,6 +999,7 @@
 		34DF121129A7B9470021729B = {
 			isa = PBXGroup;
 			children = (
+				34EFB99F2A8047FD008794DF /* .swiftlint.yml */,
 				342DA12F2A78294B005753FC /* .gitignore */,
 				3453D52E2A795A890014D4FC /* .gitattributes */,
 				3422F3BB2A661556006DB1BF /* Readme.md */,
