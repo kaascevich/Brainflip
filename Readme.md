@@ -9,11 +9,11 @@
 a human-usable brainf\*\*k interpreter for macOS
 
  - [Overview](#overview)
- - [License](License.md)
- - [To Do](To%20Do.md)
- - [Features](Features.md)
- - [Planned Features](Planned%20Features.md)
- - [Known Bugs](Bugs.md)
+ - [License](/License.md)
+ - [To Do](/Docs/To%20Do.md)
+ - [Features](/Docs/Features.md)
+ - [Planned Features](/Docs/Planned%20Features.md)
+ - [Known Bugs](/Docs/Bugs.md)
 
 ## Overview
 
@@ -29,15 +29,15 @@ Not very enticing, is it? 🫤
 
 Brainflip attempts (*attempts*) to remedy that.
 
-![Typical Brainflip usage. You gotta admit, it's certainly better than the command line.](Images/Demonstration.png)
+![Typical Brainflip usage. You gotta admit, it's certainly better than the command line.](/Docs/Images/Demonstration.png)
 
 You're provided with a relatively full-fledged editor to do your ~~evildoings~~ programming with. You can run programs, trim those programs to make them *really* unreadable, step through programs to identify that one stupid instruction that's breaking *literally everything*, and inspect just about every aspect of the interpreter, from the total instructions executed to the exact contents of the array.
 
 Oh, and did I mention it's highly configurable? It's highly configurable. Like, *really* highly configurable. Like, *so* ridiculously configurable it's excessive.
 
-![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](Images/InterpreterSettings.png)
+![Brainflip's interpreter settings. You probably shouldn't mess around with some of these.](/Docs/Images/InterpreterSettings.png)
 
-(A somewhat full list of features can be found in [`Features.md`](Features.md).)
+(A somewhat full list of features can be found in [`Features.md`](/Docs/Features.md).)
 
 ## Building and Running
 
