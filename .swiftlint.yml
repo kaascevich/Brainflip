@@ -1,4 +1,4 @@
-exclude:
+excluded:
     - /DerivedData/
 
 disabled_rules:
@@ -14,7 +14,6 @@ opt_in_rules:
      - accessibility_label_for_image
      - accessibility_trait_for_button
      - anonymous_argument_in_multiline_closure
-     - anyobject_protocol
      - array_init
      - attributes
      - closure_end_indentation
@@ -41,7 +40,6 @@ opt_in_rules:
      - flatmap_over_map_reduce
      - identical_operands
      - implicit_return
-     - inert_defer
      - joined_default_parameter
      - last_where
      - legacy_multiple
@@ -61,7 +59,6 @@ opt_in_rules:
      - prefer_self_in_static_references
      - prefer_self_type_over_type_of_self
      - prefer_zero_over_explicit_init
-     - private_swiftui_state
      - reduce_into
      - redundant_nil_coalescing
      - redundant_self_in_closure
@@ -75,7 +72,6 @@ opt_in_rules:
      - type_contents_order
      - unavailable_function
      - unneeded_parentheses_in_closure_argument
-     - unused_capture_list
      - vertical_parameter_alignment_on_call
      - vertical_whitespace_closing_braces
      - vertical_whitespace_opening_braces
@@ -97,6 +93,10 @@ trailing_whitespace:
 # their intended purposes.
 force_cast: warning
 force_try: warning
+
+# @Observable is short enough we don't need a new line for it.
+attributes:
+    always_on_same_line: ["@IBAction", "@NSManaged", "@Obserbable"]
 
 file_header:
     required_pattern: |
