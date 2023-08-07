@@ -29,8 +29,8 @@ struct WhitespaceList: View {
         .sheet(isPresented: $isShowingWhitespaceSettings) {
             Form {
                 Section("Show whitespace:") {
-                    List(Whitespace.allCases.indices, id: \.self) {
-                        Toggle(Whitespace.allCases[$0].rawValue, isOn: Whitespace.$enabledWhitespace[$0])
+                    List(Whitespace.allCases.indices, id: \.self) { index in
+                        Toggle(Whitespace.allCases[index].rawValue, isOn: Whitespace.$enabledWhitespace[index])
                     }
                     .padding(5)
                 }

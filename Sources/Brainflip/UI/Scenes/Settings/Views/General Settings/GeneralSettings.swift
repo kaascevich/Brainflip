@@ -50,4 +50,3 @@ struct GeneralSettings: View {
     GeneralSettings()
         .environmentObject(settings)
 }
-

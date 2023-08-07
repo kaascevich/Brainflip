@@ -26,7 +26,7 @@ struct IntentProvider: AppShortcutsProvider {
                 "Run \(.applicationName) program",
                 "Run \(.applicationName) code",
                 "Execute \(.applicationName) program",
-                "Execute \(.applicationName) code",
+                "Execute \(.applicationName) code"
             ],
             shortTitle: "Run Brainflip program",
             systemImageName: "chevron.left.forwardslash.chevron.right"

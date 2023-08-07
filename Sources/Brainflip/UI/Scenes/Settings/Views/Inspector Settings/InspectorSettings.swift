@@ -44,4 +44,3 @@ struct InspectorSettings: View {
     InspectorSettings()
         .environmentObject(settings)
 }
-

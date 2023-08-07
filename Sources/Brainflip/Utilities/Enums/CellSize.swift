@@ -20,12 +20,12 @@ import Foundation
 /// The possible sizes for a cell.
 enum CellSize: Int, CaseIterable, Hashable, AppEnum {
     static let typeDisplayRepresentation: TypeDisplayRepresentation = "Cell Size"
-    static let caseDisplayRepresentations: [CellSize: DisplayRepresentation] = [
-        .oneBit:       "1-Bit",
-        .twoBit:       "2-Bit",
-        .fourBit:      "4-Bit",
-        .eightBit:     "8-Bit",
-        .sixteenBit:   "16-Bit",
+    static let caseDisplayRepresentations: [Self: DisplayRepresentation] = [
+        .oneBit: "1-Bit",
+        .twoBit: "2-Bit",
+        .fourBit: "4-Bit",
+        .eightBit: "8-Bit",
+        .sixteenBit: "16-Bit",
         .thirtyTwoBit: "32-Bit"
     ]
     

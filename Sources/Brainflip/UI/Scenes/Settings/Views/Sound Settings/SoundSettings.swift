@@ -39,4 +39,3 @@ struct SoundSettings: View {
     SoundSettings()
         .environmentObject(settings)
 }
-

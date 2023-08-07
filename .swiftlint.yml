@@ -2,23 +2,25 @@ excluded:
     - /DerivedData/
 
 disabled_rules:
-    - function_body_length
+    - comma # more annoying than helpful when aligning code
+    - cyclomatic_complexity # I'd need to do a LOT more research on this topic
     - file_length
+    - function_body_length
     - function_parameter_count
     - identifier_name
     - line_length
+    - opening_brace # doesn't do what I want it to with multi-line conditionals (maybe?)
+    - switch_case_alignment # doesn't work with nested switch statements
+    - todo
     - type_body_length
-    #multiple_closures_with_trailing_closure
     
 opt_in_rules:
      - accessibility_label_for_image
      - accessibility_trait_for_button
      - anonymous_argument_in_multiline_closure
      - array_init
-     - attributes
      - closure_end_indentation
      - closure_spacing
-     - collection_alignment
      - comma_inheritance
      - contains_over_filter_count
      - contains_over_filter_is_empty
@@ -35,7 +37,6 @@ opt_in_rules:
      - fatal_error_message
      - file_header
      - file_name_no_space
-     - file_types_order
      - first_where
      - flatmap_over_map_reduce
      - identical_operands
@@ -43,7 +44,6 @@ opt_in_rules:
      - joined_default_parameter
      - last_where
      - legacy_multiple
-     - legacy_objc_type
      - literal_expression_end_indentation
      - lower_acl_than_parent
      - modifier_order
@@ -54,12 +54,10 @@ opt_in_rules:
      - multiline_parameters
      - multiline_parameters_brackets
      - nslocalizedstring_key
-     - operator_usage_whitespace
      - pattern_matching_keywords
      - prefer_self_in_static_references
      - prefer_self_type_over_type_of_self
      - prefer_zero_over_explicit_init
-     - reduce_into
      - redundant_nil_coalescing
      - redundant_self_in_closure
      - return_value_from_void_function
@@ -69,7 +67,6 @@ opt_in_rules:
      - sorted_imports
      - toggle_bool
      - trailing_closure
-     - type_contents_order
      - unavailable_function
      - unneeded_parentheses_in_closure_argument
      - vertical_parameter_alignment_on_call
@@ -81,8 +78,8 @@ opt_in_rules:
 # the pet peeve of mine. I get that it removesa level of
 # indentation that isn't really necessary, but I still like
 # it the "old-fashioned" way, so to speak.
-switch_case_alignment:
-    indented_cases: true
+#switch_case_alignment:
+#    indented_cases: true
 
 # Trailing whitespace on empty lines lets my tab key live
 # just a little bit longer.
@@ -93,10 +90,14 @@ trailing_whitespace:
 # their intended purposes.
 force_cast: warning
 force_try: warning
+    
+# Whitespace to the right of colons is used constantly for
+# alignment.
+colon:
+    flexible_right_spacing: true
 
-# @Observable is short enough we don't need a new line for it.
-attributes:
-    always_on_same_line: ["@IBAction", "@NSManaged", "@Obserbable"]
+nesting:
+    type_level: 2
 
 file_header:
     required_pattern: |

@@ -29,7 +29,7 @@ struct ExportSettings: View {
                     ArrayNameField()
                     LeftHandIncDecToggle()
                     IncludeNotEqualZeroToggle()
-                    OpeningBraceBeforeNewLineToggle()
+                    OpeningBraceOnNewLineToggle()
                     IncludeVoidWithinMainToggle()
                 }
             }
@@ -50,4 +50,3 @@ struct ExportSettings: View {
     ExportSettings()
         .environmentObject(settings)
 }
-

@@ -1,4 +1,4 @@
-// OpeningBraceBeforeNewLineToggle.swift
+// OpeningBraceOnNewLineToggle.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This app is free software: you can redistribute it and/or modify it
@@ -16,7 +16,7 @@
 
 import SwiftUI
 
-struct OpeningBraceBeforeNewLineToggle: View {
+struct OpeningBraceOnNewLineToggle: View {
     @EnvironmentObject private var settings: AppSettings
     
     var body: some View {
@@ -25,6 +25,6 @@ struct OpeningBraceBeforeNewLineToggle: View {
 }
 
 #Preview {
-    OpeningBraceBeforeNewLineToggle()
+    OpeningBraceOnNewLineToggle()
         .environmentObject(settings)
 }

@@ -48,4 +48,3 @@ struct EditorSettings: View {
     EditorSettings()
         .environmentObject(settings)
 }
-

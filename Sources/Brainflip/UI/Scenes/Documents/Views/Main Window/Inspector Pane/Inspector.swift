@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import os.log
+import SwiftUI
 
 struct Inspector {
     @EnvironmentObject private var settings: AppSettings
@@ -116,7 +116,7 @@ struct Inspector {
     
     let modules: [Module]
     
-    static let staticInspector = Inspector()
+    static let staticInspector = Self()
 }
 
 extension Inspector {

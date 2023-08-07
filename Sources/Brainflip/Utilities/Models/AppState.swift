@@ -30,7 +30,7 @@ import SwiftUI
     /// Whether or not the document is locked.
     let isLocked: Bool
     
-    var convertedDocument: CSourceDocument? = nil
+    var convertedDocument: CSourceDocument?
     
     /// Whether or not the output pane is shown.
     var isShowingOutput: Bool = true
@@ -59,14 +59,14 @@ import SwiftUI
     
     /// An InterpreterError instance if error is an InterpreterError;
     /// otherwise, nil.
-    var errorType: InterpreterError? = nil
+    var errorType: InterpreterError?
     var hasError: Bool = false
     
     var selection: Range<Int> = 0..<0
     
     var timeElapsed: TimeInterval = 0
     var startDate: Date = .now
-    var timer: Publishers.Autoconnect<Timer.TimerPublisher>? = nil
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     
     var inspector: Inspector = .init(interpreter: .init(program: "\0"))
     
@@ -227,17 +227,19 @@ import SwiftUI
     }
     
     private func createInterpreter() -> Interpreter {
-        Interpreter(program:         document.contents,
-                    input:           input,
-                    onEndOfInput:    settings.endOfInput,
-                    arraySize:       Int(settings.arraySize),
-                    pointerLocation: Int(settings.pointerLocation),
-                    cellSize:        settings.cellSize.rawValue,
-                    breakOnHash:     settings.breakOnHash)
+        Interpreter(
+            program:         document.contents,
+            input:           input,
+            onEndOfInput:    settings.endOfInput,
+            arraySize:       Int(settings.arraySize),
+            pointerLocation: Int(settings.pointerLocation),
+            cellSize:        settings.cellSize.rawValue,
+            breakOnHash:     settings.breakOnHash
+        )
     }
     
     private func shouldReset() -> Bool {
-        settings.endOfInput           != interpreter.endOfInput
+        settings.endOfInput                  != interpreter.endOfInput
             || Int(settings.arraySize)       != interpreter.arraySize
             || Int(settings.pointerLocation) != interpreter.pointerLocation
             || settings.cellSize.rawValue    != interpreter.cellSize
@@ -254,11 +256,17 @@ import SwiftUI
     @MainActor
     func exportToC() {
         Task {
-            isConversionProgressShowing = true
-            try await Task.sleep(nanoseconds: 1)
-            convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
-            isConversionProgressShowing = false
-            isAskingForOutputFile.toggle()
+            // This should never be nil if we're disabling the export button correctly.
+            if (try? Interpreter(program: document.program).checkForMismatchedBrackets()) != nil {
+                isConversionProgressShowing = true
+                try await Task.sleep(nanoseconds: 1) // Needed to show the progress sheet. Why? I dunno.
+                
+                // swiftlint:disable:next force_try
+                convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
+                
+                isConversionProgressShowing = false
+                isAskingForOutputFile.toggle()
+            }
         }
     }
 }
@@ -271,10 +279,13 @@ import SwiftUI
         
         errorDescription = message(for: error)
         
+        // Don't bother calling updateSelection() since mismatched brackets
+        // are found before the program runs.
         if errorType != .mismatchedBrackets {
             updateSelection()
         }
         
+        // No need to show an error message on a break.
         if errorType != .break {
             hasError = true
             if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
@@ -293,16 +304,16 @@ import SwiftUI
                     let leftBracketCount  = document.program.count(of: .conditional)
                     let rightBracketCount = document.program.count(of: .loop)
                 
-                    /// If the bracket counts are equal, there isn't really a point in echoing them.
+                    // If the bracket counts are equal, there isn't really a point in echoing them.
                     let firstSentence = "There are unmatched brackets within your code."
                     guard leftBracketCount != rightBracketCount else {
                         return firstSentence
                     }
                 
-                    /// Get the difference in bracket amounts
+                    // Get the difference in bracket amounts.
                     let extraBracketCount = abs(leftBracketCount - rightBracketCount)
-                
-                    /// Check whether we have more left brackets than right brackets, or vice versa
+                    
+                    // Check whether we have more left brackets than right brackets, or vice versa.
                     let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
                 
                     let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
@@ -323,7 +334,7 @@ import SwiftUI
                     (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
                     """
                 
-                case .break: return "" // we're not going to show the message anyway
+                case .break: return "" // We're not going to show the message anyway.
             }
                 
             case let error as LocalizedError:

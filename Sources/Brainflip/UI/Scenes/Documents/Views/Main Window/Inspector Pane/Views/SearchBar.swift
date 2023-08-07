@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import AppKit
+import SwiftUI
 
 struct SearchBar: NSViewRepresentable {
     typealias NSViewType = NSSearchField
     
     @Binding var searchText: String
-             var prompt:     String
+    var prompt: String
     
     init(_ searchText: Binding<String>, prompt: String = "Search") {
         self._searchText = searchText
@@ -29,8 +29,8 @@ struct SearchBar: NSViewRepresentable {
     }
     
     func makeNSView(context: Context) -> NSViewType {
-        let searchField               = NSSearchField()
-        searchField.delegate          = context.coordinator
+        let searchField = NSSearchField()
+        searchField.delegate = context.coordinator
         searchField.placeholderString = prompt
         return searchField
     }
@@ -40,7 +40,7 @@ struct SearchBar: NSViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self, searchText: $searchText)
+        .init(self, searchText: $searchText)
     }
     
     class Coordinator: NSObject, NSSearchFieldDelegate {
@@ -63,4 +63,3 @@ struct SearchBar: NSViewRepresentable {
 #Preview {
     SearchBar(.constant(""))
 }
-

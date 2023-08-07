@@ -20,6 +20,7 @@ import SwiftUIIntrospect
 struct ExportPreview: View {
     @EnvironmentObject private var settings: AppSettings
     
+    // swiftlint:disable:next force_try
     private let sampleCode = try! BrainflipToC.convertToC(Program(string: ",[>+#<-.]"))
     
     var body: some View {
@@ -28,8 +29,8 @@ struct ExportPreview: View {
                 size: settings.textSize,
                 design: settings.monospaced ? .monospaced: .default
             ))
-            .introspect(.textEditor, on: .macOS(.v14)) {
-                $0.isEditable = false
+            .introspect(.textEditor, on: .macOS(.v14)) { textEditor in
+                textEditor.isEditable = false
             }
     }
 }

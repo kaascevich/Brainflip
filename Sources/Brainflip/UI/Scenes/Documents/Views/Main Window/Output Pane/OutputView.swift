@@ -24,9 +24,9 @@ struct OutputView: View {
     var body: some View {
         TextEditor(text: .constant(state.output))
             .fontDesign(settings.monospacedOutput ? .monospaced : .default)
-            .introspect(.textEditor, on: .macOS(.v14)) {
-                $0.isEditable = false
-                $0.usesFindPanel = true
+            .introspect(.textEditor, on: .macOS(.v14)) { textEditor in
+                textEditor.isEditable = false
+                textEditor.usesFindPanel = true
             }
             .accessibilityTextContentType(.sourceCode)
             .accessibilityLabel("Output")

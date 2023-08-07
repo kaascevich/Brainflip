@@ -36,11 +36,13 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
         let reply = QLPreviewReply.init(
             dataOfContentType: contentType,
             contentSize: CGSize.init(width: 800, height: 800)
-        ) { replyToUpdate in
-            let string = try! String(contentsOf: request.fileURL)
+        ) { _ in
+            guard let string = try? String(contentsOf: request.fileURL) else {
+                return Data()
+            }
             let attributedString = NSMutableAttributedString(string: string)
             
-            let colorGroups = PreviewProvider.highlightRules.map { regex, color in
+            let colorGroups = Self.highlightRules.map { regex, color in
                 (color: color, ranges: string.ranges(of: regex))
             }
             for colorRanges in colorGroups {

@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 struct EditorPaneView: View {
     @EnvironmentObject private var settings: AppSettings

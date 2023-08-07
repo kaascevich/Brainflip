@@ -61,8 +61,7 @@ struct MenuCommandAlerts: View {
                 • Unless otherwise stated below, your current settings will be applied to the generated C code. Different C code will be created for different settings.
                 • If the end-of-input setting is set to "Set the current cell to <maximum value>", the generated program will behave as if it is set to "Set the current cell to zero"; be aware that this might cause incompatibility with some programs.
                 • If the cell size is set to 1-bit, 2-bit, or 4-bit, the generated program will behave as if it is set to 8-bit. This might also cause incompatibility.
-                """
-                )
+                """)
             }
             .dialogSuppressionToggle(isSuppressed: $settings.exportToCAlertHidden)
     }

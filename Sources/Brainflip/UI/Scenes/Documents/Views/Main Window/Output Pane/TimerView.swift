@@ -23,8 +23,8 @@ struct TimerView: View {
     var body: some View {
         Text(formatTimeElapsed(state.timeElapsed))
             .monospacedDigit()
-            .onReceive(state.timer ?? Timer.publish(every: .infinity, on: .main, in: .common).autoconnect()) {
-                state.timeElapsed = $0.timeIntervalSince(state.startDate)
+            .onReceive(state.timer ?? Timer.publish(every: .infinity, on: .main, in: .common).autoconnect()) { date in
+                state.timeElapsed = date.timeIntervalSince(state.startDate)
             }
             .accessibilityLabel("Timer")
             .accessibilityValue(accessibilityTimerString(state.timeElapsed))

@@ -14,11 +14,11 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
 import HighlightedTextEditor
+import SwiftUI
 
 // These properties all need to be computed in order to refresh the views.
-struct SyntaxHighlighting {
+enum SyntaxHighlighting {
     static var hashColor: Color {
         settings.breakOnHash ? .green : .gray
     }
@@ -33,9 +33,9 @@ struct SyntaxHighlighting {
     }
     
     static var highlightRules: [HighlightRule] {
-        highlightPatterns.map { (regex, color) in
+        highlightPatterns.map { regex, color in
             HighlightRule(
-                pattern: try! NSRegularExpression(pattern: regex),
+                pattern: try! NSRegularExpression(pattern: regex), // swiftlint:disable:this force_try
                 formattingRule: TextFormattingRule(
                     key: .foregroundColor,
                     value: NSColor(color)

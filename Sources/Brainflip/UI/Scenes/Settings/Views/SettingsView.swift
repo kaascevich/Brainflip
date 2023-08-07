@@ -19,34 +19,34 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject private var settings: AppSettings
     
-    typealias Tab = (
-        name:   String,
-        symbol: String,
-        view:   any View
-    )
+    struct Tab {
+        var name: String
+        var symbol: String
+        var view: any View
+    }
     
     static let tabs: [Tab] = [
-        (
+        Tab(
             name: "General",
             symbol: "gearshape",
             view: GeneralSettings()
-        ), (
+        ), Tab(
             name: "Sound",
             symbol: "volume.3",
             view: SoundSettings()
-        ), (
+        ), Tab(
             name: "Interpreter",
             symbol: "chevron.left.forwardslash.chevron.right",
             view: InterpreterSettings()
-        ), (
+        ), Tab(
             name: "Editor",
             symbol: "character.cursor.ibeam",
             view: EditorSettings()
-        ), (
+        ), Tab(
             name: "Inspector",
             symbol: "sidebar.trailing",
             view: InspectorSettings()
-        ), (
+        ), Tab(
             name: "Exporting",
             symbol: "square.and.arrow.up.on.square",
             view: ExportSettings()
@@ -55,7 +55,7 @@ struct SettingsView: View {
     
     var body: some View {
         TabView {
-            ForEach(SettingsView.tabs, id: \.name) { tab in
+            ForEach(Self.tabs, id: \.name) { tab in
                 AnyView(tab.view)
                     .tabItem {
                         Label(tab.name, systemImage: tab.symbol)

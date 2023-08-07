@@ -23,7 +23,7 @@ struct MainHelpView: View {
     @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
         
-    static let helpContent: AttributedString = {
+    static let helpContent: AttributedString? = {
         let fileURL = Bundle.main.url(
             forResource: "MainHelp",
             withExtension: "rtf"
@@ -31,14 +31,13 @@ struct MainHelpView: View {
         
         let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.rtf]
         
-        let string = try! NSAttributedString(
+        guard let string = try? NSAttributedString(
             url: fileURL,
             options: options,
             documentAttributes: nil
-        )
+        ) else { return nil }
         return AttributedString(string)
     }()
-    
     
     var body: some View {
         HelpLink {
@@ -47,7 +46,7 @@ struct MainHelpView: View {
         .sheet(isPresented: $state.showingMainHelp) {
             NavigationStack {
                 ScrollView {
-                    Text(MainHelpView.helpContent)
+                    Text(Self.helpContent ?? "Unable to load help. This is most likely a bug in the app; contact the devs for assistance.")
                         .padding()
                         .textSelection(.enabled)
                 }

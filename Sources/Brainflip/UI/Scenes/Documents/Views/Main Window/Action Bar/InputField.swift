@@ -35,8 +35,8 @@ struct InputField: View {
             .disabled(state.isRunningProgram)
             .accessibilityLabel("Input")
             .speechAlwaysIncludesPunctuation()
-            .introspect(.textField, on: .macOS(.v14)) {
-                $0.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
+            .introspect(.textField, on: .macOS(.v14)) { textField in
+                textField.setAccessibilityPlaceholderValue("Use option-return or shift-return for a newline")
             }
             .onSubmit {
                 state.run()
