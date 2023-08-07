@@ -1157,6 +1157,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				34794CBC2A806B240067CBC6 /* PBXTargetDependency */,
 				3473D2AB2A7027870067F7F9 /* PBXTargetDependency */,
 			);
 			name = BrainflipUITests;
@@ -1175,6 +1176,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				34794CBE2A806B270067CBC6 /* PBXTargetDependency */,
 				34848B6E2A7046E100EBD2C9 /* PBXTargetDependency */,
 			);
 			name = BrainflipTests;
@@ -1193,6 +1195,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				34794CBA2A806B210067CBC6 /* PBXTargetDependency */,
 			);
 			name = QuickLook;
 			packageProductDependencies = (
@@ -1214,6 +1217,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				34794CB82A806B190067CBC6 /* PBXTargetDependency */,
 				349778832A6F748D0093B5C6 /* PBXTargetDependency */,
 			);
 			name = Brainflip;
@@ -1263,6 +1267,7 @@
 			packageReferences = (
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -1485,6 +1490,22 @@
 			isa = PBXTargetDependency;
 			target = 34DF121929A7B9470021729B /* Brainflip */;
 			targetProxy = 3473D2AA2A7027870067F7F9 /* PBXContainerItemProxy */;
+		};
+		34794CB82A806B190067CBC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 34794CB72A806B190067CBC6 /* SwiftLintPlugin */;
+		};
+		34794CBA2A806B210067CBC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 34794CB92A806B210067CBC6 /* SwiftLintPlugin */;
+		};
+		34794CBC2A806B240067CBC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 34794CBB2A806B240067CBC6 /* SwiftLintPlugin */;
+		};
+		34794CBE2A806B270067CBC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 34794CBD2A806B270067CBC6 /* SwiftLintPlugin */;
 		};
 		34848B6E2A7046E100EBD2C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1888,6 +1909,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1900,6 +1929,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		34794CB72A806B190067CBC6 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+		34794CB92A806B210067CBC6 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+		34794CBB2A806B240067CBC6 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+		34794CBD2A806B270067CBC6 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34EFB9B82A8069CA008794DF /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
