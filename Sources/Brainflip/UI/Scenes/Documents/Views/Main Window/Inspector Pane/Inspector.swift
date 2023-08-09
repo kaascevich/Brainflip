@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import os.log
-import SwiftUI
-
 enum Inspector {
     struct Module {
         let name: String
