@@ -26,89 +26,87 @@ struct Inspector {
         
         modules = [
             Module(
-                name:             "Current instruction",
-                data:             interpreter?.previousInstruction.rawValue,
-                tooltip:          "The instruction that has just been executed by the interpreter.",
-                enabledByDefault: true
-            ), Module(
-                name:             "Current instruction location",
-                data:             interpreter?.previousInstructionIndex,
-                tooltip:          "The location of the current instruction within the program, excluding comments.",
-                enabledByDefault: true
-            ), Module(
-                name:             "Total instructions executed",
-                data:             interpreter?.totalInstructionsExecuted,
-                tooltip:          "The total number of instructions that have been executed so far.",
-                enabledByDefault: true
+                "Current instruction",
+                data: interpreter?.previousInstruction.rawValue,
+                tooltip: "The instruction that has just been executed by the interpreter."
+            ),
+            Module(
+                "Current instruction location",
+                data: interpreter?.previousInstructionIndex,
+                tooltip: "The location of the current instruction within the program, excluding comments."
+            ),
+            Module(
+                "Total instructions executed",
+                data: interpreter?.totalInstructionsExecuted,
+                tooltip: "The total number of instructions that have been executed so far."
             ),
             
             // MARK: Pointer
             
             Module(
-                name:             "Pointer location",
-                data:             interpreter?.pointer,
-                tooltip:          "The current location of the pointer.",
-                enabledByDefault: true
+                "Pointer location",
+                data: interpreter?.pointer,
+                tooltip: "The current location of the pointer."
             ),
             
             // MARK: Cells
             
             Module(
-                name:             "Cell contents",
-                data:             interpreter?.currentCell,
-                tooltip:          "The number stored in the cell currently being pointed at.",
-                enabledByDefault: true
-            ), Module(
-                name:             "Cell contents (ASCII)",
-                data:             interpreter?.currentCellAsASCII,
-                tooltip:          "The ASCII equivalent of the current cell’s value.",
-                enabledByDefault: true
+                "Cell contents",
+                data: interpreter?.currentCell,
+                tooltip: "The number stored in the cell currently being pointed at."
+            ),
+            Module(
+                "Cell contents (ASCII)",
+                data: interpreter?.currentCellAsASCII,
+                tooltip: "The ASCII equivalent of the current cell’s value."
             ),
             
             // MARK: Input
             
             Module(
-                name:             "Current input",
-                data:             interpreter?.currentInputCharacter,
-                tooltip:          "The input character that will be processed upon reaching an input instruction.",
-                enabledByDefault: true
-            ), Module(
-                name:             "Current input index",
-                data:             interpreter?.currentInputIndex,
-                tooltip:          "The position of the current input character within the input string.",
-                enabledByDefault: true
+                "Current input",
+                data: interpreter?.currentInputCharacter,
+                tooltip: "The input character that will be processed upon reaching an input instruction."
+            ),
+            Module(
+                "Current input index",
+                data: interpreter?.currentInputIndex,
+                tooltip: "The position of the current input character within the input string."
             ),
             
             // MARK: Array
             
             Module(
-                name:             "Array",
-                data:             interpreter?.cellArray,
-                tooltip:          "The entire contents of the array.",
-                enabledByDefault: true
+                "Array",
+                data: interpreter?.cellArray,
+                tooltip: "The entire contents of the array."
             ),
             
             // MARK: Instruction counts
             
             Module(
-                name:             "Pointer movement instructions",
-                data:             interpreter?.totalPointerMovementInstructionsExecuted,
-                tooltip:          "The total amount of pointer movement instructions (<>) that have been executed so far.",
+                "Pointer movement instructions",
+                data: interpreter?.totalPointerMovementInstructionsExecuted,
+                tooltip: "The total amount of pointer movement instructions (<>) that have been executed so far.",
                 enabledByDefault: false
-            ), Module(
-                name:             "Cell manipulation instructions",
-                data:             interpreter?.totalCellValueInstructionsExecuted,
-                tooltip:          "The total amount of cell manipulation instructions (+-) that have been executed so far.",
+            ),
+            Module(
+                "Cell manipulation instructions",
+                data: interpreter?.totalCellValueInstructionsExecuted,
+                tooltip: "The total amount of cell manipulation instructions (+-) that have been executed so far.",
                 enabledByDefault: false
-            ), Module(
-                name:             "Control flow instructions",
-                data:             interpreter?.totalControlFlowInstructionsExecuted,
-                tooltip:          "The total amount of control flow instructions ([]) that have been executed so far.",
+            ),
+            Module(
+                "Control flow instructions",
+                data: interpreter?.totalControlFlowInstructionsExecuted,
+                tooltip: "The total amount of control flow instructions ([]) that have been executed so far.",
                 enabledByDefault: false
-            ), Module(
-                name:             "I/O instructions",
-                data:             interpreter?.totalIOInstructionsExecuted,
-                tooltip:          "The total amount of I/O instructions (.,) that have been executed so far.",
+            ),
+            Module(
+                "I/O instructions",
+                data: interpreter?.totalIOInstructionsExecuted,
+                tooltip: "The total amount of I/O instructions (.,) that have been executed so far.",
                 enabledByDefault: false
             )
         ]
@@ -121,9 +119,16 @@ struct Inspector {
 
 extension Inspector {
     struct Module {
-        let name:             String
-        var data:             Any?
-        let tooltip:          String
+        let name: String
+        var data: Any?
+        let tooltip: String
         let enabledByDefault: Bool
+        
+        init(_ name: String, data: Any? = nil, tooltip: String, enabledByDefault: Bool = true) {
+            self.name = name
+            self.data = data
+            self.tooltip = tooltip
+            self.enabledByDefault = enabledByDefault
+        }
     }
 }

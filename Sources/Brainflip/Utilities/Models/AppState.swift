@@ -166,7 +166,7 @@ import SwiftUI
         if settings.showCurrentInstruction,
            interpreter.previousInstructionIndex < commentCharacters(in: document.contents).count,
            interpreter.previousInstructionIndex >= 0
-        {
+        { // It's a bug. swiftlint:disable:this opening_brace
             let commentCountAtCurrentInstruction = commentCharacters(in: document.contents)[interpreter.previousInstructionIndex]
             let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
             let endIndex = startIndex + 1
