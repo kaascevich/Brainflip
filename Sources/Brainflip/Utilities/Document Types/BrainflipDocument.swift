@@ -53,7 +53,7 @@ import UniformTypeIdentifiers
     }
     
     func fileWrapper(snapshot: Snapshot, configuration _: WriteConfiguration) throws -> FileWrapper {
-        guard let data = contents.data(using: .utf8) else {
+        guard let data = snapshot.data(using: .utf8) else {
             throw CocoaError(.fileWriteInapplicableStringEncoding)
         }
         return FileWrapper(regularFileWithContents: data)
