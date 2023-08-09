@@ -25,7 +25,7 @@ enum Inspector {
         let enabledByDefault: Bool
     }
     
-    static let modules: [Module] = [
+    static let modules = [
         Module(
             name: "Current instruction",
             data: \.previousInstruction.rawValue.description,
