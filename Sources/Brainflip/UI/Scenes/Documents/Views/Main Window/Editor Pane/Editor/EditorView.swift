@@ -65,6 +65,7 @@ extension EditorView {
         }
         
         textView.setAccessibilityLabel("Editor")
+        
         if settings.showCurrentInstruction,
            state.hasError || state.isSteppingThrough,
             !state.document.contents.isEmpty { // sanity check -- sometimes the selection doesn't update on time
