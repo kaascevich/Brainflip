@@ -24,7 +24,10 @@ struct DefaultsButton: View {
         Button("Reset All Settings…") {
             isWarningAboutReset.toggle()
         }
-        .confirmationDialog("Are you sure you want to reset all settings to their defaults?", isPresented: $isWarningAboutReset) {
+        .confirmationDialog(
+            "Are you sure you want to reset all settings to their defaults?",
+            isPresented: $isWarningAboutReset
+        ) {
             Button("Reset", role: .destructive) {
                 settings.resetAllToDefaults()
             }

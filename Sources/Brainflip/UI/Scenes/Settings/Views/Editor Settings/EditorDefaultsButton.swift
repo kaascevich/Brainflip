@@ -24,7 +24,10 @@ struct EditorDefaultsButton: View {
         Button("Reset Editor Settings…") {
             isWarningAboutSettingsReset = true
         }
-        .confirmationDialog("Are you sure you want to reset the edtior to its default settings?", isPresented: $isWarningAboutSettingsReset) {
+        .confirmationDialog(
+            "Are you sure you want to reset the edtior to its default settings?",
+            isPresented: $isWarningAboutSettingsReset
+        ) {
             Button("Reset") {
                 settings.resetEditorToDefaults()
             }

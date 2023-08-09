@@ -21,7 +21,12 @@ struct InspectorModuleList: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     var body: some View {
-        List(settings.$inspectorModuleOrder, id: \.self, editActions: .move, selection: settings.$enabledInspectorModules) { index in
+        List(
+            settings.$inspectorModuleOrder,
+            id: \.self,
+            editActions: .move,
+            selection: settings.$enabledInspectorModules
+        ) { index in
             let index = index.wrappedValue
             Toggle(Inspector.staticInspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
                 .help(Inspector.staticInspector.modules[index].tooltip)

@@ -22,7 +22,11 @@ struct SampleProgramCommands: Commands {
     @FocusedValue(\.appState) private var state
     
     var samplePrograms: [URL] {
-        Bundle.main.urls(forResourcesWithExtension: "bf", subdirectory: "Sample Programs")!.sorted { $0.absoluteString < $1.absoluteString }
+        Bundle.main.urls(
+            forResourcesWithExtension: "bf",
+            subdirectory: "Sample Programs"
+        )!
+        .sorted { $0.absoluteString < $1.absoluteString }
     }
     
     var body: some Commands {

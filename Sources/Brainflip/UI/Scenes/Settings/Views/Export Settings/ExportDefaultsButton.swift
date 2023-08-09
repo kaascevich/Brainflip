@@ -24,7 +24,10 @@ struct ExportDefaultsButton: View {
         Button("Reset Export Settings…") {
             isWarningAboutSettingsReset = true
         }
-        .confirmationDialog("Are you sure you want to restore the default export settings?", isPresented: $isWarningAboutSettingsReset) {
+        .confirmationDialog(
+            "Are you sure you want to restore the default export settings?",
+            isPresented: $isWarningAboutSettingsReset
+        ) {
             Button("Reset") {
                 settings.resetExportToDefaults()
             }

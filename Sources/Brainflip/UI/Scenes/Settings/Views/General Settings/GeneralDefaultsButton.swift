@@ -24,7 +24,10 @@ struct GeneralDefaultsButton: View {
         Button("Reset General Settings…") {
             isWarningAboutSettingsReset = true
         }
-        .confirmationDialog("Are you sure you want to restore the default general settings?", isPresented: $isWarningAboutSettingsReset) {
+        .confirmationDialog(
+            "Are you sure you want to restore the default general settings?",
+            isPresented: $isWarningAboutSettingsReset
+        ) {
             Button("Reset") {
                 settings.resetGeneralToDefaults()
             }

@@ -22,33 +22,21 @@ struct MenuCommandAlerts: View {
     @Bindable var state: AppState
     
     var body: some View {
-        Rectangle()
-            .frame(width: 0, height: 0)
-            .fileExporter(
-                isPresented: $state.isAskingForOutputFile,
-                document: state.convertedDocument,
-                contentType: .cSource,
-                defaultFilename: state.document.filename
-            ) { _ in }
-            .confirmationDialog("Trimming will remove all characters that are not valid Brainflip instructions, such as comments and newlines. Are you sure you want to do this?", isPresented: $state.isWarningAboutTrim) {
+        InvisibleView()
+        
+        InvisibleView()
+            .confirmationDialog(
+                "Trimming will remove all characters that are not valid Brainflip instructions, such as comments and newlines. Are you sure you want to do this?",
+                isPresented: $state.isWarningAboutTrim
+            ) {
                 Button("Trim") {
                     state.document.contents.removeAll { !Instruction.validInstructions.contains($0) }
                 }
             } message: {
                 Text("You cannot undo this action.")
             }
-            .sheet(isPresented: $state.isConversionProgressShowing) {
-                HStack {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .controlSize(.small)
-                        .padding(0.00000000001)
-                    Text("Converting")
-                }
-                .padding()
-            }
-        Rectangle()
-            .frame(width: 0, height: 0)
+        
+        InvisibleView()
             .alert("About Exporting to C Source", isPresented: $state.isInformingAboutCExport) {
                 Button("OK") {
                     state.exportToC()
@@ -64,5 +52,34 @@ struct MenuCommandAlerts: View {
                 """)
             }
             .dialogSuppressionToggle(isSuppressed: $settings.exportToCAlertHidden)
+        
+        InvisibleView()
+            .sheet(isPresented: $state.isConversionProgressShowing) {
+                HStack {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .controlSize(.small)
+                        .padding(0.00000000001)
+                    Text("Converting")
+                }
+                .padding()
+            }
+            .fileExporter(
+                isPresented: $state.isAskingForOutputFile,
+                document: state.convertedDocument,
+                contentType: .cSource,
+                defaultFilename: state.document.filename
+            ) { _ in }
+    }
+}
+
+/// A view that does not appear visually.
+///
+/// This is different from `EmptyView` in that modal view modifiers will
+/// still apply.
+private struct InvisibleView: View {
+    var body: some View {
+        Rectangle()
+            .frame(width: 0, height: 0)
     }
 }

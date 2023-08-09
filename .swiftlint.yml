@@ -10,6 +10,7 @@ disabled_rules:
     - opening_brace # doesn't do what I want it to with multi-line conditionals (maybe?)
     - todo
     - type_body_length
+    - vertical_parameter_alignment_on_call
     
 opt_in_rules:
      - accessibility_label_for_image
