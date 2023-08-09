@@ -33,13 +33,17 @@ extension BrainflipToC {
         String {
             if whitespaceBefore {
                 whitespace(for: .beforePointerMark)
-            } else { "" }
+            } else {
+                ""
+            }
             
             Symbols.pointer
             
             if whitespaceAfter {
                 whitespace(for: .afterPointerMark)
-            } else { "" }
+            } else {
+                ""
+            }
         }
     }
 }
