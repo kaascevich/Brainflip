@@ -84,17 +84,13 @@ import SwiftUI
             document.contents = "That ain't gonna fly here"
         }
         
-        timeElapsed = TimeInterval(0)
+        reset()
         startDate = Date()
         timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
-        justRanProgram = false
         
         execution = Task {
-            interpreter = createInterpreter()
             isRunningProgram = true
             if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
-            output = ""
-            selection = 0..<0
             do {
                 try await interpreter.run()
                 if !Task.isCancelled, settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
