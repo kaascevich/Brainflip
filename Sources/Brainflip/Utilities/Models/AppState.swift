@@ -306,6 +306,8 @@ import SwiftUI
         let ordinalFormatter = NumberFormatter()
         ordinalFormatter.numberStyle = .ordinal
         
+        let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
+        
         return switch interpreterError {
         case .mismatchedBrackets: {
             let leftBracketCount  = document.program.count(of: .conditional)
@@ -330,14 +332,14 @@ import SwiftUI
             
         case .underflow:
             """
-            An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
+            An attempt was made to go below the bounds of the array. It happened at the \(errorLocation) instruction.
             
             (Hint: try raising the initial pointer location in the interpreter settings.)
             """
             
         case .overflow:
             """
-            An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
+            An attempt was made to go above the bounds of the array. It happened at the \(errorLocation) instruction.
             
             (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
             """
