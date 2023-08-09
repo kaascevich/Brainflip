@@ -229,7 +229,7 @@ import os.log
     private(set) var totalIOInstructionsExecuted = 0
 }
 
-// MARK: - Running
+// MARK: - Instruction Processing
 
 @Observable extension Interpreter {
     /// Executes an `Instruction`.
@@ -242,41 +242,12 @@ import os.log
         // logger.log("Processing instruction \"\(instruction.rawValue)\"")
         previousInstructionIndex = currentInstructionIndex
         switch instruction {
-        case .moveRight:
-            pointer += 1
-            guard pointer < array.count else {
-                throw InterpreterError.overflow
-            }
-            if array[pointer] == nil {
-                array[pointer] = 0
-                currentArraySize += 1
-            }
-            
-        case .moveLeft:
-            pointer -= 1
-            guard pointer >= 0 else {
-                throw InterpreterError.underflow
-            }
-            
-        case .increment:
-            if currentCell < cellSize {
-                currentCell += 1
-            } else {
-                currentCell = 0
-            }
-            
-        case .decrement:
-            if currentCell > 0 {
-                currentCell -= 1
-            } else {
-                currentCell = cellSize - 1
-            }
-            
-        case .conditional where currentCell == 0:
-            currentInstructionIndex = try searchForClosingBracket() // skip the loop
-            
-        case .loop where currentCell != 0:
-            currentInstructionIndex = try searchForOpeningBracket() // restart the loop
+        case .moveRight: try processMoveRightInstruction()
+        case .moveLeft: try processMoveLeftInstruction()
+        case .increment: try processIncrementInstruction()
+        case .decrement: try processDecrementInstruction()
+        case .conditional where currentCell == 0: try processBracket(type: .loop) // skip the loop
+        case .loop where currentCell != 0: try processBracket(type: .conditional) // restart the loop
             
         case .output where currentCell < 256:
             output += String(Unicode.Scalar(currentCell)!)
@@ -314,6 +285,59 @@ import os.log
         }
     }
     
+    private func processMoveRightInstruction() throws {
+        pointer += 1
+        guard pointer < array.count else {
+            throw InterpreterError.overflow
+        }
+        if array[pointer] == nil {
+            array[pointer] = 0
+            currentArraySize += 1
+        }
+    }
+    
+    private func processMoveLeftInstruction() throws {
+        pointer -= 1
+        guard pointer >= 0 else {
+            throw InterpreterError.underflow
+        }
+    }
+    
+    private func processIncrementInstruction() throws {
+        if currentCell < cellSize {
+            currentCell += 1
+        } else {
+            currentCell = 0
+        }
+    }
+    
+    private func processDecrementInstruction() throws {
+        if currentCell > 0 {
+            currentCell -= 1
+        } else {
+            currentCell = cellSize - 1
+        }
+    }
+    
+    private func processBracket(type: Instruction) throws {
+        guard type == .conditional || type == .loop else {
+            return
+        }
+        
+        let newInstructionIndex = program.indices.first { index in
+            program[index] == type && loops[index] == loops[currentInstructionIndex]
+        }
+        guard let newInstructionIndex else {
+            throw InterpreterError.mismatchedBrackets
+        }
+        
+        currentInstructionIndex = newInstructionIndex
+    }
+}
+
+// MARK: - Running
+
+@Observable extension Interpreter {
     /// Runs the program.
     ///
     /// - Throws: `InterpreterError`.
@@ -359,26 +383,6 @@ import os.log
         
         guard leftBracketCount == rightBracketCount, loops.last == 0
         else { throw InterpreterError.mismatchedBrackets }
-    }
-    
-    // TODO: Merge this with searchForOpeningBracket()
-    private func searchForClosingBracket() throws -> Int {
-        for (index, instruction) in program.enumerated() {
-            if instruction == .loop,
-               loops[index] == loops[currentInstructionIndex] // does NOT necessarily mean index == currentInstructionIndex!
-            { return index }
-        }
-        throw InterpreterError.mismatchedBrackets
-    }
-    
-    // TODO: Merge this with searchForClosingBracket()
-    private func searchForOpeningBracket() throws -> Int {
-        for (index, instruction) in program.enumerated() {
-            if instruction == .conditional,
-               loops[index] == loops[currentInstructionIndex] // does NOT necessarily mean index == currentInstructionIndex!
-            { return index }
-        }
-        throw InterpreterError.mismatchedBrackets
     }
 }
 
