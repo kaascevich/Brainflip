@@ -57,9 +57,13 @@ final class BrainflipUITests: XCTestCase {
         
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
-        let expectedOutput = String((0...inputASCIICode - 1).map { asciiCode in
-            String(Unicode.Scalar(asciiCode))
-        }.reduce("", +).reversed())
+        let expectedOutput = String(
+            (0...inputASCIICode - 1)
+                .map(Unicode.Scalar.init)
+                .map(String.init)
+                .reduce("", +)
+                .reversed()
+        )
         
         Thread.sleep(forTimeInterval: 0.5) // give the program some time to run
         XCTAssertEqual(expectedOutput, output.value as? String)
@@ -97,9 +101,13 @@ final class BrainflipUITests: XCTestCase {
         
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
-        let expectedOutput = String((0...inputASCIICode - 1).map { asciiCode in
-            String(Unicode.Scalar(asciiCode))
-        }.reduce("", +).reversed())
+        let expectedOutput = String(
+            (0...inputASCIICode - 1)
+                .map(Unicode.Scalar.init)
+                .map(String.init)
+                .reduce("", +)
+                .reversed()
+        )
         
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
         XCTAssertEqual(expectedOutput, output.value as? String)
@@ -209,7 +217,7 @@ final class BrainflipUITests: XCTestCase {
         let alertSheet = documentWindow.sheets["alert"]
         let okButton = alertSheet.buttons["action-button-1"]
         
-        let invalidPrograms = [
+        let invalidPrograms = Array(seq: [
             ",[>+<-.":    "There are unmatched brackets within your code. You have 1 extra left bracket.",
             ",[[>+<-.":   "There are unmatched brackets within your code. You have 2 extra left brackets.",
             ",][>+<-.":   "There are unmatched brackets within your code.",
@@ -223,7 +231,7 @@ final class BrainflipUITests: XCTestCase {
             ",]>+<-.[":   "There are unmatched brackets within your code.",
             ",[>+<-.[":   "There are unmatched brackets within your code. You have 2 extra left brackets.",
             ",][>+<-.][": "There are unmatched brackets within your code."
-        ].map { $0 } // Converts a dictionary to an array of tuples
+        ])
         
         // MARK: Testing
         

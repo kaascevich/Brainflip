@@ -14,16 +14,20 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import XCTest
 @testable import Brainflip
+import XCTest
 
 final class InterpreterTests: XCTestCase {
     func testBasic() async throws {
         let interpreter = Interpreter(program: "hello ,[>+<-.]", input: "b")
         try await interpreter.run()
-        let expectedOutput = (0x00...0x61).reduce("") { current, asciiCode in
-            String(Unicode.Scalar(asciiCode)!) + current
-        }
+        let expectedOutput = String(
+            (0...inputASCIICode - 1)
+                .map(Unicode.Scalar.init)
+                .map(String.init)
+                .reduce("", +)
+                .reversed()
+        )
         XCTAssertEqual(expectedOutput, interpreter.output)
     }
     

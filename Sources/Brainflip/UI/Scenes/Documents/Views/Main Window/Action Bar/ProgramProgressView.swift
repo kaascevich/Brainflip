@@ -20,17 +20,17 @@ struct ProgramProgressView: View {
     @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
-    var actualMax: Double {
-        Double(state.document.program.count - 1)
+    var actualMax: Int {
+        state.document.program.count - 1
     }
-    var max: Double {
+    var max: Int {
         Swift.max(1, actualMax)
     }
     var current: Double? {
         guard !state.isRunningProgram else {
             return nil
         }
-        return min(Swift.max(0, Double(state.interpreter.currentInstructionIndex)), max)
+        return Double(min(Swift.max(0, state.interpreter.currentInstructionIndex), max))
     }
     
     var body: some View {
@@ -40,10 +40,10 @@ struct ProgramProgressView: View {
             if state.isRunningProgram {
                 ProgressView().progressViewStyle(.linear)
             } else {
-                ProgressView(value: current, total: max)
+                ProgressView(value: current, total: Double(max))
             }
             
-            Text("\(Int(actualMax))").accessibilityHidden(true)
+            Text("\(actualMax)").accessibilityHidden(true)
         }
     }
 }

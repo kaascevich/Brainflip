@@ -46,7 +46,10 @@ enum BrainflipToC {
         var converted = header
         indentLevel = 1
 
-        converted += program.compactMap(createInstruction).map { $0 + Symbols.newline }.reduce("", +)
+        converted += program
+            .compactMap(createInstruction)
+            .map { $0 + Symbols.newline }
+            .reduce("", +)
         converted += indent + returnInstruction + Symbols.newline
         converted += Symbols.closingBrace
         
