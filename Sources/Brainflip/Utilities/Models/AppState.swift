@@ -179,15 +179,9 @@ import SwiftUI
     }
     
     func clearAll() {
-        execution.cancel()
-        timeElapsed = TimeInterval(0)
-        selection = 0..<0
+        reset()
         document.contents = ""
         input = ""
-        output = ""
-        interpreter = createInterpreter()
-        isRunningProgram = false
-        justRanProgram = false
     }
     
     func reset() {
