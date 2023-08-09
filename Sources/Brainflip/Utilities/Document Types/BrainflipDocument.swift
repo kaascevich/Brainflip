@@ -48,8 +48,7 @@ import UniformTypeIdentifiers
     
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
         let data = contents.data(using: .ascii) ?? "\0".data(using: .ascii)!
-        let fileWrapper = FileWrapper(regularFileWithContents: data)
-        return fileWrapper
+        return FileWrapper(regularFileWithContents: data)
     }
 }
 
