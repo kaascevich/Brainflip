@@ -75,9 +75,9 @@ import SwiftUI
 
 // MARK: - Methods
 
-@Observable extension AppState {
-    @MainActor
-    func run() {
+// @Observable
+extension AppState {
+    @MainActor func run() {
         if isValidKonamiCode(document.contents) {
             document.contents = "That ain't gonna fly here"
         }
@@ -119,8 +119,7 @@ import SwiftUI
         isRunningProgram || document.program.count <= 1
     }
     
-    @MainActor
-    func step() {
+    @MainActor func step() {
         guard !isSteppingThrough else {
             return
         }
@@ -271,7 +270,7 @@ import SwiftUI
 
 // MARK: - Error Handling
 
-@Observable extension AppState {
+extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
         errorDescription = message(for: error)

@@ -17,7 +17,7 @@
 import Foundation
 import Observation
 
-@Observable extension Interpreter {
+extension Interpreter {
     /// Creates a new ``Interpreter``.
     ///
     /// - Parameters:

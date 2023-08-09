@@ -211,7 +211,7 @@ import os.log
 
 // MARK: - Running
 
-@Observable extension Interpreter {
+extension Interpreter {
     /// Runs the program.
     ///
     /// - Throws: `InterpreterError`.
@@ -263,7 +263,7 @@ import os.log
 
 // MARK: - Instruction Processing
 
-@Observable extension Interpreter {
+extension Interpreter {
     /// Executes an `Instruction`.
     ///
     /// - Parameters:

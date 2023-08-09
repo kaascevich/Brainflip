@@ -18,7 +18,7 @@ import AppIntents
 import Foundation
 import Observation
 
-@Observable extension Interpreter {
+extension Interpreter {
     /// Actions to perform when encountering an input instruction after end-of-input has been reached.
     enum EndOfInput: Int, CaseIterable, AppEnum {
         static let typeDisplayRepresentation: TypeDisplayRepresentation = "End-of-Input Action"

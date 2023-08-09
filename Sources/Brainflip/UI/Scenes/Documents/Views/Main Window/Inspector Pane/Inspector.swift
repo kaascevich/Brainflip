@@ -17,27 +17,31 @@
 enum Inspector {
     struct Module {
         let name: String
-        var data: KeyPath<Interpreter, String>
+        let dataKeyPath: KeyPath<Interpreter, String>
         let tooltip: String
         let enabledByDefault: Bool
+        
+        func data(from interpreter: Interpreter) -> String {
+            interpreter[keyPath: dataKeyPath]
+        }
     }
     
     static let modules = [
         Module(
             name: "Current instruction",
-            data: \.previousInstruction.rawValue.description,
+            dataKeyPath: \.previousInstruction.rawValue.description,
             tooltip: "The instruction that has just been executed by the interpreter.",
             enabledByDefault: true
         ),
         Module(
             name: "Current instruction location",
-            data: \.previousInstructionIndex.description,
+            dataKeyPath: \.previousInstructionIndex.description,
             tooltip: "The location of the current instruction within the program, excluding comments.",
             enabledByDefault: true
         ),
         Module(
             name: "Total instructions executed",
-            data: \.totalInstructionsExecuted.description,
+            dataKeyPath: \.totalInstructionsExecuted.description,
             tooltip: "The total number of instructions that have been executed so far.",
             enabledByDefault: true
         ),
@@ -46,7 +50,7 @@ enum Inspector {
         
         Module(
             name: "Pointer location",
-            data: \.pointer.description,
+            dataKeyPath: \.pointer.description,
             tooltip: "The current location of the pointer.",
             enabledByDefault: true
         ),
@@ -55,13 +59,13 @@ enum Inspector {
         
         Module(
             name: "Cell contents",
-            data: \.currentCell.description,
+            dataKeyPath: \.currentCell.description,
             tooltip: "The number stored in the cell currently being pointed at.",
             enabledByDefault: true
         ),
         Module(
             name: "Cell contents (ASCII)",
-            data: \.currentCellAsASCII,
+            dataKeyPath: \.currentCellAsASCII,
             tooltip: "The ASCII equivalent of the current cell’s value.",
             enabledByDefault: true
         ),
@@ -70,13 +74,13 @@ enum Inspector {
         
         Module(
             name: "Current input",
-            data: \.currentInputCharacter.description,
+            dataKeyPath: \.currentInputCharacter.description,
             tooltip: "The input character that will be processed upon reaching an input instruction.",
             enabledByDefault: true
         ),
         Module(
             name: "Current input index",
-            data: \.currentInputIndex.description,
+            dataKeyPath: \.currentInputIndex.description,
             tooltip: "The position of the current input character within the input string.",
             enabledByDefault: true
         ),
@@ -85,7 +89,7 @@ enum Inspector {
         
         Module(
             name: "Array",
-            data: \.cellArray.description,
+            dataKeyPath: \.cellArray.description,
             tooltip: "The entire contents of the array.",
             enabledByDefault: true
         ),
@@ -94,25 +98,25 @@ enum Inspector {
         
         Module(
             name: "Pointer movement instructions",
-            data: \.totalPointerMovementInstructionsExecuted.description,
+            dataKeyPath: \.totalPointerMovementInstructionsExecuted.description,
             tooltip: "The total amount of pointer movement instructions (<>) that have been executed so far.",
             enabledByDefault: false
         ),
         Module(
             name: "Cell manipulation instructions",
-            data: \.totalCellValueInstructionsExecuted.description,
+            dataKeyPath: \.totalCellValueInstructionsExecuted.description,
             tooltip: "The total amount of cell manipulation instructions (+-) that have been executed so far.",
             enabledByDefault: false
         ),
         Module(
             name: "Control flow instructions",
-            data: \.totalControlFlowInstructionsExecuted.description,
+            dataKeyPath: \.totalControlFlowInstructionsExecuted.description,
             tooltip: "The total amount of control flow instructions ([]) that have been executed so far.",
             enabledByDefault: false
         ),
         Module(
             name: "I/O instructions",
-            data: \.totalIOInstructionsExecuted.description,
+            dataKeyPath: \.totalIOInstructionsExecuted.description,
             tooltip: "The total amount of I/O instructions (.,) that have been executed so far.",
             enabledByDefault: false
         )
