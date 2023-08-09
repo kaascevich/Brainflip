@@ -3,7 +3,6 @@ excluded:
 
 disabled_rules:
     - comma # more annoying than helpful when aligning code
-    - cyclomatic_complexity # I'd need to do a LOT more research on this topic
     - file_length
     - function_body_length
     - function_parameter_count

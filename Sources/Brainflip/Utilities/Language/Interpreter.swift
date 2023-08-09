@@ -400,14 +400,7 @@ import os.log
         default: break
         }
         
-        totalInstructionsExecuted += 1
-        switch instruction {
-        case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted  += 1
-        case .increment,   .decrement: totalCellManipulationInstructionsExecuted += 1
-        case .conditional, .loop:      totalControlFlowInstructionsExecuted      += 1
-        case .output,      .input:     totalIOInstructionsExecuted               += 1
-        default: break
-        }
+        incrementTotalInstructionsExecuted(forType: instruction)
     }
     
     private func processMoveRightInstruction() throws {
@@ -473,6 +466,17 @@ import os.log
                 Int(currentInputCharacter.unicodeScalars.first?.value ?? 0)
             )
             currentInputIndex += 1
+        }
+    }
+    
+    private func incrementTotalInstructionsExecuted(forType instruction: Instruction) {
+        totalInstructionsExecuted += 1
+        switch instruction {
+        case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted  += 1
+        case .increment,   .decrement: totalCellManipulationInstructionsExecuted += 1
+        case .conditional, .loop:      totalControlFlowInstructionsExecuted      += 1
+        case .output,      .input:     totalIOInstructionsExecuted               += 1
+        default: break
         }
     }
 }
