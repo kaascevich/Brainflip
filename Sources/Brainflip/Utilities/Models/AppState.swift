@@ -158,10 +158,10 @@ import SwiftUI
             var array: [Int] = []
             var numCommentCharacters = 0
             for character in string {
-                if !Instruction.validInstructions.contains(character) {
-                    numCommentCharacters += 1
-                } else {
+                if Instruction.validInstructions.contains(character) {
                     array.append(numCommentCharacters)
+                } else {
+                    numCommentCharacters += 1
                 }
             }
             return array
