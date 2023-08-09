@@ -31,9 +31,10 @@ struct EditorView: View {
             applyTextViewAttributes(to: editor.textView)
         }
         .onChange(of: state.document.program) { // does not change when comment characters are modified
-            if state.interpreter.currentInstructionIndex != 0 {
-                state.reset()
+            guard state.interpreter.currentInstructionIndex != 0 else {
+                return
             }
+            state.reset()
         }
     }
 }
@@ -52,9 +53,15 @@ extension EditorView {
         textView.isEditable = !state.isRunningProgram
         textView.isSelectable = !state.isRunningProgram
         
-        if settings.showCurrentInstruction,
-           !state.isRunningProgram,
-           !state.document.contents.isEmpty { // sanity check -- sometimes the selection doesn't update on time
+        textView.setAccessibilityLabel("Editor")
+        
+        guard settings.showCurrentInstruction,
+              !state.document.contents.isEmpty // sometimes the selection doesn't update on time
+        else {
+            return
+        }
+        
+        if !state.isRunningProgram {
             textView.textStorage?.addAttributes(
                 [
                     .backgroundColor: NSColor.findHighlightColor,
@@ -64,11 +71,7 @@ extension EditorView {
             )
         }
         
-        textView.setAccessibilityLabel("Editor")
-        
-        if settings.showCurrentInstruction,
-           state.hasError || state.isSteppingThrough,
-            !state.document.contents.isEmpty { // sanity check -- sometimes the selection doesn't update on time
+        if state.hasError || state.isSteppingThrough {
             textView.scrollRangeToVisible(NSRange(state.selection))
         }
     }

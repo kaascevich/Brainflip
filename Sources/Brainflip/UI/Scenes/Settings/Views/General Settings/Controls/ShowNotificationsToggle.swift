@@ -22,9 +22,10 @@ struct ShowNotificationsToggle: View {
     var body: some View {
         Toggle("Show notifications", isOn: settings.$showNotifications)
             .onChange(of: settings.showNotifications) {
-                if settings.showNotifications {
-                    Notifications.requestPermission()
+                guard settings.showNotifications else {
+                    return
                 }
+                Notifications.requestPermission()
             }
     }
 }

@@ -56,7 +56,9 @@ struct AnimatedDisclosureGroupStyle: DisclosureGroupStyle {
                 
                 Spacer()
             }
-            if configuration.isExpanded { configuration.content }
+            if configuration.isExpanded {
+                configuration.content
+            }
         }
         .animation(reduceMotion ? nil : .smooth, value: configuration.isExpanded)
     }

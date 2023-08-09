@@ -26,14 +26,18 @@ struct OutputPaneView: View {
             HStack {
                 Text("Output")
                     .accessibilityHidden(true)
+                
                 Spacer()
+                
                 if settings.showTimer {
                     TimerView()
                 }
                 if settings.showCopyPasteButtons {
-                    CopyButton { state.output }
-                        .buttonStyle(.borderless)
-                        .labelStyle(.iconOnly)
+                    CopyButton {
+                        state.output
+                    }
+                    .buttonStyle(.borderless)
+                    .labelStyle(.iconOnly)
                 }
             }
             OutputView()

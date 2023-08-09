@@ -75,11 +75,13 @@ extension BrainflipToC {
     // MARK: - Pointers
     
     @StringBuilder static var pointerCast: String {
-        if cellType == Symbols.char { "" } else {
+        if cellType != Symbols.char {
             openingParenthesis
             Symbols.char
             pointerMark(whitespaceAfter: false)
             closingParenthesis
+        } else {
+            ""
         }
     }
 

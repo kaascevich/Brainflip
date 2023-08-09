@@ -119,25 +119,27 @@ import SwiftUI
     
     @MainActor
     func step() {
-        if !isSteppingThrough {
-            if shouldReset {
-                reset()
-            }
-            justRanProgram = false
-            isSteppingThrough = true
-            Task {
-                do {
-                    try interpreter.step()
-                    if settings.playSounds, settings.playStepSound {
-                        SystemSounds.step.play()
-                    }
-                    output = interpreter.output
-                    updateSelection()
-                } catch {
-                    processError(error)
+        guard !isSteppingThrough else {
+            return
+        }
+        
+        if shouldReset {
+            reset()
+        }
+        justRanProgram = false
+        isSteppingThrough = true
+        Task {
+            do {
+                try interpreter.step()
+                if settings.playSounds, settings.playStepSound {
+                    SystemSounds.step.play()
                 }
-                isSteppingThrough = false
+                output = interpreter.output
+                updateSelection()
+            } catch {
+                processError(error)
             }
+            isSteppingThrough = false
         }
     }
 

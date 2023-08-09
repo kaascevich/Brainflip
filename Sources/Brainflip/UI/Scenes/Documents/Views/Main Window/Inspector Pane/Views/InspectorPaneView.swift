@@ -66,6 +66,7 @@ struct InspectorPaneView: View {
         }
         .padding(10)
         .overlay {
+            // Only show it if NONE of the modules meet the criteria
             if Inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name, query: searchText) }) {
                 ContentUnavailableView.search
             }

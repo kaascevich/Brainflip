@@ -42,26 +42,29 @@ struct Notifications {
     }
     
     static func sendNotification(_ filename: String, error: Error? = nil) {
-        if !NSApplication.shared.isActive, settings.showNotifications {
-            requestPermission()
-            
-            let content = UNMutableNotificationContent()
-            content.subtitle = filename
-            content.body = "Run \(error == nil ? "succeeded" : "failed")"
-            if let error = error as? InterpreterError {
-                content.body += ": "
-                switch error {
-                    case .overflow:           content.body += "overflow"
-                    case .underflow:          content.body += "underflow"
-                    case .mismatchedBrackets: content.body += "mismatched brackets"
-                    default: break
-                }
-            }
-            if NSApp.isActive { content.badge = 1 }
-                        
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-            
-            UNUserNotificationCenter.current().add(request)
+        guard !NSApplication.shared.isActive, settings.showNotifications else {
+            return
         }
+        requestPermission()
+        
+        let content = UNMutableNotificationContent()
+        content.subtitle = filename
+        content.body = "Run \(error == nil ? "succeeded" : "failed")"
+        if let error = error as? InterpreterError {
+            content.body += ": "
+            switch error {
+                case .overflow:           content.body += "overflow"
+                case .underflow:          content.body += "underflow"
+                case .mismatchedBrackets: content.body += "mismatched brackets"
+                default: break
+            }
+        }
+        if NSApp.isActive {
+            content.badge = 1
+        }
+                    
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+        
+        UNUserNotificationCenter.current().add(request)
     }
 }

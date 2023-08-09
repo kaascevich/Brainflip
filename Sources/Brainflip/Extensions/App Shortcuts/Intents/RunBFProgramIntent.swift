@@ -111,16 +111,14 @@ struct RunBFProgramIntent: AppIntent {
         
         do {
             try await interpreter.run()
-        } catch {
-            if let error = error as? InterpreterError {
-                let errorDescription = switch error {
-                    case .mismatchedBrackets: "There are mismatched brackets within the program."
-                    case .overflow:           "An attempt was made to go above the array bounds."
-                    case .underflow:          "An attempt was made to go below the array bounds."
-                    case .break:              "A hash was encountered."
-                }
-                throw IntentError(errorDescription)
-            } else { throw error }
+        } catch let error as InterpreterError {
+            let errorDescription = switch error {
+                case .mismatchedBrackets: "There are mismatched brackets within the program."
+                case .overflow:           "An attempt was made to go above the array bounds."
+                case .underflow:          "An attempt was made to go below the array bounds."
+                case .break:              "A hash was encountered."
+            }
+            throw IntentError(errorDescription)
         }
         
         return .result(value: interpreter.output)

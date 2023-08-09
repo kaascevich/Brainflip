@@ -152,9 +152,10 @@ import os.log
             return cell
         }
         set {
-            if array.indices.contains(pointer) {
-                array[pointer] = newValue
+            guard array.indices.contains(pointer) else {
+                return
             }
+            array[pointer] = newValue
         }
     }
     

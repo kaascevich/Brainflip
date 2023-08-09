@@ -29,7 +29,7 @@ struct RunButton: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                         .controlSize(.small)
-                        .padding(.leastNonzeroMagnitude) // needed to prevent collision between spinner and text
+                        .padding(.leastNonzeroMagnitude) // prevents collision between spinner and text
                 } else {
                     Image(systemName: "play")
                         .symbolVariant(.fill)
