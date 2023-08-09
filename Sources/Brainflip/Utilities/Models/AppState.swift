@@ -33,46 +33,46 @@ import SwiftUI
     var convertedDocument: CSourceDocument?
     
     /// Whether or not the output pane is shown.
-    var isShowingOutput: Bool = true
+    var isShowingOutput = true
     
     /// Whether or not the inspector pane is shown.
-    var isShowingInspector: Bool = true {
+    var isShowingInspector = true {
         willSet { updateInspector() }
     }
     
-    var isClearAlertShowing: Bool = false
-    var isWarningAboutTrim: Bool = false
-    var isInformingAboutCExport: Bool = false
-    var isAskingForOutputFile: Bool = false
-    var isConversionProgressShowing: Bool = false
-    var showingArray: Bool = false
-    var showingMainHelp: Bool = false
+    var isClearAlertShowing = false
+    var isWarningAboutTrim = false
+    var isInformingAboutCExport = false
+    var isAskingForOutputFile = false
+    var isConversionProgressShowing = false
+    var showingArray = false
+    var showingMainHelp = false
     
-    var interpreter: Interpreter = .init(program: "\0")
-    var output: String = ""
-    var input: String = ""
+    var interpreter = Interpreter(program: "\0")
+    var output = ""
+    var input = ""
     
-    var execution: Task = .init { }
+    var execution = Task { }
     deinit { execution.cancel() }
     
-    var errorDescription: String = ""
+    var errorDescription = ""
     
     /// An InterpreterError instance if error is an InterpreterError;
     /// otherwise, nil.
     var errorType: InterpreterError?
-    var hasError: Bool = false
+    var hasError = false
     
-    var selection: Range<Int> = 0..<0
+    var selection = 0..<0
     
-    var timeElapsed: TimeInterval = 0
-    var startDate: Date = .now
+    var timeElapsed = TimeInterval(0)
+    var startDate = Date.now
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     
-    var inspector: Inspector = .init(interpreter: .init(program: "\0"))
+    var inspector = Inspector(interpreter: .init(program: "\0"))
     
-    var justRanProgram: Bool = false
-    var isRunningProgram: Bool = false
-    var isSteppingThrough: Bool = false
+    var justRanProgram = false
+    var isRunningProgram = false
+    var isSteppingThrough = false
 }
 
 // MARK: - Methods

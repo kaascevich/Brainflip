@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+// I prefer to use explicit type annotations with @AppStorage.
+// swiftlint:disable redundant_type_annotation
+
 import Foundation
 import os.log
 import SwiftUI
@@ -252,3 +255,5 @@ extension AppSettings {
         exportToCAlertHidden = false
     }
 }
+
+// swiftlint:enable redundant_type_annotation

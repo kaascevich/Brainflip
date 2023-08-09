@@ -60,6 +60,7 @@ opt_in_rules:
      - prefer_zero_over_explicit_init
      - redundant_nil_coalescing
      - redundant_self_in_closure
+     - redundant_type_annotation
      - return_value_from_void_function
      - shorthand_optional_binding
      - single_test_class
