@@ -14,53 +14,5 @@
             breakpointStackSelectionBehavior = "1">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7169545D-77F2-49CB-B424-D12753EFCF29"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sources/Brainflip/UI/Scenes/Documents/Views/Main Window/Editor Pane/Editor/EditorView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "applyTextViewAttributes(to:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7169545D-77F2-49CB-B424-D12753EFCF29 - 118dcc858e6c55ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Brainflip.EditorView.applyTextViewAttributes(to: __C.NSTextView) -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Sources/Brainflip/UI/Scenes/Documents/Views/Main%20Window/Editor%20Pane/Editor/EditorView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "1532">
-               </Location>
-               <Location
-                  uuid = "7169545D-77F2-49CB-B424-D12753EFCF29 - 118dcc858e6c55ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Brainflip.EditorView.applyTextViewAttributes(to: __C.NSTextView) -&gt; ()"
-                  moduleName = "Brainflip"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kaleb/Documents/Xcode%20Projects/Brainflip/Sources/Brainflip/UI/Scenes/Documents/Views/Main%20Window/Editor%20Pane/Editor/EditorView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "1420">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

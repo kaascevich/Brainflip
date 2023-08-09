@@ -30,7 +30,7 @@ struct EditorView: View {
         .introspect { editor in
             applyTextViewAttributes(to: editor.textView)
         }
-        .onChange(of: state.document.program) {
+        .onChange(of: state.document.program) { // does not change when comment characters are modified
             if state.interpreter.currentInstructionIndex != 0 {
                 state.reset()
             }
