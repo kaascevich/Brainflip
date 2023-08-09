@@ -308,8 +308,8 @@ import SwiftUI
         
         let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
         
-        return switch interpreterError {
-        case .mismatchedBrackets: {
+        switch interpreterError {
+        case .mismatchedBrackets:
             let leftBracketCount  = document.program.count(of: .conditional)
             let rightBracketCount = document.program.count(of: .loop)
             
@@ -328,23 +328,22 @@ import SwiftUI
             let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
             
             return firstSentence + " " + secondSentence
-        }()
             
         case .underflow:
-            """
+            return """
             An attempt was made to go below the bounds of the array. It happened at the \(errorLocation) instruction.
             
             (Hint: try raising the initial pointer location in the interpreter settings.)
             """
             
         case .overflow:
-            """
+            return """
             An attempt was made to go above the bounds of the array. It happened at the \(errorLocation) instruction.
             
             (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
             """
             
-        case .break: "" // We're not going to show the message anyway.
+        case .break: return "" // We're not going to show the message anyway.
         }
     }
 }

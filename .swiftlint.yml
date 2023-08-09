@@ -10,7 +10,7 @@ disabled_rules:
     - identifier_name
     - line_length
     - opening_brace # doesn't do what I want it to with multi-line conditionals (maybe?)
-    - switch_case_alignment # doesn't work with assignment
+    - switch_case_alignment # doesn't work when returning switch statement
     - todo
     - type_body_length
     
