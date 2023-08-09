@@ -149,11 +149,11 @@ import SwiftUI
     }
     
     private func updateSelection() {
-        // An array of `Int`s that stores the total number of comment characters encountered so far.
-        //
-        // One can think of this as the difference between `string.count` and
-        // `Program(from: string).count`, where
-        // `string == programString[0..<index]`.
+        /// An array of `Int`s that stores the total number of comment characters encountered so far.
+        ///
+        /// One can think of this as the difference between `string.count` and
+        /// `Program(from: string).count`, where
+        /// `string == programString[0..<index]`.
         func commentCharacters(in string: String) -> [Int] {
             var array: [Int] = []
             var numCommentCharacters = 0
