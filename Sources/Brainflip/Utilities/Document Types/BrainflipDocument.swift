@@ -51,7 +51,9 @@ import UniformTypeIdentifiers
     }
     
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
-        let data = contents.data(using: .ascii) ?? "\0".data(using: .ascii)!
+        guard let data = contents.data(using: .utf8) else {
+            throw CocoaError(.fileWriteInapplicableStringEncoding)
+        }
         return FileWrapper(regularFileWithContents: data)
     }
 }
