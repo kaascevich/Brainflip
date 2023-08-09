@@ -28,7 +28,9 @@ import UniformTypeIdentifiers
         self.contents = contents
     }
     
-    var program: Program { Program(string: contents) }
+    var program: Program {
+        Program(string: contents)
+    }
         
     static let readableContentTypes: [UTType] = [.brainflipSource]
     
@@ -44,7 +46,9 @@ import UniformTypeIdentifiers
         self.filename = filename
     }
     
-    func snapshot(contentType _: UTType) throws -> String { contents }
+    func snapshot(contentType _: UTType) throws -> String {
+        contents
+    }
     
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
         let data = contents.data(using: .ascii) ?? "\0".data(using: .ascii)!

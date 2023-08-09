@@ -37,7 +37,9 @@ final class CSourceDocument: FileDocument, Identifiable {
         self.init(String(data: data, encoding: .utf8) ?? "")!
     }
     
-    func snapshot(contentType _: UTType) throws -> String { contents }
+    func snapshot(contentType _: UTType) throws -> String {
+        contents
+    }
     
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
         let data = contents.data(using: .utf8) ?? "\0".data(using: .utf8)!

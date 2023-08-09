@@ -43,7 +43,9 @@ extension BrainflipToC {
         case afterCommentMarkers      = #"After comment markers"#
         
         var enabled: Bool {
-            get { settings.whitespace.contains(self) }
+            get {
+                settings.whitespace.contains(self)
+            }
             nonmutating set {
                 if newValue {
                     settings.whitespace.append(self)

@@ -37,5 +37,7 @@ struct CopyButton: View {
 }
 
 #Preview {
-    CopyButton { "yay, it worked" }
+    CopyButton {
+        "yay, it worked"
+    }
 }

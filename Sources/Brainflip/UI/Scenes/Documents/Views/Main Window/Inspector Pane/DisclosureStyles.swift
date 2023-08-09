@@ -33,7 +33,9 @@ struct DisclosureToggleStyle: ToggleStyle {
 }
 
 extension ToggleStyle where Self == DisclosureToggleStyle {
-    static var disclosure: DisclosureToggleStyle { .init() }
+    static var disclosure: DisclosureToggleStyle {
+        .init()
+    }
 }
 
 struct AnimatedDisclosureGroupStyle: DisclosureGroupStyle {

@@ -19,9 +19,7 @@ import os.log
 import SwiftUI
 import UserNotifications
 
-struct Notifications {
-    private init() { }
-    
+enum Notifications {
     private static let logger = Logger(subsystem: bundleID, category: "Notifications")
     
     @discardableResult

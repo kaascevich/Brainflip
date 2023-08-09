@@ -44,8 +44,10 @@ struct InputField: View {
             
             if settings.showCopyPasteButtons {
                 VStack {
-                    CopyButton { state.input }
-                        .help("Copy")
+                    CopyButton {
+                        state.input
+                    }
+                    .help("Copy")
                     
                     PasteButton(payloadType: String.self) { strings in
                         symbolEffect.toggle()

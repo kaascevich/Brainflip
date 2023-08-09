@@ -51,7 +51,9 @@ import SwiftUI
     var input = ""
     
     var execution = Task { }
-    deinit { execution.cancel() }
+    deinit {
+        execution.cancel()
+    }
     
     var errorDescription = ""
     
@@ -283,7 +285,9 @@ import SwiftUI
         // No need to show an error message on a break.
         if errorType != .break {
             hasError = true
-            if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
+            if settings.playSounds, settings.playFailSound {
+                SystemSounds.fail.play()
+            }
         } else {
             stop()
         }

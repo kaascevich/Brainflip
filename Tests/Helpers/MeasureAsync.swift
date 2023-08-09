@@ -40,7 +40,9 @@ extension XCTestCase {
             let expectation = expectation(description: "finished")
             
             Task { @MainActor in
-                defer { expectation.fulfill() }
+                defer {
+                    expectation.fulfill()
+                }
                 
                 do {
                     try await block()

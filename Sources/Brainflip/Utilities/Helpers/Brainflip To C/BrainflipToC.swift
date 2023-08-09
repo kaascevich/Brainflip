@@ -48,8 +48,7 @@ enum BrainflipToC {
 
         converted += program
             .compactMap(createInstruction)
-            .map { $0 + Symbols.newline }
-            .reduce("", +)
+            .reduce("") { $0 + $1 + Symbols.newline }
         converted += indent + returnInstruction + Symbols.newline
         converted += Symbols.closingBrace
         

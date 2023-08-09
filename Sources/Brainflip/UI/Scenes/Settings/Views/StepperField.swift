@@ -75,8 +75,12 @@ struct StepperField: View {
 
 fileprivate extension Double {
     var int: Int {
-        get { Int(self) }
-        set { self = Double(newValue) }
+        get {
+            Int(self)
+        }
+        set {
+            self = Double(newValue)
+        }
     }
 }
 

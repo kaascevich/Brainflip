@@ -55,14 +55,18 @@ struct InspectorModuleList: View {
         // the two halves, sort those, and then merge them back together before committing
         // the changes to settings.inspectorModuleOrder.
         
-        let partitioned = settings.inspectorModuleOrder.partition { !settings.enabledInspectorModules[$0] }
-        var enabled  = Array(settings.inspectorModuleOrder[..<partitioned])
-        var disabled = Array(settings.inspectorModuleOrder[partitioned...])
+        let partitioned = settings.inspectorModuleOrder.partition { moduleIndex in
+            !settings.enabledInspectorModules[moduleIndex]
+        }
+        var enabled = settings.inspectorModuleOrder[..<partitioned]
+        var disabled = settings.inspectorModuleOrder[partitioned...]
         
-        let sortPredicate: (Int, Int) -> Bool = { Inspector.modules[$0].name < Inspector.modules[$1].name }
-        enabled .sort(by: sortPredicate)
+        let sortPredicate: (Int, Int) -> Bool = { firstIndex, secondIndex in
+            Inspector.modules[firstIndex].name < Inspector.modules[secondIndex].name
+        }
+        enabled.sort(by: sortPredicate)
         disabled.sort(by: sortPredicate)
-        settings.inspectorModuleOrder = enabled + disabled
+        settings.inspectorModuleOrder = Array(enabled + disabled)
     }
 }
 

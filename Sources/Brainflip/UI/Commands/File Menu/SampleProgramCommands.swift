@@ -35,7 +35,9 @@ struct SampleProgramCommands: Commands {
             Menu("Sample Programs") {
                 ForEach(samplePrograms, id: \.hashValue) { sampleProgram in
                     Button(sampleProgram.lastPathComponent.dropLast(sampleProgram.pathExtension.count + 1)) {
-                        Task { try await openDocument(at: sampleProgram) }
+                        Task {
+                            try await openDocument(at: sampleProgram)
+                        }
                     }
                     .accessibilityIdentifier("openSampleProgram:")
                 }
