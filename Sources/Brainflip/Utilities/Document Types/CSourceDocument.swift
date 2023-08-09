@@ -22,11 +22,10 @@ final class CSourceDocument: FileDocument, Identifiable {
         
     var contents: String
     init?(_ contents: String? = "") {
-        if let contents {
-            self.contents = contents
-        } else {
+        guard let contents else {
             return nil
         }
+        self.contents = contents
     }
         
     static let readableContentTypes: [UTType] = [.cSource]
