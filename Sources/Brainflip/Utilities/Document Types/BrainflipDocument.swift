@@ -18,7 +18,9 @@ import Observation
 import SwiftUI
 import UniformTypeIdentifiers
 
-@Observable final class BrainflipDocument: FileDocument, Identifiable {
+@Observable final class BrainflipDocument: ReferenceFileDocument, Identifiable {
+    typealias Snapshot = String
+    
     let id = UUID()
     
     var filename = "Untitled"
@@ -46,11 +48,11 @@ import UniformTypeIdentifiers
         self.filename = filename
     }
     
-    func snapshot(contentType _: UTType) throws -> String {
+    func snapshot(contentType _: UTType) throws -> Snapshot {
         contents
     }
     
-    func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
+    func fileWrapper(snapshot: Snapshot, configuration _: WriteConfiguration) throws -> FileWrapper {
         guard let data = contents.data(using: .utf8) else {
             throw CocoaError(.fileWriteInapplicableStringEncoding)
         }

@@ -18,7 +18,9 @@ import SwiftUI
 
 struct MainDocumentScene: Scene {
     var body: some Scene {
-        DocumentGroup(newDocument: BrainflipDocument()) { file in
+        DocumentGroup {
+            BrainflipDocument()
+        } editor: { file in
             let state = AppState(document: file.document, isLocked: !file.isEditable)
             
             MainDocumentView(state: state)
