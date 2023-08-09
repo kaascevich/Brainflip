@@ -18,10 +18,8 @@ import Observation
 import SwiftUI
 import UniformTypeIdentifiers
 
-@Observable final class BrainflipDocument: ReferenceFileDocument, Identifiable {
+@Observable final class BrainflipDocument: ReferenceFileDocument {
     typealias Snapshot = String
-    
-    let id = UUID()
     
     var filename = "Untitled"
         

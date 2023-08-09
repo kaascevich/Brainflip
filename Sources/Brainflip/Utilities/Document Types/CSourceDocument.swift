@@ -17,9 +17,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct CSourceDocument: FileDocument, Identifiable {
-    let id = UUID()
-        
+struct CSourceDocument: FileDocument {
     var contents: String
     init(_ contents: String = "") {
         self.contents = contents
