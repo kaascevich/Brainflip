@@ -144,23 +144,30 @@ extension BrainflipToC {
     /// - Returns: The converted instruction as a `String`, or `nil`
     ///   if there is no need for the instruction.
     static func createInstruction(type: Instruction) -> String? {
-        var instruction = indent
-        switch type {
-        case .moveRight:   instruction += moveRightInstruction
-        case .moveLeft:    instruction += moveLeftInstruction
-        case .increment:   instruction += incrementInstruction
-        case .decrement:   instruction += decrementInstruction
-        case .conditional: instruction += conditionalInstruction; indentLevel += 1
-        case .output:      instruction += outputInstruction
-        case .input:       instruction += inputInstruction
-        case .loop:
-            instruction.removeLast(settings.indentation)
-            indentLevel -= 1
-            instruction += loopInstruction
+        // we do want to outdent loop instructions
+        if type == .loop { indentLevel -= 1 }
+        
+        var instruction: String? = switch type {
+        case .moveRight:   moveRightInstruction
+        case .moveLeft:    moveLeftInstruction
+        case .increment:   incrementInstruction
+        case .decrement:   decrementInstruction
+        case .conditional: conditionalInstruction
+        case .output:      outputInstruction
+        case .input:       inputInstruction
+        case .loop:        loopInstruction
         case .break where settings.breakOnHash || settings.includeDisabledBreak:
-            instruction += (!settings.breakOnHash ? comment : "") + returnInstruction
-        default: return nil
+            (!settings.breakOnHash ? comment : "") + returnInstruction
+        default: nil
         }
-        return instruction
+        
+        guard let instruction else {
+            return nil
+        }
+        
+        // we don't want to indent conditional instructions
+        if type == .conditional { indentLevel += 1 }
+        
+        return indent + instruction
     }
 }
