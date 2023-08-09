@@ -187,9 +187,6 @@ import os.log
     /// The input passed to the program.
     let input: String
     
-    /// Whether the program has run out of input characters.
-    private(set) var hasReachedEndOfInput = false
-    
     /// The amount of times the program has executed the `,` instruction.
     ///
     /// This is used to keep track of the next character that will be passed to the program.
@@ -229,112 +226,6 @@ import os.log
     private(set) var totalIOInstructionsExecuted = 0
 }
 
-// MARK: - Instruction Processing
-
-@Observable extension Interpreter {
-    /// Executes an `Instruction`.
-    ///
-    /// - Parameters:
-    ///   - instruction: The `Instruction` to be executed.
-    ///
-    /// - Throws: `InterpreterError`.
-    private func processInstruction(_ instruction: Instruction) throws {
-        // logger.log("Processing instruction \"\(instruction.rawValue)\"")
-        previousInstructionIndex = currentInstructionIndex
-        switch instruction {
-        case .moveRight: try processMoveRightInstruction()
-        case .moveLeft: try processMoveLeftInstruction()
-        case .increment: try processIncrementInstruction()
-        case .decrement: try processDecrementInstruction()
-        case .conditional where currentCell == 0: try processBracket(type: .loop) // skip the loop
-        case .loop where currentCell != 0: try processBracket(type: .conditional) // restart the loop
-            
-        case .output where currentCell < 256:
-            output += String(Unicode.Scalar(currentCell)!)
-            
-        case .input where !hasReachedEndOfInput:
-            if currentInputIndex == input.count {
-                currentCell = switch endOfInput {
-                case .noChange:  currentCell
-                case .setToZero: 0
-                case .setToMax:  cellSize - 1
-                }
-                hasReachedEndOfInput = true
-            } else {
-                currentCell = min(
-                    cellSize - 1,
-                    Int(currentInputCharacter.unicodeScalars.first?.value ?? 0)
-                )
-            }
-            
-            currentInputIndex += 1
-            
-        case .break where breakOnHash:
-            throw InterpreterError.break
-            
-        default: break
-        }
-        
-        totalInstructionsExecuted += 1
-        switch instruction {
-        case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted  += 1
-        case .increment,   .decrement: totalCellManipulationInstructionsExecuted += 1
-        case .conditional, .loop:      totalControlFlowInstructionsExecuted      += 1
-        case .output,      .input:     totalIOInstructionsExecuted               += 1
-        default: break
-        }
-    }
-    
-    private func processMoveRightInstruction() throws {
-        pointer += 1
-        guard pointer < array.count else {
-            throw InterpreterError.overflow
-        }
-        if array[pointer] == nil {
-            array[pointer] = 0
-            currentArraySize += 1
-        }
-    }
-    
-    private func processMoveLeftInstruction() throws {
-        pointer -= 1
-        guard pointer >= 0 else {
-            throw InterpreterError.underflow
-        }
-    }
-    
-    private func processIncrementInstruction() throws {
-        if currentCell < cellSize {
-            currentCell += 1
-        } else {
-            currentCell = 0
-        }
-    }
-    
-    private func processDecrementInstruction() throws {
-        if currentCell > 0 {
-            currentCell -= 1
-        } else {
-            currentCell = cellSize - 1
-        }
-    }
-    
-    private func processBracket(type: Instruction) throws {
-        guard type == .conditional || type == .loop else {
-            return
-        }
-        
-        let newInstructionIndex = program.indices.first { index in
-            program[index] == type && loops[index] == loops[currentInstructionIndex]
-        }
-        guard let newInstructionIndex else {
-            throw InterpreterError.mismatchedBrackets
-        }
-        
-        currentInstructionIndex = newInstructionIndex
-    }
-}
-
 // MARK: - Running
 
 @Observable extension Interpreter {
@@ -346,7 +237,6 @@ import os.log
         
         totalInstructionsExecuted = 0
         currentInstructionIndex = 0
-        hasReachedEndOfInput = false
         output = ""
         try checkForMismatchedBrackets()
         
@@ -477,5 +367,112 @@ import os.log
             cellSize:        cellSize.rawValue + 1,
             breakOnHash:     breakOnHash
         )
+    }
+}
+
+// MARK: - Instruction Processing
+
+@Observable extension Interpreter {
+    /// Executes an `Instruction`.
+    ///
+    /// - Parameters:
+    ///   - instruction: The `Instruction` to be executed.
+    ///
+    /// - Throws: `InterpreterError`.
+    private func processInstruction(_ instruction: Instruction) throws {
+        // logger.log("Processing instruction \"\(instruction.rawValue)\"")
+        previousInstructionIndex = currentInstructionIndex
+        switch instruction {
+        case .moveRight: try processMoveRightInstruction()
+        case .moveLeft: try processMoveLeftInstruction()
+        
+        case .increment: try processIncrementInstruction()
+        case .decrement: try processDecrementInstruction()
+        
+        case .conditional where currentCell == 0: try processBracket(type: .loop) // skip the loop
+        case .loop where currentCell != 0: try processBracket(type: .conditional) // restart the loop
+        
+        case .output where currentCell < 256: output += String(Unicode.Scalar(currentCell)!)
+        case .input: try processInputInstruction()
+        
+        case .break where breakOnHash: throw InterpreterError.break
+        
+        default: break
+        }
+        
+        totalInstructionsExecuted += 1
+        switch instruction {
+        case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted  += 1
+        case .increment,   .decrement: totalCellManipulationInstructionsExecuted += 1
+        case .conditional, .loop:      totalControlFlowInstructionsExecuted      += 1
+        case .output,      .input:     totalIOInstructionsExecuted               += 1
+        default: break
+        }
+    }
+    
+    private func processMoveRightInstruction() throws {
+        pointer += 1
+        guard pointer < array.count else {
+            throw InterpreterError.overflow
+        }
+        
+        if array[pointer] == nil {
+            array[pointer] = 0
+            currentArraySize += 1
+        }
+    }
+    
+    private func processMoveLeftInstruction() throws {
+        pointer -= 1
+        guard pointer >= 0 else {
+            throw InterpreterError.underflow
+        }
+    }
+    
+    private func processIncrementInstruction() throws {
+        if currentCell < cellSize {
+            currentCell += 1
+        } else {
+            currentCell = 0
+        }
+    }
+    
+    private func processDecrementInstruction() throws {
+        if currentCell > 0 {
+            currentCell -= 1
+        } else {
+            currentCell = cellSize - 1
+        }
+    }
+    
+    private func processBracket(type: Instruction) throws {
+        guard type == .conditional || type == .loop else {
+            return
+        }
+        
+        let newInstructionIndex = program.indices.first { index in
+            program[index] == type && loops[index] == loops[currentInstructionIndex]
+        }
+        guard let newInstructionIndex else {
+            throw InterpreterError.mismatchedBrackets
+        }
+        
+        currentInstructionIndex = newInstructionIndex
+    }
+    
+    private func processInputInstruction() throws {
+        if currentInputIndex == input.count {
+            currentCell = switch endOfInput {
+            case .noChange:  currentCell
+            case .setToZero: 0
+            case .setToMax:  cellSize - 1
+            }
+        } else {
+            currentCell = min(
+                cellSize - 1,
+                Int(currentInputCharacter.unicodeScalars.first?.value ?? 0)
+            )
+            currentInputIndex += 1
+        }
     }
 }
