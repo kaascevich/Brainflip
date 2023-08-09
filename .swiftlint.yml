@@ -3,7 +3,7 @@ excluded:
 
 disabled_rules:
     - comma # more annoying than helpful when aligning code
-    - file_length
+  #  - file_length
     - line_length
     - todo
     - type_body_length

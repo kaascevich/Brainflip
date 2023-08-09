@@ -41,6 +41,8 @@
 		342D930229B26233002461DA /* CellSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930129B26233002461DA /* CellSizePicker.swift */; };
 		342D930529B273AA002461DA /* InspectorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930429B273AA002461DA /* InspectorSettings.swift */; };
 		342D930729B2791C002461DA /* MenuBarCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342D930629B2791C002461DA /* MenuBarCommands.swift */; };
+		3431E6B12A83DE8100FE2237 /* Interpreter+Initializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431E6B02A83DE8100FE2237 /* Interpreter+Initializers.swift */; };
+		3431E6B32A83DEE300FE2237 /* Interpreter+EndOfInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431E6B22A83DEE300FE2237 /* Interpreter+EndOfInput.swift */; };
 		3433604529B280D200E9C4AD /* InspectorModuleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433604429B280D200E9C4AD /* InspectorModuleList.swift */; };
 		3433604929B28F3C00E9C4AD /* ClearMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3433604829B28F3C00E9C4AD /* ClearMenu.swift */; };
 		343635B52A65D55D00CDA660 /* IntentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AEE2E62A65CE2200A06DC4 /* IntentProvider.swift */; };
@@ -241,6 +243,8 @@
 		342D930429B273AA002461DA /* InspectorSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorSettings.swift; sourceTree = "<group>"; };
 		342D930629B2791C002461DA /* MenuBarCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCommands.swift; sourceTree = "<group>"; };
 		342DA12F2A78294B005753FC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3431E6B02A83DE8100FE2237 /* Interpreter+Initializers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpreter+Initializers.swift"; sourceTree = "<group>"; };
+		3431E6B22A83DEE300FE2237 /* Interpreter+EndOfInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpreter+EndOfInput.swift"; sourceTree = "<group>"; };
 		3433604429B280D200E9C4AD /* InspectorModuleList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorModuleList.swift; sourceTree = "<group>"; };
 		3433604829B28F3C00E9C4AD /* ClearMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearMenu.swift; sourceTree = "<group>"; };
 		344E528A29BD34D200F4DB50 /* FileCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
@@ -583,6 +587,17 @@
 			path = "Inspector Settings";
 			sourceTree = "<group>";
 		};
+		3431E6AF2A83DE6500FE2237 /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				341F299829A960B0000843FA /* Interpreter.swift */,
+				3431E6B22A83DEE300FE2237 /* Interpreter+EndOfInput.swift */,
+				3431E6B02A83DE8100FE2237 /* Interpreter+Initializers.swift */,
+				34618C6029AADEA200552568 /* InterpreterError.swift */,
+			);
+			path = Interpreter;
+			sourceTree = "<group>";
+		};
 		3433604A29B290CD00E9C4AD /* Clear Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,8 +648,7 @@
 			children = (
 				34618C6229AAE02B00552568 /* Program.swift */,
 				34618C5D29AADE6C00552568 /* Instruction.swift */,
-				341F299829A960B0000843FA /* Interpreter.swift */,
-				34618C6029AADEA200552568 /* InterpreterError.swift */,
+				3431E6AF2A83DE6500FE2237 /* Interpreter */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -1375,7 +1389,9 @@
 				3486AA2F29BE7E8E004C12B6 /* GeneralSettings.swift in Sources */,
 				34EE8A962A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift in Sources */,
 				345F80C92A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift in Sources */,
+				3431E6B32A83DEE300FE2237 /* Interpreter+EndOfInput.swift in Sources */,
 				341F299929A960B0000843FA /* Interpreter.swift in Sources */,
+				3431E6B12A83DE8100FE2237 /* Interpreter+Initializers.swift in Sources */,
 				346E1F1D2A7D6E6400678984 /* OutputView.swift in Sources */,
 				3474D9C129CB802A00DCFDF2 /* ArrayNameField.swift in Sources */,
 				345B20A029C8AC6100405DD9 /* ShowProgressToggle.swift in Sources */,
