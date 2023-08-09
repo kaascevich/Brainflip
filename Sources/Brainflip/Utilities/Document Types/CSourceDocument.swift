@@ -24,7 +24,9 @@ final class CSourceDocument: FileDocument, Identifiable {
     init?(_ contents: String? = "") {
         if let contents {
             self.contents = contents
-        } else { return nil }
+        } else {
+            return nil
+        }
     }
         
     static let readableContentTypes: [UTType] = [.cSource]

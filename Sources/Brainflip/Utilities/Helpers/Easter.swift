@@ -34,7 +34,9 @@ private let konamiSequence: [KonamiCharacters] = [.up, .up, .down, .down, .left,
 /// - Returns: `true` if `code` is a valid variant of the Konami code;
 ///   otherwise, `false`.
 func isValidKonamiCode(_ code: String) -> Bool {
-    guard code.count == konamiSequence.count else { return false }
+    guard code.count == konamiSequence.count else {
+        return false
+    }
     
     return code.enumerated().allSatisfy { index, character in
         konamiSequence[index].rawValue.contains(character)

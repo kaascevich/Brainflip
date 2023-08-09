@@ -119,7 +119,9 @@ import os.log
     
     /// The next ``Instruction`` to be executed.
     var currentInstruction: Instruction {
-        guard program.indices.contains(currentInstructionIndex) else { return .blank }
+        guard program.indices.contains(currentInstructionIndex) else {
+            return .blank
+        }
         return program[currentInstructionIndex]
     }
     
@@ -128,7 +130,9 @@ import os.log
     
     /// The ``Instruction`` that was previously executed.
     var previousInstruction: Instruction {
-        guard !program.isEmpty, previousInstructionIndex > 0 else { return .blank }
+        guard !program.isEmpty, previousInstructionIndex > 0 else {
+            return .blank
+        }
         return program[previousInstructionIndex]
     }
     
@@ -171,7 +175,9 @@ import os.log
     
     /// The current cell's value, represeted as an ASCII character.
     var currentCellAsASCII: String {
-        guard asciiValues.indices.contains(currentCell) else { return "N/A" }
+        guard asciiValues.indices.contains(currentCell) else {
+            return "N/A"
+        }
         return asciiValues[currentCell]
     }
     
@@ -193,13 +199,17 @@ import os.log
     ///
     /// This returns `"\0"` if end-of-input has been reached.
     var currentInputCharacter: Character {
-        guard currentInputIndex <= input.count - 1 else { return Character("\0") }
+        guard currentInputIndex <= input.count - 1 else {
+            return Character("\0")
+        }
         return input[input.index(input.startIndex, offsetBy: currentInputIndex)]
     }
     
     /// The current input character, represented as an ASCII character.
     var currentInputCharacterAsASCII: String {
-        guard currentInputIndex <= input.count - 1 else { return "Null" }
+        guard currentInputIndex <= input.count - 1 else {
+            return "Null"
+        }
         return asciiValues[Int(currentInputCharacter.asciiValue ?? 0)]
     }
     
@@ -334,7 +344,9 @@ import os.log
     ///
     /// - Throws: `InterpreterError`.
     func step() throws {
-        guard currentInstructionIndex < program.count - 1 else { return }
+        guard currentInstructionIndex < program.count - 1 else {
+            return
+        }
         Interpreter.logger.info("Stepping through program")
         try checkForMismatchedBrackets()
         try processInstruction(currentInstruction)

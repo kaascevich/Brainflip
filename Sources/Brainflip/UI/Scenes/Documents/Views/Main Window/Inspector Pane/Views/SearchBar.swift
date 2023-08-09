@@ -54,7 +54,9 @@ struct SearchBar: NSViewRepresentable {
         }
         
         func controlTextDidChange(_ obj: Notification) {
-            guard let searchField = obj.object as? NSSearchField else { return }
+            guard let searchField = obj.object as? NSSearchField else {
+                return
+            }
             searchText = searchField.stringValue
         }
     }

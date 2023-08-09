@@ -27,7 +27,9 @@ struct ProgramProgressView: View {
         Swift.max(1, actualMax)
     }
     var current: Double? {
-        guard !state.isRunningProgram else { return nil }
+        guard !state.isRunningProgram else {
+            return nil
+        }
         return min(Swift.max(0, Double(state.interpreter.currentInstructionIndex)), max)
     }
     

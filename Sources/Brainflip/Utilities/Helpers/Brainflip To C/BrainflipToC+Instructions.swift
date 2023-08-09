@@ -160,7 +160,9 @@ extension BrainflipToC {
             case .break:
                 if settings.includeDisabledBreak {
                     instruction += (!settings.breakOnHash ? comment : "") + returnInstruction
-                } else { return nil }
+                } else {
+                    return nil
+                }
             default: return nil
         }
         return instruction
