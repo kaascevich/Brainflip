@@ -180,24 +180,24 @@ import SwiftUI
     
     func clearAll() {
         execution.cancel()
-        timeElapsed       = TimeInterval(0)
-        selection         = 0..<0
+        timeElapsed = TimeInterval(0)
+        selection = 0..<0
         document.contents = ""
-        input             = ""
-        output            = ""
-        interpreter       = createInterpreter()
-        isRunningProgram  = false
-        justRanProgram    = false
+        input = ""
+        output = ""
+        interpreter = createInterpreter()
+        isRunningProgram = false
+        justRanProgram = false
     }
     
     func reset() {
         execution.cancel()
-        if interpreter.currentInstructionIndex != 0 { selection = 0..<0 }
-        timeElapsed      = TimeInterval(0)
-        interpreter      = createInterpreter()
-        output           = ""
+        selection = 0..<0
+        timeElapsed = TimeInterval(0)
+        interpreter = createInterpreter()
+        output = ""
         isRunningProgram = false
-        justRanProgram   = false
+        justRanProgram = false
     }
 
     var disableResetButton: Bool {
@@ -208,9 +208,9 @@ import SwiftUI
     func stop() {
         execution.cancel()
         updateSelection()
-        output           = interpreter.output
+        output = interpreter.output
         isRunningProgram = false
-        justRanProgram   = false
+        justRanProgram = false
     }
 
     var disableStopButton: Bool { !isRunningProgram }
