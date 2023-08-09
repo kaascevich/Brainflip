@@ -25,8 +25,8 @@ import UniformTypeIdentifiers
     
     var filename = "Untitled"
         
-    var contents: String
-    init(_ contents: String = "") {
+    var contents: Snapshot
+    init(_ contents: Snapshot = "") {
         self.contents = contents
     }
     

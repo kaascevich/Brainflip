@@ -17,32 +17,30 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-final class CSourceDocument: FileDocument, Identifiable {
+struct CSourceDocument: FileDocument, Identifiable {
     let id = UUID()
         
     var contents: String
-    init?(_ contents: String? = "") {
-        guard let contents else {
-            return nil
-        }
+    init(_ contents: String = "") {
         self.contents = contents
     }
         
     static let readableContentTypes: [UTType] = [.cSource]
     
-    convenience init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents else {
+    init(configuration: ReadConfiguration) throws {
+        guard let data = configuration.file.regularFileContents,
+              let contents = String(data: data, encoding: .utf8)
+        else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        self.init(String(data: data, encoding: .utf8) ?? "")!
-    }
-    
-    func snapshot(contentType _: UTType) throws -> String {
-        contents
+        
+        self.init(contents)
     }
     
     func fileWrapper(configuration _: WriteConfiguration) throws -> FileWrapper {
-        let data = contents.data(using: .utf8) ?? "\0".data(using: .utf8)!
+        guard let data = contents.data(using: .utf8) else {
+            throw CocoaError(.fileWriteInapplicableStringEncoding)
+        }
         return FileWrapper(regularFileWithContents: data)
     }
 }
