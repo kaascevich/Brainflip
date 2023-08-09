@@ -31,6 +31,7 @@ struct ExportSettings: View {
                     IncludeNotEqualZeroToggle()
                     OpeningBraceOnNewLineToggle()
                     IncludeVoidWithinMainToggle()
+                    IncludeDisabledBreakToggle()
                 }
             }
             .formStyle(.grouped)

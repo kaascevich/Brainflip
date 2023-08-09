@@ -57,6 +57,7 @@
 		345E18F42A6452BE002C66D0 /* ShowArrayCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E18F32A6452BE002C66D0 /* ShowArrayCommand.swift */; };
 		345E190D2A645886002C66D0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E190C2A645886002C66D0 /* Notifications.swift */; };
 		345E190F2A64614A002C66D0 /* ShowNotificationsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E190E2A64614A002C66D0 /* ShowNotificationsToggle.swift */; };
+		345F80C92A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F80C82A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift */; };
 		346011822A658DAD00029BB3 /* ToolbarPanelToggles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346011812A658DAD00029BB3 /* ToolbarPanelToggles.swift */; };
 		346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 346011862A659B2000029BB3 /* SwiftUIIntrospect */; };
 		346011892A659F6400029BB3 /* TextSizeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346011882A659F6400029BB3 /* TextSizeSlider.swift */; };
@@ -256,6 +257,7 @@
 		345E190C2A645886002C66D0 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		345E190E2A64614A002C66D0 /* ShowNotificationsToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotificationsToggle.swift; sourceTree = "<group>"; };
 		345E19152A6465AE002C66D0 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		345F80C82A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeDisabledBreakToggle.swift; sourceTree = "<group>"; };
 		346011812A658DAD00029BB3 /* ToolbarPanelToggles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarPanelToggles.swift; sourceTree = "<group>"; };
 		346011882A659F6400029BB3 /* TextSizeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSizeSlider.swift; sourceTree = "<group>"; };
 		3460118C2A65AEBF00029BB3 /* Sample Programs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Sample Programs"; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 				34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */,
 				3474D9CA29CB992F00DCFDF2 /* OpeningBraceOnNewLineToggle.swift */,
 				34EE8A952A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift */,
+				345F80C82A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift */,
 				3474D9CC29CBA63000DCFDF2 /* WhitespaceList.swift */,
 			);
 			path = Controls;
@@ -1371,6 +1374,7 @@
 				34618C6C29AAE47000552568 /* EditorPaneView.swift in Sources */,
 				3486AA2F29BE7E8E004C12B6 /* GeneralSettings.swift in Sources */,
 				34EE8A962A617C3000ECC0BE /* IncludeVoidWithinMainToggle.swift in Sources */,
+				345F80C92A832B8E001EC8F7 /* IncludeDisabledBreakToggle.swift in Sources */,
 				341F299929A960B0000843FA /* Interpreter.swift in Sources */,
 				346E1F1D2A7D6E6400678984 /* OutputView.swift in Sources */,
 				3474D9C129CB802A00DCFDF2 /* ArrayNameField.swift in Sources */,
