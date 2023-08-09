@@ -134,7 +134,6 @@ import SwiftUI
                     updateSelection()
                 } catch {
                     processError(error)
-                    if errorType != .break { }
                 }
                 updateInspector()
                 isSteppingThrough = false
