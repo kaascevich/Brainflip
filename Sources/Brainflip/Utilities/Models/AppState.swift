@@ -294,7 +294,7 @@ import SwiftUI
     }
     
     private func message(for error: some Error) -> String {
-        return switch error {
+        switch error {
         case let error as InterpreterError: message(forInterpreterError: error)
         case let error as LocalizedError: "Error description: \(error.localizedDescription)"
         case let error as CustomStringConvertible: "Error description: \(error.description)"
