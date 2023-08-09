@@ -384,13 +384,13 @@ import os.log
         previousInstructionIndex = currentInstructionIndex
         switch instruction {
         case .moveRight: try processMoveRightInstruction()
-        case .moveLeft: try processMoveLeftInstruction()
+        case .moveLeft:  try processMoveLeftInstruction()
         
         case .increment: try processIncrementInstruction()
         case .decrement: try processDecrementInstruction()
         
-        case .conditional where currentCell == 0: try processBracket(type: .loop) // skip the loop
-        case .loop where currentCell != 0: try processBracket(type: .conditional) // restart the loop
+        case .conditional where currentCell == 0: try processBracket(type: .loop)        // skip the loop
+        case .loop        where currentCell != 0: try processBracket(type: .conditional) // restart the loop
         
         case .output where currentCell < 256: output += String(Unicode.Scalar(currentCell)!)
         case .input: try processInputInstruction()
