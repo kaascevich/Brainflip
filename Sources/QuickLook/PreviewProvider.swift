@@ -31,10 +31,8 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
     ]
     
     func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
-        let contentType = UTType.rtf
-        
-        return QLPreviewReply(
-            dataOfContentType: contentType,
+        QLPreviewReply(
+            dataOfContentType: .rtf,
             contentSize: CGSize(width: 800, height: 800)
         ) { _ in
             guard let string = try? String(contentsOf: request.fileURL) else {
@@ -61,7 +59,8 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
                 range: NSRange(0..<string.count)
             )
             
-            return attributedString.rtf(from: NSRange(0..<attributedString.length))!
+            let all = NSRange(0..<attributedString.length)
+            return attributedString.rtf(from: all)!
         }
     }
 }
