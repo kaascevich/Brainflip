@@ -10,7 +10,7 @@ disabled_rules:
     - identifier_name
     - line_length
     - opening_brace # doesn't do what I want it to with multi-line conditionals (maybe?)
-    - switch_case_alignment # doesn't work with nested switch statements
+    - switch_case_alignment # doesn't work with assignment
     - todo
     - type_body_length
     
@@ -74,13 +74,6 @@ opt_in_rules:
      - vertical_whitespace_closing_braces
      - vertical_whitespace_opening_braces
      - yoda_condition
-
-# I don't know why, but unindented switch cases are quite
-# the pet peeve of mine. I get that it removesa level of
-# indentation that isn't really necessary, but I still like
-# it the "old-fashioned" way, so to speak.
-#switch_case_alignment:
-#    indented_cases: true
 
 # Trailing whitespace on empty lines lets my tab key live
 # just a little bit longer.

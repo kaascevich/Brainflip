@@ -146,24 +146,24 @@ extension BrainflipToC {
     static func createInstruction(type: Instruction) -> String? {
         var instruction = indent
         switch type {
-            case .moveRight:   instruction += moveRightInstruction
-            case .moveLeft:    instruction += moveLeftInstruction
-            case .increment:   instruction += incrementInstruction
-            case .decrement:   instruction += decrementInstruction
-            case .conditional: instruction += conditionalInstruction; indentLevel += 1
-            case .output:      instruction += outputInstruction
-            case .input:       instruction += inputInstruction
-            case .loop:
-                instruction.removeLast(settings.indentation)
-                indentLevel -= 1
-                instruction += loopInstruction
-            case .break:
-                if settings.includeDisabledBreak {
-                    instruction += (!settings.breakOnHash ? comment : "") + returnInstruction
-                } else {
-                    return nil
-                }
-            default: return nil
+        case .moveRight:   instruction += moveRightInstruction
+        case .moveLeft:    instruction += moveLeftInstruction
+        case .increment:   instruction += incrementInstruction
+        case .decrement:   instruction += decrementInstruction
+        case .conditional: instruction += conditionalInstruction; indentLevel += 1
+        case .output:      instruction += outputInstruction
+        case .input:       instruction += inputInstruction
+        case .loop:
+            instruction.removeLast(settings.indentation)
+            indentLevel -= 1
+            instruction += loopInstruction
+        case .break:
+            if settings.includeDisabledBreak {
+                instruction += (!settings.breakOnHash ? comment : "") + returnInstruction
+            } else {
+                return nil
+            }
+        default: return nil
         }
         return instruction
     }

@@ -295,16 +295,16 @@ import SwiftUI
     
     private func message(for error: some Error) -> String {
         return switch error {
-            case let error as InterpreterError: message(forInterpreterError: error)
-                
-            case let error as LocalizedError:
-                "Error description: \(error.localizedDescription)"
-                
-            case let error as CustomStringConvertible:
-                "Error description: \(error.description)"
-                
-            default:
-                "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
+        case let error as InterpreterError: message(forInterpreterError: error)
+            
+        case let error as LocalizedError:
+            "Error description: \(error.localizedDescription)"
+            
+        case let error as CustomStringConvertible:
+            "Error description: \(error.description)"
+            
+        default:
+            "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
     }
     
@@ -313,7 +313,7 @@ import SwiftUI
         ordinalFormatter.numberStyle = .ordinal
         
         return switch interpreterError {
-            case .mismatchedBrackets: {
+        case .mismatchedBrackets: {
                 let leftBracketCount  = document.program.count(of: .conditional)
                 let rightBracketCount = document.program.count(of: .loop)
                 
