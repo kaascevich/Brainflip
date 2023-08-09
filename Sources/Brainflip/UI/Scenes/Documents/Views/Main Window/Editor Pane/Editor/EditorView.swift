@@ -55,6 +55,8 @@ extension EditorView {
         
         textView.setAccessibilityLabel("Editor")
         
+        // MARK: Current Instruction Highlighting
+        
         guard settings.showCurrentInstruction,
               !state.document.contents.isEmpty // sometimes the selection doesn't update on time
         else {
