@@ -294,48 +294,8 @@ import SwiftUI
     }
     
     private func message(for error: some Error) -> String {
-        let ordinalFormatter = NumberFormatter()
-        ordinalFormatter.numberStyle = .ordinal
-        
         return switch error {
-            case let error as InterpreterError: switch error {
-                case .mismatchedBrackets: {
-                    let leftBracketCount  = document.program.count(of: .conditional)
-                    let rightBracketCount = document.program.count(of: .loop)
-                    
-                    // If the bracket counts are equal, there isn't really a point in echoing them.
-                    let firstSentence = "There are unmatched brackets within your code."
-                    guard leftBracketCount != rightBracketCount else {
-                        return firstSentence
-                    }
-                    
-                    // Get the difference in bracket amounts.
-                    let extraBracketCount = abs(leftBracketCount - rightBracketCount)
-                    
-                    // Check whether we have more left brackets than right brackets, or vice versa.
-                    let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
-                    
-                    let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
-                    
-                    return firstSentence + " " + secondSentence
-                }()
-                
-                case .underflow:
-                    """
-                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
-                    
-                    (Hint: try raising the initial pointer location in the interpreter settings.)
-                    """
-                
-                case .overflow:
-                    """
-                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
-                    
-                    (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
-                    """
-                
-                case .break: "" // We're not going to show the message anyway.
-            }
+            case let error as InterpreterError: message(forInterpreterError: error)
                 
             case let error as LocalizedError:
                 "Error description: \(error.localizedDescription)"
@@ -345,6 +305,50 @@ import SwiftUI
                 
             default:
                 "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
+        }
+    }
+    
+    private func message(forInterpreterError interpreterError: InterpreterError) -> String {
+        let ordinalFormatter = NumberFormatter()
+        ordinalFormatter.numberStyle = .ordinal
+        
+        return switch interpreterError {
+            case .mismatchedBrackets: {
+                let leftBracketCount  = document.program.count(of: .conditional)
+                let rightBracketCount = document.program.count(of: .loop)
+                
+                // If the bracket counts are equal, there isn't really a point in echoing them.
+                let firstSentence = "There are unmatched brackets within your code."
+                guard leftBracketCount != rightBracketCount else {
+                    return firstSentence
+                }
+                
+                // Get the difference in bracket amounts.
+                let extraBracketCount = abs(leftBracketCount - rightBracketCount)
+                
+                // Check whether we have more left brackets than right brackets, or vice versa.
+                let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
+                
+                let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
+                
+                return firstSentence + " " + secondSentence
+            }()
+                
+            case .underflow:
+                    """
+                    An attempt was made to go below the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
+                    
+                    (Hint: try raising the initial pointer location in the interpreter settings.)
+                    """
+                
+            case .overflow:
+                    """
+                    An attempt was made to go above the bounds of the array. It happened at the \(ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!) instruction.
+                    
+                    (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
+                    """
+                
+            case .break: "" // We're not going to show the message anyway.
         }
     }
 }
