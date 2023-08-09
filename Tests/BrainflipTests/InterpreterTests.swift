@@ -41,9 +41,9 @@ final class InterpreterTests: XCTestCase {
     func testEndOfInput() async throws {
         for endOfInputSetting in Interpreter.EndOfInput.allCases {
             let expectedResult = switch endOfInputSetting {
-                case .noChange:  7
-                case .setToZero: 0
-                case .setToMax:  255
+            case .noChange:  7
+            case .setToZero: 0
+            case .setToMax:  255
             }
             let interpreter = Interpreter(program: "+++++++,", onEndOfInput: endOfInputSetting)
             try await interpreter.run()

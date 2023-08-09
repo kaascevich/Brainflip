@@ -97,7 +97,7 @@ struct Inspector {
                 enabledByDefault: false
             ), Module(
                 name:             "Cell manipulation instructions",
-                data:             interpreter?.totalCellManipulationInstructionsExecuted,
+                data:             interpreter?.totalCellValueInstructionsExecuted,
                 tooltip:          "The total amount of cell manipulation instructions (+-) that have been executed so far.",
                 enabledByDefault: false
             ), Module(

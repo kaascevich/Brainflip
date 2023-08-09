@@ -63,7 +63,7 @@ extension BrainflipToC {
         
         // MARK: - If
         
-        static let `if`                 = "if"
+        static let `if`                 = "if" // swiftlint:disable:this identifier_name
         static let greaterThanOrEqual   = ">="
         static let ifComparisonValue    = "0"
         

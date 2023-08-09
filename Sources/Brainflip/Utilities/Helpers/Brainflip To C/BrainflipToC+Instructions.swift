@@ -154,8 +154,10 @@ extension BrainflipToC {
             case .loop:        loopInstruction
             case .output:      outputInstruction
             case .input:       inputInstruction
+                
             case .break where settings.breakOnHash || settings.includeDisabledBreak:
                 (!settings.breakOnHash ? comment : "") + returnInstruction
+                
             default: nil
             }
         }
