@@ -124,14 +124,10 @@ extension BrainflipToC {
     /// A `String` representation of the cell size.
     static var cellType: String {
         switch settings.cellSize {
-        case .eightBit:     // 255
-            Symbols.char
-        case .sixteenBit:   // 65,635
-            Symbols.short
-        case .thirtyTwoBit: // 4,294,967,295
-            Symbols.int
-        default:            // 1, 3, 15
-            Symbols.char    // 255 (since the smallest type in C is char)
+        case .eightBit:     Symbols.char  // 255
+        case .sixteenBit:   Symbols.short // 65,635
+        case .thirtyTwoBit: Symbols.int   // 4,294,967,295
+        default:            Symbols.char  // 255 (since the smallest type in C is char)
         }
     }
 }
