@@ -157,7 +157,7 @@ extension BrainflipToC {
             instruction.removeLast(settings.indentation)
             indentLevel -= 1
             instruction += loopInstruction
-        case .break where settings.includeDisabledBreak:
+        case .break where settings.breakOnHash || settings.includeDisabledBreak:
             instruction += (!settings.breakOnHash ? comment : "") + returnInstruction
         default: return nil
         }
