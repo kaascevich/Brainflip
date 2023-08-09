@@ -23,7 +23,7 @@ struct InspectorPaneView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     @SceneStorage("expandedInspectorModules")
-    var expandedInspectorModules = Array(repeating: true, count: Inspector.staticInspector.modules.count)
+    var expandedInspectorModules = Array(repeating: true, count: Inspector.modules.count)
     
     @State private var searchText = ""
     
@@ -46,13 +46,13 @@ struct InspectorPaneView: View {
                     settings.inspectorModuleOrder.filter { settings.enabledInspectorModules[$0] },
                     id: \.self
                 ) { index in
-                    if meetsSearchCriteria(state.inspector.modules[index].name, query: searchText) {
+                    if meetsSearchCriteria(Inspector.modules[index].name, query: searchText) {
                         TextFieldWithLabel(
-                            state.isRunningProgram ? "" : "\(state.inspector.modules[index].data!)",
-                            label: state.inspector.modules[index].name,
+                            state.isRunningProgram ? "" : state.interpreter[keyPath: Inspector.modules[index].data],
+                            label: Inspector.modules[index].name,
                             isShown: $expandedInspectorModules[index]
                         )
-                        .help(state.inspector.modules[index].tooltip)
+                        .help(Inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
                         .animation(reduceMotion ? nil : .smooth, value: expandedInspectorModules)
                     }
@@ -66,7 +66,7 @@ struct InspectorPaneView: View {
         }
         .padding(10)
         .overlay {
-            if state.inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name, query: searchText) }) {
+            if Inspector.modules.allSatisfy({ !meetsSearchCriteria($0.name, query: searchText) }) {
                 ContentUnavailableView.search
             }
         }

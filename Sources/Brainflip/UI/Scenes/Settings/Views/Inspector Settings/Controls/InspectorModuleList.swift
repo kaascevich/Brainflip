@@ -28,8 +28,8 @@ struct InspectorModuleList: View {
             selection: settings.$enabledInspectorModules
         ) { index in
             let index = index.wrappedValue
-            Toggle(Inspector.staticInspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
-                .help(Inspector.staticInspector.modules[index].tooltip)
+            Toggle(Inspector.modules[index].name, isOn: settings.$enabledInspectorModules[index])
+                .help(Inspector.modules[index].tooltip)
         }
         .padding(5)
         .animation(reduceMotion ? nil : .smooth, value: settings.inspectorModuleOrder)
@@ -59,7 +59,7 @@ struct InspectorModuleList: View {
         var enabled  = Array(settings.inspectorModuleOrder[..<partitioned])
         var disabled = Array(settings.inspectorModuleOrder[partitioned...])
         
-        let sortPredicate: (Int, Int) -> Bool = { Inspector.staticInspector.modules[$0].name < Inspector.staticInspector.modules[$1].name }
+        let sortPredicate: (Int, Int) -> Bool = { Inspector.modules[$0].name < Inspector.modules[$1].name }
         enabled .sort(by: sortPredicate)
         disabled.sort(by: sortPredicate)
         settings.inspectorModuleOrder = enabled + disabled

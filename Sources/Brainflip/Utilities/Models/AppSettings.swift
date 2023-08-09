@@ -117,10 +117,10 @@ final class AppSettings: ObservableObject {
     // MARK: - Inspector Settings
     
     @AppStorage("enabledInspectorModules", store: inspectorSettings)
-    var enabledInspectorModules: [Bool] = Inspector.staticInspector.modules.map(\.enabledByDefault)
+    var enabledInspectorModules: [Bool] = Inspector.modules.map(\.enabledByDefault)
     
     @AppStorage("inspectorModuleOrder", store: inspectorSettings)
-    var inspectorModuleOrder: [Int] = Array(Inspector.staticInspector.modules.indices)
+    var inspectorModuleOrder: [Int] = Array(Inspector.modules.indices)
     
     // MARK: - Export Settings
     
@@ -211,8 +211,8 @@ extension AppSettings {
     
     func resetInspectorToDefaults() {
         AppSettings.logger.notice("Resetting inspector settings")
-        enabledInspectorModules   = Inspector.staticInspector.modules.map(\.enabledByDefault)
-        inspectorModuleOrder      = Array(Inspector.staticInspector.modules.indices)
+        enabledInspectorModules   = Inspector.modules.map(\.enabledByDefault)
+        inspectorModuleOrder      = Array(Inspector.modules.indices)
     }
     
     func resetEditorToDefaults() {

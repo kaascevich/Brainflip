@@ -36,9 +36,7 @@ import SwiftUI
     var isShowingOutput = true
     
     /// Whether or not the inspector pane is shown.
-    var isShowingInspector = true {
-        willSet { updateInspector() }
-    }
+    var isShowingInspector = true
     
     var isClearAlertShowing = false
     var isWarningAboutTrim = false
@@ -67,9 +65,7 @@ import SwiftUI
     var timeElapsed = TimeInterval(0)
     var startDate = Date.now
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
-    
-    var inspector = Inspector(interpreter: .init(program: "\0"))
-    
+        
     var justRanProgram = false
     var isRunningProgram = false
     var isSteppingThrough = false
@@ -104,7 +100,6 @@ import SwiftUI
                 }
             }
             NSApp.requestUserAttention(.informationalRequest)
-            updateInspector()
             output = interpreter.output
             isRunningProgram = false
             justRanProgram = true
@@ -131,7 +126,6 @@ import SwiftUI
                 } catch {
                     processError(error)
                 }
-                updateInspector()
                 isSteppingThrough = false
             }
         }
@@ -234,12 +228,6 @@ import SwiftUI
             || settings.cellSize.rawValue    != interpreter.cellSize
             || interpreter.program           != Program(string: document.contents)
             || justRanProgram
-    }
-    
-    private func updateInspector() {
-        if isShowingInspector {
-            inspector = .init(interpreter: interpreter)
-        }
     }
     
     @MainActor
