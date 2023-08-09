@@ -37,7 +37,9 @@ struct InspectorPaneView: View {
                 SearchBar($searchText, prompt: "Find a module")
                 Toggle("", sources: $expandedInspectorModules, isOn: \.self)
                     .toggleStyle(.disclosure)
-                    .accessibilityLabel(expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All")
+                    .accessibilityLabel(
+                        expandedInspectorModules.allSatisfy { $0 == true } ? "Collapse All" : "Expand All"
+                    )
             }
             .padding(1)
             
@@ -48,7 +50,7 @@ struct InspectorPaneView: View {
                 ) { index in
                     if meetsSearchCriteria(Inspector.modules[index].name, query: searchText) {
                         TextFieldWithLabel(
-                            state.isRunningProgram ? "" : state.interpreter[keyPath: Inspector.modules[index].data],
+                            state.isRunningProgram ? "" : Inspector.modules[index].data(for: state.interpreter),
                             label: Inspector.modules[index].name,
                             isShown: $expandedInspectorModules[index]
                         )
