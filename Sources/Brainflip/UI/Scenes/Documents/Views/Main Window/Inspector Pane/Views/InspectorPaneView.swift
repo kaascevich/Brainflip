@@ -25,7 +25,7 @@ struct InspectorPaneView: View {
     @SceneStorage("expandedInspectorModules")
     var expandedInspectorModules = Array(repeating: true, count: Inspector.staticInspector.modules.count)
     
-    @State private var searchText: String = ""
+    @State private var searchText = ""
     
     func meetsSearchCriteria(_ string: String, query: String) -> Bool {
         query.isEmpty || string.lowercased().contains(query.lowercased())

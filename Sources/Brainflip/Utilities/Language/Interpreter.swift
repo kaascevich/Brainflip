@@ -182,7 +182,7 @@ import os.log
     }
     
     /// The output produced by the program.
-    private(set) var output: String = ""
+    private(set) var output = ""
     
     /// The input passed to the program.
     let input: String

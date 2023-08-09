@@ -24,10 +24,12 @@ struct MainHelpView: View {
     @Bindable var state: AppState
         
     static let helpContent: AttributedString? = {
-        let fileURL = Bundle.main.url(
+        guard let fileURL = Bundle.main.url(
             forResource: "MainHelp",
             withExtension: "rtf"
-        )!
+        ) else {
+            return nil
+        }
         
         let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.rtf]
         
@@ -35,7 +37,9 @@ struct MainHelpView: View {
             url: fileURL,
             options: options,
             documentAttributes: nil
-        ) else { return nil }
+        ) else {
+            return nil
+        }
         return AttributedString(string)
     }()
     

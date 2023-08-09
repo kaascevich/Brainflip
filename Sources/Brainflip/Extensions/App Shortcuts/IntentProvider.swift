@@ -17,7 +17,7 @@
 import AppIntents
 
 struct IntentProvider: AppShortcutsProvider {
-    static let shortcutTileColor: ShortcutTileColor = .lime
+    static let shortcutTileColor = ShortcutTileColor.lime
     
     static var appShortcuts: [AppShortcut] {
         AppShortcut(

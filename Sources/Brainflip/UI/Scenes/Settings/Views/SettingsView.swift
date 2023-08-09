@@ -25,7 +25,7 @@ struct SettingsView: View {
         var view: any View
     }
     
-    static let tabs: [Tab] = [
+    static let tabs = [
         Tab(
             name: "General",
             symbol: "gearshape",

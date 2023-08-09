@@ -21,7 +21,7 @@ final class InterpreterTests: XCTestCase {
     func testBasic() async throws {
         let interpreter = Interpreter(program: "hello ,[>+<-.]", input: "b")
         try await interpreter.run()
-        let expectedOutput: String = (0x00...0x61).reduce("") { current, asciiCode in
+        let expectedOutput = (0x00...0x61).reduce("") { current, asciiCode in
             String(Unicode.Scalar(asciiCode)!) + current
         }
         XCTAssertEqual(expectedOutput, interpreter.output)

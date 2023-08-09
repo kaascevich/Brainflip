@@ -21,7 +21,7 @@ import UniformTypeIdentifiers
 @Observable final class BrainflipDocument: FileDocument, Identifiable {
     let id = UUID()
     
-    var filename: String = "Untitled"
+    var filename = "Untitled"
         
     var contents: String
     init(_ contents: String = "") {
@@ -54,5 +54,5 @@ import UniformTypeIdentifiers
 }
 
 extension UTType {
-    static let brainflipSource: UTType = .init(exportedAs: "com.kascevich.brainflip-source")
+    static let brainflipSource = UTType(exportedAs: "com.kascevich.brainflip-source")
 }
