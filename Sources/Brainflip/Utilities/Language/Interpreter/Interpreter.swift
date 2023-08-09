@@ -130,7 +130,9 @@ import os.log
     /// When the interpreter is initialized, the array is completely filled with `nil`s, save for
     /// a single `0` at index `0`. When the pointer moves to a cell that is `nil`, the cell
     /// is automatically set to `0`. This enables a more concise inspector implementation.
-    var cellArray: [Int] { array.compactMap { $0 } }
+    var cellArray: [Int] {
+        array.compactMap { $0 }
+    }
     
     /// The amount of non-`nil` cells that are currently in the array.
     private(set) var currentArraySize = 1
@@ -144,9 +146,10 @@ import os.log
     /// The contents of the cell the pointer is pointing to.
     var currentCell: Int {
         get {
-            if array.indices.contains(pointer) {
-                array[pointer] ?? 0
-            } else { 0 }
+            guard array.indices.contains(pointer), let cell = array[pointer] else {
+                return 0
+            }
+            return cell
         }
         set {
             if array.indices.contains(pointer) {
@@ -186,10 +189,7 @@ import os.log
     
     /// The current input character, represented as an ASCII character.
     var currentInputCharacterAsASCII: String {
-        guard currentInputIndex <= input.count - 1 else {
-            return "Null"
-        }
-        return asciiValues[Int(currentInputCharacter.asciiValue ?? 0)]
+        asciiValues[Int(currentInputCharacter.asciiValue ?? 0)]
     }
     
     /// The total number of instructions that have been executed.
@@ -226,7 +226,8 @@ import os.log
             try processInstruction(currentInstruction)
             currentInstructionIndex += 1
             guard !Task.isCancelled else {
-                Interpreter.logger.error("Run cancelled!"); return
+                Interpreter.logger.error("Run cancelled!")
+                return
             }
         }
         
@@ -253,8 +254,9 @@ import os.log
         let leftBracketCount  = program.count(of: .conditional)
         let rightBracketCount = program.count(of: .loop)
         
-        guard leftBracketCount == rightBracketCount, loops.last == 0
-        else { throw InterpreterError.mismatchedBrackets }
+        guard leftBracketCount == rightBracketCount, loops.last == 0 else {
+            throw InterpreterError.mismatchedBrackets
+        }
     }
 }
 
@@ -268,7 +270,6 @@ import os.log
     ///
     /// - Throws: `InterpreterError`.
     private func processInstruction(_ instruction: Instruction) throws {
-        // logger.log("Processing instruction \"\(instruction.rawValue)\"")
         previousInstructionIndex = currentInstructionIndex
         switch instruction {
             case .moveRight: try processMoveRightInstruction()
@@ -355,7 +356,7 @@ import os.log
             )
         }
         
-        if currentInputIndex == input.count {
+        if currentInputIndex != input.count {
             currentInputIndex += 1
         }
     }
