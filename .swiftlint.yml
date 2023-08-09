@@ -4,7 +4,6 @@ excluded:
 disabled_rules:
     - comma # more annoying than helpful when aligning code
     - file_length
-    - function_body_length
     - line_length
     - todo
     - type_body_length
