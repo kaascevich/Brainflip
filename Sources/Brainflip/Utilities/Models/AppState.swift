@@ -81,22 +81,28 @@ import SwiftUI
         }
         
         reset()
-        startDate = Date()
         timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
         execution = Task {
             isRunningProgram = true
-            if settings.playSounds, settings.playStartSound { SystemSounds.start.play() }
+            if settings.playSounds, settings.playStartSound {
+                SystemSounds.start.play()
+            }
             do {
                 try await interpreter.run()
-                if !Task.isCancelled, settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
+                if !Task.isCancelled, settings.playSounds, settings.playSuccessSound {
+                    SystemSounds.success.play()
+                }
                 Notifications.sendNotification(document.filename)
             } catch {
                 processError(error)
-                if errorType != .break {
-                    Notifications.sendNotification(document.filename, error: error)
-                    execution.cancel()
-                    if settings.playSounds, settings.playFailSound { SystemSounds.fail.play() }
+                guard errorType != .break else {
+                    return
+                }
+                Notifications.sendNotification(document.filename, error: error)
+                execution.cancel()
+                if settings.playSounds, settings.playFailSound {
+                    SystemSounds.fail.play()
                 }
             }
             NSApp.requestUserAttention(.informationalRequest)
@@ -114,13 +120,17 @@ import SwiftUI
     @MainActor
     func step() {
         if !isSteppingThrough {
-            if shouldReset() { reset() }
+            if shouldReset {
+                reset()
+            }
             justRanProgram = false
             isSteppingThrough = true
             Task {
                 do {
                     try interpreter.step()
-                    if settings.playSounds, settings.playStepSound { SystemSounds.step.play() }
+                    if settings.playSounds, settings.playStepSound {
+                        SystemSounds.step.play()
+                    }
                     output = interpreter.output
                     updateSelection()
                 } catch {
@@ -157,15 +167,17 @@ import SwiftUI
             return array
         }
         
-        if settings.showCurrentInstruction,
-           interpreter.previousInstructionIndex < commentCharacters(in: document.contents).count,
-           interpreter.previousInstructionIndex >= 0
-        { // It's a bug. swiftlint:disable:this opening_brace
-            let commentCountAtCurrentInstruction = commentCharacters(in: document.contents)[interpreter.previousInstructionIndex]
-            let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
-            let endIndex = startIndex + 1
-            selection = startIndex..<endIndex
+        guard settings.showCurrentInstruction,
+              interpreter.previousInstructionIndex < commentCharacters(in: document.contents).count,
+              interpreter.previousInstructionIndex >= 0
+        else {
+            return
         }
+        
+        let commentCountAtCurrentInstruction = commentCharacters(in: document.contents)[interpreter.previousInstructionIndex]
+        let startIndex = interpreter.previousInstructionIndex + commentCountAtCurrentInstruction
+        let endIndex = startIndex + 1
+        selection = startIndex..<endIndex
     }
     
     func clearAll() {
@@ -178,6 +190,7 @@ import SwiftUI
         execution.cancel()
         selection = 0..<0
         timeElapsed = TimeInterval(0)
+        startDate = Date()
         interpreter = createInterpreter()
         output = ""
         isRunningProgram = false
@@ -197,7 +210,9 @@ import SwiftUI
         justRanProgram = false
     }
 
-    var disableStopButton: Bool { !isRunningProgram }
+    var disableStopButton: Bool {
+        !isRunningProgram
+    }
     
     var disableMenuItems: Bool {
         isAskingForOutputFile
@@ -221,7 +236,7 @@ import SwiftUI
         )
     }
     
-    private func shouldReset() -> Bool {
+    private var shouldReset: Bool {
         settings.endOfInput                  != interpreter.endOfInput
             || Int(settings.arraySize)       != interpreter.arraySize
             || Int(settings.pointerLocation) != interpreter.pointerLocation
@@ -234,16 +249,18 @@ import SwiftUI
     func exportToC() {
         Task {
             // This should never be nil if we're disabling the export button correctly.
-            if (try? Interpreter(program: document.program).checkForMismatchedBrackets()) != nil {
-                isConversionProgressShowing = true
-                try await Task.sleep(nanoseconds: 1) // Needed to show the progress sheet. Why? I dunno.
-                
-                // swiftlint:disable:next force_try
-                convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
-                
-                isConversionProgressShowing = false
-                isAskingForOutputFile.toggle()
+            guard (try? Interpreter(program: document.program).checkForMismatchedBrackets()) != nil else {
+                return
             }
+            
+            isConversionProgressShowing = true
+            try await Task.sleep(nanoseconds: 1) // Needed to show the progress sheet. Why? I dunno.
+            
+            // swiftlint:disable:next force_try
+            convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
+            
+            isConversionProgressShowing = false
+            isAskingForOutputFile.toggle()
         }
     }
 }

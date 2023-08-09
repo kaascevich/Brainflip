@@ -328,6 +328,8 @@ import os.log
     }
     
     private func processBracket(type: Instruction) throws {
+        // This function is only supposed to recieve .conditional
+        // and .loop instructions.
         guard type == .conditional || type == .loop else {
             return
         }
