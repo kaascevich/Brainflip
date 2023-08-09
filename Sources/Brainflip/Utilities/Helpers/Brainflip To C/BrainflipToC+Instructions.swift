@@ -144,28 +144,30 @@ extension BrainflipToC {
     /// - Returns: The converted instruction as a `String`, or `nil`
     ///   if there is no need for the instruction.
     static func createInstruction(type: Instruction) -> String? {
-        // we do want to outdent loop instructions
-        if type == .loop { indentLevel -= 1 }
-        
-        var instruction: String? = switch type {
-        case .moveRight:   moveRightInstruction
-        case .moveLeft:    moveLeftInstruction
-        case .increment:   incrementInstruction
-        case .decrement:   decrementInstruction
-        case .conditional: conditionalInstruction
-        case .output:      outputInstruction
-        case .input:       inputInstruction
-        case .loop:        loopInstruction
-        case .break where settings.breakOnHash || settings.includeDisabledBreak:
-            (!settings.breakOnHash ? comment : "") + returnInstruction
-        default: nil
+        func cEquivalent(for instruction: Instruction) -> String? {
+            switch instruction {
+            case .moveRight:   moveRightInstruction
+            case .moveLeft:    moveLeftInstruction
+            case .increment:   incrementInstruction
+            case .decrement:   decrementInstruction
+            case .conditional: conditionalInstruction
+            case .loop:        loopInstruction
+            case .output:      outputInstruction
+            case .input:       inputInstruction
+            case .break where settings.breakOnHash || settings.includeDisabledBreak:
+                (!settings.breakOnHash ? comment : "") + returnInstruction
+            default: nil
+            }
         }
         
-        guard let instruction else {
+        // we do want to outdent loop instructions, so this goes first
+        if type == .loop { indentLevel -= 1 }
+        
+        guard let instruction = cEquivalent(for: type) else {
             return nil
         }
         
-        // we don't want to indent conditional instructions
+        // we don't want to indent conditional instructions, so this goes last
         if type == .conditional { indentLevel += 1 }
         
         return indent + instruction
