@@ -275,7 +275,6 @@ import SwiftUI
 @Observable extension AppState {
     private func processError(_ error: Error) {
         errorType = error as? InterpreterError
-        
         errorDescription = message(for: error)
         
         // Don't bother calling updateSelection() since mismatched brackets
@@ -302,13 +301,8 @@ import SwiftUI
         }
     }
     
-    private func message(forInterpreterError interpreterError: InterpreterError) -> String {
-        let ordinalFormatter = NumberFormatter()
-        ordinalFormatter.numberStyle = .ordinal
-        
-        let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
-        
-        switch interpreterError {
+    private func message(forInterpreterError error: InterpreterError) -> String {
+        switch error {
         case .mismatchedBrackets:
             let leftBracketCount  = document.program.count(of: .conditional)
             let rightBracketCount = document.program.count(of: .loop)
@@ -329,18 +323,23 @@ import SwiftUI
             
             return firstSentence + " " + secondSentence
             
-        case .underflow:
+        case .underflow, .overflow:
+            let ordinalFormatter = NumberFormatter()
+            ordinalFormatter.numberStyle = .ordinal
+            
+            // string(from:) returns an optional for very obscure reasons; it's fine to force-unwrap
+            let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
+            
+            let (spillDirection, hintMessage) = if error == .overflow {
+                ("above", "increasing the array size")
+            } else {
+                ("below", "raising the initial pointer location")
+            }
+            
             return """
-            An attempt was made to go below the bounds of the array. It happened at the \(errorLocation) instruction.
+            An attempt was made to go \(spillDirection) the bounds of the array. It happened at the \(errorLocation) instruction.
             
-            (Hint: try raising the initial pointer location in the interpreter settings.)
-            """
-            
-        case .overflow:
-            return """
-            An attempt was made to go above the bounds of the array. It happened at the \(errorLocation) instruction.
-            
-            (Hint: try increasing the array size or lowering the intiial pointer location in the interpreter settings.)
+            (Hint: try \(hintMessage) in the interpreter settings.)
             """
             
         case .break: return "" // We're not going to show the message anyway.
