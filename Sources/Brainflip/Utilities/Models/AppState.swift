@@ -97,7 +97,7 @@ import SwiftUI
             selection = 0..<0
             do {
                 try await interpreter.run()
-                if settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
+                if !Task.isCancelled, settings.playSounds, settings.playSuccessSound { SystemSounds.success.play() }
                 Notifications.sendNotification(document.filename)
             } catch {
                 processError(error)
