@@ -95,17 +95,17 @@ import os.log
             var current = 0
             for instruction in Program(string: program) {
                 switch instruction {
-                case .conditional:
-                    stack.append(current)
-                    numLoops += 1
-                    current = numLoops
-                    array.append(current)
-                    
-                case .loop:
-                    array.append(current)
-                    current = stack.popLast() ?? 0
-                    
-                default: array.append(current)
+                    case .conditional:
+                        stack.append(current)
+                        numLoops += 1
+                        current = numLoops
+                        array.append(current)
+                        
+                    case .loop:
+                        array.append(current)
+                        current = stack.popLast() ?? 0
+                        
+                    default: array.append(current)
                 }
             }
             return array
@@ -384,21 +384,21 @@ import os.log
         // logger.log("Processing instruction \"\(instruction.rawValue)\"")
         previousInstructionIndex = currentInstructionIndex
         switch instruction {
-        case .moveRight: try processMoveRightInstruction()
-        case .moveLeft:  try processMoveLeftInstruction()
-        
-        case .increment: try processIncrementInstruction()
-        case .decrement: try processDecrementInstruction()
-        
-        case .conditional where currentCell == 0: try processBracket(type: .loop)        // skip the loop
-        case .loop        where currentCell != 0: try processBracket(type: .conditional) // restart the loop
-        
-        case .output where currentCell < 256: output += String(Unicode.Scalar(currentCell)!)
-        case .input: try processInputInstruction()
-        
-        case .break where breakOnHash: throw InterpreterError.break
-        
-        default: break
+            case .moveRight: try processMoveRightInstruction()
+            case .moveLeft:  try processMoveLeftInstruction()
+            
+            case .increment: try processIncrementInstruction()
+            case .decrement: try processDecrementInstruction()
+            
+            case .conditional where currentCell == 0: try processBracket(type: .loop)        // skip the loop
+            case .loop        where currentCell != 0: try processBracket(type: .conditional) // restart the loop
+            
+            case .output where currentCell < 256: output += String(Unicode.Scalar(currentCell)!)
+            case .input: try processInputInstruction()
+            
+            case .break where breakOnHash: throw InterpreterError.break
+            
+            default: break
         }
         
         incrementTotalInstructionsExecuted(forType: instruction)
@@ -455,17 +455,20 @@ import os.log
     }
     
     private func processInputInstruction() throws {
-        if currentInputIndex == input.count {
-            currentCell = switch endOfInput {
-            case .noChange:  currentCell
-            case .setToZero: 0
-            case .setToMax:  cellSize - 1
+        currentCell = if currentInputIndex == input.count {
+            switch endOfInput {
+                case .noChange:  currentCell
+                case .setToZero: 0
+                case .setToMax:  cellSize - 1
             }
         } else {
-            currentCell = min(
+            min(
                 cellSize - 1,
                 Int(currentInputCharacter.unicodeScalars.first?.value ?? 0)
             )
+        }
+        
+        if currentInputIndex == input.count {
             currentInputIndex += 1
         }
     }
@@ -473,11 +476,11 @@ import os.log
     private func incrementTotalInstructionsExecuted(forType instruction: Instruction) {
         totalInstructionsExecuted += 1
         switch instruction {
-        case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted += 1
-        case .increment,   .decrement: totalCellValueInstructionsExecuted       += 1
-        case .conditional, .loop:      totalControlFlowInstructionsExecuted     += 1
-        case .output,      .input:     totalIOInstructionsExecuted              += 1
-        default: break
+            case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted += 1
+            case .increment,   .decrement: totalCellValueInstructionsExecuted       += 1
+            case .conditional, .loop:      totalControlFlowInstructionsExecuted     += 1
+            case .output,      .input:     totalIOInstructionsExecuted              += 1
+            default: break
         }
     }
 }

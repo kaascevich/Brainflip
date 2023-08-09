@@ -8,7 +8,6 @@ disabled_rules:
     - function_parameter_count
     - line_length
     - opening_brace # doesn't do what I want it to with multi-line conditionals (maybe?)
-    - switch_case_alignment # doesn't work when returning switch statement
     - todo
     - type_body_length
     
@@ -87,6 +86,13 @@ opt_in_rules:
      - weak_delegate
      - xct_specific_matcher
      - yoda_condition
+     
+# I don't know why, but unindented switch cases are quite
+# the pet peeve of mine. I get that it removesa level of
+# indentation that isn't really necessary, but I still like
+# it the "old-fashioned" way, so to speak.
+switch_case_alignment:
+    indented_cases: true
 
 # Trailing whitespace on empty lines lets my tab key live
 # just a little bit longer.

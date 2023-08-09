@@ -146,19 +146,19 @@ extension BrainflipToC {
     static func createInstruction(type: Instruction) -> String? {
         func cEquivalent(for instruction: Instruction) -> String? {
             switch instruction {
-            case .moveRight:   moveRightInstruction
-            case .moveLeft:    moveLeftInstruction
-            case .increment:   incrementInstruction
-            case .decrement:   decrementInstruction
-            case .conditional: conditionalInstruction
-            case .loop:        loopInstruction
-            case .output:      outputInstruction
-            case .input:       inputInstruction
-                
-            case .break where settings.breakOnHash || settings.includeDisabledBreak:
-                (!settings.breakOnHash ? comment : "") + returnInstruction
-                
-            default: nil
+                case .moveRight:   moveRightInstruction
+                case .moveLeft:    moveLeftInstruction
+                case .increment:   incrementInstruction
+                case .decrement:   decrementInstruction
+                case .conditional: conditionalInstruction
+                case .loop:        loopInstruction
+                case .output:      outputInstruction
+                case .input:       inputInstruction
+                    
+                case .break where settings.breakOnHash || settings.includeDisabledBreak:
+                    (!settings.breakOnHash ? comment : "") + returnInstruction
+                    
+                default: nil
             }
         }
         

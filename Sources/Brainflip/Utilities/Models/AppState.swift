@@ -284,55 +284,55 @@ import SwiftUI
     
     private func message(for error: some Error) -> String {
         switch error {
-        case let error as InterpreterError: message(forInterpreterError: error)
-        case let error as LocalizedError: "Error description: \(error.localizedDescription)"
-        case let error as CustomStringConvertible: "Error description: \(error.description)"
-        default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
+            case let error as InterpreterError: message(forInterpreterError: error)
+            case let error as LocalizedError: "Error description: \(error.localizedDescription)"
+            case let error as CustomStringConvertible: "Error description: \(error.description)"
+            default: "An unknown error occured. (Sorry for not being more helpful, we really don't know what went wrong.)"
         }
     }
     
     private func message(forInterpreterError error: InterpreterError) -> String {
         switch error {
-        case .mismatchedBrackets:
-            let leftBracketCount  = document.program.count(of: .conditional)
-            let rightBracketCount = document.program.count(of: .loop)
-            
-            // If the bracket counts are equal, there isn't really a point in echoing them.
-            let firstSentence = "There are unmatched brackets within your code."
-            guard leftBracketCount != rightBracketCount else {
-                return firstSentence
-            }
-            
-            // Get the difference in bracket amounts.
-            let extraBracketCount = abs(leftBracketCount - rightBracketCount)
-            
-            // Check whether we have more left brackets than right brackets, or vice versa.
-            let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
-            
-            let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
-            
-            return firstSentence + " " + secondSentence
-            
-        case .underflow, .overflow:
-            let ordinalFormatter = NumberFormatter()
-            ordinalFormatter.numberStyle = .ordinal
-            
-            // string(from:) returns an optional for very obscure reasons; it's fine to force-unwrap
-            let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
-            
-            let (spillDirection, hintMessage) = if error == .overflow {
-                ("above", "increasing the array size")
-            } else {
-                ("below", "raising the initial pointer location")
-            }
-            
-            return """
-            An attempt was made to go \(spillDirection) the bounds of the array. It happened at the \(errorLocation) instruction.
-            
-            (Hint: try \(hintMessage) in the interpreter settings.)
-            """
-            
-        case .break: return "" // We're not going to show the message anyway.
+            case .mismatchedBrackets:
+                let leftBracketCount  = document.program.count(of: .conditional)
+                let rightBracketCount = document.program.count(of: .loop)
+                
+                // If the bracket counts are equal, there isn't really a point in echoing them.
+                let firstSentence = "There are unmatched brackets within your code."
+                guard leftBracketCount != rightBracketCount else {
+                    return firstSentence
+                }
+                
+                // Get the difference in bracket amounts.
+                let extraBracketCount = abs(leftBracketCount - rightBracketCount)
+                
+                // Check whether we have more left brackets than right brackets, or vice versa.
+                let extraBracketType = leftBracketCount > rightBracketCount ? "left" : "right"
+                
+                let secondSentence = "You have \(extraBracketCount) extra \(extraBracketType) \(extraBracketCount == 1 ? "bracket" : "brackets")."
+                
+                return firstSentence + " " + secondSentence
+                
+            case .underflow, .overflow:
+                let ordinalFormatter = NumberFormatter()
+                ordinalFormatter.numberStyle = .ordinal
+                
+                // string(from:) returns an optional for very obscure reasons; it's fine to force-unwrap
+                let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
+                
+                let (spillDirection, hintMessage) = if error == .overflow {
+                    ("above", "increasing the array size")
+                } else {
+                    ("below", "raising the initial pointer location")
+                }
+                
+                return """
+                An attempt was made to go \(spillDirection) the bounds of the array. It happened at the \(errorLocation) instruction.
+                
+                (Hint: try \(hintMessage) in the interpreter settings.)
+                """
+                
+            case .break: return "" // We're not going to show the message anyway.
         }
     }
 }

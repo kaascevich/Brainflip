@@ -51,10 +51,10 @@ struct Notifications {
             if let error = error as? InterpreterError {
                 content.body += ": "
                 switch error {
-                case .overflow:           content.body += "overflow"
-                case .underflow:          content.body += "underflow"
-                case .mismatchedBrackets: content.body += "mismatched brackets"
-                default: break
+                    case .overflow:           content.body += "overflow"
+                    case .underflow:          content.body += "underflow"
+                    case .mismatchedBrackets: content.body += "mismatched brackets"
+                    default: break
                 }
             }
             if NSApp.isActive { content.badge = 1 }
