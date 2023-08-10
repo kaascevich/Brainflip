@@ -107,7 +107,7 @@ extension AppState {
                     SystemSounds.fail.play()
                 }
             }
-            NSApp.requestUserAttention(.informationalRequest)
+            NSApplication.shared.requestUserAttention(.informationalRequest)
             output = interpreter.output
             isRunningProgram = false
             justRanProgram = true
