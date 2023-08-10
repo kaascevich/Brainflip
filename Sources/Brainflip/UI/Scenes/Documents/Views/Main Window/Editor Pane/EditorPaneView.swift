@@ -18,7 +18,6 @@ import Foundation
 import SwiftUI
 
 struct EditorPaneView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {

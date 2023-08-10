@@ -15,8 +15,6 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import AppIntents
-import Foundation
-import Observation
 
 extension Interpreter {
     /// Actions to perform when encountering an input instruction after end-of-input has been reached.

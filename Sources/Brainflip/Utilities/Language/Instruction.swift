@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 /// Instructions that can be executed by the Brainflip interpreter.
 enum Instruction: Character, CaseIterable {
     /// Moves the pointer 1 cell to the right.

@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ToolbarStepButton: ToolbarContent {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     @State private var symbolEffect = false
@@ -26,7 +25,9 @@ struct ToolbarStepButton: ToolbarContent {
         ToolbarItem {
             Button {
                 symbolEffect.toggle()
-                state.step()
+                Task {
+                    await state.step()
+                }
             } label: {
                 Label("Step Through", systemImage: "arrowshape.bounce.forward")
                     .symbolVariant(.fill)

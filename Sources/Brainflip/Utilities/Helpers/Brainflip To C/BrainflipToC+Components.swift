@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 extension BrainflipToC {
     // MARK: - Newlines
     
@@ -73,17 +71,6 @@ extension BrainflipToC {
     }
     
     // MARK: - Pointers
-    
-    @StringBuilder static var pointerCast: String {
-        if cellType != Symbols.char {
-            openingParenthesis
-            Symbols.char
-            pointerMark(whitespaceAfter: false)
-            closingParenthesis
-        } else {
-            ""
-        }
-    }
 
     @StringBuilder static var pointerWithName: String {
         pointerMark(whitespaceBefore: false, whitespaceAfter: settings.leftHandIncDec)
@@ -112,10 +99,6 @@ extension BrainflipToC {
     @StringBuilder static var semicolon: String {
         whitespace(for: .beforeSemicolon)
         Symbols.semicolon
-    }
-
-    @StringBuilder static var comma: String {
-        surround(Symbols.comma, before: .beforeCommas, after: .afterCommas)
     }
     
     @StringBuilder static var comment: String {

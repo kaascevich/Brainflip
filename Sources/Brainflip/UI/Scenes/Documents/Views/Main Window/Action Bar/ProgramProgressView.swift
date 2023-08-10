@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ProgramProgressView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var actualMax: Int {

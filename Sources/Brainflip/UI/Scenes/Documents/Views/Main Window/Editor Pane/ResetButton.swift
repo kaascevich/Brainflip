@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ResetButton: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {
@@ -33,6 +32,5 @@ struct ResetButton: View {
 
 #Preview {
     ResetButton()
-        .environmentObject(settings)
         .environment(previewState)
 }

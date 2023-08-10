@@ -17,8 +17,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var settings: AppSettings
-    
     struct Tab {
         var name: String
         var symbol: String

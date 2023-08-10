@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct TimerView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {

@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 /// Represents a Brainflip program.
 typealias Program = [Instruction]
 
@@ -31,9 +29,5 @@ extension Program {
             .filter { $0 != .blank }
             .forEach { append($0) }
         append(.blank)
-    }
-    
-    var description: String {
-        String(map(\.rawValue))
     }
 }

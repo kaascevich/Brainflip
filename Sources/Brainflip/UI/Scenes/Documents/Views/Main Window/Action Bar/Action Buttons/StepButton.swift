@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct StepButton: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     @State private var symbolEffect = false

@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct WhitespaceList: View {
-    @EnvironmentObject private var settings: AppSettings
     @State private var isShowingWhitespaceSettings = false
     
     typealias Whitespace = BrainflipToC.Whitespace

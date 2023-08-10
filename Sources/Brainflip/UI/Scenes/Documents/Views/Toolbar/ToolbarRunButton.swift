@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ToolbarRunButton: ToolbarContent {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     @State private var symbolEffect = false
@@ -26,7 +25,9 @@ struct ToolbarRunButton: ToolbarContent {
         ToolbarItem {
             Button {
                 symbolEffect.toggle()
-                state.run()
+                Task {
+                    await state.run()
+                }
             } label: {
                 Label("Run", systemImage: "play")
                     .symbolVariant(.fill)

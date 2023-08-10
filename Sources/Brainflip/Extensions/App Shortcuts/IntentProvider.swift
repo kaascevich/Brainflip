@@ -16,6 +16,7 @@
 
 import AppIntents
 
+// swiftlint:disable:next unused_declaration
 struct IntentProvider: AppShortcutsProvider {
     static let shortcutTileColor = ShortcutTileColor.lime
     

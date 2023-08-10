@@ -18,12 +18,6 @@ import SwiftUI
 
 struct PointerLocationSlider: View {
     @EnvironmentObject private var settings: AppSettings
-    var formatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.minimum = 0
-        formatter.maximum = (settings.arraySize - 1) as NSNumber
-        return formatter
-    }
     
     var body: some View {
         Slider(value: settings.$pointerLocation, in: 0...100, step: 5) {

@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import AppIntents
-import Foundation
 import Observation
 import os.log
 
@@ -186,11 +184,6 @@ import os.log
             return Character("\0")
         }
         return input[input.index(input.startIndex, offsetBy: currentInputIndex)]
-    }
-    
-    /// The current input character, represented as an ASCII character.
-    var currentInputCharacterAsASCII: String {
-        asciiValues[Int(currentInputCharacter.asciiValue ?? 0)]
     }
     
     /// The total number of instructions that have been executed.

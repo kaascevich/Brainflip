@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct MainDocumentView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
     
     var body: some View {

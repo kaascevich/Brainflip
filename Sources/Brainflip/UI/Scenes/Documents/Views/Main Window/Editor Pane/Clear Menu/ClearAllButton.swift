@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ClearAllButton: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {
@@ -30,6 +29,5 @@ struct ClearAllButton: View {
 
 #Preview {
     ClearAllButton()
-        .environmentObject(settings)
         .environment(previewState)
 }

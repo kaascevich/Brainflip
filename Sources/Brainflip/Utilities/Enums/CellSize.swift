@@ -15,7 +15,6 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import AppIntents
-import Foundation
 
 /// The possible sizes for a cell.
 enum CellSize: Int, CaseIterable, Hashable, AppEnum {

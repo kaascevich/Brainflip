@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 /// Errors that can be thrown by the Brainflip interpreter.
 enum InterpreterError: Error, Equatable {
     /// Thrown when the interpreter finds unmatched brackets.

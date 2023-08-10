@@ -16,7 +16,6 @@
 
 import HighlightedTextEditor
 import SwiftUI
-import SwiftUIIntrospect
 
 struct EditorView: View {
     @EnvironmentObject private var settings: AppSettings

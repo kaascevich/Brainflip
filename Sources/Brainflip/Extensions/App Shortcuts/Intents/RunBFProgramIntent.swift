@@ -18,7 +18,7 @@ import AppIntents
 
 struct RunBFProgramIntent: AppIntent {
     static let title: LocalizedStringResource = "Run Brainflip Program"
-    static let description = IntentDescription(
+    static let description = IntentDescription( // swiftlint:disable:this unused_declaration
         """
         Runs a Brainflip program using the specified interpreter settings, giving it the provided input. Returns the program's output.
         """,

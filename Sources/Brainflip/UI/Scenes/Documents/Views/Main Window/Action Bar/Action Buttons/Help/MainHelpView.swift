@@ -20,7 +20,6 @@ struct MainHelpView: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.openURL) private var openURL
     
-    @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
         
     static let helpContent: AttributedString? = {

@@ -14,13 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-import os.log
 import RegexBuilder
 
 enum BrainflipToC {
-    static let logger = Logger(subsystem: bundleID, category: "Brainflip-to-C conversion")
-        
     /// A `Regex` matching valid C identifiers.
     ///
     /// This regex is equivalent to `/[_a-zA-Z]\w{0,30}/`.

@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ProgramSizeView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     private var programSize: String {
@@ -43,6 +42,5 @@ struct ProgramSizeView: View {
 
 #Preview {
     ProgramSizeView()
-        .environmentObject(settings)
         .environment(previewState)
 }

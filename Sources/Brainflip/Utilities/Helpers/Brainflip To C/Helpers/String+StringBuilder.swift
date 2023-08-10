@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 @resultBuilder
 enum StringBuilder {
     static func buildBlock(_ components: String...) -> String {

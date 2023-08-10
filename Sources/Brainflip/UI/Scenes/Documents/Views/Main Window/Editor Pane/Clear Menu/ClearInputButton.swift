@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ClearInputButton: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {
@@ -30,6 +29,5 @@ struct ClearInputButton: View {
 
 #Preview {
     ClearInputButton()
-        .environmentObject(settings)
         .environment(previewState)
 }

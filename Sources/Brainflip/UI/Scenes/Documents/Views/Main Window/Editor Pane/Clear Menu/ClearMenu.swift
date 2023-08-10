@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ClearMenu: View {
-    @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
     
     var body: some View {
@@ -36,5 +35,4 @@ struct ClearMenu: View {
 
 #Preview {
     ClearMenu(state: previewState)
-        .environmentObject(settings)
 }

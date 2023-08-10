@@ -15,7 +15,6 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import SwiftUI
-import SwiftUIIntrospect
 
 struct OutputPaneView: View {
     @EnvironmentObject private var settings: AppSettings

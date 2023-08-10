@@ -19,7 +19,6 @@ import SwiftUI
 
 struct SampleProgramCommands: Commands {
     @Environment(\.openDocument) private var openDocument
-    @FocusedValue(\.appState) private var state
     
     var samplePrograms: [URL] {
         Bundle.main.urls(

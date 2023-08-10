@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 extension Collection where Element: Equatable {
     /// The number of elements in the collection that equal the given element.
     ///

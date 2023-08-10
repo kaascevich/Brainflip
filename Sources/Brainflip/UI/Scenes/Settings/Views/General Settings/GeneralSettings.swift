@@ -17,8 +17,6 @@
 import SwiftUI
 
 struct GeneralSettings: View {
-    @EnvironmentObject private var settings: AppSettings
-    
     var body: some View {
         VStack(alignment: .trailing) {
             Form {

@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ArrayView: View {
-    @EnvironmentObject private var settings: AppSettings
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {
@@ -41,6 +40,5 @@ struct ArrayView: View {
 
 #Preview {
     ArrayView()
-        .environmentObject(settings)
         .environment(previewState)
 }

@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ShowArrayButton: View {
-    @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
     
     var body: some View {
@@ -34,5 +33,4 @@ struct ShowArrayButton: View {
 
 #Preview {
     ShowArrayButton(state: previewState)
-        .environmentObject(settings)
 }
