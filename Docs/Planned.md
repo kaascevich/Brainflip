@@ -21,3 +21,4 @@
 - [ ] MUCH better VoiceOver support (reading of programs is… subpar)
 - [ ] TipKit tips
 - [ ] Something involving Swift Charts (perhaps execution time metrics?)
+- [ ] An onboarding flow of some sort
