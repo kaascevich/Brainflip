@@ -83,10 +83,10 @@ extension AppState {
         }
         
         reset()
+        isRunningProgram = true
         timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
         execution = Task {
-            isRunningProgram = true
             if settings.playSounds, settings.playStartSound {
                 SystemSounds.start.play()
             }
