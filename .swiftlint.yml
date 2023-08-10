@@ -3,8 +3,8 @@ excluded:
 
 disabled_rules:
     - comma # more annoying than helpful when aligning code
-    - line_length
-    - todo
+    - line_length # this will probably stay here until localization efforts are underway
+    - todo # annoying
     - vertical_parameter_alignment_on_call # doesn't play well with trailing closures
     
 opt_in_rules:
