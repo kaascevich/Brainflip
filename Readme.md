@@ -10,6 +10,7 @@ a human-usable brainf\*\*k interpreter for macOS
 
  - [Overview](#overview)
  - [License](License.md)
+ - [Changelog](Docs/Changelog.md)
  - [Features](Docs/Features.md)
  - [Planned Features](Docs/Planned.md)
  - [Known Bugs](Docs/Bugs.md)

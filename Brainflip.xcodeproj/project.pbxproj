@@ -321,6 +321,7 @@
 		349778932A6F87C10093B5C6 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
 		349778A12A7001CA0093B5C6 /* StopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
 		349778A32A7002E80093B5C6 /* ProgramSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramSizeView.swift; sourceTree = "<group>"; };
+		34A83BE02A851ECC00A0A4EA /* Changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Changelog.md; sourceTree = "<group>"; };
 		34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludeNotEqualZeroToggle.swift; sourceTree = "<group>"; };
 		34ADA5E42A7554DD001B6FCB /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		34ADA5E52A755565001B6FCB /* Planned.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Planned.md; sourceTree = "<group>"; };
@@ -1130,6 +1131,7 @@
 			isa = PBXGroup;
 			children = (
 				348A00262A663BCC00C7B056 /* Images */,
+				34A83BE02A851ECC00A0A4EA /* Changelog.md */,
 				34ADA5E42A7554DD001B6FCB /* Features.md */,
 				34ADA5E52A755565001B6FCB /* Planned.md */,
 				34AE6AC12A6820B00017C2CB /* Bugs.md */,
@@ -1732,7 +1734,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1791,7 +1793,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.6;
+				MARKETING_VERSION = 0.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
