@@ -5,7 +5,7 @@ disabled_rules:
     - comma # more annoying than helpful when aligning code
     - line_length
     - todo
-    - vertical_parameter_alignment_on_call
+    - vertical_parameter_alignment_on_call # doesn't play well with trailing closures
     
 opt_in_rules:
      - accessibility_label_for_image
