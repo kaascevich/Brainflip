@@ -109,7 +109,7 @@ final class InterpreterUITests: XCTestCase {
             
             // Clear all text
             editor.click()
-            editor.typeKey("a", modifierFlags: .command)
+            editor.typeKey("a", modifierFlags: .command) // Select all
             editor.typeKey(.delete, modifierFlags: [])
         }
     }
