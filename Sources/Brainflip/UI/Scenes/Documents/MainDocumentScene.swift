@@ -27,9 +27,6 @@ struct MainDocumentScene: Scene {
                 .environmentObject(settings)
                 .environment(state)
                 .focusedSceneValue(\.appState, state)
-                .toolbar {
-                    ToolbarContentView()
-                }
             
             MenuCommandAlerts(state: state)
                 .environmentObject(settings)

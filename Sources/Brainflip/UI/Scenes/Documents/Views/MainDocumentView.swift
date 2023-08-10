@@ -40,6 +40,9 @@ struct MainDocumentView: View {
         .inspector(isPresented: $state.isShowingInspector) {
             InspectorPaneView(state: state)
         }
+        .toolbar {
+            ToolbarContentView()
+        }
         .frame(maxHeight: .infinity)
     }
 }
