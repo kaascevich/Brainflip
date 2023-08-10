@@ -59,8 +59,7 @@ final class InterpreterUITests: XCTestCase {
         // So we need to put it together manually.
         let expectedOutput = String(
             (0...inputASCIICode - 1)
-                .map(Unicode.Scalar.init)
-                .map(String.init)
+                .map { String(Unicode.Scalar($0)) }
                 .reduce("", +)
                 .reversed()
         )
@@ -82,7 +81,7 @@ final class InterpreterUITests: XCTestCase {
         let alertSheet = documentWindow.sheets["alert"]
         let okButton = alertSheet.buttons["action-button-1"]
         
-        let invalidPrograms = Array(seq: [
+        let invalidPrograms = Array([
             ",[>+<-.":    "There are unmatched brackets within your code. You have 1 extra left bracket.",
             ",[[>+<-.":   "There are unmatched brackets within your code. You have 2 extra left brackets.",
             ",][>+<-.":   "There are unmatched brackets within your code.",

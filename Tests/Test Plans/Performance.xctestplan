@@ -21,8 +21,8 @@
   },
   "testTargets" : [
     {
-      "skippedTests" : [
-        "InterpreterTests"
+      "selectedTests" : [
+        "InterpreterPerformanceTests\/testInterpreterPerformance()"
       ],
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",
@@ -31,8 +31,9 @@
       }
     },
     {
-      "skippedTests" : [
-        "BrainflipUITests"
+      "selectedTests" : [
+        "BrainflipPerformanceTests\/testLaunchPerformance()",
+        "BrainflipPerformanceTests\/testOpenPerformance()"
       ],
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",

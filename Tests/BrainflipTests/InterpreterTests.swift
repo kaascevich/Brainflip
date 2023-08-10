@@ -19,12 +19,15 @@ import XCTest
 
 final class InterpreterTests: XCTestCase {
     func testBasic() async throws {
-        let interpreter = Interpreter(program: "hello ,[>+<-.]", input: "b")
+        let inputText = "b"
+        let inputASCIICode = Character(inputText).asciiValue!
+        
+        let interpreter = Interpreter(program: "hello ,[>+<-.]", input: inputText)
         try await interpreter.run()
+        
         let expectedOutput = String(
             (0...inputASCIICode - 1)
-                .map(Unicode.Scalar.init)
-                .map(String.init)
+                .map { String(Unicode.Scalar($0)) }
                 .reduce("", +)
                 .reversed()
         )

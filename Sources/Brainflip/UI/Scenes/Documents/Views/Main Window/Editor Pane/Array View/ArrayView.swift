@@ -26,15 +26,14 @@ struct ArrayView: View {
                 HStack {
                     Text("\(index).")
                         .foregroundColor(state.interpreter.pointer == index ? .green : .primary)
-                        .accessibilityLabel("Cell \(index) index")
-                        .accessibilityValue(String(index))
                     Spacer()
-                    Text(String(state.interpreter.cellArray[index]))
+                    Text("\(state.interpreter.cellArray[index])")
                         .bold()
-                        .accessibilityLabel("Cell \(index) value")
-                        .accessibilityValue(String(state.interpreter.cellArray[index]))
                         .textSelection(.enabled)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("Cell \(index)")
+                .accessibilityValue("\(state.interpreter.cellArray[index])")
             }
         }
     }

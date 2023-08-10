@@ -66,8 +66,7 @@ final class BrainflipUITests: XCTestCase {
         // So we need to put it together manually.
         let expectedOutput = String(
             (0...inputASCIICode - 1)
-                .map(Unicode.Scalar.init)
-                .map(String.init)
+                .map { String(Unicode.Scalar($0)) }
                 .reduce("", +)
                 .reversed()
         )
@@ -88,7 +87,7 @@ final class BrainflipUITests: XCTestCase {
         let input = documentWindow.textFields["Input"]
         let arrayField = documentWindow.textFields["Array"]
         let showArrayButton = documentWindow.buttons["Show Array"]
-        let arrayPopoverCell1Value = app.descendants(matching: .any)["Cell 1 value"]
+        let arrayPopoverCell1Value = app.descendants(matching: .any)["Cell 1"]
         let runButton = documentWindow.buttons["run-button-main"]
         
         let inputText = "b"
@@ -231,7 +230,8 @@ final class BrainflipUITests: XCTestCase {
         let output = documentWindow.scrollViews["Output"].textViews.firstMatch
         let runButton = documentWindow.buttons["run-button-main"]
         
-        let copyButton = documentWindow.buttons["Copy"]
+        let copyOutputButton = documentWindow.buttons["Copy Output"]
+        let copyInputButton = documentWindow.buttons["Copy Input"]
         let pasteButton = documentWindow.buttons["Paste"]
         
         // Outputs "Hello World!"
@@ -246,7 +246,7 @@ final class BrainflipUITests: XCTestCase {
         
         // MARK: Copying and Pasting
         
-        copyButton.click()
+        copyOutputButton.click()
         
         pasteButton.click()
         XCTAssertEqual(result, input.value as? String)
@@ -258,5 +258,21 @@ final class BrainflipUITests: XCTestCase {
         menuBar.menuItems["paste:"].click() // Paste the clipboard contents
         Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
         XCTAssertEqual(program + result, editor.value as? String)
+        
+        // Test the input's copy button
+        
+        let testingText = "Testing, testing"
+        
+        input.click()
+        input.typeKey("a", modifierFlags: .command) // Select all
+        input.typeText(testingText)
+        
+        copyInputButton.click()
+        
+        editor.click()
+        editor.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
+        editor.typeKey("v", modifierFlags: .command) // Paste the clipboard contents
+        Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
+        XCTAssertEqual(program + result + testingText, editor.value as? String)
     }
 }

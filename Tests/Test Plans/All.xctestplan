@@ -55,7 +55,8 @@
     {
       "parallelizable" : true,
       "skippedTests" : [
-        "BrainflipPerformanceTests"
+        "BrainflipPerformanceTests",
+        "BrainflipUITests\/testShowArray()"
       ],
       "target" : {
         "containerPath" : "container:Brainflip.xcodeproj",

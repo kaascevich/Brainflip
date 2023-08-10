@@ -48,6 +48,7 @@ struct InputField: View {
                         state.input
                     }
                     .help("Copy")
+                    .accessibilityLabel("Copy Input")
                     
                     PasteButton(payloadType: String.self) { strings in
                         symbolEffect.toggle()

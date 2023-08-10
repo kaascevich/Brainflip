@@ -38,6 +38,7 @@ struct OutputPaneView: View {
                     }
                     .buttonStyle(.borderless)
                     .labelStyle(.iconOnly)
+                    .accessibilityLabel("Copy Output")
                 }
             }
             OutputView()
