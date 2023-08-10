@@ -14,3 +14,4 @@
 - [ ] Resuming the program after stopping it
 - [ ] Real-time input
 - [ ] MUCH better VoiceOver support (reading of programs is… subpar)
+- [ ] TipKit tips
