@@ -3,10 +3,8 @@ excluded:
 
 disabled_rules:
     - comma # more annoying than helpful when aligning code
-  #  - file_length
     - line_length
     - todo
-    - type_body_length
     - vertical_parameter_alignment_on_call
     
 opt_in_rules:
