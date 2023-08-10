@@ -57,9 +57,7 @@ enum Notifications {
                 default: break
             }
         }
-        if NSApp.isActive {
-            content.badge = 1
-        }
+        content.badge = 1
                     
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
         
