@@ -19,16 +19,18 @@ import SwiftUI
 struct InspectorPaneView: View {
     @EnvironmentObject private var settings: AppSettings
     var state: AppState
-    
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var searchText = ""
     
     @SceneStorage("expandedInspectorModules")
     var expandedInspectorModules = Array(repeating: true, count: Inspector.modules.count)
-    
-    @State private var searchText = ""
-    
+
     func meetsSearchCriteria(_ string: String, query: String) -> Bool {
         query.isEmpty || string.lowercased().contains(query.lowercased())
+    }
+    
+    var inspectorAnimation: Animation? {
+        @Environment(\.accessibilityReduceMotion) var reduceMotion
+        return reduceMotion ? nil : .smooth
     }
     
     var body: some View {
@@ -56,11 +58,11 @@ struct InspectorPaneView: View {
                         )
                         .help(Inspector.modules[index].tooltip)
                         .padding(.vertical, 2)
-                        .animation(reduceMotion ? nil : .smooth, value: expandedInspectorModules)
+                        .animation(inspectorAnimation, value: expandedInspectorModules)
                     }
                 }
-                .animation(reduceMotion ? nil : .smooth, value: settings.inspectorModuleOrder)
-                .animation(reduceMotion ? nil : .smooth, value: settings.enabledInspectorModules)
+                .animation(inspectorAnimation, value: settings.inspectorModuleOrder)
+                .animation(inspectorAnimation, value: settings.enabledInspectorModules)
                 .disabled(state.isRunningProgram)
             }
             .scrollIndicatorsFlash(onAppear: true)
