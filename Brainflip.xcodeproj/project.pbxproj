@@ -93,6 +93,7 @@
 		3474D9CD29CBA63000DCFDF2 /* WhitespaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9CC29CBA63000DCFDF2 /* WhitespaceList.swift */; };
 		3476C2002A636FC600EFE61C /* ShowArrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476C1FF2A636FC600EFE61C /* ShowArrayButton.swift */; };
 		3477236C2A58FD33004F1410 /* String+StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3477236B2A58FD33004F1410 /* String+StringBuilder.swift */; };
+		34804E122A86A91200670EE1 /* ShinySwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 34804E112A86A91200670EE1 /* ShinySwiftUI */; };
 		3480FF8829A916760021D5FD /* MainHelp.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3480FF8729A916760021D5FD /* MainHelp.rtf */; };
 		3482EF0129AFC16D0001800E /* ASCIIChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0029AFC16D0001800E /* ASCIIChartView.swift */; };
 		3482EF0329AFC5EA0001800E /* ASCIIValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482EF0229AFC5EA0001800E /* ASCIIValues.swift */; };
@@ -412,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */,
+				34804E122A86A91200670EE1 /* ShinySwiftUI in Frameworks */,
 				345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1241,6 +1243,7 @@
 			packageProductDependencies = (
 				345E18EC2A64253E002C66D0 /* HighlightedTextEditor */,
 				346011862A659B2000029BB3 /* SwiftUIIntrospect */,
+				34804E112A86A91200670EE1 /* ShinySwiftUI */,
 			);
 			productName = BrainSwift;
 			productReference = 34DF121A29A7B9480021729B /* Brainflip.app */;
@@ -1284,6 +1287,7 @@
 			packageReferences = (
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				34804E102A86A91200670EE1 /* XCRemoteSwiftPackageReference "shiny-swift-ui" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -1991,6 +1995,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		34804E102A86A91200670EE1 /* XCRemoteSwiftPackageReference "shiny-swift-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flowductive/shiny-swift-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2003,6 +2015,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		34804E112A86A91200670EE1 /* ShinySwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34804E102A86A91200670EE1 /* XCRemoteSwiftPackageReference "shiny-swift-ui" */;
+			productName = ShinySwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+// @_exported effectively imports modules in every file in the project.
+@_exported import ShinySwiftUI
+
 import SwiftUI
 
 @main
