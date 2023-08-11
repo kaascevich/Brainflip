@@ -18,7 +18,14 @@ import AppIntents
 
 extension Interpreter {
     /// Actions to perform when encountering an input instruction after end-of-input has been reached.
-    enum EndOfInput: Int, CaseIterable {
+    enum EndOfInput: Int, CaseIterable, AppEnum {
+        static let typeDisplayRepresentation: TypeDisplayRepresentation = "End-of-Input Action"
+        static let caseDisplayRepresentations: [Self: DisplayRepresentation] = [
+            .noChange:  "Don't change the current cell",
+            .setToZero: "Set the current cell to zero",
+            .setToMax:  "Set the current cell to its maximum"
+        ]
+        
         /// Leaves the current cell unchanged.
         case noChange
         
@@ -28,14 +35,4 @@ extension Interpreter {
         /// Sets the current cell to `cellSize - 1`.
         case setToMax
     }
-}
-
-extension Interpreter.EndOfInput: AppEnum {
-    static let typeDisplayRepresentation: TypeDisplayRepresentation = "End-of-Input Action"
-    static let caseDisplayRepresentations: [Self: DisplayRepresentation] = [
-        .noChange:  "Don't change the current cell",
-        .setToZero: "Set the current cell to zero",
-        .setToMax:  "Set the current cell to its maximum"
-    ]
-    
 }
