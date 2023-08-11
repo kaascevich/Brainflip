@@ -19,13 +19,23 @@ import SwiftUI
 struct ArrayNameField: View {
     @EnvironmentObject private var settings: AppSettings
     
+    @State private var arrayName = ""
+    private var isArrayNameValid: Bool {
+        arrayName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
+    }
+    
     var body: some View {
-        TextField("Array name", text: settings.$arrayName)
-            .onChange(of: settings.arrayName) { oldName, newName in
-                if newName.wholeMatch(of: BrainflipToC.identifierRegex) == nil {
-                    settings.arrayName = oldName
+        TextField("Array name", text: $arrayName)
+            .onSubmit {
+                if isArrayNameValid {
+                    // apply the new value
+                    settings.arrayName = arrayName
+                } else {
+                    // restore the old value
+                    arrayName = settings.arrayName
                 }
             }
+            .foregroundStyle(!isArrayNameValid ? .red : .primary)
     }
 }
 

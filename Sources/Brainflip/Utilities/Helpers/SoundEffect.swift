@@ -39,8 +39,9 @@ enum SystemSounds: String {
     static let fail = sosumi
     
     func play() {
-        let sound = NSSound(named: rawValue.capitalized)
-        sound?.stop()
-        sound?.play()
+        NSSound(named: rawValue.capitalized)?.then { sound in
+            sound.stop()
+            sound.play()
+        }
     }
 }

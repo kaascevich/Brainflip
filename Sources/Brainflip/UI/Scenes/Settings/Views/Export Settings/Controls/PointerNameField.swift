@@ -18,14 +18,24 @@ import SwiftUI
 
 struct PointerNameField: View {
     @EnvironmentObject private var settings: AppSettings
-        
+    
+    @State private var pointerName = ""
+    private var isPointerNameValid: Bool {
+        pointerName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
+    }
+    
     var body: some View {
-        TextField("Pointer name", text: settings.$pointerName)
-            .onChange(of: settings.pointerName) { oldName, newName in
-                if newName.wholeMatch(of: BrainflipToC.identifierRegex) == nil {
-                    settings.pointerName = oldName
+        TextField("Pointer name", text: $pointerName)
+            .onSubmit {
+                if isPointerNameValid {
+                    // apply the new value
+                    settings.pointerName = pointerName
+                } else {
+                    // restore the old value
+                    pointerName = settings.pointerName
                 }
             }
+            .foregroundStyle(!isPointerNameValid ? .red : .primary)
     }
 }
 
