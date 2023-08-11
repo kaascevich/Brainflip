@@ -1,8 +1,11 @@
 # 📰 Changelog
 
-## Unreleased
+## Brainflip Beta 0.7.1
 
  - Removed SwiftLint dependency in favor of a simple Run Script build phase. Note that this means you will need to have SwiftLint installed on your system to get a warning-free build.
+ - Removed logger messages caused by resetting settings.
+ - Renamed the Quick Look extension from BFQuickLook to Brainflip Quick Look.
+ - Fixed a bug where the preview in the export settings did not refresh when changing said settings.
 
 ## Brainflip Beta 0.7
 
