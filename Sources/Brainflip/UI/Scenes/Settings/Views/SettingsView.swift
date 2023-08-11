@@ -45,7 +45,7 @@ struct SettingsView: View {
             symbol: "sidebar.trailing",
             view: InspectorSettings()
         ), Tab(
-            name: "Exporting",
+            name: "Export",
             symbol: "square.and.arrow.up.on.square",
             view: ExportSettings()
         )

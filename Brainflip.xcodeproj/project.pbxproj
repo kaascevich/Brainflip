@@ -82,11 +82,12 @@
 		346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */; };
 		346E1F1D2A7D6E6400678984 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F1C2A7D6E6400678984 /* OutputView.swift */; };
 		346E1F1F2A7D817A00678984 /* ShowCopyPasteButtonsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F1E2A7D817A00678984 /* ShowCopyPasteButtonsToggle.swift */; };
+		347346B12A86CD6F009095CF /* IdentifierNameHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347346B02A86CD6F009095CF /* IdentifierNameHelpView.swift */; };
+		347346B32A86DC8C009095CF /* PointerNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347346B22A86DC8C009095CF /* PointerNameField.swift */; };
 		3473D2A72A7027870067F7F9 /* BrainflipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */; };
 		3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */; };
 		3474D9BB29CB777100DCFDF2 /* ExportSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */; };
 		3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */; };
-		3474D9BF29CB7FF200DCFDF2 /* PointerNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9BE29CB7FF200DCFDF2 /* PointerNameField.swift */; };
 		3474D9C129CB802A00DCFDF2 /* ArrayNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9C029CB802A00DCFDF2 /* ArrayNameField.swift */; };
 		3474D9C329CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9C229CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift */; };
 		3474D9CB29CB992F00DCFDF2 /* OpeningBraceOnNewLineToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D9CA29CB992F00DCFDF2 /* OpeningBraceOnNewLineToggle.swift */; };
@@ -289,12 +290,13 @@
 		346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedInputToggle.swift; sourceTree = "<group>"; };
 		346E1F1C2A7D6E6400678984 /* OutputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		346E1F1E2A7D817A00678984 /* ShowCopyPasteButtonsToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCopyPasteButtonsToggle.swift; sourceTree = "<group>"; };
+		347346B02A86CD6F009095CF /* IdentifierNameHelpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierNameHelpView.swift; sourceTree = "<group>"; };
+		347346B22A86DC8C009095CF /* PointerNameField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerNameField.swift; sourceTree = "<group>"; };
 		3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrainflipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3473D2A62A7027870067F7F9 /* BrainflipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainflipUITests.swift; sourceTree = "<group>"; };
 		3474D9B829CB76B200DCFDF2 /* ExportDefaultsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportDefaultsButton.swift; sourceTree = "<group>"; };
 		3474D9BA29CB777100DCFDF2 /* ExportSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportSettings.swift; sourceTree = "<group>"; };
 		3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportPreview.swift; sourceTree = "<group>"; };
-		3474D9BE29CB7FF200DCFDF2 /* PointerNameField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointerNameField.swift; sourceTree = "<group>"; };
 		3474D9C029CB802A00DCFDF2 /* ArrayNameField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayNameField.swift; sourceTree = "<group>"; };
 		3474D9C229CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftHandIncDecToggle.swift; sourceTree = "<group>"; };
 		3474D9CA29CB992F00DCFDF2 /* OpeningBraceOnNewLineToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningBraceOnNewLineToggle.swift; sourceTree = "<group>"; };
@@ -537,7 +539,6 @@
 		34266C0029C4D1E80045337D /* Editor Settings */ = {
 			isa = PBXGroup;
 			children = (
-				34266C0129C4D1F40045337D /* EditorSettings.swift */,
 				34266C0529C4D2080045337D /* EditorDefaultsButton.swift */,
 				3474D9C729CB97FB00DCFDF2 /* Controls */,
 			);
@@ -728,6 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				345B209B29C88BD500405DD9 /* MonospacedToggle.swift */,
+				34266C0129C4D1F40045337D /* EditorSettings.swift */,
 				34266C0329C4D1FE0045337D /* HighlightingToggle.swift */,
 				346011882A659F6400029BB3 /* TextSizeSlider.swift */,
 				345B209F29C8AC6000405DD9 /* ShowProgressToggle.swift */,
@@ -750,8 +752,9 @@
 			children = (
 				3474D9BC29CB78F900DCFDF2 /* ExportPreview.swift */,
 				3486B4E729C934B800A7A13F /* IndentationStepper.swift */,
-				3474D9BE29CB7FF200DCFDF2 /* PointerNameField.swift */,
+				347346B22A86DC8C009095CF /* PointerNameField.swift */,
 				3474D9C029CB802A00DCFDF2 /* ArrayNameField.swift */,
+				347346B02A86CD6F009095CF /* IdentifierNameHelpView.swift */,
 				3474D9C229CB8B9700DCFDF2 /* LeftHandIncDecToggle.swift */,
 				34AD99492A5A044F0020CE37 /* IncludeNotEqualZeroToggle.swift */,
 				3474D9CA29CB992F00DCFDF2 /* OpeningBraceOnNewLineToggle.swift */,
@@ -1510,7 +1513,6 @@
 				3474D9B929CB76B200DCFDF2 /* ExportDefaultsButton.swift in Sources */,
 				34D663AD29B8EDD800CB7481 /* SettingsScene.swift in Sources */,
 				3486AA2D29BE667B004C12B6 /* TimerView.swift in Sources */,
-				3474D9BF29CB7FF200DCFDF2 /* PointerNameField.swift in Sources */,
 				34044E402A5B95B8001FB589 /* ShowProgramSizeToggle.swift in Sources */,
 				34D05AC529B3B78500711079 /* ToolbarStepButton.swift in Sources */,
 				34618C7529AAE7EF00552568 /* AppSettings.swift in Sources */,
@@ -1525,6 +1527,7 @@
 				34D05AC129B3B2E800711079 /* ToolbarContentView.swift in Sources */,
 				346180892A7AD5B000015BAC /* Collection+CountOf.swift in Sources */,
 				34618C6E29AAE54400552568 /* ActionBarView.swift in Sources */,
+				347346B12A86CD6F009095CF /* IdentifierNameHelpView.swift in Sources */,
 				342D92FA29B25DA8002461DA /* EndOfFilePicker.swift in Sources */,
 				34618C7329AAE5A000552568 /* StepButton.swift in Sources */,
 				343635B52A65D55D00CDA660 /* IntentProvider.swift in Sources */,
@@ -1583,6 +1586,7 @@
 				346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */,
 				3474D9BD29CB78F900DCFDF2 /* ExportPreview.swift in Sources */,
 				34618C5E29AADE6C00552568 /* Instruction.swift in Sources */,
+				347346B32A86DC8C009095CF /* PointerNameField.swift in Sources */,
 				34D663AF29B8EDDE00CB7481 /* ASCIIChartScene.swift in Sources */,
 				34618C6A29AAE36800552568 /* InspectorPaneView.swift in Sources */,
 				34B3BADA29B6686F009E06A7 /* InterpreterDefaultsButton.swift in Sources */,

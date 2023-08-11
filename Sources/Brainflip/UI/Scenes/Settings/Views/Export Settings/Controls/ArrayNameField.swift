@@ -29,17 +29,24 @@ struct ArrayNameField: View {
     }
     
     var body: some View {
-        TextField("Array name", text: $arrayName)
-            .onSubmit {
-                if isArrayNameValid {
-                    // apply the new value
-                    settings.arrayName = arrayName
-                } else {
-                    // restore the old value
-                    arrayName = settings.arrayName
-                }
+        TextField(text: $arrayName) {
+            HStack {
+                Text("Array name")
+                IdentifierNameHelpView(isWarningShown: isArrayNameValid)
             }
-            .foregroundStyle(!isArrayNameValid ? .red : .primary)
+        }
+        // Update it live...
+        .onChange(of: arrayName) {
+            if isArrayNameValid {
+                settings.arrayName = arrayName // apply the new value
+            }
+        }
+        // ...but reset it if needed
+        .onSubmit {
+            if !isArrayNameValid {
+                arrayName = settings.arrayName // restore the old value
+            }
+        }
     }
 }
 

@@ -27,19 +27,26 @@ struct PointerNameField: View {
     private var isPointerNameValid: Bool {
         pointerName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
     }
-    
+        
     var body: some View {
-        TextField("Pointer name", text: $pointerName)
-            .onSubmit {
-                if isPointerNameValid {
-                    // apply the new value
-                    settings.pointerName = pointerName
-                } else {
-                    // restore the old value
-                    pointerName = settings.pointerName
-                }
+        TextField(text: $pointerName) {
+            HStack {
+                Text("Pointer name")
+                IdentifierNameHelpView(isWarningShown: isPointerNameValid)
             }
-            .foregroundStyle(!isPointerNameValid ? .red : .primary)
+        }
+        // Update it live...
+        .onChange(of: pointerName) {
+            if isPointerNameValid {
+                settings.pointerName = pointerName // apply the new value
+            }
+        }
+        // ...but reset it if needed
+        .onSubmit {
+            if !isPointerNameValid {
+                pointerName = settings.pointerName // restore the old value
+            }
+        }
     }
 }
 
