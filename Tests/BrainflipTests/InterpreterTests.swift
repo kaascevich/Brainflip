@@ -48,6 +48,7 @@ final class InterpreterTests: XCTestCase {
                 case .setToZero: 0
                 case .setToMax:  255
             }
+            
             let interpreter = Interpreter(program: "+++++++,", onEndOfInput: endOfInputSetting)
             try await interpreter.run()
             XCTAssertEqual(interpreter.currentCell, expectedResult)
@@ -81,8 +82,8 @@ final class InterpreterTests: XCTestCase {
     
     func testArrayBounds() async throws {
         // MARK: Overflow + Array Sizes
-        let arraySizes = [30_000, 60_000, 30]
-        for arraySize in arraySizes {
+        
+        for arraySize in [30_000, 60_000, 30] {
             let interpreter = Interpreter(program: "+[>+]", arraySize: arraySize)
             await assertAsyncThrowsError(try await interpreter.run()) { error in
                 XCTAssertEqual(error as? InterpreterError, .overflow)
@@ -92,6 +93,7 @@ final class InterpreterTests: XCTestCase {
         }
         
         // MARK: Underflow
+        
         let interpreter = Interpreter(program: "<")
         await assertAsyncThrowsError(try await interpreter.run()) { error in
             XCTAssertEqual(error as? InterpreterError, .underflow)

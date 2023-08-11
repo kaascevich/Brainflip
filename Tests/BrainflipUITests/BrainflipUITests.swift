@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+import Flow
 import XCTest
 
 final class BrainflipUITests: XCTestCase {
@@ -22,9 +23,11 @@ final class BrainflipUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
         
-        app.launchArguments += ["-ApplePersistenceIgnoreState", "YES"]
-        app.launchArguments += ["--ui-testing"]
-        app.launch()
+        app.do {
+            $0.launchArguments += ["-ApplePersistenceIgnoreState", "YES"]
+            $0.launchArguments += ["--ui-testing"]
+            $0.launch()
+        }
     }
     
     /// Outputs every ASCII character below the input.
@@ -59,7 +62,10 @@ final class BrainflipUITests: XCTestCase {
         // MARK: Running
         XCTAssertEqual(sampleProgramContents, editor.value as? String)
         
-        input.click(); input.typeText(inputText)
+        input.do {
+            $0.click()
+            $0.typeText(inputText)
+        }
         runButton.click()
         
         // Swift won't let us store invisible ASCII characters in strings.
@@ -95,8 +101,14 @@ final class BrainflipUITests: XCTestCase {
         
         // MARK: Running
         
-        editor.click(); editor.typeText(simpleTestProgram)
-        input.click(); input.typeText(inputText)
+        editor.do {
+            $0.click()
+            $0.typeText(simpleTestProgram)
+        }
+        input.do {
+            $0.click()
+            $0.typeText(inputText)
+        }
         
         runButton.click()
         Thread.sleep(forTimeInterval: 1) // Let the interpreter do its thing
@@ -128,20 +140,22 @@ final class BrainflipUITests: XCTestCase {
         }
         
         // MARK: View Menu
-        let viewMenu = menuBar.menuBarItems["View"]
-        try assertExistsAndClick(viewMenu.menuItems[hideOutput], after: 1.5)
-        try assertExistsAndClick(viewMenu.menuItems[showOutput], after: 1.5)
-        
-        try assertExistsAndClick(viewMenu.menuItems[hideInspector], after: 1.5)
-        try assertExistsAndClick(viewMenu.menuItems[showInspector], after: 1.5)
+        try menuBar.menuBarItems["View"].menuItems.do {
+            try assertExistsAndClick($0[hideOutput], after: 1.5)
+            try assertExistsAndClick($0[showOutput], after: 1.5)
+            
+            try assertExistsAndClick($0[hideInspector], after: 1.5)
+            try assertExistsAndClick($0[showInspector], after: 1.5)
+        }
         
         // MARK: Toolbar
-        let toolbar = documentWindow.toolbars
-        try assertExistsAndClick(toolbar.checkBoxes[hideOutput], after: 1.5)
-        try assertExistsAndClick(toolbar.checkBoxes[showOutput], after: 1.5)
-        
-        try assertExistsAndClick(toolbar.checkBoxes[hideInspector], after: 1.5)
-        try assertExistsAndClick(toolbar.checkBoxes[showInspector], after: 1.5)
+        try documentWindow.toolbars.checkBoxes.do {
+            try assertExistsAndClick($0[hideOutput], after: 1.5)
+            try assertExistsAndClick($0[showOutput], after: 1.5)
+            
+            try assertExistsAndClick($0[hideInspector], after: 1.5)
+            try assertExistsAndClick($0[showInspector], after: 1.5)
+        }
     }
     
     func testStepThrough() throws {
@@ -155,7 +169,10 @@ final class BrainflipUITests: XCTestCase {
         let editor = documentWindow.textViews["Editor"]
         let stepButton = documentWindow.buttons["step-button-main"]
         
-        editor.click(); editor.typeText("++[>+<-]")
+        editor.do {
+            $0.click()
+            $0.typeText("++[>+<-]")
+        }
         
         // MARK: Stepping Through
         
@@ -182,15 +199,26 @@ final class BrainflipUITests: XCTestCase {
         let alertSheet = documentWindow.sheets["alert"]
         let clearButton = alertSheet.buttons["action-button-1"]
         
+        let program = "++++++[>++++++<-]>..." // prints 3 dollar signs $$$
+        let inputText = "testing, testing"
+        
         // MARK: Clearing All
         
-        editor.click(); editor.typeText("++++++[>++++++<-]>...")
-        input.click(); input.typeText("testing, testing")
+        editor.do {
+            $0.click()
+            $0.typeText(program)
+        }
+        input.do {
+            $0.click()
+            $0.typeText(inputText)
+        }
         runButton.click()
         XCTAssertEqual("$$$", output.value as? String)
                 
-        documentWindow.popUpButtons["Clear"].click()
-        documentWindow.menuItems["Clear All…"].click()
+        documentWindow.do {
+            $0.popUpButtons["Clear"].click()
+            $0.menuItems["Clear All…"].click()
+        }
         
         XCTAssert(alertSheet.waitForExistence(timeout: 0.5))
         clearButton.click()
@@ -202,13 +230,21 @@ final class BrainflipUITests: XCTestCase {
         
         // MARK: Clearing Input
         
-        editor.click(); editor.typeText("++++++[>++++++<-]>...")
-        input.click(); input.typeText("testing, testing")
+        editor.do {
+            $0.click()
+            $0.typeText(program)
+        }
+        input.do {
+            $0.click()
+            $0.typeText(inputText)
+        }
         runButton.click()
         XCTAssertEqual("$$$", output.value as? String)
         
-        documentWindow.popUpButtons["Clear"].click()
-        documentWindow.menuItems["Clear Input"].click()
+        documentWindow.do {
+            $0.popUpButtons["Clear"].click()
+            $0.menuItems["Clear Input"].click()
+        }
         
         Thread.sleep(forTimeInterval: 0.5) // Give the clear command some time to work
         XCTAssertEqual("", input.value as? String)
@@ -253,26 +289,32 @@ final class BrainflipUITests: XCTestCase {
         
         // Confirm that the text was actually put on the clipboard
         // (can't hurt to be sure, am I right?)
-        editor.click()
-        editor.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
-        menuBar.menuItems["paste:"].click() // Paste the clipboard contents
-        Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
-        XCTAssertEqual(program + result, editor.value as? String)
+        editor.do {
+            $0.click()
+            $0.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
+            menuBar.menuItems["paste:"].click() // Paste the clipboard contents
+            Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
+            XCTAssertEqual(program + result, $0.value as? String)
+        }
         
         // Test the input's copy button
         
         let testingText = "Testing, testing"
         
-        input.click()
-        input.typeKey("a", modifierFlags: .command) // Select all
-        input.typeText(testingText)
+        input.do {
+            $0.click()
+            $0.typeKey("a", modifierFlags: .command) // Select all
+            $0.typeText(testingText)
+        }
         
         copyInputButton.click()
         
-        editor.click()
-        editor.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
-        editor.typeKey("v", modifierFlags: .command) // Paste the clipboard contents
-        Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
-        XCTAssertEqual(program + result + testingText, editor.value as? String)
+        editor.do {
+            $0.click()
+            $0.typeKey(.downArrow, modifierFlags: .command) // Moves to the end of the document
+            $0.typeKey("v", modifierFlags: .command) // Paste the clipboard contents
+            Thread.sleep(forTimeInterval: 1) // Give the paste command some time to work
+            XCTAssertEqual(program + result + testingText, $0.value as? String)
+        }
     }
 }

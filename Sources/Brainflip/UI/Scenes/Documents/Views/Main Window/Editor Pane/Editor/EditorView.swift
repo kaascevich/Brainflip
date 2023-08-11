@@ -26,10 +26,11 @@ struct EditorView: View {
             text: $state.document.contents,
             highlightRules: settings.highlighting ? SyntaxHighlighting.highlightRules : []
         )
-        .introspect { editor in
-            applyTextViewAttributes(to: editor.textView)
+        .introspect {
+            applyTextViewAttributes(to: $0.textView)
         }
-        .onChange(of: state.document.program) { // does not change when comment characters are modified
+        // does not change when comment characters are modified
+        .onChange(of: state.document.program) {
             guard state.interpreter.currentInstructionIndex != 0 else {
                 return
             }

@@ -44,19 +44,21 @@ enum Notifications {
         }
         requestPermission()
         
-        let content = UNMutableNotificationContent()
-        content.subtitle = filename
-        content.body = "Run \(error == nil ? "succeeded" : "failed")"
-        if let error = error as? InterpreterError {
-            content.body += ": "
-            switch error {
-                case .overflow:           content.body += "overflow"
-                case .underflow:          content.body += "underflow"
-                case .mismatchedBrackets: content.body += "mismatched brackets"
-                default: break
+        let content = UNMutableNotificationContent().then {
+            $0.subtitle = filename
+            $0.body = "Run \(error == nil ? "succeeded" : "failed")".then { body in
+                if let error = error as? InterpreterError {
+                    body += ": "
+                    switch error {
+                        case .overflow:           body += "overflow"
+                        case .underflow:          body += "underflow"
+                        case .mismatchedBrackets: body += "mismatched brackets"
+                        default: break
+                    }
+                }
             }
+            $0.badge = 1
         }
-        content.badge = 1
                     
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
         

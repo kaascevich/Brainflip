@@ -31,8 +31,8 @@ struct ExportPreview: View {
                 size: settings.textSize,
                 design: settings.monospaced ? .monospaced: .default
             ))
-            .introspect(.textEditor, on: .macOS(.v14)) { textEditor in
-                textEditor.isEditable = false
+            .introspect(.textEditor, on: .macOS(.v14)) {
+                $0.isEditable = false
             }
     }
 }
