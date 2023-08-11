@@ -117,6 +117,10 @@
 		34AE69E92A794666003D202B /* InterpreterPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE69E72A7945D6003D202B /* InterpreterPerformanceTests.swift */; };
 		34B0BFD02A60CD1400FF5769 /* SampleProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */; };
 		34B3BADA29B6686F009E06A7 /* InterpreterDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAD929B6686F009E06A7 /* InterpreterDefaultsButton.swift */; };
+		34CD2F202A860210003180A4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 34CD2F1F2A860210003180A4 /* Flow */; };
+		34CD2F222A8604F5003180A4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 34CD2F212A8604F5003180A4 /* Flow */; };
+		34CD2F242A8604F8003180A4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 34CD2F232A8604F8003180A4 /* Flow */; };
+		34CD2F262A8604FB003180A4 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 34CD2F252A8604FB003180A4 /* Flow */; };
 		34D05AC129B3B2E800711079 /* ToolbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC029B3B2E800711079 /* ToolbarContentView.swift */; };
 		34D05AC329B3B77D00711079 /* ToolbarRunButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC229B3B77D00711079 /* ToolbarRunButton.swift */; };
 		34D05AC529B3B78500711079 /* ToolbarStepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC429B3B78500711079 /* ToolbarStepButton.swift */; };
@@ -391,6 +395,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CD2F242A8604F8003180A4 /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CD2F262A8604FB003180A4 /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +411,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CD2F222A8604F5003180A4 /* Flow in Frameworks */,
 				349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +422,7 @@
 			files = (
 				346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */,
 				345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */,
+				34CD2F202A860210003180A4 /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1189,9 @@
 				3473D2AB2A7027870067F7F9 /* PBXTargetDependency */,
 			);
 			name = BrainflipUITests;
+			packageProductDependencies = (
+				34CD2F232A8604F8003180A4 /* Flow */,
+			);
 			productName = BrainflipUITests;
 			productReference = 3473D2A42A7027870067F7F9 /* BrainflipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -1200,6 +1211,9 @@
 				34848B6E2A7046E100EBD2C9 /* PBXTargetDependency */,
 			);
 			name = BrainflipTests;
+			packageProductDependencies = (
+				34CD2F252A8604FB003180A4 /* Flow */,
+			);
 			productName = BrainflipTests;
 			productReference = 34848B692A7046E100EBD2C9 /* BrainflipTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1219,6 +1233,7 @@
 			);
 			name = QuickLook;
 			packageProductDependencies = (
+				34CD2F212A8604F5003180A4 /* Flow */,
 			);
 			productName = "BF-QuickLook";
 			productReference = 349778762A6F748D0093B5C6 /* QuickLook.appex */;
@@ -1244,6 +1259,7 @@
 			packageProductDependencies = (
 				345E18EC2A64253E002C66D0 /* HighlightedTextEditor */,
 				346011862A659B2000029BB3 /* SwiftUIIntrospect */,
+				34CD2F1F2A860210003180A4 /* Flow */,
 			);
 			productName = BrainSwift;
 			productReference = 34DF121A29A7B9480021729B /* Brainflip.app */;
@@ -1287,6 +1303,7 @@
 			packageReferences = (
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -1995,6 +2012,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexito4/Flow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2007,6 +2032,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		34CD2F1F2A860210003180A4 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */;
+			productName = Flow;
+		};
+		34CD2F212A8604F5003180A4 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */;
+			productName = Flow;
+		};
+		34CD2F232A8604F8003180A4 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */;
+			productName = Flow;
+		};
+		34CD2F252A8604FB003180A4 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CD2F1E2A860210003180A4 /* XCRemoteSwiftPackageReference "Flow" */;
+			productName = Flow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

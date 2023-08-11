@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+import Flow
 import RegexBuilder
 
 enum BrainflipToC {
@@ -41,12 +42,14 @@ enum BrainflipToC {
         indentLevel = 0
         var converted = header
         indentLevel = 1
-
-        converted += program
-            .compactMap(createInstruction)
-            .reduce("") { $0 + $1 + Symbols.newline }
-        converted += indent + returnInstruction + Symbols.newline
-        converted += Symbols.closingBrace
+        
+        converted.mutate {
+            $0 += program
+                .compactMap(createInstruction)
+                .reduce("") { $0 + $1 + Symbols.newline }
+            $0 += indent + returnInstruction + Symbols.newline
+            $0 += Symbols.closingBrace
+        }
         
         return converted
     }

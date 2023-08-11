@@ -50,19 +50,24 @@ final class InterpreterUITests: XCTestCase {
         
         // MARK: Running
         
-        editor.click(); editor.typeText(simpleTestProgram)
-        input.click(); input.typeText(inputText)
-
+        editor.do {
+            $0.click()
+            $0.typeText(simpleTestProgram)
+        }
+        input.do {
+            $0.click()
+            $0.typeText(inputText)
+        }
+        
         runButton.click()
         
         // Swift won't let us store invisible ASCII characters in strings.
         // So we need to put it together manually.
-        let expectedOutput = String(
-            (0...inputASCIICode - 1)
-                .map { String(Unicode.Scalar($0)) }
-                .reduce("", +)
-                .reversed()
-        )
+        let expectedOutput = (0...inputASCIICode - 1)
+            .map { String(Unicode.Scalar($0)) }
+            .reduce("", +)
+            .reversed()
+            .let(String.init(_:))
         
         Thread.sleep(forTimeInterval: 0.5) // give the program some time to run
         XCTAssertEqual(expectedOutput, output.value as? String)
@@ -100,17 +105,24 @@ final class InterpreterUITests: XCTestCase {
         // MARK: Testing
         
         for (program, expectedErrorMessage) in invalidPrograms {
-            editor.click(); editor.typeText(program)
+            editor.do {
+                $0.click()
+                $0.typeText(program)
+            }
             runButton.click()
             
-            XCTAssert(alertSheet.waitForExistence(timeout: 0.5)) // Confirm there is an error...
-            XCTAssert(alertSheet.staticTexts[expectedErrorMessage].exists) // ...and that the message is correct
-            okButton.click()
+            alertSheet.do {
+                XCTAssert($0.waitForExistence(timeout: 0.5)) // Confirm there is an error...
+                XCTAssert($0.staticTexts[expectedErrorMessage].exists) // ...and that the message is correct
+                okButton.click()
+            }
             
             // Clear all text
-            editor.click()
-            editor.typeKey("a", modifierFlags: .command) // Select all
-            editor.typeKey(.delete, modifierFlags: [])
+            editor.do {
+                $0.click()
+                $0.typeKey("a", modifierFlags: .command) // Select all
+                $0.typeKey(.delete, modifierFlags: [])
+            }
         }
     }
     
@@ -131,18 +143,23 @@ final class InterpreterUITests: XCTestCase {
         
         // MARK: Initial Test
         
-        editor.click(); editor.typeText("++++++[>++++++<-]>..........") // Prints 10 dollar signs "$$$$$$$$$$"
+        editor.do {
+            $0.click()
+            $0.typeText("++++++[>++++++<-]>..........") // Prints 10 dollar signs "$$$$$$$$$$"
+        }
         runButton.click()
         XCTAssertEqual("$$$$$$$$$$", output.value as? String) // Confirm that it works normally...
         XCTAssertFalse(alertSheet.exists) // ...and that there is no error
         
         // MARK: Adding a Break Instruction
-        editor.click()
-        editor.typeKey(.downArrow, modifierFlags: .command) // Move to the end
-        for _ in 1...4 {
-            editor.typeKey(.leftArrow, modifierFlags: []) // Move the text cursor left
+        editor.do {
+            $0.click()
+            $0.typeKey(.downArrow, modifierFlags: .command) // Move to the end
+            for _ in 1...4 {
+                $0.typeKey(.leftArrow, modifierFlags: []) // Move the text cursor left
+            }
+            $0.typeText("#") // Add a break instruction
         }
-        editor.typeText("#") // Add a break instruction
         
         // The program now looks like this: "++++++[>++++++<-]>......#...."
         // If we were to enable break instructions it would only print
@@ -159,11 +176,13 @@ final class InterpreterUITests: XCTestCase {
         
         menuBar.menuBarItems["Brainflip"].menuItems["Settings…"].click() // Open the settings window
         let settingsWindow = app.windows["com_apple_SwiftUI_Settings_window"]
-        settingsWindow.toolbars.buttons["Interpreter"].click() // Switch to the Interpreter tab, if needed
-        
-        let breakInstructionToggle = settingsWindow.groups.containing(.staticText, identifier: "Stop on break instruction").switches.firstMatch
-        breakInstructionToggle.click() // Enable break instructions
-        settingsWindow.buttons[XCUIIdentifierCloseWindow].click() // Close the window
+        settingsWindow.do {
+            $0.toolbars.buttons["Interpreter"].click() // Switch to the Interpreter tab, if needed
+            
+            let breakInstructionToggle = $0.groups.containing(.staticText, identifier: "Stop on break instruction").switches.firstMatch
+            breakInstructionToggle.click() // Enable break instructions
+            $0b.buttons[XCUIIdentifierCloseWindow].click() // Close the window
+        }
         
         // MARK: Test with Breaks On
         

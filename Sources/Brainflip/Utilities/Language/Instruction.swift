@@ -66,6 +66,6 @@ enum Instruction: Character, CaseIterable {
     
     /// Returns a `String` containing all valid instructions except for the blank instruction.
     static var validInstructions: String {
-        String(allCases.filter { $0 != .blank }.map(\.rawValue))
+        allCases.filter { $0 != .blank }.map(\.rawValue).let(String.init(_:))
     }
 }
