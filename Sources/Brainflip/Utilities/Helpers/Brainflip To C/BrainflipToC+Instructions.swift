@@ -162,7 +162,7 @@ extension BrainflipToC {
         
         // we do want to outdent loop instructions, so this goes first
         if type == .loop {
-            indentLevel--
+            indentLevel -= 1
         }
         
         guard let instruction = cEquivalent(for: type) else {
@@ -171,7 +171,7 @@ extension BrainflipToC {
         
         // we don't want to indent conditional instructions, so this goes last
         if type == .conditional {
-            indentLevel++
+            indentLevel += 1
         }
         
         return indent + instruction
