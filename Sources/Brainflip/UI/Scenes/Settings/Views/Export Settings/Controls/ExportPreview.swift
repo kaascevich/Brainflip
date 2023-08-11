@@ -20,8 +20,10 @@ import SwiftUIIntrospect
 struct ExportPreview: View {
     @EnvironmentObject private var settings: AppSettings
     
-    // swiftlint:disable:next force_try
-    private let sampleCode = try! BrainflipToC.convertToC(Program(string: ",[>+#<-.]"))
+    private var sampleCode: String {
+        // swiftlint:disable:next force_try
+        try! BrainflipToC.convertToC(Program(string: ",[>+#<-.]"))
+    }
     
     var body: some View {
         TextEditor(text: .constant(sampleCode))
