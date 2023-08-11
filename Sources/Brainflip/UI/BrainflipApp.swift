@@ -14,6 +14,10 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
+// @_exported effectively adds an implicit import statement to every file
+// in the target.
+@_exported import Flow
+
 import SwiftUI
 
 @main
