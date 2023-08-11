@@ -35,7 +35,6 @@ struct ExportSettings: View {
             .formStyle(.grouped)
             
             HStack {
-                Spacer()
                 WhitespaceList()
                 ExportDefaultsButton()
             }
