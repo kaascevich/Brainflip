@@ -38,5 +38,4 @@ struct ASCIIChartView: View {
 
 #Preview {
     ASCIIChartView()
-        .environmentObject(settings)
 }

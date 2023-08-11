@@ -52,6 +52,5 @@ struct TimerView: View {
 
 #Preview {
     TimerView()
-        .environmentObject(settings)
         .environment(previewState)
 }

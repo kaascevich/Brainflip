@@ -49,6 +49,5 @@ struct ProgramProgressView: View {
 
 #Preview {
     ProgramProgressView()
-        .environmentObject(settings)
         .environment(previewState)
 }

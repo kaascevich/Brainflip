@@ -17,7 +17,6 @@
 import SwiftUI
 
 struct ActionButtons: View {
-    @EnvironmentObject private var settings: AppSettings
     @Bindable var state: AppState
     
     var body: some View {
@@ -39,5 +38,4 @@ struct ActionButtons: View {
 
 #Preview {
     ActionButtons(state: previewState)
-        .environmentObject(settings)
 }

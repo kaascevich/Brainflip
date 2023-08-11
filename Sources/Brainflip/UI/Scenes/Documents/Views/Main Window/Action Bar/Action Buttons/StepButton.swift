@@ -38,6 +38,5 @@ struct StepButton: View {
 
 #Preview {
     StepButton()
-        .environmentObject(settings)
         .environment(previewState)
 }

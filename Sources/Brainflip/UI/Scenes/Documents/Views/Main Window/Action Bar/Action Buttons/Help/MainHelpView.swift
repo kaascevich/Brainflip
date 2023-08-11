@@ -79,5 +79,4 @@ struct MainHelpView: View {
 
 #Preview {
     MainHelpView(state: previewState)
-        .environmentObject(settings)
 }

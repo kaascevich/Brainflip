@@ -45,6 +45,5 @@ struct RunButton: View {
 
 #Preview {
     RunButton()
-        .environmentObject(settings)
         .environment(previewState)
 }
