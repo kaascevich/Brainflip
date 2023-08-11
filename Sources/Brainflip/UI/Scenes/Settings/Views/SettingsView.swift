@@ -26,27 +26,27 @@ struct SettingsView: View {
     static let tabs = [
         Tab(
             name: "General",
-            symbol: "gearshape",
+            symbol: #symbol("gearshape"),
             view: GeneralSettings()
         ), Tab(
             name: "Sound",
-            symbol: "volume.3",
+            symbol: #symbol("volume.3"),
             view: SoundSettings()
         ), Tab(
             name: "Interpreter",
-            symbol: "chevron.left.forwardslash.chevron.right",
+            symbol: #symbol("chevron.left.forwardslash.chevron.right"),
             view: InterpreterSettings()
         ), Tab(
             name: "Editor",
-            symbol: "character.cursor.ibeam",
+            symbol: #symbol("character.cursor.ibeam"),
             view: EditorSettings()
         ), Tab(
             name: "Inspector",
-            symbol: "sidebar.trailing",
+            symbol: #symbol("sidebar.trailing"),
             view: InspectorSettings()
         ), Tab(
             name: "Export",
-            symbol: "square.and.arrow.up.on.square",
+            symbol: #symbol("square.and.arrow.up.on.square"),
             view: ExportSettings()
         )
     ]

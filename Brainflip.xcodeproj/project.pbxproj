@@ -110,6 +110,7 @@
 		348812D32A86C5AA00DADD93 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 348812D22A86C5AA00DADD93 /* Flow */; };
 		348812D52A86C5AF00DADD93 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 348812D42A86C5AF00DADD93 /* Flow */; };
 		348812D72A86C5B300DADD93 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 348812D62A86C5B300DADD93 /* Flow */; };
+		348C842E2A86F2A000793F39 /* SymbolMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 348C842D2A86F2A000793F39 /* SymbolMacro */; };
 		3495634B29B15DE5009B0912 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3495634A29B15DE5009B0912 /* AppState.swift */; };
 		3497785A2A6F4CA60093B5C6 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349778592A6F4CA60093B5C6 /* CopyButton.swift */; };
 		349778772A6F748D0093B5C6 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345E19152A6465AE002C66D0 /* Quartz.framework */; };
@@ -423,6 +424,7 @@
 				346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */,
 				345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */,
 				348812D12A86C5A000DADD93 /* Flow in Frameworks */,
+				348C842E2A86F2A000793F39 /* SymbolMacro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,6 +1262,7 @@
 				345E18EC2A64253E002C66D0 /* HighlightedTextEditor */,
 				346011862A659B2000029BB3 /* SwiftUIIntrospect */,
 				348812D02A86C5A000DADD93 /* Flow */,
+				348C842D2A86F2A000793F39 /* SymbolMacro */,
 			);
 			productName = BrainSwift;
 			productReference = 34DF121A29A7B9480021729B /* Brainflip.app */;
@@ -1304,6 +1307,7 @@
 				345E18EB2A64253E002C66D0 /* XCRemoteSwiftPackageReference "HighlightedTextEditor" */,
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				348812CF2A86C5A000DADD93 /* XCRemoteSwiftPackageReference "Flow" */,
+				348C842C2A86F2A000793F39 /* XCRemoteSwiftPackageReference "SymbolMacro" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -2020,6 +2024,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		348C842C2A86F2A000793F39 /* XCRemoteSwiftPackageReference "SymbolMacro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Finnvoor/SymbolMacro.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2052,6 +2064,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 348812CF2A86C5A000DADD93 /* XCRemoteSwiftPackageReference "Flow" */;
 			productName = Flow;
+		};
+		348C842D2A86F2A000793F39 /* SymbolMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 348C842C2A86F2A000793F39 /* XCRemoteSwiftPackageReference "SymbolMacro" */;
+			productName = SymbolMacro;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -23,7 +23,7 @@ struct DisclosureToggleStyle: ToggleStyle {
         Button {
             configuration.isOn.toggle()
         } label: {
-            Image(systemName: "chevron.forward")
+            #symbolImage("chevron.forward")
                 .rotationEffect(configuration.isOn ? Angle(degrees: 90) : Angle.zero)
                 .animation(reduceMotion ? nil : .spring(duration: 0.75, bounce: 0.5), value: configuration.isOn)
                 .symbolVariant(.circle)
@@ -47,7 +47,7 @@ struct AnimatedDisclosureGroupStyle: DisclosureGroupStyle {
                 Button {
                     configuration.isExpanded.toggle()
                 } label: {
-                    Image(systemName: "chevron.forward")
+                    #symbolImage("chevron.forward")
                         .rotationEffect(configuration.isExpanded ? Angle(degrees: 90) : Angle.zero)
                         .animation(reduceMotion ? nil : .smooth, value: configuration.isExpanded)
                 }

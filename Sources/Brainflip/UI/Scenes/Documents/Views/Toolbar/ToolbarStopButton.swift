@@ -27,7 +27,7 @@ struct ToolbarStopButton: ToolbarContent {
                 symbolEffect.toggle()
                 state.stop()
             } label: {
-                Label("Stop", systemImage: "octagon")
+                Label("Stop", systemImage: #symbol("octagon"))
                     .symbolVariant(.fill)
                     .symbolEffect(.bounce.down, value: symbolEffect)
             }

@@ -32,7 +32,7 @@ struct CopyButton: View {
                 $0.setString(textToCopy(), forType: .string)
             }
         } label: {
-            Label("Copy", systemImage: "doc.on.doc")
+            Label("Copy", systemImage: #symbol("doc.on.doc"))
                 .symbolEffect(.bounce.down, value: symbolEffect)
         }
     }

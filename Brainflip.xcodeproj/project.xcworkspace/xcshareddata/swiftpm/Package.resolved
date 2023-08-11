@@ -19,12 +19,30 @@
       }
     },
     {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "e42bece52df2496d60b1b2a762fee9ffde7fc205",
+        "version" : "509.0.0-swift-DEVELOPMENT-SNAPSHOT-2023-08-07-a"
+      }
+    },
+    {
       "identity" : "swiftui-introspect",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
       "state" : {
         "revision" : "ccb973cfff703cba53fb88197413485c060eb26b",
         "version" : "0.10.0"
+      }
+    },
+    {
+      "identity" : "symbolmacro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Finnvoor/SymbolMacro.git",
+      "state" : {
+        "revision" : "17c9430c75c273f8d0d502a14846db9bbda186a7",
+        "version" : "1.0.0"
       }
     }
   ],

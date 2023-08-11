@@ -17,6 +17,7 @@
 // @_exported effectively adds an implicit import statement to every file
 // in the target.
 @_exported import Flow
+@_exported import SymbolMacro
 
 import SwiftUI
 

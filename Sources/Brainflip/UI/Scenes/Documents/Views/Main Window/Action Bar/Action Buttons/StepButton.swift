@@ -26,7 +26,7 @@ struct StepButton: View {
             symbolEffect.toggle()
             state.step()
         } label: {
-            Label("Step Through", systemImage: "arrowshape.bounce.forward")
+            Label("Step Through", systemImage: #symbol("arrowshape.bounce.forward"))
                 .symbolVariant(.fill)
                 .symbolEffect(.bounce.down, value: symbolEffect)
         }

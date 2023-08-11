@@ -29,7 +29,7 @@ struct ToolbarRunButton: ToolbarContent {
                     await state.run()
                 }
             } label: {
-                Label("Run", systemImage: "play")
+                Label("Run", systemImage: #symbol("play"))
                     .symbolVariant(.fill)
                     .symbolEffect(.bounce.down, value: symbolEffect)
             }

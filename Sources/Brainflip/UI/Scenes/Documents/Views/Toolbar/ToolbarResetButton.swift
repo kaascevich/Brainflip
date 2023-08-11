@@ -27,7 +27,7 @@ struct ToolbarResetButton: ToolbarContent {
                 symbolEffect.toggle()
                 state.reset()
             } label: {
-                Label("Reset", systemImage: "arrow.triangle.2.circlepath")
+                Label("Reset", systemImage: #symbol("arrow.triangle.2.circlepath"))
                     .symbolEffect(.bounce.down, value: symbolEffect)
             }
             .disabled(state.disableResetButton)

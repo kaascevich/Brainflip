@@ -30,7 +30,7 @@ struct RunButton: View {
                         .controlSize(.small)
                         .padding(.leastNonzeroMagnitude) // prevents collision between spinner and text
                 } else {
-                    Image(systemName: "play")
+                    #symbolImage("play")
                         .symbolVariant(.fill)
                 }
                 Text("Run Program")

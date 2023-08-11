@@ -21,7 +21,7 @@ struct IdentifierNameHelpView: View {
     var isWarningShown: Bool
     
     var body: some View {
-        Image(systemName: "exclamationmark.triangle")
+        #symbolImage("exclamationmark.triangle")
             .symbolVariant(.fill)
             .foregroundStyle(.yellow)
             .symbolEffect(.appear, isActive: isWarningShown)
