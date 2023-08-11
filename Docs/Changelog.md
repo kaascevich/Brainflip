@@ -1,6 +1,6 @@
 # 📰 Changelog
 
-## Unreleased
+## Brainflip Beta 0.7.2
  
  - Added Flow as a dependency, which eliminates some code repetition.
  - Brainflip-to-C conversion *should* be imperceptibly faster.
