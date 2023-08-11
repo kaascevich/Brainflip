@@ -17,7 +17,6 @@
 // I prefer to use explicit type annotations with @AppStorage.
 // swiftlint:disable redundant_type_annotation
 
-import Foundation
 import os.log
 import SwiftUI
 
