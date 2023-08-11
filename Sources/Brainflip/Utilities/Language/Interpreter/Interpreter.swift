@@ -76,7 +76,7 @@ import os.log
                 switch instruction {
                     case .conditional:
                         stack.append(current)
-                        numLoops += 1
+                        numLoops++
                         current = numLoops
                         array.append(current)
                         
@@ -218,15 +218,15 @@ extension Interpreter {
         
         while currentInstructionIndex < program.count {
             try processInstruction(currentInstruction)
-            currentInstructionIndex += 1
+            currentInstructionIndex++
             guard !Task.isCancelled else {
                 Interpreter.logger.error("Run cancelled!")
                 return
             }
         }
         
-        currentInstructionIndex -= 1
-        totalInstructionsExecuted -= 1
+        currentInstructionIndex--
+        totalInstructionsExecuted--
         
         Interpreter.logger.info("Done running program")
     }
@@ -241,7 +241,7 @@ extension Interpreter {
         Interpreter.logger.info("Stepping through program")
         try checkForMismatchedBrackets()
         try processInstruction(currentInstruction)
-        currentInstructionIndex += 1
+        currentInstructionIndex++
     }
     
     func checkForMismatchedBrackets() throws {
@@ -287,19 +287,19 @@ extension Interpreter {
     }
     
     private func processMoveRightInstruction() throws {
-        pointer += 1
+        pointer++
         guard pointer < array.count else {
             throw InterpreterError.overflow
         }
         
         if array[pointer] == nil {
             array[pointer] = 0
-            currentArraySize += 1
+            currentArraySize++
         }
     }
     
     private func processMoveLeftInstruction() throws {
-        pointer -= 1
+        pointer--
         guard pointer >= 0 else {
             throw InterpreterError.underflow
         }
@@ -307,7 +307,7 @@ extension Interpreter {
     
     private func processIncrementInstruction() throws {
         if currentCell < cellSize {
-            currentCell += 1
+            currentCell++
         } else {
             currentCell = 0
         }
@@ -315,7 +315,7 @@ extension Interpreter {
     
     private func processDecrementInstruction() throws {
         if currentCell > 0 {
-            currentCell -= 1
+            currentCell--
         } else {
             currentCell = cellSize - 1
         }
@@ -353,17 +353,17 @@ extension Interpreter {
         }
         
         if currentInputIndex != input.count {
-            currentInputIndex += 1
+            currentInputIndex++
         }
     }
     
     private func incrementTotalInstructionsExecuted(forType instruction: Instruction) {
-        totalInstructionsExecuted += 1
+        totalInstructionsExecuted++
         switch instruction {
-            case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted += 1
-            case .increment,   .decrement: totalCellValueInstructionsExecuted       += 1
-            case .conditional, .loop:      totalControlFlowInstructionsExecuted     += 1
-            case .output,      .input:     totalIOInstructionsExecuted              += 1
+            case .moveLeft,    .moveRight: totalPointerMovementInstructionsExecuted++
+            case .increment,   .decrement: totalCellValueInstructionsExecuted++
+            case .conditional, .loop:      totalControlFlowInstructionsExecuted++
+            case .output,      .input:     totalIOInstructionsExecuted++
             default: break
         }
     }

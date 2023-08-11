@@ -163,7 +163,7 @@ extension AppState {
                 if Instruction.validInstructions.contains(character) {
                     array.append(numCommentCharacters)
                 } else {
-                    numCommentCharacters += 1
+                    numCommentCharacters++
                 }
             }
             return array
