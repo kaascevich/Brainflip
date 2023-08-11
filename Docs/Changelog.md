@@ -2,9 +2,11 @@
 
 ## Unreleased
  
+ - Added Flow as a dependency, which eliminates some code repetition.
  - Brainflip-to-C conversion *should* be imperceptibly faster.
  - The pointer and array name fields in the export settings did not correctly validate input as legal C identifiers. This has been fixed.
  - When invalid names are entered in the export settings, a warning icon appears. Clicking it will reveal a popover telling you about C identifier rules.
+ - I don't know why, but the app's performance has increased significantly.
 
 ## Brainflip Beta 0.7.1
 
