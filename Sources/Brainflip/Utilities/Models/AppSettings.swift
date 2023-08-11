@@ -17,7 +17,6 @@
 // I prefer to use explicit type annotations with @AppStorage.
 // swiftlint:disable redundant_type_annotation
 
-import os.log
 import SwiftUI
 
 /// The global ``AppSettings`` instance.
@@ -30,8 +29,6 @@ let bundleID = Bundle.main.bundleIdentifier!
 
 // TODO: Create a macro to help out with the AppSettings class
 final class AppSettings: ObservableObject {
-    private static let logger = Logger(subsystem: bundleID, category: "Settings")
-    
     // MARK: - Store Definitions
     
     private static let generalSettings     = UserDefaults(suiteName: "\(bundleID).settings.general")
@@ -172,7 +169,6 @@ final class AppSettings: ObservableObject {
 
 extension AppSettings {
     func resetAllToDefaults() {
-        AppSettings.logger.notice("Resetting ALL settings")
         resetGeneralToDefaults()
         resetSoundToDefaults()
         resetInterpreterToDefaults()
@@ -183,7 +179,6 @@ extension AppSettings {
     }
     
     func resetGeneralToDefaults() {
-        AppSettings.logger.notice("Resetting general settings")
         showTimer                 = true
         showNotifications         = false
         monospacedOutput          = true
@@ -191,7 +186,6 @@ extension AppSettings {
     }
     
     func resetSoundToDefaults() {
-        AppSettings.logger.notice("Resetting sound settings")
         playSounds                = false
         playStartSound            = true
         playSuccessSound          = true
@@ -200,7 +194,6 @@ extension AppSettings {
     }
     
     func resetInterpreterToDefaults() {
-        AppSettings.logger.notice("Resetting interpreter settings")
         endOfInput                = .noChange
         arraySize                 = 30_000
         pointerLocation           = 0
@@ -209,13 +202,11 @@ extension AppSettings {
     }
     
     func resetInspectorToDefaults() {
-        AppSettings.logger.notice("Resetting inspector settings")
         enabledInspectorModules   = Inspector.modules.map(\.enabledByDefault)
         inspectorModuleOrder      = Array(Inspector.modules.indices)
     }
     
     func resetEditorToDefaults() {
-        AppSettings.logger.notice("Resetting editor settings")
         monospaced                = true
         highlighting              = false
         showProgress              = true
@@ -225,7 +216,6 @@ extension AppSettings {
     }
     
     func resetExportToDefaults() {
-        AppSettings.logger.notice("Resetting export settings")
         indentation               = 3
         pointerName               = "ptr"
         arrayName                 = "array"
@@ -250,7 +240,6 @@ extension AppSettings {
     }
     
     func resetHiddenToDefaults() {
-        AppSettings.logger.notice("Resetting hidden settings")
         exportToCAlertHidden = false
     }
 }
