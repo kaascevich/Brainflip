@@ -19,7 +19,11 @@ import SwiftUI
 struct PointerNameField: View {
     @EnvironmentObject private var settings: AppSettings
     
-    @State private var pointerName = ""
+    // We can't use our own settings object because of the whole
+    // "property initalizers run before `self` is available" thing. So
+    // we're using the global object instead.
+    @State private var pointerName = Brainflip.settings.pointerName
+    
     private var isPointerNameValid: Bool {
         pointerName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
     }

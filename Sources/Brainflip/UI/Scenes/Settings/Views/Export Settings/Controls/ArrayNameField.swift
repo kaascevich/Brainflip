@@ -19,7 +19,11 @@ import SwiftUI
 struct ArrayNameField: View {
     @EnvironmentObject private var settings: AppSettings
     
-    @State private var arrayName = ""
+    // We can't use our own settings object because of the whole
+    // "property initalizers run before `self` is available" thing. So
+    // we're using the global object instead.
+    @State private var arrayName = Brainflip.settings.arrayName
+    
     private var isArrayNameValid: Bool {
         arrayName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
     }
