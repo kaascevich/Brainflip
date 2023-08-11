@@ -25,12 +25,12 @@ final class InterpreterTests: XCTestCase {
         let interpreter = Interpreter(program: "hello ,[>+<-.]", input: inputText)
         try await interpreter.run()
         
-        let expectedOutput = (0...inputASCIICode - 1)
-            .map { String(Unicode.Scalar($0)) }
-            .reduce("", +)
-            .reversed()
-            .let(String.init)
-        
+        let expectedOutput = String(
+            (0...inputASCIICode - 1)
+                .map { String(Unicode.Scalar($0)) }
+                .reduce("", +)
+                .reversed()
+        )
         XCTAssertEqual(expectedOutput, interpreter.output)
     }
     

@@ -39,10 +39,10 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             }
             let attributedString = NSMutableAttributedString(string: string)
             
-            Self.highlightRules.map { regex, color in
+            let colorGroups = Self.highlightRules.map { regex, color in
                 (color: color, ranges: string.ranges(of: regex))
             }
-            .forEach { colorRanges in
+            for colorRanges in colorGroups {
                 for range in colorRanges.ranges {
                     attributedString.addAttribute(
                         .foregroundColor,

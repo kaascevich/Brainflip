@@ -32,11 +32,13 @@ struct StepperField: View {
         self.range = range
         self.step = step
         self.label = label
-        formatter = NumberFormatter().then {
-            $0.allowsFloats = false
-            $0.minimum = range.lowerBound as NSNumber
-            $0.maximum = range.upperBound as NSNumber
-        }
+        formatter = {
+            let formatter = NumberFormatter()
+            formatter.allowsFloats = false
+            formatter.minimum = range.lowerBound as NSNumber
+            formatter.maximum = range.upperBound as NSNumber
+            return formatter
+        }()
     }
     
     init(

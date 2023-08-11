@@ -32,10 +32,10 @@ struct TextFieldWithLabel: View {
         DisclosureGroup(label, isExpanded: $isTextFieldShown) {
             TextField("", text: .constant(text))
                 .monospacedDigit()
-                .introspect(.textEditor, on: .macOS(.v14)) {
-                    $0.isEditable = false
-                    $0.isSelectable = false
-                    $0.focusRingType = .none
+                .introspect(.textEditor, on: .macOS(.v14)) { textEditor in
+                    textEditor.isEditable = false
+                    textEditor.isSelectable = false
+                    textEditor.focusRingType = .none
                 }
                 .accessibilityLabel(label)
         }

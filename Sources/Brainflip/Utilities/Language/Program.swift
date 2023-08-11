@@ -28,7 +28,6 @@ extension Program {
             .compactMap(Instruction.init(rawValue:))
             .filter { $0 != .blank }
             .forEach { append($0) }
-        
         append(.blank)
     }
 }

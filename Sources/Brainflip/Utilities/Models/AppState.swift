@@ -323,9 +323,8 @@ extension AppState {
                 return firstSentence + " " + secondSentence
                 
             case .underflow, .overflow:
-                let ordinalFormatter = NumberFormatter().then {
-                    $0.numberStyle = .ordinal
-                }
+                let ordinalFormatter = NumberFormatter()
+                ordinalFormatter.numberStyle = .ordinal
                 
                 // string(from:) returns an optional for very obscure reasons; it's fine to force-unwrap
                 let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
