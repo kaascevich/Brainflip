@@ -29,25 +29,20 @@ enum BrainflipToC {
             "a"..."z",
             "A"..."Z"
         )
-        Repeat(0...30) {
-            One(.word)
-        }
+        // .word is equivalent to /\w/ or /[_a-zA-Z0-9]/
+        Repeat(.word, 0...30)
     }
     
     static func convertToC(_ program: Program) throws -> String {
         // Quick check to make sure all loops are closed -- we can't convert an invalid program
         try Interpreter(program: program).checkForMismatchedBrackets()
         
-        indentLevel = 0
-        var converted = header
         indentLevel = 1
 
-        converted += program
+        return program
             .compactMap(createInstruction)
-            .reduce("") { $0 + $1 + Symbols.newline }
-        converted += indent + returnInstruction + Symbols.newline
-        converted += Symbols.closingBrace
-        
-        return converted
+            .reduce(header + "\n") { $0 + $1 + "\n" }
+            .appending(indent + returnInstruction + "\n")
+            .appending("}")
     }
 }

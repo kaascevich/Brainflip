@@ -22,11 +22,11 @@ extension BrainflipToC {
     static var indentLevel = 0
     
     static var indent: String {
-        String(repeating: baseIndent, count: indentLevel)
+        .init(repeating: baseIndent, count: indentLevel)
     }
     
     /// The indentation used when ``indentLevel`` equals 1.
     static var baseIndent: String {
-        String(repeating: Symbols.space, count: settings.indentation)
+        .init(repeating: " ", count: settings.indentation)
     }
 }

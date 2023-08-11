@@ -27,7 +27,7 @@ extension BrainflipToC {
         case beforePointerMark        = #"Before "*""#
         case afterPointerMark         = #"After "*""#
         case aroundAssignment         = #"Surrounding the "=" operator"#
-        case aroundCompoundAssignment = #"Surrounding the "+=" operator"#
+        case aroundAddition           = #"Surrounding the "+" operator"#
         case aroundNotEqual           = #"Surrounding the "!=" operator"#
         case aroundGreaterThanOrEqual = #"Surrounding the ">=" operator"#
         case aroundIncDec             = #"Surrounding "++" and "--""#

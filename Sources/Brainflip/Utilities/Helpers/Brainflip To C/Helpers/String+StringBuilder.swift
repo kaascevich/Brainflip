@@ -16,32 +16,24 @@
 
 @resultBuilder
 enum StringBuilder {
-    static func buildBlock(_ components: String...) -> String {
-        components.joined()
+    static func buildBlock(_ strings: String...) -> String {
+        strings.joined()
     }
     
-    static func buildOptional(_ component: String?) -> String {
-        component ?? ""
+    static func buildOptional(_ string: String?) -> String {
+        string ?? ""
     }
     
-    static func buildArray(_ components: [String]) -> String {
-        components.joined()
+    static func buildEither(first string: String) -> String {
+        string
     }
-    
-    static func buildEither(first  component: String) -> String {
-        component
-    }
-    static func buildEither(second component: String) -> String {
-        component
-    }
-    
-    static func buildLimitedAvailability(_ component: String) -> String {
-        component
+    static func buildEither(second string: String) -> String {
+        string
     }
 }
 
 extension String {
-    init(@StringBuilder _ stringBuilder: () -> String) {
+    init(@StringBuilder stringBuilder: () -> String) {
         self = stringBuilder()
     }
 }

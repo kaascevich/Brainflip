@@ -17,57 +17,37 @@
 extension BrainflipToC {
     // MARK: - Newlines
     
-    @StringBuilder static var newLineBeforeBrace: String {
+    @StringBuilder static var openingBrace: String {
         if settings.openingBraceOnNewLine {
-            Symbols.newline
-            indent
+            "\n" + indent
         } else {
             whitespace(for: .beforeBrace)
         }
+        "{"
     }
     
     // MARK: - Increment & Decrement
     
     @StringBuilder static var increment: String {
         if settings.leftHandIncDec {
-            Symbols.increment
-            whitespace(for: .aroundIncDec)
+            "++" + whitespace(for: .aroundIncDec)
         } else {
-            whitespace(for: .aroundIncDec)
-            Symbols.increment
+            whitespace(for: .aroundIncDec) + "++"
         }
     }
 
     @StringBuilder static var decrement: String {
         if settings.leftHandIncDec {
-            Symbols.decrement
-            whitespace(for: .aroundIncDec)
+            "--" + whitespace(for: .aroundIncDec)
         } else {
-            whitespace(for: .aroundIncDec)
-            Symbols.decrement
+            whitespace(for: .aroundIncDec) + "--"
         }
     }
     
-    // MARK: - Parentheses & Brackets
+    // MARK: - Parentheses
     
-    @StringBuilder static var openingParenthesis: String {
-        Symbols.openingParenthesis
-        whitespace(for: .inParentheses)
-    }
-
-    @StringBuilder static var closingParenthesis: String {
-        whitespace(for: .inParentheses)
-        Symbols.closingParenthesis
-    }
-    
-    @StringBuilder static var openingBracket: String {
-        Symbols.openingBracket
-        whitespace(for: .inBrackets)
-    }
-
-    @StringBuilder static var closingBracket: String {
-        whitespace(for: .inBrackets)
-        Symbols.closingBracket
+    @StringBuilder static func inParentheses(@StringBuilder string: () -> String) -> String {
+        "(" + surround(string(), with: .inParentheses) + ")"
     }
     
     // MARK: - Pointers
@@ -76,43 +56,21 @@ extension BrainflipToC {
         pointerMark(whitespaceBefore: false, whitespaceAfter: settings.leftHandIncDec)
         settings.pointerName
     }
-
-    @StringBuilder static var pointerWithNameInParentheses: String {
-        openingParenthesis
-        pointerWithName
-        closingParenthesis
-    }
-    
-    // MARK: - Assignment
-    
-    @StringBuilder static var assignment: String {
-        surround(Symbols.assignment, with: .aroundAssignment)
-    }
-
-    @StringBuilder static var compoundAssignment: String {
-        surround(Symbols.compoundAssignment, with: .aroundCompoundAssignment)
-    }
     
     // MARK: - Other
     
     /// The semicolon required after every statement.
     @StringBuilder static var semicolon: String {
-        whitespace(for: .beforeSemicolon)
-        Symbols.semicolon
-    }
-    
-    @StringBuilder static var comment: String {
-        Symbols.comment
-        whitespace(for: .afterCommentMarkers)
+        whitespace(for: .beforeSemicolon) + ";"
     }
     
     /// A `String` representation of the cell size.
     static var cellType: String {
         switch settings.cellSize {
-            case .eightBit:     Symbols.char  // 255
-            case .sixteenBit:   Symbols.short // 65,635
-            case .thirtyTwoBit: Symbols.int   // 4,294,967,295
-            default:            Symbols.char  // 255 (since the smallest type in C is char)
+            case .eightBit:     "char"  // 255
+            case .sixteenBit:   "short" // 65,635
+            case .thirtyTwoBit: "int"   // 4,294,967,295
+            default:            "char"  // 255 (since the smallest type in C is char)
         }
     }
 }

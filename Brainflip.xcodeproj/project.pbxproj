@@ -156,7 +156,6 @@
 		34FDFE4A29CC815F0020CDC8 /* BrainflipToC+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4929CC815F0020CDC8 /* BrainflipToC+Header.swift */; };
 		34FDFE4C29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4B29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift */; };
 		34FDFE4E29CC83EC0020CDC8 /* BrainflipToC+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4D29CC83EC0020CDC8 /* BrainflipToC+Helpers.swift */; };
-		34FDFE5029CC87200020CDC8 /* BrainflipToC+Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDFE4F29CC87200020CDC8 /* BrainflipToC+Symbols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -383,7 +382,6 @@
 		34FDFE4929CC815F0020CDC8 /* BrainflipToC+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Header.swift"; sourceTree = "<group>"; };
 		34FDFE4B29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Indentation.swift"; sourceTree = "<group>"; };
 		34FDFE4D29CC83EC0020CDC8 /* BrainflipToC+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Helpers.swift"; sourceTree = "<group>"; };
-		34FDFE4F29CC87200020CDC8 /* BrainflipToC+Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrainflipToC+Symbols.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1152,7 +1150,6 @@
 			children = (
 				34E09D9329BBE37800CF2299 /* BrainflipToC.swift */,
 				34FDFE4D29CC83EC0020CDC8 /* BrainflipToC+Helpers.swift */,
-				34FDFE4F29CC87200020CDC8 /* BrainflipToC+Symbols.swift */,
 				34FDFE3F29CC6ECD0020CDC8 /* BrainflipToC+Whitespace.swift */,
 				34FDFE4529CC80070020CDC8 /* BrainflipToC+Components.swift */,
 				34FDFE4B29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift */,
@@ -1526,7 +1523,6 @@
 				3486AA4029BF55CB004C12B6 /* BreakOnHashToggle.swift in Sources */,
 				3404A20929B23FDB004514DC /* ClearAllCommand.swift in Sources */,
 				344E529029BD359300F4DB50 /* ExportToCCommand.swift in Sources */,
-				34FDFE5029CC87200020CDC8 /* BrainflipToC+Symbols.swift in Sources */,
 				34D05AC929B3C47100711079 /* ToolbarResetButton.swift in Sources */,
 				34618C6329AAE02B00552568 /* Program.swift in Sources */,
 				34FDFE4329CC6F5D0020CDC8 /* CellSize.swift in Sources */,

@@ -17,122 +17,87 @@
 extension BrainflipToC {
     @StringBuilder static var moveRightInstruction: String {
         if settings.leftHandIncDec {
-            increment
-            settings.pointerName
+            increment + settings.pointerName
         } else {
-            settings.pointerName
-            increment
+            settings.pointerName + increment
         }
         semicolon
     }
 
     @StringBuilder static var moveLeftInstruction: String {
         if settings.leftHandIncDec {
-            decrement
-            settings.pointerName
+            decrement + settings.pointerName
         } else {
-            settings.pointerName
-            decrement
+            settings.pointerName + decrement
         }
         semicolon
     }
     
     @StringBuilder static var incrementInstruction: String {
         if settings.leftHandIncDec {
-            increment
-            pointerWithNameInParentheses
+            increment + inParentheses { pointerWithName }
         } else {
-            pointerWithNameInParentheses
-            increment
+            inParentheses { pointerWithName } + increment
         }
         semicolon
     }
 
     @StringBuilder static var decrementInstruction: String {
         if settings.leftHandIncDec {
-            decrement
-            pointerWithNameInParentheses
+            decrement + inParentheses { pointerWithName }
         } else {
-            pointerWithNameInParentheses
-            decrement
+            inParentheses { pointerWithName } + decrement
         }
         semicolon
     }
     
     @StringBuilder static var conditionalInstruction: String {
-        Symbols.while
-        whitespace(for: .beforeWhileOrIf)
-        openingParenthesis
+        "while" + whitespace(for: .beforeWhileOrIf)
         
-        pointerMark(whitespaceBefore: false)
-        settings.pointerName
-        if settings.includeNotEqualZero {
-            surround(Symbols.notEqual, with: .aroundNotEqual)
-            Symbols.whileComparisonValue
+        inParentheses {
+            pointerMark(whitespaceBefore: false)
+            settings.pointerName
+            if settings.includeNotEqualZero {
+                surround("!=", with: .aroundNotEqual) + "0"
+            }
         }
         
-        closingParenthesis
-        
-        newLineBeforeBrace
-        Symbols.openingBrace
-    }
-
-    @StringBuilder static var loopInstruction: String {
-        Symbols.closingBrace
+        openingBrace
     }
     
     @StringBuilder static var outputInstruction: String {
-        Symbols.outputFuncName
-        whitespace(for: .beforeFunctionCall)
-        openingParenthesis
-        
-        pointerWithName
-        
-        closingParenthesis
+        "putchar" + whitespace(for: .beforeFunctionCall)
+        inParentheses { pointerWithName }
         semicolon
     }
 
     @StringBuilder static var inputInstruction: String {
-        if settings.endOfInput == .noChange {
-            Symbols.tempVariableName
-        } else {
-            pointerWithName
-        }
-        assignment
-        Symbols.inputFuncName
-        whitespace(for: .beforeFunctionCall)
-        Symbols.openingParenthesis
+        settings.endOfInput == .noChange ? "i" : pointerWithName
+        surround("=", with: .aroundAssignment)
+        "getchar" + whitespace(for: .beforeFunctionCall)
         
-        whitespace(for: .inParentheses)
-        
-        Symbols.closingParenthesis
+        "(" + whitespace(for: .inParentheses) + ")"
         semicolon
+        
         if settings.endOfInput == .noChange {
             whitespace(for: .afterSemicolon)
             
-            Symbols.if
-            whitespace(for: .beforeWhileOrIf)
-            openingParenthesis
-            
-            Symbols.tempVariableName
-            surround(Symbols.greaterThanOrEqual, with: .aroundGreaterThanOrEqual)
-            Symbols.ifComparisonValue
-            
-            closingParenthesis
+            "if" + whitespace(for: .beforeWhileOrIf)
+            inParentheses {
+                "i" + surround(">=", with: .aroundGreaterThanOrEqual) + "0"
+            }
             whitespace(for: .afterIfStatement)
-            pointerWithNameInParentheses
-            assignment
-            Symbols.tempVariableName
+            
+            inParentheses { pointerWithName }
+            surround("=", with: .aroundAssignment)
+            "i"
             semicolon
         }
     }
     
     /// Exits the program.
     @StringBuilder static var returnInstruction: String {
-        Symbols.return
-        Symbols.space
-        Symbols.returnValue
-        semicolon
+        "return 0" + semicolon
     }
     
     /// Converts a BF instruction into a line of C code.
@@ -142,6 +107,7 @@ extension BrainflipToC {
     /// - Returns: The converted instruction as a `String`, or `nil`
     ///   if there is no need for the instruction.
     static func createInstruction(type: Instruction) -> String? {
+        // swiftlint:disable:next cyclomatic_complexity
         func cEquivalent(for instruction: Instruction) -> String? {
             switch instruction {
                 case .moveRight:   moveRightInstruction
@@ -149,12 +115,16 @@ extension BrainflipToC {
                 case .increment:   incrementInstruction
                 case .decrement:   decrementInstruction
                 case .conditional: conditionalInstruction
-                case .loop:        loopInstruction
+                case .loop:        "}"
                 case .output:      outputInstruction
                 case .input:       inputInstruction
                     
-                case .break where settings.breakOnHash || settings.includeDisabledBreak:
-                    (!settings.breakOnHash ? comment : "") + returnInstruction
+                case .break where settings.breakOnHash:
+                    returnInstruction
+                
+                // If we get here then breakOnHash is disabled
+                case .break where settings.includeDisabledBreak:
+                    "//" + whitespace(for: .afterCommentMarkers) + returnInstruction
                     
                 default: nil
             }
@@ -168,12 +138,13 @@ extension BrainflipToC {
         guard let instruction = cEquivalent(for: type) else {
             return nil
         }
+        let indentedInstruction = indent + instruction
         
         // we don't want to indent conditional instructions, so this goes last
         if type == .conditional {
             indentLevel += 1
         }
         
-        return indent + instruction
+        return indentedInstruction
     }
 }
