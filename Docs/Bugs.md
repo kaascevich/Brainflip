@@ -3,6 +3,7 @@
 - [ ] Program menu refreshes like mad when running a program
 - [ ] Turning on toolbar button shapes turns the run button blue (????)
 - [ ] Array popover test fails — I think it's a bug in SwiftUI
+- [ ] Editing inspector fields is allowed (although it resets upon losing focus)
 - [ ] Unit tests just... fail before even starting? (UI tests are fine, though...)
 
 ## Squashed
