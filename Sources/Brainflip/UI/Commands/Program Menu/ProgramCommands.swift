@@ -17,8 +17,7 @@
 import SwiftUI
 
 struct ProgramCommands: Commands {
-    @MainActor
-    var body: some Commands {
+    @MainActor var body: some Commands {
         CommandMenu("Program") {
             RunCommand()
             StepCommand()
