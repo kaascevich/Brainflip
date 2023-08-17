@@ -19,7 +19,7 @@ import SwiftUI
 
 class PreviewProvider: QLPreviewProvider, QLPreviewingController {
     // We're using SwiftUI's Color type here instead of NSColor
-    // to ensure pairity with the main app.
+    // to ensure parity with the main app.
     typealias ColorHighlightRule = (Regex<Substring>, Color)
     static let highlightRules: [ColorHighlightRule] = [
         (/[<>]/,   .orange), // "<>"
