@@ -42,6 +42,7 @@ enum Notifications {
         guard !NSApplication.shared.isActive, settings.showNotifications else {
             return
         }
+        
         requestPermission()
         
         let content = UNMutableNotificationContent().then {
@@ -61,7 +62,6 @@ enum Notifications {
         }
                     
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        
         UNUserNotificationCenter.current().add(request)
     }
 }

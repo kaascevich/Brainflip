@@ -63,7 +63,7 @@ import SwiftUI
     
     var selection = 0..<0
     
-    var timeElapsed = TimeInterval(0)
+    var timeElapsed = TimeInterval.zero
     var startDate = Date.now
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
         
@@ -86,25 +86,16 @@ extension AppState {
         timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
         
         execution = Task {
-            if settings.playSounds, settings.playStartSound {
-                SystemSounds.start.play()
-            }
+            SystemSounds.start.playIfEnabled()
+            
             do {
                 try await interpreter.run()
-                if !Task.isCancelled, settings.playSounds, settings.playSuccessSound {
-                    SystemSounds.success.play()
+                if !Task.isCancelled {
+                    SystemSounds.success.playIfEnabled()
                 }
                 Notifications.sendNotification(document.filename)
             } catch {
                 processError(error)
-                guard errorType != .break else {
-                    return
-                }
-                Notifications.sendNotification(document.filename, error: error)
-                execution.cancel()
-                if settings.playSounds, settings.playFailSound {
-                    SystemSounds.fail.play()
-                }
             }
             NSApplication.shared.requestUserAttention(.informationalRequest)
             output = interpreter.output
@@ -131,9 +122,7 @@ extension AppState {
         Task {
             do {
                 try interpreter.step()
-                if settings.playSounds, settings.playStepSound {
-                    SystemSounds.step.play()
-                }
+                SystemSounds.step.playIfEnabled()
                 output = interpreter.output
                 updateSelection()
             } catch {
@@ -239,30 +228,37 @@ extension AppState {
     }
     
     private var shouldReset: Bool {
-        settings.endOfInput                  != interpreter.endOfInput
-            || Int(settings.arraySize)       != interpreter.arraySize
-            || Int(settings.pointerLocation) != interpreter.pointerLocation
-            || settings.cellSize.rawValue    != interpreter.cellSize
-            || interpreter.program           != Program(string: document.contents)
-            || justRanProgram
+        settings.endOfInput              != interpreter.endOfInput
+        || Int(settings.arraySize)       != interpreter.arraySize
+        || Int(settings.pointerLocation) != interpreter.pointerLocation
+        || settings.cellSize.rawValue    != interpreter.cellSize
+        || document.program              != interpreter.program
+        || justRanProgram
     }
     
     @MainActor
     func exportToC() {
         Task {
-            // This should never be nil if we're disabling the export button correctly.
-            guard (try? Interpreter(program: document.program).checkForMismatchedBrackets()) != nil else {
-                return
+            defer {
+                isConversionProgressShowing = false
             }
             
-            isConversionProgressShowing = true
-            try await Task.sleep(nanoseconds: 1) // Needed to show the progress sheet. Why? I dunno.
-            
-            // swiftlint:disable:next force_try
-            convertedDocument = CSourceDocument(try! BrainflipToC.convertToC(document.program))
-            
-            isConversionProgressShowing = false
-            isAskingForOutputFile.toggle()
+            do {
+                // This should never throw if we're disabling the export button correctly.
+                try Interpreter(program: document.program).checkForMismatchedBrackets()
+                
+                isConversionProgressShowing = true
+                try await Task.sleep(nanoseconds: 1) // Needed to show the progress sheet. Why? I dunno.
+                
+                // This should never throw at all, ever, if we're still here after
+                // the previous check, but I want to make the linter happy.
+                let convertedProgram = try BrainflipToC.convertToC(document.program)
+                convertedDocument = CSourceDocument(convertedProgram)
+                
+                isAskingForOutputFile.toggle()
+            } catch {
+                return
+            }
         }
     }
 }
@@ -271,24 +267,27 @@ extension AppState {
 
 extension AppState {
     private func processError(_ error: Error) {
-        errorType = error as? InterpreterError
+        let interpreterError = error as? InterpreterError
         errorDescription = message(for: error)
         
         // Don't bother calling updateSelection() since mismatched brackets
         // are found before the program runs.
-        if errorType != .mismatchedBrackets {
+        if interpreterError != .mismatchedBrackets {
             updateSelection()
         }
         
-        // No need to show an error message on a break.
-        if errorType != .break {
-            hasError = true
-            if settings.playSounds, settings.playFailSound {
-                SystemSounds.fail.play()
-            }
-        } else {
+        // No need to show an error message on a break. We do want to update
+        // the selection, though, so this check is after that.
+        guard interpreterError != .break else {
             stop()
+            return
         }
+        
+        hasError = true
+        execution.cancel()
+        
+        Notifications.sendNotification(document.filename, error: error)
+        SystemSounds.fail.playIfEnabled()
     }
     
     private func message(for error: some Error) -> String {
@@ -323,11 +322,14 @@ extension AppState {
                 return firstSentence + " " + secondSentence
                 
             case .underflow, .overflow:
-                let ordinalFormatter = NumberFormatter()
-                ordinalFormatter.numberStyle = .ordinal
+                let ordinalFormatter = NumberFormatter().then {
+                    $0.numberStyle = .ordinal
+                }
+                
+                let errorLocation = interpreter.previousInstructionIndex + 1 as NSNumber
                 
                 // string(from:) returns an optional for very obscure reasons; it's fine to force-unwrap
-                let errorLocation = ordinalFormatter.string(from: interpreter.previousInstructionIndex + 1 as NSNumber)!
+                let formattedErrorLocation = ordinalFormatter.string(from: errorLocation)!
                 
                 let (spillDirection, hintMessage) = if error == .overflow {
                     ("above", "increasing the array size")
@@ -336,7 +338,7 @@ extension AppState {
                 }
                 
                 return """
-                An attempt was made to go \(spillDirection) the bounds of the array. It happened at the \(errorLocation) instruction.
+                An attempt was made to go \(spillDirection) the bounds of the array. It happened at the \(formattedErrorLocation) instruction.
                 
                 (Hint: try \(hintMessage) in the interpreter settings.)
                 """

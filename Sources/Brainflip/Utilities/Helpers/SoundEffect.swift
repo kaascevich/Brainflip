@@ -44,4 +44,24 @@ enum SystemSounds: String {
             sound.play()
         }
     }
+    
+    func playIfEnabled() {
+        guard settings.playSounds else {
+            return
+        }
+        
+        let shouldPlay = switch self {
+            case .start: settings.playStartSound
+            case .success: settings.playSuccessSound
+            case .step: settings.playStepSound
+            case .fail: settings.playFailSound
+            default: true
+        }
+        
+        guard shouldPlay else {
+            return
+        }
+        
+        play()
+    }
 }
