@@ -31,120 +31,126 @@ let bundleID = Bundle.main.bundleIdentifier!
 final class AppSettings: ObservableObject {
     // MARK: - Store Definitions
     
-    private static let generalSettings     = UserDefaults(suiteName: "\(bundleID).settings.general")
-    private static let soundSettings       = UserDefaults(suiteName: "\(bundleID).settings.sound")
-    private static let interpreterSettings = UserDefaults(suiteName: "\(bundleID).settings.interpreter")
-    private static let editorSettings      = UserDefaults(suiteName: "\(bundleID).settings.editor")
-    private static let inspectorSettings   = UserDefaults(suiteName: "\(bundleID).settings.inspector")
-    private static let exportSettings      = UserDefaults(suiteName: "\(bundleID).settings.export")
-    private static let hiddenSettings      = UserDefaults(suiteName: "\(bundleID).settings.hidden")
+    private enum Suite {
+        static func suite(name: String) -> UserDefaults? {
+            UserDefaults(suiteName: "\(bundleID).settings.\(name)")
+        }
+        
+        static let generalSettings     = suite(name: "general")
+        static let soundSettings       = suite(name: "sound")
+        static let interpreterSettings = suite(name: "interpreter")
+        static let editorSettings      = suite(name: "editor")
+        static let inspectorSettings   = suite(name: "inspector")
+        static let exportSettings      = suite(name: "export")
+        static let hiddenSettings      = suite(name: "hidden")
+    }
     
     // MARK: - General Settings
     
-    @AppStorage("showTimer", store: generalSettings)
+    @AppStorage("showTimer", store: Suite.generalSettings)
     var showTimer: Bool = true
     
-    @AppStorage("showNotifications", store: generalSettings)
+    @AppStorage("showNotifications", store: Suite.generalSettings)
     var showNotifications: Bool = false
     
-    @AppStorage("monospacedOutput", store: generalSettings)
+    @AppStorage("monospacedOutput", store: Suite.generalSettings)
     var monospacedOutput: Bool = true
     
-    @AppStorage("monospacedInput", store: generalSettings)
+    @AppStorage("monospacedInput", store: Suite.generalSettings)
     var monospacedInput: Bool = false
     
-    @AppStorage("showCopyPasteButtons", store: generalSettings)
+    @AppStorage("showCopyPasteButtons", store: Suite.generalSettings)
     var showCopyPasteButtons: Bool = true
     
     // MARK: - Sound Settings
     
-    @AppStorage("playSounds", store: soundSettings)
+    @AppStorage("playSounds", store: Suite.soundSettings)
     var playSounds: Bool = false
     
-    @AppStorage("playStartSound", store: soundSettings)
+    @AppStorage("playStartSound", store: Suite.soundSettings)
     var playStartSound: Bool = true
     
-    @AppStorage("playSuccessSound", store: soundSettings)
+    @AppStorage("playSuccessSound", store: Suite.soundSettings)
     var playSuccessSound: Bool = true
     
-    @AppStorage("playFailSound", store: soundSettings)
+    @AppStorage("playFailSound", store: Suite.soundSettings)
     var playFailSound: Bool = true
     
-    @AppStorage("playStepSound", store: soundSettings)
+    @AppStorage("playStepSound", store: Suite.soundSettings)
     var playStepSound: Bool = false
     
     // MARK: - Interpreter Settings
     
-    @AppStorage("endOfInput", store: interpreterSettings)
+    @AppStorage("endOfInput", store: Suite.interpreterSettings)
     var endOfInput: Interpreter.EndOfInput = .noChange
     
-    @AppStorage("arraySize", store: interpreterSettings)
+    @AppStorage("arraySize", store: Suite.interpreterSettings)
     var arraySize: Double = 30_000
     
-    @AppStorage("pointerLocation", store: interpreterSettings)
+    @AppStorage("pointerLocation", store: Suite.interpreterSettings)
     var pointerLocation: Double = 0
     
-    @AppStorage("cellSize", store: interpreterSettings)
+    @AppStorage("cellSize", store: Suite.interpreterSettings)
     var cellSize: CellSize = .eightBit
     
-    @AppStorage("breakOnHash", store: interpreterSettings)
+    @AppStorage("breakOnHash", store: Suite.interpreterSettings)
     var breakOnHash: Bool = false
     
     // MARK: - Editor Settings
     
-    @AppStorage("monospaced", store: editorSettings)
+    @AppStorage("monospaced", store: Suite.editorSettings)
     var monospaced: Bool = true
     
-    @AppStorage("highlighting", store: editorSettings)
+    @AppStorage("highlighting", store: Suite.editorSettings)
     var highlighting: Bool = false
     
-    @AppStorage("textSize", store: editorSettings)
+    @AppStorage("textSize", store: Suite.editorSettings)
     var textSize: Double = 14.0
     
-    @AppStorage("showProgress", store: editorSettings)
+    @AppStorage("showProgress", store: Suite.editorSettings)
     var showProgress: Bool = true
     
-    @AppStorage("showCurrentInstruction", store: editorSettings)
+    @AppStorage("showCurrentInstruction", store: Suite.editorSettings)
     var showCurrentInstruction: Bool = true
     
-    @AppStorage("showProgramSize", store: editorSettings)
+    @AppStorage("showProgramSize", store: Suite.editorSettings)
     var showProgramSize: Bool = true
     
     // MARK: - Inspector Settings
     
-    @AppStorage("enabledInspectorModules", store: inspectorSettings)
+    @AppStorage("enabledInspectorModules", store: Suite.inspectorSettings)
     var enabledInspectorModules: [Bool] = Inspector.modules.map(\.enabledByDefault)
     
-    @AppStorage("inspectorModuleOrder", store: inspectorSettings)
+    @AppStorage("inspectorModuleOrder", store: Suite.inspectorSettings)
     var inspectorModuleOrder: [Int] = Array(Inspector.modules.indices)
     
     // MARK: - Export Settings
     
-    @AppStorage("indentation", store: exportSettings)
+    @AppStorage("indentation", store: Suite.exportSettings)
     var indentation: Int = 3
     
-    @AppStorage("pointerName", store: exportSettings)
+    @AppStorage("pointerName", store: Suite.exportSettings)
     var pointerName: String = "ptr"
     
-    @AppStorage("arrayName", store: exportSettings)
+    @AppStorage("arrayName", store: Suite.exportSettings)
     var arrayName: String = "array"
     
-    @AppStorage("leftHandIncDec", store: exportSettings)
+    @AppStorage("leftHandIncDec", store: Suite.exportSettings)
     var leftHandIncDec: Bool = false
     
-    @AppStorage("includeNotEqualZero", store: exportSettings)
+    @AppStorage("includeNotEqualZero", store: Suite.exportSettings)
     var includeNotEqualZero: Bool = true
     
-    @AppStorage("includeDisabledBreak", store: exportSettings)
+    @AppStorage("includeDisabledBreak", store: Suite.exportSettings)
     var includeDisabledBreak: Bool = false
     
-    @AppStorage("openingBraceOnNewLine", store: exportSettings)
+    @AppStorage("openingBraceOnNewLine", store: Suite.exportSettings)
     var openingBraceOnNewLine: Bool = false
     
-    @AppStorage("includeVoidWithinMain", store: exportSettings)
+    @AppStorage("includeVoidWithinMain", store: Suite.exportSettings)
     var includeVoidWithinMain: Bool = true
     
-    @AppStorage("whitespace", store: exportSettings)
+    @AppStorage("whitespace", store: Suite.exportSettings)
     var whitespace: [BrainflipToC.Whitespace] = [
         .beforeWhileOrIf,
         .beforeBrace,
@@ -161,7 +167,7 @@ final class AppSettings: ObservableObject {
     
     // MARK: - Not user-configurable
     
-    @AppStorage("exportToCAlertHidden", store: hiddenSettings)
+    @AppStorage("exportToCAlertHidden", store: Suite.hiddenSettings)
     var exportToCAlertHidden: Bool = false
 }
 
