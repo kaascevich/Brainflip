@@ -257,6 +257,7 @@
 		344E528D29BD355200F4DB50 /* ExportCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportCommands.swift; sourceTree = "<group>"; };
 		344E528F29BD359300F4DB50 /* ExportToCCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportToCCommand.swift; sourceTree = "<group>"; };
 		344E529129BD362200F4DB50 /* CSourceDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSourceDocument.swift; sourceTree = "<group>"; };
+		345082132A8FC15600464FEC /* Macros */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Macros; sourceTree = "<group>"; };
 		3453D52E2A795A890014D4FC /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		345B209B29C88BD500405DD9 /* MonospacedToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedToggle.swift; sourceTree = "<group>"; };
 		345B209D29C8A5D700405DD9 /* DisclosureStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureStyles.swift; sourceTree = "<group>"; };
@@ -1134,6 +1135,7 @@
 			children = (
 				34DF121C29A7B9480021729B /* Brainflip */,
 				349778782A6F748D0093B5C6 /* QuickLook */,
+				345082132A8FC15600464FEC /* Macros */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
