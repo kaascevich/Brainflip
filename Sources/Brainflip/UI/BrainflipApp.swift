@@ -15,7 +15,8 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 // @_exported effectively adds an implicit import statement to every file
-// in the target.
+// in the target. (It also does other things that don't matter if you're
+// not creating an API.)
 @_exported import Flow
 @_exported import SymbolMacro
 
