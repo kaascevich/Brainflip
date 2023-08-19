@@ -292,7 +292,7 @@ extension Interpreter {
             throw InterpreterError.overflow
         }
         
-        if array[pointer] == nil {
+        if array[pointer].isNil {
             array[pointer] = 0
             currentArraySize += 1
         }

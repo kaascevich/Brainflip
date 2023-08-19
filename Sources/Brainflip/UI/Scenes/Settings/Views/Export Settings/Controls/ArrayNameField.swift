@@ -25,7 +25,7 @@ struct ArrayNameField: View {
     @State private var arrayName = Brainflip.settings.arrayName
     
     private var isArrayNameValid: Bool {
-        arrayName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
+        !arrayName.wholeMatch(of: BrainflipToC.identifierRegex).isNil
     }
     
     var body: some View {

@@ -23,7 +23,7 @@ struct HideOutputCommand: View {
         Button((state?.isShowingOutput ?? false) ? "Hide Output" : "Show Output") {
             state?.isShowingOutput.toggle()
         }
-        .disabled(state == nil)
+        .disabled(state.isNil)
         .accessibilityIdentifier("showOutputPane:")
     }
 }

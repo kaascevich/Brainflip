@@ -24,7 +24,7 @@ struct ClearAllCommand: View {
             state?.isClearAlertShowing.toggle()
         }
         .keyboardShortcut(.delete, modifiers: [.shift, .command])
-        .disabled(state == nil || state!.disableMenuItems || state!.isLocked)
+        .disabled(state.isNil || state!.disableMenuItems || state!.isLocked)
         .accessibilityIdentifier("clearAllDocumentContents:")
     }
 }

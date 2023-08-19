@@ -47,7 +47,7 @@ enum Notifications {
         
         let content = UNMutableNotificationContent().then {
             $0.subtitle = filename
-            $0.body = "Run \(error == nil ? "succeeded" : "failed")".then { body in
+            $0.body = "Run \(error.isNil ? "succeeded" : "failed")".then { body in
                 if let error = error as? InterpreterError {
                     body += ": "
                     switch error {

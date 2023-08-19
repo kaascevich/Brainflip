@@ -23,7 +23,7 @@ struct ShowArrayCommand: View {
         Button("Show Array") {
             state?.showingArray.toggle()
         }
-        .disabled(state == nil || state!.disableResetButton || state!.disableMenuItems)
+        .disabled(state.isNil || state!.disableResetButton || state!.disableMenuItems)
         .accessibilityIdentifier("revealProgramArray:")
     }
 }

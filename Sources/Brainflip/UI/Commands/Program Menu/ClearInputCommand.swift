@@ -24,7 +24,7 @@ struct ClearInputCommand: View {
             state?.input = ""
         }
         .keyboardShortcut(.delete, modifiers: [.option, .shift, .command])
-        .disabled(state == nil || state!.input.isEmpty || state!.disableMenuItems)
+        .disabled(state.isNil || state!.input.isEmpty || state!.disableMenuItems)
         .accessibilityIdentifier("clearProgramInput:")
     }
 }

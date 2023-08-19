@@ -25,7 +25,7 @@ struct PointerNameField: View {
     @State private var pointerName = Brainflip.settings.pointerName
     
     private var isPointerNameValid: Bool {
-        pointerName.wholeMatch(of: BrainflipToC.identifierRegex) != nil
+        !pointerName.wholeMatch(of: BrainflipToC.identifierRegex).isNil
     }
         
     var body: some View {

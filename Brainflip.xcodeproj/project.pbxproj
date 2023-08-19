@@ -77,6 +77,7 @@
 		34618C7329AAE5A000552568 /* StepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7229AAE5A000552568 /* StepButton.swift */; };
 		34618C7529AAE7EF00552568 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7429AAE7EF00552568 /* AppSettings.swift */; };
 		34618C7729AAECEC00552568 /* OutputPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34618C7629AAECEC00552568 /* OutputPaneView.swift */; };
+		34665C082A906B1700E21A2E /* Optional+IsNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34665C072A906B1700E21A2E /* Optional+IsNil.swift */; };
 		34679C4D2A6DD092008CE0C1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34679C4C2A6DD092008CE0C1 /* Debug.swift */; };
 		346E1F192A7D629B00678984 /* MonospacedOutputToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F182A7D629B00678984 /* MonospacedOutputToggle.swift */; };
 		346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */; };
@@ -286,6 +287,7 @@
 		34618C7229AAE5A000552568 /* StepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepButton.swift; sourceTree = "<group>"; };
 		34618C7429AAE7EF00552568 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34618C7629AAECEC00552568 /* OutputPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputPaneView.swift; sourceTree = "<group>"; };
+		34665C072A906B1700E21A2E /* Optional+IsNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+IsNil.swift"; sourceTree = "<group>"; };
 		34679C4C2A6DD092008CE0C1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		346E1F182A7D629B00678984 /* MonospacedOutputToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedOutputToggle.swift; sourceTree = "<group>"; };
 		346E1F1A2A7D62BA00678984 /* MonospacedInputToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonospacedInputToggle.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 			children = (
 				34D05ADA29B3E67300711079 /* Array+RawRepresentable.swift */,
 				346180882A7AD5B000015BAC /* Collection+CountOf.swift */,
+				34665C072A906B1700E21A2E /* Optional+IsNil.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1585,6 +1588,7 @@
 				346011892A659F6400029BB3 /* TextSizeSlider.swift in Sources */,
 				34266C0629C4D2080045337D /* EditorDefaultsButton.swift in Sources */,
 				34FDFE4C29CC81BC0020CDC8 /* BrainflipToC+Indentation.swift in Sources */,
+				34665C082A906B1700E21A2E /* Optional+IsNil.swift in Sources */,
 				34D663B329B8F03F00CB7481 /* HideInspectorCommand.swift in Sources */,
 				34E09D9429BBE37800CF2299 /* BrainflipToC.swift in Sources */,
 				346E1F1B2A7D62BA00678984 /* MonospacedInputToggle.swift in Sources */,

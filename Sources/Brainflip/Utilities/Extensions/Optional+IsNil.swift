@@ -1,4 +1,4 @@
-// RunCommand.swift
+// Optional+IsNil.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This app is free software: you can redistribute it and/or modify it
@@ -14,17 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this app. If not, see https://www.gnu.org/licenses/.
 
-import SwiftUI
-
-struct RunCommand: View {
-    @FocusedValue(\.appState) private var state
-    
-    var body: some View {
-        Button("Run") {
-            state?.run()
-        }
-        .keyboardShortcut("r")
-        .disabled(state.isNil || state!.disableRunButton || state!.disableMenuItems)
-        .accessibilityIdentifier("runProgram:")
+extension Optional {
+    /// Checks whether the value is `nil`.
+    var isNil: Bool {
+        self == nil
     }
 }

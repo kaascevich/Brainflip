@@ -25,9 +25,9 @@ struct ExportCommands: Commands {
                 ExportToCCommand()
             }
             .disabled(
-                state == nil
+                state.isNil
                 || state!.isConversionProgressShowing
-                || (try? Interpreter(program: state!.document.program).checkForMismatchedBrackets()) == nil
+                || (try? Interpreter(program: state!.document.program).checkForMismatchedBrackets()).isNil
                 || state!.isRunningProgram
             )
             .accessibilityIdentifier("exportDocument:")

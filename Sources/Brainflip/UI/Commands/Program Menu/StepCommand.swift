@@ -24,7 +24,7 @@ struct StepCommand: View {
             state?.step()
         }
         .keyboardShortcut("r", modifiers: [.command, .shift])
-        .disabled(state == nil || state!.disableStepButton || state!.disableMenuItems)
+        .disabled(state.isNil || state!.disableStepButton || state!.disableMenuItems)
         .accessibilityIdentifier("stepThroughProgram:")
     }
 }

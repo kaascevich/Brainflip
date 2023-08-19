@@ -24,7 +24,7 @@ struct HelpCommands: Commands {
             Button("Brainflip Help") {
                 state?.showingMainHelp = true
             }
-            .disabled(state == nil || state!.disableMenuItems)
+            .disabled(state.isNil || state!.disableMenuItems)
             .accessibilityIdentifier("revealHelpContent:")
             
             Link("Algorithms…", destination: URL(string: "https://esolangs.org/wiki/Brainfuck_algorithms")!)

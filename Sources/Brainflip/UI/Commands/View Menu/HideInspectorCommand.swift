@@ -23,7 +23,7 @@ struct HideInspectorCommand: View {
         Button((state?.isShowingInspector ?? false) ? "Hide Inspector" : "Show Inspector") {
             state?.isShowingInspector.toggle()
         }
-        .disabled(state == nil)
+        .disabled(state.isNil)
         .accessibilityIdentifier("showInspectorPane:")
     }
 }

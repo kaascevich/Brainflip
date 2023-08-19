@@ -24,7 +24,7 @@ struct ResetProgramCommand: View {
             state?.reset()
         }
         .keyboardShortcut(".", modifiers: [.shift, .command])
-        .disabled(state == nil || state!.disableResetButton || state!.disableMenuItems)
+        .disabled(state.isNil || state!.disableResetButton || state!.disableMenuItems)
         .accessibilityIdentifier("resetProgramState:")
     }
 }
