@@ -44,6 +44,15 @@
         "revision" : "17c9430c75c273f8d0d502a14846db9bbda186a7",
         "version" : "1.0.0"
       }
+    },
+    {
+      "identity" : "userdefaultmacro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maniramezan/UserDefaultMacro.git",
+      "state" : {
+        "revision" : "be5271780caa8091c224db0a41c1aa6f89f08e32",
+        "version" : "0.1.0"
+      }
     }
   ],
   "version" : 2

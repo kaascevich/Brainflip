@@ -123,6 +123,7 @@
 		34AE69E92A794666003D202B /* InterpreterPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE69E72A7945D6003D202B /* InterpreterPerformanceTests.swift */; };
 		34B0BFD02A60CD1400FF5769 /* SampleProgramCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0BFCF2A60CD1400FF5769 /* SampleProgramCommands.swift */; };
 		34B3BADA29B6686F009E06A7 /* InterpreterDefaultsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BAD929B6686F009E06A7 /* InterpreterDefaultsButton.swift */; };
+		34CB85F42A9049C20089D5B4 /* UserDefault in Frameworks */ = {isa = PBXBuildFile; productRef = 34CB85F32A9049C20089D5B4 /* UserDefault */; };
 		34D05AC129B3B2E800711079 /* ToolbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC029B3B2E800711079 /* ToolbarContentView.swift */; };
 		34D05AC329B3B77D00711079 /* ToolbarRunButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC229B3B77D00711079 /* ToolbarRunButton.swift */; };
 		34D05AC529B3B78500711079 /* ToolbarStepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D05AC429B3B78500711079 /* ToolbarStepButton.swift */; };
@@ -421,6 +422,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CB85F42A9049C20089D5B4 /* UserDefault in Frameworks */,
 				346011872A659B2000029BB3 /* SwiftUIIntrospect in Frameworks */,
 				345E18ED2A64253E002C66D0 /* HighlightedTextEditor in Frameworks */,
 				348812D12A86C5A000DADD93 /* Flow in Frameworks */,
@@ -1263,6 +1265,7 @@
 				346011862A659B2000029BB3 /* SwiftUIIntrospect */,
 				348812D02A86C5A000DADD93 /* Flow */,
 				348C842D2A86F2A000793F39 /* SymbolMacro */,
+				34CB85F32A9049C20089D5B4 /* UserDefault */,
 			);
 			productName = BrainSwift;
 			productReference = 34DF121A29A7B9480021729B /* Brainflip.app */;
@@ -1308,6 +1311,7 @@
 				345E18EE2A642548002C66D0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				348812CF2A86C5A000DADD93 /* XCRemoteSwiftPackageReference "Flow" */,
 				348C842C2A86F2A000793F39 /* XCRemoteSwiftPackageReference "SymbolMacro" */,
+				34CB85F22A9049C20089D5B4 /* XCRemoteSwiftPackageReference "UserDefaultMacro" */,
 			);
 			productRefGroup = 34DF121B29A7B9480021729B /* Products */;
 			projectDirPath = "";
@@ -2032,6 +2036,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		34CB85F22A9049C20089D5B4 /* XCRemoteSwiftPackageReference "UserDefaultMacro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maniramezan/UserDefaultMacro.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2069,6 +2081,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 348C842C2A86F2A000793F39 /* XCRemoteSwiftPackageReference "SymbolMacro" */;
 			productName = SymbolMacro;
+		};
+		34CB85F32A9049C20089D5B4 /* UserDefault */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34CB85F22A9049C20089D5B4 /* XCRemoteSwiftPackageReference "UserDefaultMacro" */;
+			productName = UserDefault;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
