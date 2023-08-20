@@ -22,7 +22,7 @@ struct MainHelpView: View {
     
     @Bindable var state: AppState
         
-    static let helpContent: AttributedString? = {
+    static let helpContent: AttributedString? = run {
         guard let fileURL = Bundle.main.url(
             forResource: "MainHelp",
             withExtension: "rtf"
@@ -40,7 +40,7 @@ struct MainHelpView: View {
             return nil
         }
         return AttributedString(string)
-    }()
+    }
     
     var body: some View {
         HelpLink {

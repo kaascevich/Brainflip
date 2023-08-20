@@ -28,7 +28,7 @@ struct InspectorPaneView: View {
         query.isEmpty || string.lowercased().contains(query.lowercased())
     }
     
-    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     var inspectorAnimation: Animation? {
         reduceMotion ? nil : .smooth
     }
