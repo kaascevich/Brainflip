@@ -18,24 +18,22 @@ import AppKit
 import SwiftUI
 
 struct SearchBar: NSViewRepresentable {
-    typealias NSViewType = NSSearchField
-    
     @Binding var searchText: String
     var prompt: String
     
     init(_ searchText: Binding<String>, prompt: String = "Search") {
         self._searchText = searchText
-        self.prompt      = prompt
+        self.prompt = prompt
     }
     
-    func makeNSView(context: Context) -> NSViewType {
-        let searchField = NSSearchField()
-        searchField.delegate = context.coordinator
-        searchField.placeholderString = prompt
-        return searchField
+    func makeNSView(context: Context) -> NSSearchField {
+        NSSearchField().then {
+            $0.delegate = context.coordinator
+            $0.placeholderString = prompt
+        }
     }
     
-    func updateNSView(_ nsView: NSViewType, context: Context) {
+    func updateNSView(_ nsView: NSSearchField, context: Context) {
         nsView.stringValue = searchText
     }
     
