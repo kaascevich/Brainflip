@@ -49,15 +49,14 @@ struct SearchBar: NSViewRepresentable {
         var parent: SearchBar
         
         init(_ parent: SearchBar, searchText: Binding<String>) {
-            self.parent      = parent
+            self.parent = parent
             self._searchText = searchText
         }
         
         func controlTextDidChange(_ obj: Notification) {
-            guard let searchField = obj.object as? NSSearchField else {
-                return
+            if let searchField = obj.object as? NSSearchField {
+                searchText = searchField.stringValue
             }
-            searchText = searchField.stringValue
         }
     }
 }
