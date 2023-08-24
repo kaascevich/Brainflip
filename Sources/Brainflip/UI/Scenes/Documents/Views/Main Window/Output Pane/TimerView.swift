@@ -20,33 +20,36 @@ struct TimerView: View {
     @Environment(AppState.self) private var state: AppState
     
     var body: some View {
-        Text(formatTimeElapsed(state.timeElapsed))
+        Text(formattedTimerString)
             .monospacedDigit()
-            .onReceive(state.timer ?? Timer.publish(every: .infinity, on: .main, in: .common).autoconnect()) { date in
+            .accessibilityLabel("Timer")
+            .accessibilityValue(accessibilityTimerString)
+            .onReceive(state.timer ?? Timer.publish(
+                every: .infinity,
+                on: .main,
+                in: .common
+            ).autoconnect()) { date in
                 state.timeElapsed = date.timeIntervalSince(state.startDate)
             }
-            .accessibilityLabel("Timer")
-            .accessibilityValue(accessibilityTimerString(state.timeElapsed))
     }
     
-    func formatTimeElapsed(_ timeElapsed: TimeInterval) -> String {
+    var formattedTimerString: String {
         let pattern = Duration.TimeFormatStyle.Pattern.hourMinuteSecond(
             padHourToLength: 1,
             fractionalSecondsLength: 3
         )
         let formatStyle = Duration.TimeFormatStyle(pattern: pattern)
         
-        let timeDuration = Duration.seconds(timeElapsed)
-        return timeDuration.formatted(formatStyle)
+        return Duration.seconds(state.timeElapsed).formatted(formatStyle)
     }
     
-    func accessibilityTimerString(_ timeInterval: TimeInterval) -> String {
+    var accessibilityTimerString: String {
         let formatStyle = Duration.UnitsFormatStyle(
             allowedUnits: [.hours, .minutes, .seconds, .milliseconds],
             width: .wide
         )
         
-        return Duration.seconds(timeInterval).formatted(formatStyle)
+        return Duration.seconds(state.timeElapsed).formatted(formatStyle)
     }
 }
 
