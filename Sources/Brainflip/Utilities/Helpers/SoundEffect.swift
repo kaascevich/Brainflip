@@ -15,7 +15,6 @@
 // with this app. If not, see https://www.gnu.org/licenses/.
 
 import AppKit
-import Foundation
 
 enum SystemSounds: String {
     case basso
