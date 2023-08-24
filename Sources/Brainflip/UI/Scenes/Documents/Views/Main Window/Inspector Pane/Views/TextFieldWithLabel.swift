@@ -23,8 +23,8 @@ struct TextFieldWithLabel: View {
     @Binding var isTextFieldShown: Bool
     
     init(_ text: String, label: String = "", isShown: Binding<Bool>) {
-        self.text              = text
-        self.label             = label
+        self.text = text
+        self.label = label
         self._isTextFieldShown = isShown
     }
     

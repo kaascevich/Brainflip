@@ -39,17 +39,13 @@ enum SystemSounds: String {
     static let fail = sosumi
     
     func play() {
-        NSSound(named: rawValue.capitalized)?.do { sound in
-            sound.stop()
-            sound.play()
+        NSSound(named: rawValue.capitalized)?.do {
+            $0.stop()
+            $0.play()
         }
     }
     
     func playIfEnabled() {
-        guard settings.playSounds else {
-            return
-        }
-        
         let shouldPlay = switch self {
             case .start: settings.playStartSound
             case .success: settings.playSuccessSound
@@ -58,10 +54,8 @@ enum SystemSounds: String {
             default: true
         }
         
-        guard shouldPlay else {
-            return
+        if settings.playSounds, shouldPlay {
+            play()
         }
-        
-        play()
     }
 }
