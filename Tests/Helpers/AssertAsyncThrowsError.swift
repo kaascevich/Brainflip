@@ -26,8 +26,8 @@ import XCTest
 ///   - line: The line number where the failure occurs. The default is the
 ///     line number where you call this function.
 ///   - errorHandler: An optional handler for errors that `expression` throws.
-func assertAsyncThrowsError<T>(
-    _ expression: @autoclosure () async throws -> T,
+func assertAsyncThrowsError<Value>(
+    _ expression: @autoclosure () async throws -> Value,
     _ message: @autoclosure () -> String = "Asynchronous call did not throw an error.",
     file: StaticString = #filePath,
     line: UInt = #line,
