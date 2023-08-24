@@ -42,7 +42,7 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             Self.highlightRules.map { regex, color in
                 (ranges: string.ranges(of: regex), color: color)
             }
-            .forEach { (ranges, color) in
+            .forEach { ranges, color in
                 ranges.forEach { range in
                     attributedString.addAttribute(
                         .foregroundColor,
