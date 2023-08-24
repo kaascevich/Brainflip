@@ -42,11 +42,11 @@ class PreviewProvider: QLPreviewProvider, QLPreviewingController {
             Self.highlightRules.map { regex, color in
                 (ranges: string.ranges(of: regex), color: color)
             }
-            .forEach { colorRanges in
-                for range in colorRanges.ranges {
+            .forEach { (ranges, color) in
+                ranges.forEach { range in
                     attributedString.addAttribute(
                         .foregroundColor,
-                        value: NSColor(colorRanges.color),
+                        value: NSColor(color),
                         range: NSRange(range, in: string)
                     )
                 }
