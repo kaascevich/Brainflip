@@ -256,8 +256,6 @@ extension AppState {
                 convertedDocument = CSourceDocument(convertedProgram)
                 
                 isAskingForOutputFile.toggle()
-            } catch {
-                return
             }
         }
     }

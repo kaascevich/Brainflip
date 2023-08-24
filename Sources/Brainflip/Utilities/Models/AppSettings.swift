@@ -32,17 +32,17 @@ final class AppSettings: ObservableObject {
     // MARK: - Store Definitions
     
     private enum Suite {
-        static func suite(name: String) -> UserDefaults? {
+        static func suite(named name: String) -> UserDefaults? {
             UserDefaults(suiteName: "\(bundleID).settings.\(name)")
         }
         
-        static let generalSettings     = suite(name: "general")
-        static let soundSettings       = suite(name: "sound")
-        static let interpreterSettings = suite(name: "interpreter")
-        static let editorSettings      = suite(name: "editor")
-        static let inspectorSettings   = suite(name: "inspector")
-        static let exportSettings      = suite(name: "export")
-        static let hiddenSettings      = suite(name: "hidden")
+        static let generalSettings     = suite(named: "general")
+        static let soundSettings       = suite(named: "sound")
+        static let interpreterSettings = suite(named: "interpreter")
+        static let editorSettings      = suite(named: "editor")
+        static let inspectorSettings   = suite(named: "inspector")
+        static let exportSettings      = suite(named: "export")
+        static let hiddenSettings      = suite(named: "hidden")
     }
     
     // MARK: - General Settings
